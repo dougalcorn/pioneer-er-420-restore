@@ -1,5 +1,6 @@
 #+TITLE: <topic> — YYYY-MM-DD
 #+DATE: YYYY-MM-DD
+#+FILETAGS: :audio:restoration:er420:
 
 Copy to =log/YYYY-MM-DD-topic.org=. Keep these five headings, every session, in
 this order. Consistency is what makes sessions diffable against each other —
