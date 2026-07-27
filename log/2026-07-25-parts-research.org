@@ -58,8 +58,13 @@ None — parts research and ordering only, no bench work this session.
 
 * Open questions
 
-Carried to open-questions.org: what the spare 280V 0.047µF caps are
-for, and how the C99/C100 discrete rebuild gets physically mounted.
+** TODO What are the 280V 0.047µF film caps (qty 3, PN 80-PHE840MK5470MK04R17) for?
+Ordered in 281232819 alongside the recap parts, doesn't match anything
+committed in the Work section above. Best guess: standby replacements
+for C501/C514/C516 (0.05µF Mylar, MPX section — see
+restoration-plan.org Phase 2 "Test remaining Mylars") if they fail
+leakage testing — unconfirmed. Raised in a couple of sessions without
+ever getting written down.
 
 * Next
 
