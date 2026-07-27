@@ -1,0 +1,11 @@
+# Regenerable from scripts/tiles.sh — no reason to version a few hundred crops
+schematic/tiles/
+
+# Large scans and manual PDFs: track with git-lfs, or leave untracked.
+# Uncomment if you'd rather keep them out of the repo entirely.
+# schematic/raw/
+# reference/*.pdf
+
+*~
+\#*\#
+.DS_Store

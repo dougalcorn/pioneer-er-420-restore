@@ -1,0 +1,55 @@
+#+TITLE: ER-420 Schematic Zone Index
+#+STARTUP: overview
+
+Read this before opening any image. It is the map of the map.
+
+* Grid
+
+- Source scan :: =raw/er-420-schematic.png= — DO NOT MODIFY
+- Gridded full sheet (human viewing) :: =er-420-schematic-grid.png=
+- Cell-labelled copy (tiling source) :: =er-420-schematic-cells.png=
+- Grid :: N columns × M rows — fill in after running scripts/grid.sh
+- Cell size :: __ × __ px
+- Letters run down the vertical axis, numbers across the horizontal.
+
+* Subsystems
+
+Fill this in as you work through the sheet. Section files are the curated crops
+in =sections/=; anything without one still resolves to a tile in =tiles/=.
+
+| Subsystem       | Zones | Board | Section file                    |
+|-----------------+-------+-------+---------------------------------|
+| Power supply    | G1-H3 | ?     | sections/G1-H3-power-supply.png |
+| Phono EQ        | B2-D4 | ?     | sections/B2-D4-phono-eq.png     |
+| FM front end    | A6-C8 | ?     | sections/A6-C8-fm-front-end.png |
+| FM IF           |       |       |                                 |
+| Ratio detector  |       |       |                                 |
+| AM section      |       |       |                                 |
+| Multiplex       |       |       |                                 |
+| Tone / preamp   |       |       |                                 |
+| Driver          |       |       |                                 |
+| Output stage    |       |       |                                 |
+| Selector switch |       |       |                                 |
+
+(The three zone ranges above are placeholders from our earlier example — correct
+them against the actual sheet.)
+
+* Things the drawing does not say
+
+The category that causes the most confusion. Record it here as you find it.
+
+- Signals that leave one edge and return elsewhere:
+- Where the sheet stops showing both channels and says "L ch shown, R ch
+  identical":
+- Anything the draftsman drew misleadingly, or that disagrees with the physical
+  set:
+- Known errata in the service manual:
+
+* Board ↔ schematic mapping
+
+Physical grid on the chassis overview photo vs. electrical zone on the sheet, so
+the hop is written down instead of living in my head.
+
+| Board / assembly | Schematic zones | Chassis photo grid | Notes |
+|------------------+-----------------+--------------------+-------|
+|                  |                 |                    |       |

@@ -1,0 +1,84 @@
+#+TITLE: ER-420 Bill of Materials
+#+STARTUP: overview
+
+* Capacitors
+
+Node V is the voltage *measured* at that node in circuit, not the schematic's
+nominal. It is what makes the headroom column meaningful — fill it in during
+baseline measurements, before anything comes out.
+
+Delete the two example rows once real data goes in.
+
+| Ref  | Board | Zone | Type       | Orig value | Orig V | Node V | Replacement    | Mfr PN             | Ord | In | Notes                        |
+|------+-------+------+------------+------------+--------+--------+----------------+--------------------+-----+----+------------------------------|
+| C401 | PSU   | G2   | electro    | 100uF      |    450 |    385 | 100uF 500V     | example-delete-me  | y   | n  | can cap, restuff             |
+| C402 | PSU   | G3   | electro    | 47uF       |    350 |    310 | 47uF 450V      | example-delete-me  | y   | y  | 2026-07-26                   |
+|      |       |      |            |            |        |        |                |                    |     |    |                              |
+
+* Resistors
+
+Measure before replacing. Carbon comps drift high; anything more than ~20% out
+gets a row here. Note where the original is a non-standard value — Pioneer used
+a few, and the nearest E24 part is not always the right call.
+
+| Ref | Board | Zone | Orig value | Measured | W | Replacement | Mfr PN | Ord | In | Notes |
+|-----+-------+------+------------+----------+---+-------------+--------+-----+----+-------|
+|     |       |      |            |          |   |             |        |     |    |       |
+
+* Tubes
+
+| Ref | Type | Zone | Function | Tested | Gm / result | Action | Notes |
+|-----+------+------+----------+--------+-------------+--------+-------|
+|     |      |      |          |        |             |        |       |
+
+* Other / hardware
+
+Lamps, selenium rectifier if present, line cord, fuse holder, rubber grommets,
+dial cord.
+
+The first two rows come off the front-panel photo: the set has its original
+two-prong non-polarized cord, which on a 1966 chassis almost always means a
+line-to-chassis bypass cap is present. Both are pre-first-power-up items.
+
+| Item              | Zone | Orig             | Replacement | Mfr PN | Ord | In | Notes                             |
+|-------------------+------+------------------+-------------+--------+-----+----+-----------------------------------|
+| Line cord         |      | 2-prong, brown   |             |        |     |    | photograph dress before cutting   |
+| Line bypass cap   |      | ?                |             |        |     |    | locate on schematic; verify count |
+| Fuse holder       |      |                  |             |        |     |    |                                   |
+| Dial lamps        |      |                  |             |        |     |    |                                   |
+| FM-stereo lamp    |      |                  |             |        |     |    | front panel, right of dial        |
+|                   |      |                  |             |        |     |    |                                   |
+
+* Controls
+
+Front panel inventory, taken from the before photo. Fifteen contacts to clean is
+a work item in its own right, not something to do incidentally while chasing
+something else. Note which ones are noisy or intermittent during baseline
+testing, before disassembly, while you can still hear them.
+
+| Control       | Type       | Zone | Noisy? | Cleaned | Notes                    |
+|---------------+------------+------+--------+---------+--------------------------|
+| Volume        | pot        |      |        |         |                          |
+| Balance       | pot        |      |        |         |                          |
+| Bass          | pot        |      |        |         |                          |
+| Treble        | pot        |      |        |         |                          |
+| Tuning        | shaft      |      |        |         | dial cord condition      |
+| Selector      | rotary     |      |        |         | FM mono/stereo/AM/phono/tape head/aux |
+| Mode          | rotary     |      |        |         | stereo/left/right/mono   |
+| Loudness      | slide      |      |        |         |                          |
+| Speaker       | slide      |      |        |         |                          |
+| High filter   | slide      |      |        |         |                          |
+| Low filter    | slide      |      |        |         |                          |
+| AFC           | slide      |      |        |         |                          |
+| AM sharp/broad| slide      |      |        |         |                          |
+| Tape monitor  | slide      |      |        |         |                          |
+| Power         | slide      |      |        |         |                          |
+| Phones jack   | jack       |      |        |         |                          |
+
+* Order log
+
+One row per purchase so the Mouser/eBay trail stays attached to the project.
+
+| Date | Vendor | Order # | Total | Covers        | Arrived |
+|------+--------+---------+-------+---------------+---------|
+|      |        |         |       |               |         |

@@ -1,0 +1,44 @@
+#+TITLE: ER-420 Baseline Voltages (pre-recap)
+#+STARTUP: overview
+
+Taken before anything comes out, on a variac brought up slowly, with a dim bulb
+limiter in line. Record conditions — these numbers are worthless without them.
+
+* Conditions
+
+- Date ::
+- Line voltage at the outlet ::
+- Variac setting ::
+- Dim bulb ::
+- Warm-up time before reading ::
+- Meter ::
+- Reference point for all measurements ::
+
+* B+ rail
+
+| Node       | Zone | Spec V | Measured V | Delta | Notes |
+|------------+------+--------+------------+-------+-------|
+| Rectifier out |   |        |            |       |       |
+| After choke   |   |        |            |       |       |
+| Screen supply |   |        |            |       |       |
+| Preamp rail   |   |        |            |       |       |
+
+* Tube socket voltages
+
+Service manual socket tables go in the Spec column. Delta is what matters; a
+consistent offset across every tube usually means line voltage, not a fault.
+
+| Tube | Type | Zone | Pin | Spec V | Measured V | Delta | Notes |
+|------+------+------+-----+--------+------------+-------+-------|
+|      |      |      |     |        |            |       |       |
+
+* Heater string
+
+| Point | Spec | Measured | Notes |
+|-------+------+----------+-------|
+|       |      |          |       |
+
+* Observations
+
+Hum, drift, anything that changed as it warmed, smell, visible arcing, how the
+dim bulb behaved.

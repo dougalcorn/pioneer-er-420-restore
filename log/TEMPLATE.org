@@ -1,0 +1,32 @@
+#+TITLE: <topic> — YYYY-MM-DD
+#+DATE: YYYY-MM-DD
+
+Copy to =log/YYYY-MM-DD-topic.org=. Keep these five headings, every session, in
+this order. Consistency is what makes sessions diffable against each other —
+resist the urge to restructure.
+
+* Goal
+
+One or two lines. What this session was for.
+
+* Work
+
+Chronological. Reference photos inline where they happen; the surrounding
+sentence is the caption.
+
+[[file:../photos/YYYY-MM-DD-subject-01.jpg]]
+
+* Measurements
+
+Anything numeric, or a pointer to the table in =measurements/=. Include the
+conditions — line voltage, warm or cold, which range on the meter.
+
+* Open questions
+
+Things to raise with Claude, look up in the manual, or ask a forum. Carry
+forward to the next session if unresolved.
+
+* Next
+
+The one or two things that come next, so the following session starts without
+re-deciding.
