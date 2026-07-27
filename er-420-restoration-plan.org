@@ -1,0 +1,304 @@
+#+TITLE: Pioneer ER-420 Restoration — Plan of Attack
+#+CATEGORY: er420
+#+STARTUP: overview
+#+TODO: TODO NEXT BLOCKED | DONE SKIPPED
+#+FILETAGS: :audio:restoration:er420:
+
+* Standing rules                                                  :safety:
+
+Read before every session.
+
+- B+ is ~340 V DC. Filter caps hold charge after unplugging.
+- Discharge and verify at the start of *every* session, not just the
+  first. Powering up between sessions recharges everything.
+- Caps are not the only place high voltage sits — tube socket pins and
+  terminal strips are all exposed in a point-to-point chassis.
+- One hand behind your back whenever the chassis is live.
+- Never power up with the output transformer secondary open.
+- Never work tired. Most damage happens in the last twenty minutes.
+- Never upsize the fuse. A blowing fuse is information.
+
+* Phase 0 — Before the cover comes off
+
+** TODO Do not plug it in
+Not even to "see if it works." A cold mains start on degraded caps is
+the single most likely moment to lose T9 or an output transformer.
+
+** TODO Build or borrow a dim bulb tester
+Socket + plug + outlet + 100 W incandescent in series with the hot
+leg. Receiver draws roughly 130–150 W, so a 100 W bulb limits usefully
+without being uselessly restrictive.
+
+** TODO Print the schematic (p.2) at large size
+You will be marking it up constantly. Highlight each component as you
+replace it — this is your progress tracker and your error check.
+
+** TODO Set up a photo workflow
+Phone is fine. Consistent angles, good light, more shots than feel
+necessary. You will be referring back to these for weeks.
+
+* Phase 1 — Access and make safe
+
+** TODO Unplug. Wait.
+** TODO Remove case / bottom cover
+Vessel JIS driver — these are JIS heads, not Phillips. Bag and label
+screws by location.
+
+** TODO Discharge every capacitor section
+- C99 and C100 are 40+20+20 cans: *three lugs each, three separate
+  capacitors*. Discharging one does nothing for the others.
+- Also C98, C101, C102, C11, C12, C61.
+- Clip discharge pen lead to bare chassis, probe each lug.
+
+** TODO Verify with DMM on DC volts
+The pen's LED is an indicator, not proof. Read every lug.
+
+** TODO Wait 5 minutes, re-measure
+Dielectric absorption: old caps recover charge as the dielectric
+relaxes.
+
+* Phase 2 — Survey before touching anything
+
+Goal: answer every open question, then place the second parts order.
+
+** TODO Photograph the entire underside
+Overlapping shots. Every terminal strip, every tube socket, both
+transformers, the whole power supply area.
+
+** TODO Check for prior repairs
+Modern-looking parts, mismatched solder, hacked wiring, non-original
+values. If someone has been in here, the manual is no longer ground
+truth.
+
+** TODO Identify C99 and C100 physically
+- Twist-lock or clamp mount?
+- Confirm three lugs each.
+- *Is the can body the negative return?* Determines how a discrete
+  rebuild has to be grounded.
+- Measure available space around them.
+
+** TODO Measure clearance at C101 / C102
+Incoming parts are 18 × 25 mm. Note original size and orientation.
+
+** TODO Trace C94, C95, C96
+The decision point for safety caps.
+- Line-to-chassis → Y2 (or delete, if converting to 3-wire)
+- Line-to-neutral → X2
+- Elsewhere → ordinary film, already covered
+
+** TODO Inspect the line cord
+Flex along its length. Stiff, cracked, or crazed → replace. Supple and
+intact → optional.
+
+** TODO Decide: 2-wire or 3-wire grounded conversion
+This gates the safety cap order. See Phase 4.
+
+** TODO Verify R77/R79/R80 connection point
+Do the headphone divider resistors tap in *before* or *after* S8? If
+before, the secondary always sees ~100 Ω and "speakers off" is safe
+with nothing plugged in. If after, it does not.
+
+Manual's parts list shows R77/R78 = 100 Ω composition, R79/R80 = 10 Ω
+5W wirewound — a different pairing than "R77/R79/R80" implies. Confirm
+which resistors actually form the divider by tracing the schematic
+before relying on this grouping.
+
+** TODO Inventory tubes
+Confirm all present and correct types per the parts list. Note any
+substitutions. Check for obvious shorts with the DMM.
+
+** TODO Test C49, C50, C51, C52 (0.1 µF Mylar)
+*Priority.* These feed the output tube grids directly. You have no
+replacements. If any leak, order before you get further.
+
+** TODO Test remaining Mylars
+C9, C10, C21, C22 (0.1 µF); C501, C514, C516 (0.05 µF); C509 (0.5 µF);
+C512 (0.7 µF).
+
+** TODO In-circuit resistor sweep
+In-circuit readings can only read *low*, never high — parallel paths
+add conductance. So anything reading *above* nominal is definitively
+drifted. Flag those, lift one leg to confirm.
+
+Expect worst drift at: 2.2M (R19, R20, R33, R34, R90, R94, R127), 2M
+(R15, R16), 4.7M (R123, R124), and anything running hot — R111–R117.
+
+** TODO Place second parts order
+Resistors (measured values, correct wattage, high-voltage rated for B+
+positions), safety caps per the grounding decision, C99/C100 solution,
+0.1 µF films if the Mylars failed, wire, sleeving, hardware.
+
+* Phase 3 — Clean before you solder
+
+** TODO Blow out dust
+Compressed air, outdoors. Sixty years of it.
+
+** TODO DeOxit all switches
+S1 input selector (multi-wafer, both tuner and audio sections), S2 mode,
+the seesaw switches, S7, S8, S9, S10. Apply, then *exercise 20–30 times*
+— the mechanical action does the work, not the fluid.
+
+** TODO DeOxit all pots
+VR1 balance, VR2 volume, VR3 treble, VR4 bass. Rotate through full
+travel repeatedly.
+
+** TODO Clean tube pins and sockets
+Pull each tube, note position, clean pins, reseat. Poor socket contact
+is a top cause of noise and intermittents.
+
+* Phase 4 — Power supply
+
+Do this first. Everything downstream depends on it, and you want a
+known-good supply before evaluating anything else.
+
+** TODO Line cord / grounding
+If converting to 3-wire:
+- Green wire to a *dedicated* chassis bolt. Star washer to bite
+  through paint. Not shared with a transformer mount.
+- *Fuse and switch must land in the hot leg.* Trace which side S10 and
+  the fuse holder are in — with the old unpolarized plug there was no
+  defined hot side.
+- Ground the AC convenience outlet too, and check its polarity.
+- Verify: < 1 Ω chassis to ground pin; no continuity line pin to
+  chassis.
+
+** TODO C101, C102 → 100 µF 350 V Nichicon
+Observe polarity. Stripe = negative, long lead = positive.
+Note: likely a voltage doubler, each cap sees ~190 V.
+
+** TODO C98 → 22 µF 450 V
+
+** TODO C99, C100
+Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
+- Discrete: 47 µF + 22 µF + 22 µF per can. *Recreate the shared
+  negative return at the original chassis point* — moving it invites
+  hum. Support mechanically; don't leave them hanging on leads.
+- Restuff: gut can, fit radials inside, reinstall.
+- Hayseed / CE Mfg: bolt-in, no decisions.
+
+** TODO C94, C95, C96 per Phase 2 findings
+3-wire conversion → C94/C95 come out and stay out. C96 stays if it's
+across the line (X2).
+
+** TODO C11, C12 → 22 µF 450 V
+** TODO C61 → 10 µF 450 V
+** TODO New 2 A slow-blow fuse
+
+* Phase 5 — First power-up
+
+Nothing else gets replaced until the supply checks out.
+
+** TODO Visual inspection
+Every new joint. Every polarity. Look for solder splash, stray strands,
+leads touching what they shouldn't.
+
+** TODO Power up on the dim bulb tester
+Tubes installed. *Do not pull tubes to "protect" them* — less load
+means higher B+ on everything else.
+
+Bulb flashes bright then dims = normal inrush. Bulb stays bright =
+fault. Kill it immediately.
+
+** TODO Watch and smell for 30 seconds
+Smoke, arcing, unusual noise, hot smell. Kill power at anything odd.
+
+** TODO Measure B+ rails against the schematic
+Main rail ~340 V. Work down the chain: R111 → R112/R113 → R114/R115 →
+R116/R117, each followed by a cap section, each a lower rail.
+
+Note the schematic's voltages are AM/FM pairs, no input signal,
+measured with a VTVM. Your DMM will read slightly high on
+high-impedance nodes.
+
+** TODO Measure output tube cathode voltage
+Across R75 and R76 (150 Ω 4 W). Schematic says ~11 V, roughly 73 mA per
+pair. Substantially high = a tube or a leaking coupling cap.
+
+** TODO Only after all rails check out: run without the bulb limiter
+
+* Phase 6 — Audio chain
+
+Method matters more than speed.
+
+** Technique
+- *One capacitor at a time.* Remove, replace, verify, mark the
+  schematic. Never bulk-remove.
+- Photograph each position before removal.
+- Add fresh solder to the old joint before desoldering — sixty-year-old
+  joints are oxidized and won't flow otherwise.
+- Keep leads short. Don't disturb adjacent wiring.
+- Film caps are non-polarized; orientation doesn't matter.
+- Electrolytics *are* polarized. Check twice.
+- Use the *same part* for both halves of a channel pair.
+
+** TODO Coupling caps — the priority group
+Leaky oil paper puts DC on a grid and red-plates output tubes.
+
+| Value    | Positions                                        |
+|----------+--------------------------------------------------|
+| 0.022 µF | C7, C8, C19, C20                                 |
+| 0.047 µF | C13, C14, C25, C26, C47, C48, C56, C60, C70, C96 |
+
+** TODO Cathode bypass caps → 47 µF 50 V
+C23, C24, C43, C44, C53, C54.
+C53/C54 sit across the output cathode resistors and pass real AC
+current — low-impedance parts are a genuine benefit there.
+
+** TODO C88 → 4.7 µF 50 V
+** TODO Mylars that failed Phase 2 testing
+** TODO Drifted resistors from the Phase 2 sweep
+Metal film. 1/2 W minimum, 1 W or high-voltage rated on B+ positions —
+watch the *voltage* rating, not just wattage. A 1/4 W part maxes around
+200–250 V regardless of the power math.
+
+* Phase 7 — Output section decision
+
+** TODO S7 impedance switch
+Options:
+- DeOxit and keep — preserves 8 Ω flexibility
+- Hardwire to 16 Ω — removes a contact from the highest-consequence
+  path in the receiver
+
+If hardwiring: *confirm which tap is which by measurement*, not by wire
+color. 16 Ω tap has more turns and higher DC resistance. S7 is two
+sections (S7 1/2, S7 2/2) — both channels.
+
+* Phase 8 — Commission
+
+** TODO Power up, aux input, low volume
+Known-good source. Listen before measuring.
+
+** TODO Hum check
+Volume at minimum, nothing connected. Hum here is power supply or
+heater-to-cathode leakage — *not* a grounding problem.
+
+** TODO Adjust VR5, VR6 hum balance
+100 Ω humdingers on the V1/V2 heater supply — the phono input tubes.
+Adjust for minimum hum on phono.
+
+** TODO Channel balance and separation
+** TODO Connect turntable
+Ground wire to the receiver's ground terminal first. Hum with it
+connected but silence without = ground loop, not a floating arm.
+
+** TODO Exercise every switch and pot again
+Second DeOxit pass now that everything is warm and settled.
+
+* Phase 9 — Deferred
+
+** TODO Tuner section health check
+Not alignment — just condition. Tubes not shorted, no obviously failed
+caps. It shares the power supply, so a fault there reaches the audio
+section.
+
+** SKIPPED Tuner alignment
+Requires signal generator, VTVM, oscilloscope, and a multiplex
+generator. Not doing this for a turntable-only use case.
+
+** TODO Cosmetics, dial cord, lamps
+Dial cord stringing diagram is on p.2 of the manual if needed.
+
+* Session log
+
+Append as you go. Date, what changed, what you measured, what
+surprised you.
