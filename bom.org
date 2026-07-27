@@ -4,8 +4,7 @@
 Status values used throughout:
 - =spec= from the service manual only, not yet reviewed
 - =keep= reviewed, staying original
-- =replace= flagged for replacement, not yet ordered
-- =ordered=
+- =ordered= replacement chosen and purchased
 - =installed=
 
 Every row transcribed from the manual starts at =spec=.
@@ -26,316 +25,320 @@ Node V is the voltage *measured* at that node in circuit, not the
 schematic's nominal. It is what makes the headroom column meaningful
 — fill it in during baseline measurements, before anything comes out.
 
-| Ref  | Board     | Zone | Type            | Orig value | Tolerance | Orig V | Node V | Status | Replacement | Mfr PN | Ord | In | Notes           |
-|------+-----------+------+-----------------+------------+-----------+--------+--------+--------+-------------+--------+-----+----+-----------------|
-| C1   | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C2   | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C3   | Main      |      | Mica            | 300pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C4   | Main      |      | Mica            | 300pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C5   | Main      |      | Mica            | 1500pF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C6   | Main      |      | Mica            | 1500pF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C7   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C8   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C9   | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C10  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C11  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | spec   |             |        |     |    |                 |
-| C12  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | spec   |             |        |     |    |                 |
-| C13  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C14  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C15  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C16  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C17  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C18  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C19  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C20  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C21  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C22  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C23  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | spec   |             |        |     |    |                 |
-| C24  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | spec   |             |        |     |    |                 |
-| C25  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C26  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C27  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C28  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C29  | Main      |      | Ceramic disk    | 0.001uF    |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C30  | Main      |      | Ceramic disk    | 0.001uF    |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C31  | Main      |      | Vacant          |            |           |        |        | spec   |             |        |     |    |                 |
-| C32  | Main      |      | Vacant          |            |           |        |        | spec   |             |        |     |    |                 |
-| C33  | Main      |      | Ceramic disk    | 0.0015uF   |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C34  | Main      |      | Ceramic disk    | 0.0015uF   |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C35  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C36  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C37  | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C38  | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C39  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C40  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec   |             |        |     |    |                 |
-| C41  | Main      |      | Ceramic disk    | 0.0047uF   |       10% | 250V   |        | spec   |             |        |     |    |                 |
-| C42  | Main      |      | Ceramic disk    | 0.0047uF   |       10% | 250V   |        | spec   |             |        |     |    |                 |
-| C43  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | spec   |             |        |     |    |                 |
-| C44  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | spec   |             |        |     |    |                 |
-| C45  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C46  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C47  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C48  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C49  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C50  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C51  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C52  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C53  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | spec   |             |        |     |    |                 |
-| C54  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | spec   |             |        |     |    |                 |
-| C55  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C56  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C57  | Main      |      | Ceramic tubular | 450pF      |        3% |        |        | spec   |             |        |     |    |                 |
-| C58  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C59  | Main      |      | Ceramic disk    | 20pF       |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C60  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C61  | Main      |      | Electrolytic    | 10uF       |           | 250V   |        | spec   |             |        |     |    |                 |
-| C62  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C63  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C64  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C65  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C66  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C67  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C68  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C69  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C70  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C71  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C72  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C73  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C74  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C75  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C76  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C77  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C78  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C79  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C80  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C81  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C82  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C83  | Main      |      | Ceramic disk    | 50pF       |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C84  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C85  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C86  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C87  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C88  | Main      |      | Electrolytic    | 5uF        |           | 25V    |        | spec   |             |        |     |    |                 |
-| C89  | Main      |      | Mica            | 1000pF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C90  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C91  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C92  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C93  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C94  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec   |             |        |     |    |                 |
-| C95  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec   |             |        |     |    |                 |
-| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C97  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | spec   |             |        |     |    |                 |
-| C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | spec   |             |        |     |    |                 |
-| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | spec   |             |        |     |    |                 |
-| C101 | Main      |      | Electrolytic    | 100uF      |           | 250V   |        | spec   |             |        |     |    |                 |
-| C102 | Main      |      | Electrolytic    | 100uF      |           | 250V   |        | spec   |             |        |     |    |                 |
-| C103 | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec   |             |        |     |    |                 |
-| C301 | Front End |      | Feed Through    | 2pF        |           |        |        | spec   |             |        |     |    |                 |
-| C302 | Front End |      | Feed Through    | 2pF        |           |        |        | spec   |             |        |     |    |                 |
-| C303 | Front End |      | Feed Through    | 2pF        |           |        |        | spec   |             |        |     |    |                 |
-| C304 | Front End |      | Feed Through    | 2pF        |           |        |        | spec   |             |        |     |    |                 |
-| C305 | Front End |      | Ceramic disk    | 5pF        |           | 100V   |        | spec   |             |        |     |    |                 |
-| C306 | Front End |      | Ceramic disk    | 100pF      |           | 100V   |        | spec   |             |        |     |    |                 |
-| C307 | Front End |      | Ceramic disk    | 0.002uF    |           | 400V   |        | spec   |             |        |     |    |                 |
-| C308 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C309 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C310 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C311 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C312 | Front End |      | Ceramic disk    | 15pF       |           | 100V   |        | spec   |             |        |     |    |                 |
-| C313 | Front End |      | Feed Through    | 20pF       |           |        |        | spec   |             |        |     |    |                 |
-| C314 | Front End |      | Ceramic disk    | 30pF       |           | 100V   |        | spec   |             |        |     |    |                 |
-| C315 | Front End |      | Ceramic disk    | 15pF       |           | 100V   |        | spec   |             |        |     |    |                 |
-| C316 | Front End |      | Vacant          |            |           |        |        | spec   |             |        |     |    |                 |
-| C317 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C318 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec   |             |        |     |    |                 |
-| C319 | Front End |      | Ceramic disk    | 20pF       |           | 100V   |        | spec   |             |        |     |    |                 |
-| C501 | MPX       |      | Mylar           | 0.05uF     |       20% | 50V    |        | spec   |             |        |     |    |                 |
-| C502 | MPX       |      | Electrolytic    | 3uF        |           | 100V   |        | spec   |             |        |     |    |                 |
-| C503 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C504 | MPX       |      | Polyethylene    | 410pF      |        5% | 100V   |        | spec   |             |        |     |    |                 |
-| C505 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C506 | MPX       |      | Electrolytic    | 20uF       |           | 250V   |        | spec   |             |        |     |    |                 |
-| C507 | MPX       |      | Mica            | 0.01uF     |           |        |        | spec   |             |        |     |    | orig PN AC3501A |
-| C508 | MPX       |      | Mica            | 0.01uF     |           |        |        | spec   |             |        |     |    | orig PN AC3501A |
-| C509 | MPX       |      | Mylar           | 0.5uF      |       20% | 300V   |        | spec   |             |        |     |    |                 |
-| C510 | MPX       |      | Polyethylene    | 115pF      |        5% | 100V   |        | spec   |             |        |     |    |                 |
-| C511 | MPX       |      | Polyethylene    | 410pF      |        5% | 100V   |        | spec   |             |        |     |    |                 |
-| C512 | MPX       |      | Mylar           | 0.7uF      |       20% | 50V    |        | spec   |             |        |     |    |                 |
-| C513 | MPX       |      | Stirol          | 0.02uF     |        5% | 100V   |        | spec   |             |        |     |    |                 |
-| C514 | MPX       |      | Mylar           | 0.05uF     |       20% | 300V   |        | spec   |             |        |     |    |                 |
-| C515 | MPX       |      | Polyethylene    | 1000pF     |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C516 | MPX       |      | Mylar           | 0.05uF     |       20% | 50V    |        | spec   |             |        |     |    |                 |
-| C517 | MPX       |      | Stirol          | 0.007uF    |        5% | 100V   |        | spec   |             |        |     |    |                 |
-| C518 | MPX       |      | Polyethylene    | 350pF      |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C519 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C520 | MPX       |      | Polyethylene    | 350pF      |       10% | 100V   |        | spec   |             |        |     |    |                 |
-| C521 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec   |             |        |     |    |                 |
+| Ref  | Board     | Zone | Type            | Orig value | Tolerance | Orig V | Node V | Status  | Replacement         | Mfr PN                | Notes                                              |
+|------+-----------+------+-----------------+------------+-----------+--------+--------+---------+---------------------+-----------------------+----------------------------------------------------|
+| C1   | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C2   | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C3   | Main      |      | Mica            | 300pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C4   | Main      |      | Mica            | 300pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C5   | Main      |      | Mica            | 1500pF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C6   | Main      |      | Mica            | 1500pF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C7   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |                                                    |
+| C8   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |                                                    |
+| C9   | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C10  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C11  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |                                                    |
+| C12  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |                                                    |
+| C13  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C14  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C15  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C16  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C17  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C18  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C19  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |                                                    |
+| C20  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |                                                    |
+| C21  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C22  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C23  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C24  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C25  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C26  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C27  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C28  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C29  | Main      |      | Ceramic disk    | 0.001uF    |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C30  | Main      |      | Ceramic disk    | 0.001uF    |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C31  | Main      |      | Vacant          |            |           |        |        | spec    |                     |                       |                                                    |
+| C32  | Main      |      | Vacant          |            |           |        |        | spec    |                     |                       |                                                    |
+| C33  | Main      |      | Ceramic disk    | 0.0015uF   |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C34  | Main      |      | Ceramic disk    | 0.0015uF   |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C35  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C36  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C37  | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C38  | Main      |      | Mica            | 500pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C39  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C40  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 500V   |        | spec    |                     |                       |                                                    |
+| C41  | Main      |      | Ceramic disk    | 0.0047uF   |       10% | 250V   |        | spec    |                     |                       |                                                    |
+| C42  | Main      |      | Ceramic disk    | 0.0047uF   |       10% | 250V   |        | spec    |                     |                       |                                                    |
+| C43  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C44  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C45  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C46  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C47  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C48  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C49  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C50  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C51  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C52  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C53  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C54  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |                                                    |
+| C55  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C56  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C57  | Main      |      | Ceramic tubular | 450pF      |        3% |        |        | spec    |                     |                       |                                                    |
+| C58  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C59  | Main      |      | Ceramic disk    | 20pF       |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C60  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C61  | Main      |      | Electrolytic    | 10uF       |           | 250V   |        | ordered | 10uF 450V           | 232-450LLE10MEFC125X  |                                                    |
+| C62  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C63  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C64  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C65  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C66  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C67  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C68  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C69  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C70  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C71  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C72  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C73  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C74  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C75  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C76  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C77  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C78  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C79  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C80  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C81  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C82  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C83  | Main      |      | Ceramic disk    | 50pF       |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C84  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C85  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C86  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C87  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C88  | Main      |      | Electrolytic    | 5uF        |           | 25V    |        | ordered | 4.7uF 50V           | 232-50YXM4R7MEFR5X11  |                                                    |
+| C89  | Main      |      | Mica            | 1000pF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C90  | Main      |      | Ceramic disk    | 200pF      |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C91  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C92  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C93  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C94  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |                                                    |
+| C95  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |                                                    |
+| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C97  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |                                                    |
+| C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 | Ordered discrete                                   |
+| C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |                                                    |
+| C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |                                                    |
+| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 | Ordered discrete                                   |
+| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |                                                    |
+| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |                                                    |
+| C101 | Main      |      | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    | voltage doubler, ~190V per cap                     |
+| C102 | Main      |      | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    | voltage doubler, ~190V per cap                     |
+| C103 | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
+| C301 | Front End |      | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |                                                    |
+| C302 | Front End |      | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |                                                    |
+| C303 | Front End |      | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |                                                    |
+| C304 | Front End |      | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |                                                    |
+| C305 | Front End |      | Ceramic disk    | 5pF        |           | 100V   |        | spec    |                     |                       |                                                    |
+| C306 | Front End |      | Ceramic disk    | 100pF      |           | 100V   |        | spec    |                     |                       |                                                    |
+| C307 | Front End |      | Ceramic disk    | 0.002uF    |           | 400V   |        | spec    |                     |                       |                                                    |
+| C308 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C309 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C310 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C311 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C312 | Front End |      | Ceramic disk    | 15pF       |           | 100V   |        | spec    |                     |                       |                                                    |
+| C313 | Front End |      | Feed Through    | 20pF       |           |        |        | spec    |                     |                       |                                                    |
+| C314 | Front End |      | Ceramic disk    | 30pF       |           | 100V   |        | spec    |                     |                       |                                                    |
+| C315 | Front End |      | Ceramic disk    | 15pF       |           | 100V   |        | spec    |                     |                       |                                                    |
+| C316 | Front End |      | Vacant          |            |           |        |        | spec    |                     |                       |                                                    |
+| C317 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C318 | Front End |      | Feed Through    | 1000pF     |           |        |        | spec    |                     |                       |                                                    |
+| C319 | Front End |      | Ceramic disk    | 20pF       |           | 100V   |        | spec    |                     |                       |                                                    |
+| C501 | MPX       |      | Mylar           | 0.05uF     |       20% | 50V    |        | spec    |                     |                       |                                                    |
+| C502 | MPX       |      | Electrolytic    | 3uF        |           | 100V   |        | ordered | 3.3uF 160V          | 667-ECA-2CHG3R3B      | cheap insurance — MPX not in use but shares a rail |
+| C503 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C504 | MPX       |      | Polyethylene    | 410pF      |        5% | 100V   |        | spec    |                     |                       |                                                    |
+| C505 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C506 | MPX       |      | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  | cheap insurance — MPX not in use but shares a rail |
+| C507 | MPX       |      | Mica            | 0.01uF     |           |        |        | spec    |                     |                       | orig PN AC3501A                                    |
+| C508 | MPX       |      | Mica            | 0.01uF     |           |        |        | spec    |                     |                       | orig PN AC3501A                                    |
+| C509 | MPX       |      | Mylar           | 0.5uF      |       20% | 300V   |        | spec    |                     |                       |                                                    |
+| C510 | MPX       |      | Polyethylene    | 115pF      |        5% | 100V   |        | spec    |                     |                       |                                                    |
+| C511 | MPX       |      | Polyethylene    | 410pF      |        5% | 100V   |        | spec    |                     |                       |                                                    |
+| C512 | MPX       |      | Mylar           | 0.7uF      |       20% | 50V    |        | spec    |                     |                       |                                                    |
+| C513 | MPX       |      | Stirol          | 0.02uF     |        5% | 100V   |        | spec    |                     |                       |                                                    |
+| C514 | MPX       |      | Mylar           | 0.05uF     |       20% | 300V   |        | spec    |                     |                       |                                                    |
+| C515 | MPX       |      | Polyethylene    | 1000pF     |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C516 | MPX       |      | Mylar           | 0.05uF     |       20% | 50V    |        | spec    |                     |                       |                                                    |
+| C517 | MPX       |      | Stirol          | 0.007uF    |        5% | 100V   |        | spec    |                     |                       |                                                    |
+| C518 | MPX       |      | Polyethylene    | 350pF      |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C519 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C520 | MPX       |      | Polyethylene    | 350pF      |       10% | 100V   |        | spec    |                     |                       |                                                    |
+| C521 | MPX       |      | Polyethylene    | 2500pF     |       10% | 100V   |        | spec    |                     |                       |                                                    |
 
 * Resistors
 Measure before replacing. Carbon comps drift high; anything more than
 ~20% out gets a Replacement entry. W is blank where the manual doesn't
 mark an exception to the 1/2W default.
 
-| Ref  | Board     | Zone | Type            | Orig value | Tolerance | W    | Measured | Status | Replacement | Mfr PN | Ord | In | Notes |
-|------+-----------+------+-----------------+------------+-----------+------+----------+--------+-------------+--------+-----+----+-------|
-| R1   | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R2   | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R3   | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R4   | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R5   | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R6   | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R7   | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R8   | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R9   | Main      |      | Carbon Lownoise | 3k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R10  | Main      |      | Carbon Lownoise | 3k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R11  | Main      |      | Carbon Lownoise | 150k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R12  | Main      |      | Carbon Lownoise | 150k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R13  | Main      |      | Carbon Lownoise | 200k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R14  | Main      |      | Carbon Lownoise | 200k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R15  | Main      |      | Carbon          | 2M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R16  | Main      |      | Carbon          | 2M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R17  | Main      |      | Carbon Lownoise | 250k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R18  | Main      |      | Carbon Lownoise | 250k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R19  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R20  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R21  | Main      |      | Carbon Lownoise | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R22  | Main      |      | Carbon Lownoise | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R23  | Main      |      | Composition     | 150k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R24  | Main      |      | Composition     | 150k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R25  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R26  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R27  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R28  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R29  | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R30  | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R31  | Main      |      | Composition     | 15k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R32  | Main      |      | Composition     | 15k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R33  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R34  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R35  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R36  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R37  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R38  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R39  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R40  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R41  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R42  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R43  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R44  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R45  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R46  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R47  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R48  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R49  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R50  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R51  | Main      |      | Carbon          | 100        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R52  | Main      |      | Carbon          | 100        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R53  | Main      |      | Composition     | 2.2k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R54  | Main      |      | Composition     | 2.2k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R55  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R56  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R57  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R58  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R59  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R60  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R61  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R62  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R63  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R64  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R65  | Main      |      | Carbon          | 2.5k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R66  | Main      |      | Carbon          | 2.5k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R67  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R68  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R69  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R70  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R71  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R72  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R73  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R74  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R75  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |     |    |       |
-| R76  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |     |    |       |
-| R77  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R78  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R79  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |     |    |       |
-| R80  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |     |    |       |
-| R81  | Main      |      | Composition     | 10k        |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R82  | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R83  | Main      |      | Composition     | 22k        |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R84  | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |     |    |       |
-| R85  | Main      |      | Composition     | 15k        |       20% | 2W   |          | spec   |             |        |     |    |       |
-| R86  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R87  | Main      |      | Composition     | 4.7k       |           | 1W   |          | spec   |             |        |     |    |       |
-| R88  | Main      |      | Composition     | 68         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R89  | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R90  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R91  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R92  | Main      |      | Composition     | 68         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R93  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R94  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R95  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R96  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R97  | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |     |    |       |
-| R98  | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |     |    |       |
-| R99  | Main      |      | Composition     | 47k        |       20% | 1W   |          | spec   |             |        |     |    |       |
-| R100 | Main      |      | Composition     | 680        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R101 | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |     |    |       |
-| R102 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R103 | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |     |    |       |
-| R104 | Main      |      | Composition     | 10k        |           | 2W   |          | spec   |             |        |     |    |       |
-| R105 | Main      |      | Composition     | 330        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R106 | Main      |      | Carbon          | 3k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R107 | Main      |      | Carbon          | 3k         |           | 1/2W |          | spec   |             |        |     |    |       |
-| R108 | Main      |      | Composition     | 6.8k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R109 | Main      |      | Composition     | 6.8k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R110 | Main      |      | Composition     | 68k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R111 | Main      |      | Wire wound      | 1.5k       |           | 8W   |          | spec   |             |        |     |    |       |
-| R112 | Main      |      | Wire wound      | 400        |           | 8W   |          | spec   |             |        |     |    |       |
-| R113 | Main      |      | Wire wound      | 400        |           | 8W   |          | spec   |             |        |     |    |       |
-| R114 | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |     |    |       |
-| R115 | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |     |    |       |
-| R116 | Main      |      | Wire wound      | 1k         |           | 4W   |          | spec   |             |        |     |    |       |
-| R117 | Main      |      | Wire wound      | 2k         |           | 8W   |          | spec   |             |        |     |    |       |
-| R118 | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R119 | Main      |      | Vacant          |            |           |      |          | spec   |             |        |     |    |       |
-| R120 | Main      |      | Composition     | 1k         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R121 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R122 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |     |    |       |
-| R123 | Main      |      | Composition     | 4.7M       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R124 | Main      |      | Composition     | 4.7M       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R125 | Main      |      | Vacant          |            |           |      |          | spec   |             |        |     |    |       |
-| R126 | Main      |      | Composition     | 33         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R127 | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R128 | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |     |    |       |
-| R129 | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R130 | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |     |    |       |
-| R301 | Front End |      | Vacant          |            |           |      |          | spec   |             |        |     |    |       |
-| R302 | Front End |      | Composition     | 47k        |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R303 | Front End |      | Composition     | 33k        |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R304 | Front End |      | Composition     | 33k        |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R305 | Front End |      | Composition     | 1M         |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R306 | Front End |      | Composition     | 47k        |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R307 | Front End |      | Composition     | 68k        |       10% | 1/4W |          | spec   |             |        |     |    |       |
-| R501 | MPX       |      | Composition     | 470k       |           |      |          | spec   |             |        |     |    |       |
-| R502 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |     |    |       |
-| R503 | MPX       |      | Composition     | 1k         |           |      |          | spec   |             |        |     |    |       |
-| R504 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |     |    |       |
-| R505 | MPX       |      | Composition     | 4.7k       |           |      |          | spec   |             |        |     |    |       |
-| R506 | MPX       |      | Composition     | 22k        |           |      |          | spec   |             |        |     |    |       |
-| R507 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |     |    |       |
-| R508 | MPX       |      | Composition     | 470        |           |      |          | spec   |             |        |     |    |       |
-| R509 | MPX       |      | Composition     | 33k        |           |      |          | spec   |             |        |     |    |       |
-| R510 | MPX       |      | Composition     | 220        |           |      |          | spec   |             |        |     |    |       |
-| R511 | MPX       |      | Composition     | 220k       |           |      |          | spec   |             |        |     |    |       |
-| R512 | MPX       |      | Composition     | 470k       |           |      |          | spec   |             |        |     |    |       |
-| R513 | MPX       |      | Composition     | 270k       |           |      |          | spec   |             |        |     |    |       |
-| R514 | MPX       |      | Composition     | 1k         |           |      |          | spec   |             |        |     |    |       |
-| R515 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |     |    |       |
-| R516 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |     |    |       |
-| R517 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |     |    |       |
-| R518 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |     |    |       |
-| R519 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |     |    |       |
-| R520 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |     |    |       |
+| Ref  | Board     | Zone | Type            | Orig value | Tolerance | W    | Measured | Status | Replacement | Mfr PN | Notes |
+|------+-----------+------+-----------------+------------+-----------+------+----------+--------+-------------+--------+-------|
+| R1   | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R2   | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R3   | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R4   | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R5   | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R6   | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R7   | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |       |
+| R8   | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |       |
+| R9   | Main      |      | Carbon Lownoise | 3k         |           | 1/2W |          | spec   |             |        |       |
+| R10  | Main      |      | Carbon Lownoise | 3k         |           | 1/2W |          | spec   |             |        |       |
+| R11  | Main      |      | Carbon Lownoise | 150k       |           | 1/2W |          | spec   |             |        |       |
+| R12  | Main      |      | Carbon Lownoise | 150k       |           | 1/2W |          | spec   |             |        |       |
+| R13  | Main      |      | Carbon Lownoise | 200k       |           | 1/2W |          | spec   |             |        |       |
+| R14  | Main      |      | Carbon Lownoise | 200k       |           | 1/2W |          | spec   |             |        |       |
+| R15  | Main      |      | Carbon          | 2M         |           | 1/2W |          | spec   |             |        |       |
+| R16  | Main      |      | Carbon          | 2M         |           | 1/2W |          | spec   |             |        |       |
+| R17  | Main      |      | Carbon Lownoise | 250k       |           | 1/2W |          | spec   |             |        |       |
+| R18  | Main      |      | Carbon Lownoise | 250k       |           | 1/2W |          | spec   |             |        |       |
+| R19  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R20  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R21  | Main      |      | Carbon Lownoise | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R22  | Main      |      | Carbon Lownoise | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R23  | Main      |      | Composition     | 150k       |       20% | 1/2W |          | spec   |             |        |       |
+| R24  | Main      |      | Composition     | 150k       |       20% | 1/2W |          | spec   |             |        |       |
+| R25  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |       |
+| R26  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |       |
+| R27  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R28  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R29  | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |       |
+| R30  | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |       |
+| R31  | Main      |      | Composition     | 15k        |           | 1/2W |          | spec   |             |        |       |
+| R32  | Main      |      | Composition     | 15k        |           | 1/2W |          | spec   |             |        |       |
+| R33  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R34  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R35  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |       |
+| R36  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |       |
+| R37  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R38  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R39  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R40  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R41  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |       |
+| R42  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |       |
+| R43  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R44  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R45  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R46  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R47  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |       |
+| R48  | Main      |      | Composition     | 1M         |           | 1/2W |          | spec   |             |        |       |
+| R49  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R50  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R51  | Main      |      | Carbon          | 100        |           | 1/2W |          | spec   |             |        |       |
+| R52  | Main      |      | Carbon          | 100        |           | 1/2W |          | spec   |             |        |       |
+| R53  | Main      |      | Composition     | 2.2k       |           | 1/2W |          | spec   |             |        |       |
+| R54  | Main      |      | Composition     | 2.2k       |           | 1/2W |          | spec   |             |        |       |
+| R55  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R56  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R57  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |       |
+| R58  | Main      |      | Composition     | 22k        |           | 1/2W |          | spec   |             |        |       |
+| R59  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R60  | Main      |      | Composition     | 470k       |           | 1/2W |          | spec   |             |        |       |
+| R61  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |       |
+| R62  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |       |
+| R63  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R64  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R65  | Main      |      | Carbon          | 2.5k       |           | 1/2W |          | spec   |             |        |       |
+| R66  | Main      |      | Carbon          | 2.5k       |           | 1/2W |          | spec   |             |        |       |
+| R67  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R68  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R69  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R70  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R71  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R72  | Main      |      | Composition     | 220k       |           | 1/2W |          | spec   |             |        |       |
+| R73  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |       |
+| R74  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |       |
+| R75  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |       |
+| R76  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |       |
+| R77  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |       |
+| R78  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |       |
+| R79  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |       |
+| R80  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |       |
+| R81  | Main      |      | Composition     | 10k        |       20% | 1/2W |          | spec   |             |        |       |
+| R82  | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |       |
+| R83  | Main      |      | Composition     | 22k        |       20% | 1/2W |          | spec   |             |        |       |
+| R84  | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |       |
+| R85  | Main      |      | Composition     | 15k        |       20% | 2W   |          | spec   |             |        |       |
+| R86  | Main      |      | Composition     | 1k         |           | 1/2W |          | spec   |             |        |       |
+| R87  | Main      |      | Composition     | 4.7k       |           | 1W   |          | spec   |             |        |       |
+| R88  | Main      |      | Composition     | 68         |       20% | 1/2W |          | spec   |             |        |       |
+| R89  | Main      |      | Composition     | 100k       |       20% | 1/2W |          | spec   |             |        |       |
+| R90  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R91  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |       |
+| R92  | Main      |      | Composition     | 68         |       20% | 1/2W |          | spec   |             |        |       |
+| R93  | Main      |      | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |       |
+| R94  | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R95  | Main      |      | Composition     | 100k       |           | 1/2W |          | spec   |             |        |       |
+| R96  | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R97  | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |       |
+| R98  | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |       |
+| R99  | Main      |      | Composition     | 47k        |       20% | 1W   |          | spec   |             |        |       |
+| R100 | Main      |      | Composition     | 680        |           | 1/2W |          | spec   |             |        |       |
+| R101 | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |       |
+| R102 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R103 | Main      |      | Composition     | 15k        |           | 2W   |          | spec   |             |        |       |
+| R104 | Main      |      | Composition     | 10k        |           | 2W   |          | spec   |             |        |       |
+| R105 | Main      |      | Composition     | 330        |           | 1/2W |          | spec   |             |        |       |
+| R106 | Main      |      | Carbon          | 3k         |           | 1/2W |          | spec   |             |        |       |
+| R107 | Main      |      | Carbon          | 3k         |           | 1/2W |          | spec   |             |        |       |
+| R108 | Main      |      | Composition     | 6.8k       |           | 1/2W |          | spec   |             |        |       |
+| R109 | Main      |      | Composition     | 6.8k       |           | 1/2W |          | spec   |             |        |       |
+| R110 | Main      |      | Composition     | 68k        |           | 1/2W |          | spec   |             |        |       |
+| R111 | Main      |      | Wire wound      | 1.5k       |           | 8W   |          | spec   |             |        |       |
+| R112 | Main      |      | Wire wound      | 400        |           | 8W   |          | spec   |             |        |       |
+| R113 | Main      |      | Wire wound      | 400        |           | 8W   |          | spec   |             |        |       |
+| R114 | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |       |
+| R115 | Main      |      | Wire wound      | 6k         |           | 6W   |          | spec   |             |        |       |
+| R116 | Main      |      | Wire wound      | 1k         |           | 4W   |          | spec   |             |        |       |
+| R117 | Main      |      | Wire wound      | 2k         |           | 8W   |          | spec   |             |        |       |
+| R118 | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |       |
+| R119 | Main      |      | Vacant          |            |           |      |          | spec   |             |        |       |
+| R120 | Main      |      | Composition     | 1k         |       20% | 1/2W |          | spec   |             |        |       |
+| R121 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R122 | Main      |      | Composition     | 47k        |           | 1/2W |          | spec   |             |        |       |
+| R123 | Main      |      | Composition     | 4.7M       |           | 1/2W |          | spec   |             |        |       |
+| R124 | Main      |      | Composition     | 4.7M       |           | 1/2W |          | spec   |             |        |       |
+| R125 | Main      |      | Vacant          |            |           |      |          | spec   |             |        |       |
+| R126 | Main      |      | Composition     | 33         |       20% | 1/2W |          | spec   |             |        |       |
+| R127 | Main      |      | Composition     | 2.2M       |       20% | 1/2W |          | spec   |             |        |       |
+| R128 | Main      |      | Composition     | 150k       |           | 1/2W |          | spec   |             |        |       |
+| R129 | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |       |
+| R130 | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |       |
+| R301 | Front End |      | Vacant          |            |           |      |          | spec   |             |        |       |
+| R302 | Front End |      | Composition     | 47k        |       10% | 1/4W |          | spec   |             |        |       |
+| R303 | Front End |      | Composition     | 33k        |       10% | 1/4W |          | spec   |             |        |       |
+| R304 | Front End |      | Composition     | 33k        |       10% | 1/4W |          | spec   |             |        |       |
+| R305 | Front End |      | Composition     | 1M         |       10% | 1/4W |          | spec   |             |        |       |
+| R306 | Front End |      | Composition     | 47k        |       10% | 1/4W |          | spec   |             |        |       |
+| R307 | Front End |      | Composition     | 68k        |       10% | 1/4W |          | spec   |             |        |       |
+| R501 | MPX       |      | Composition     | 470k       |           |      |          | spec   |             |        |       |
+| R502 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |       |
+| R503 | MPX       |      | Composition     | 1k         |           |      |          | spec   |             |        |       |
+| R504 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |       |
+| R505 | MPX       |      | Composition     | 4.7k       |           |      |          | spec   |             |        |       |
+| R506 | MPX       |      | Composition     | 22k        |           |      |          | spec   |             |        |       |
+| R507 | MPX       |      | Composition     | 10k        |           |      |          | spec   |             |        |       |
+| R508 | MPX       |      | Composition     | 470        |           |      |          | spec   |             |        |       |
+| R509 | MPX       |      | Composition     | 33k        |           |      |          | spec   |             |        |       |
+| R510 | MPX       |      | Composition     | 220        |           |      |          | spec   |             |        |       |
+| R511 | MPX       |      | Composition     | 220k       |           |      |          | spec   |             |        |       |
+| R512 | MPX       |      | Composition     | 470k       |           |      |          | spec   |             |        |       |
+| R513 | MPX       |      | Composition     | 270k       |           |      |          | spec   |             |        |       |
+| R514 | MPX       |      | Composition     | 1k         |           |      |          | spec   |             |        |       |
+| R515 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |       |
+| R516 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |       |
+| R517 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |       |
+| R518 | MPX       |      | Carbon          | 10k        |        5% |      |          | spec   |             |        |       |
+| R519 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |       |
+| R520 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |       |
 
 * Potentiometers
 
@@ -434,41 +437,41 @@ mark an exception to the 1/2W default.
 
 * Miscellaneous
 
-| Item                              | Ref   | Board     | Status | Orig PN   | Notes                                                                                               |
-|-----------------------------------+-------+-----------+--------+-----------+-----------------------------------------------------------------------------------------------------|
-| FM Front-end assembly             |       | Front End | spec   | AM0111(U) | Whole sub-board, not itemized further here.                                                         |
-| MPX unit assembly                 |       | MPX       | spec   | AM0103A   | Whole sub-board, not itemized further here.                                                         |
-| Pilot lamp                        | PL1   | Main      | spec   | AV7206    |                                                                                                     |
-| Pilot lamp                        | PL2   | Main      | spec   | AV7206    |                                                                                                     |
-| Pilot lamp                        | PL3   | Main      | spec   | AV7206    |                                                                                                     |
-| Pilot lamp                        | PL4   | Main      | spec   | AV7206    |                                                                                                     |
-| Pilot lamp                        | PL5   | Main      | spec   | AV7206    |                                                                                                     |
-| Neon lamp (FM stereo indicator)   | NL501 | Main      | spec   | AV7402    | Front panel, right of dial. Driven by MPX circuit.                                                  |
-| Fuse                              |       | Main      | spec   | 2A        |                                                                                                     |
-| Fuse holder                       |       | Main      | spec   | AK9603    |                                                                                                     |
-| AC concent (receptacle)           |       | Main      | spec   | AK8207    |                                                                                                     |
-| Dress panel                       |       | Main      | spec   | AM21022   |                                                                                                     |
-| Foot                              |       | Main      | spec   | AM6103    |                                                                                                     |
-| Dial scale                        |       | Main      | spec   | AA3286A   |                                                                                                     |
-| Dial pointer                      |       | Main      | spec   | AA3166    |                                                                                                     |
-| Dial pulley                       |       | Main      | spec   | AM4209    |                                                                                                     |
-| Dial spring                       |       | Main      | spec   | AF4103    |                                                                                                     |
-| Tuning meter                      | M1    | Main      | spec   | AA9105    |                                                                                                     |
-| Connector, 5P for Tape REC/P.B    |       | Main      | spec   | AK5803    |                                                                                                     |
-| Headphone jack                    |       | Main      | spec   | AK7204    |                                                                                                     |
-| Knob: Tone, Balance, Power switch |       | Main      | spec   | AA1182    |                                                                                                     |
-| Knob: Tuning                      |       | Main      | spec   | AA1185    |                                                                                                     |
-| Knob: Volume                      |       | Main      | spec   | AA1188    |                                                                                                     |
-| Knob: Selector, Mode              |       | Main      | spec   | AA1190    |                                                                                                     |
-| Terminal, Speaker Output 4P       |       | Main      | spec   | AP3113    |                                                                                                     |
-| Terminal, Input 6P                |       | Main      | spec   | AP2113    |                                                                                                     |
-| Terminal, Antenna 3P              |       | Main      | spec   | AP3111    |                                                                                                     |
-| Line cord                         |       | Main      | spec   |           | 2-prong, non-polarized (original). See restoration-plan.org Phase 4 for 3-wire conversion decision. |
+| Item                              | Ref   | Board     | Status  | Orig PN   | Notes                                                                                                               |
+|-----------------------------------+-------+-----------+---------+-----------+---------------------------------------------------------------------------------------------------------------------|
+| FM Front-end assembly             |       | Front End | spec    | AM0111(U) | Whole sub-board, not itemized further here.                                                                         |
+| MPX unit assembly                 |       | MPX       | spec    | AM0103A   | Whole sub-board, not itemized further here.                                                                         |
+| Pilot lamp                        | PL1   | Main      | spec    | AV7206    |                                                                                                                     |
+| Pilot lamp                        | PL2   | Main      | spec    | AV7206    |                                                                                                                     |
+| Pilot lamp                        | PL3   | Main      | spec    | AV7206    |                                                                                                                     |
+| Pilot lamp                        | PL4   | Main      | spec    | AV7206    |                                                                                                                     |
+| Pilot lamp                        | PL5   | Main      | spec    | AV7206    |                                                                                                                     |
+| Neon lamp (FM stereo indicator)   | NL501 | Main      | spec    | AV7402    | Front panel, right of dial. Driven by MPX circuit.                                                                  |
+| Fuse                              |       | Main      | ordered | 2A        | 5x Littelfuse 0313002.MXP (3AG 2A slo-blo) + 5x Bel Fuse 0618002.MXP (5x20mm 2A slo-blo) — two holder sizes covered |
+| Fuse holder                       |       | Main      | spec    | AK9603    |                                                                                                                     |
+| AC concent (receptacle)           |       | Main      | spec    | AK8207    |                                                                                                                     |
+| Dress panel                       |       | Main      | spec    | AM21022   |                                                                                                                     |
+| Foot                              |       | Main      | spec    | AM6103    |                                                                                                                     |
+| Dial scale                        |       | Main      | spec    | AA3286A   |                                                                                                                     |
+| Dial pointer                      |       | Main      | spec    | AA3166    |                                                                                                                     |
+| Dial pulley                       |       | Main      | spec    | AM4209    |                                                                                                                     |
+| Dial spring                       |       | Main      | spec    | AF4103    |                                                                                                                     |
+| Tuning meter                      | M1    | Main      | spec    | AA9105    |                                                                                                                     |
+| Connector, 5P for Tape REC/P.B    |       | Main      | spec    | AK5803    |                                                                                                                     |
+| Headphone jack                    |       | Main      | spec    | AK7204    |                                                                                                                     |
+| Knob: Tone, Balance, Power switch |       | Main      | spec    | AA1182    |                                                                                                                     |
+| Knob: Tuning                      |       | Main      | spec    | AA1185    |                                                                                                                     |
+| Knob: Volume                      |       | Main      | spec    | AA1188    |                                                                                                                     |
+| Knob: Selector, Mode              |       | Main      | spec    | AA1190    |                                                                                                                     |
+| Terminal, Speaker Output 4P       |       | Main      | spec    | AP3113    |                                                                                                                     |
+| Terminal, Input 6P                |       | Main      | spec    | AP2113    |                                                                                                                     |
+| Terminal, Antenna 3P              |       | Main      | spec    | AP3111    |                                                                                                                     |
+| Line cord                         |       | Main      | spec    |           | 2-prong, non-polarized (original). See restoration-plan.org Phase 4 for 3-wire conversion decision.                 |
 
 * Order log
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.
 
-| Date | Vendor | Order # | Total | Covers        | Arrived |
-|------+--------+---------+-------+---------------+---------|
-|      |        |         |       |               |         |
+| Date       | Vendor | Order #   | Total  | Covers                    | Arrived |
+|------------+--------+-----------+--------+----------------------------+---------|
+| 2026-07-26 | Mouser | 281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses | |

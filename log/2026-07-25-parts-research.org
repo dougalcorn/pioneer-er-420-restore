@@ -1,0 +1,67 @@
+#+TITLE: Parts research — 2026-07-25
+#+DATE: 2026-07-25
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Go through the service manual with Claude Desktop, build a recap parts
+list, and place the first Mouser order.
+
+* Work
+
+**Oil paper coupling caps.** Oil paper goes leaky with age. A leaky
+coupling cap puts positive DC on an output tube grid, drives it into
+heavy conduction, and red-plates it — the classic vintage-tube
+failure, and it can take out the output transformer. Modern E12
+substitutes: 0.022 and 0.047 replace the original 0.02 and 0.05, well
+within the original 10% tolerance. Original rating was 400 V; 630 V
+costs pennies more and gives real margin. Went with Wima MKS4
+(polyester) over MKP4 (polypropylene) — polypropylene would've been
+the audiophile choice, but polyester is smaller, cheaper, and entirely
+adequate here.
+
+**Electrolytics.** Buy 450 V rather than 350 V on the B+ rails because
+of the silicon-rectifier startup surge — this set uses SD-1A silicon
+diodes for B+ rectification, not a tube rectifier, so there's no
+soft-start. Nichicon/Panasonic 105°C parts. Restraint: don't inflate
+the reservoir capacitance — later filter stages can go up somewhat,
+but a much larger first cap increases rectifier surge current and
+nudges B+ higher, so stayed close to original there. C502 and C506
+are in the MPX section, which isn't in use, but a shorted electrolytic
+there would still drag a shared rail — cheap insurance to replace them
+anyway.
+
+**C99/C100.** 40+20+20 µF at 350 V multi-section cans; Mouser doesn't
+sell drop-in replacements. Compared four routes: Hayseed Hamfest
+drop-in (default tube-community answer), CE Manufacturing authentic
+twist-lock cans (period-correct look), restuffing the originals (most
+authentic, most work), or discrete caps underneath with the original
+can left in place cosmetically (easiest/cheapest, nothing shows from
+outside). Landed on discrete — decided 2026-07-27, see
+restoration-plan.org Phase 4.
+
+**What's staying original.** Mica, ceramic disc, polyethylene, and
+stirol (polystyrene) caps essentially don't fail with age — that
+covers most of C29–C97 and nearly the whole MPX and front-end range,
+so none of those get replaced. The polystyrene parts in the MPX
+section are frequency-determining; swapping them would change an
+alignment with no way to redo it, so hands off regardless of whether
+the MPX section ever gets used. Mylar (C9, C10, C21, C22, C49–C52) is
+generally reliable — test rather than replace outright.
+
+Order placed with Mouser (281232819, $79.42) covering the above plus
+fuses. Designator-level detail lives in bom.org now, not here.
+
+* Measurements
+
+None — parts research and ordering only, no bench work this session.
+
+* Open questions
+
+Carried to open-questions.org: what the spare 280V 0.047µF caps are
+for, and how the C99/C100 discrete rebuild gets physically mounted.
+
+* Next
+
+Pull the bottom cover, photograph everything, and check installed
+values against the manual before anything gets desoldered.
