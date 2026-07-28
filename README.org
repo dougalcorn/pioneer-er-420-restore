@@ -3,26 +3,14 @@
 
 1966 Pioneer ER-420, all-tube receiver. Recap and restoration.
 
+[[file:photos/2026-07-24-front-panel-01.jpg]]
+
 * Start here
 
 - =CLAUDE.md= — conventions, and how I want Claude to engage with this project
+- =er-420-restoration-plan.org= — the living phase-by-phase plan; what's done and what's next
 - =schematic/ZONES.org= — the schematic index; read before opening any image
 - =bom.org= — one row per component; the file that makes review possible
-
-* Setup, in order
-
-1. Drop the scan in =schematic/raw/=. Never modify it.
-2. =cd scripts && ./grid.sh ../schematic/raw/er-420-schematic.png 12 9 ../schematic=
-   Adjust the grid until the cell size makes sense for the sheet.
-3. Record the grid dimensions in =schematic/ZONES.org=.
-4. =./tiles.sh ../schematic/er-420-schematic-cells.png 12 9 3 3 2=
-   Heed the size warning — oversized tiles get downsampled and lose part values.
-5. Walk the sheet, fill in the subsystem table in =ZONES.org=.
-6. Crop the handful of sections you will live in to =schematic/sections/=,
-   named =G1-H3-power-supply.png=.
-7. Baseline voltages into =measurements/baseline-voltages.org= before anything
-   comes out.
-8. First log entry from =log/TEMPLATE.org=.
 
 * Conventions
 
