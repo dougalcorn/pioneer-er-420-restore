@@ -18,7 +18,7 @@ Read before every session.
 - Never work tired. Most damage happens in the last twenty minutes.
 - Never upsize the fuse. A blowing fuse is information.
 
-* TODO Phase -1 — Schematic Prep [6/8]
+* TODO Phase -1 — Schematic Prep [7/8]
 
 ** DONE Extract page 2 as a high-res raw image
 Done 2026-07-28: cropped in Preview to just the schematic (confirmed
@@ -53,12 +53,17 @@ chosen specifically to keep 3x3 tiles under the ceiling (1404 x
 (tile-C1-E3) — every component value and designator reads cleanly at
 full resolution.
 
-** TODO Walk the whole sheet, fill in ZONES.org's subsystem table
-Power supply, Phono EQ, FM front end, FM IF, Ratio detector, AM
-section, Multiplex, Tone/preamp, Driver, Output stage, Selector
-switch — replace the current placeholder ranges with real ones. Worth
-doing for the whole sheet even with aux-only scope right now — the map
-is needed later when phono and RF get picked back up.
+** DONE Walk the whole sheet, fill in ZONES.org's subsystem table
+Done 2026-07-28, all 24 tiles (including 4 supplementary ones — the
+original 20 missed column 12 entirely, tiles.sh's coverage math
+doesn't reach the last column at 12 cols/3-cell tiles/stride 2).
+
+Two real findings, not just filled-in ranges: "Phono EQ" isn't a
+separate block — phono jacks feed a plain resistor divider straight
+into the shared preamp, no RIAA network to point to, needs proper
+tracing whenever phono work resumes. And S1 (input selector) is drawn
+in four disconnected wafer sections spanning nearly the whole sheet
+(C1 to G7) — no single zone for it.
 
 ** TODO Crop sections for what's actually in scope
 Aux-only means power supply, the shared tone/preamp/driver chain,

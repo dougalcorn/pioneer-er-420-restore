@@ -14,25 +14,28 @@ Read this before opening any image. It is the map of the map.
 
 * Subsystems
 
-Fill this in as you work through the sheet. Section files are the curated crops
-in =sections/=; anything without one still resolves to a tile in =tiles/=.
+Walked the full set of tiles 2026-07-28. Section files not cropped yet —
+that's Phase -1's last step, scoped to what's actually in play (power
+supply, shared audio chain, output stage, relevant switches).
 
-| Subsystem       | Zones | Board | Section file                    |
-|-----------------+-------+-------+---------------------------------|
-| Power supply    | G1-H3 | ?     | sections/G1-H3-power-supply.png |
-| Phono EQ        | B2-D4 | ?     | sections/B2-D4-phono-eq.png     |
-| FM front end    | A6-C8 | ?     | sections/A6-C8-fm-front-end.png |
-| FM IF           |       |       |                                 |
-| Ratio detector  |       |       |                                 |
-| AM section      |       |       |                                 |
-| Multiplex       |       |       |                                 |
-| Tone / preamp   |       |       |                                 |
-| Driver          |       |       |                                 |
-| Output stage    |       |       |                                 |
-| Selector switch |       |       |                                 |
+| Subsystem       | Zones          | Board      | Section file |
+|------------------+----------------+------------+--------------|
+| Power supply     | G9-I12         | Main       |              |
+| Phono EQ         | C1-F3 (divider only, not a real EQ block) | Main | |
+| FM front end     | G1-H5          | Front End  |              |
+| FM IF            | E5-G9          | Main       |              |
+| Ratio detector   | G9-G11         | Main       |              |
+| AM section       | G1-I5          | Main       |              |
+| Multiplex        | A1-C8          | MPX        |              |
+| Tone / preamp    | C1-E9          | Main       |              |
+| Driver           | C9-E11         | Main       |              |
+| Output stage     | D9-E12         | Main       |              |
+| Selector switch  | C1-G7 (four disconnected wafers, no single zone) | Main | |
 
-(The three zone ranges above are placeholders from our earlier example — correct
-them against the actual sheet.)
+AM section and FM front end overlap in zone range (G1-I5 / G1-H5)
+because they share the front-end module and are drawn interleaved
+rather than side by side. See =circuit-notes.org= for what's actually
+been learned about each subsystem, rather than just where it sits.
 
 * Things the drawing does not say
 

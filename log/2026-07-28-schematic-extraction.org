@@ -36,6 +36,36 @@ circuit and audio circuit troubleshooting tables into
 troubleshooting.org — the only in-scope content that wasn't captured
 anywhere yet.
 
+Walked all 24 tiles (the original 20 plus 4 supplementary — tiles.sh's
+coverage math never reaches the last column at 12 cols/3-cell
+tiles/stride 2, patched with direct crops rather than changing the
+script's defaults) and filled in ZONES.org's subsystem table with
+real zones. Two findings worth more than a table cell: "Phono EQ"
+isn't a distinct block — the phono jacks feed a plain resistor divider
+straight into the shared preamp, no RIAA network to point to — and S1
+(input selector) is drawn in four disconnected wafer sections spanning
+nearly the whole sheet (C1-G7), not one zone.
+
+Created =schematic/circuit-notes.org= for subsystem-level findings —
+one heading per subsystem, same list as ZONES.org's table, so the
+index stays lean (zones/board only) and the actual tracing notes live
+somewhere consolidated instead of fragmenting into a file per
+subsystem. Moved the Phono EQ and S1 findings there, plus general
+background on what RIAA equalization is and how it's typically
+implemented (frequency-dependent feedback around a gain stage, not a
+passive filter) — reference material for whenever phono work resumes.
+
+Looked closer at F8-F12 specifically (right-channel driver/output
+decoupling — V4/V5 phase inverter and V8/V9 bias networks, the second
+poles of S5/S6/S7/S8). Caught myself misreading a 20µF/350V cap there
+as C99 — it's C98, an easy 8/9 misread at this print size. Also
+noticed C99's three sections (40+20+20µF) may land at three different
+points along the B+ dropping-resistor chain (R111→R112/R113→R114/
+R115→R116/R117) rather than one shared node — not confirmed, but
+directly relevant to the discrete rebuild if true. Driver and Output
+stage zones in ZONES.org run a little short — real boundary extends
+into column F, not just to E.
+
 * Measurements
 
 None — no bench work this session.
@@ -54,8 +84,14 @@ diagram and the dial cord stringing diagram aren't captured anywhere.
 Phase 9's dial-cord TODO still points at "p.2 of the manual," which
 won't resolve once the PDF isn't in active use.
 
+Whether C99's three sections really do land at three different B+
+nodes needs confirming before the discrete rebuild — traced from the
+tiles, not verified against the physical unit.
+
 * Next
 
-Walk the tiles, fill in ZONES.org's subsystem table, then crop the
-in-scope sections (power supply, shared audio chain, output stage,
-relevant switches) — Phase -1's two remaining steps.
+Crop the in-scope sections (power supply, shared audio chain, output
+stage, relevant switches) — Phase -1's last remaining step. Worth
+nudging Driver/Output stage zones into column F first, and fixing
+tiles.sh's column-12 coverage gap properly rather than relying on the
+manual patch.

@@ -1,0 +1,78 @@
+#+TITLE: ER-420 Circuit Notes
+#+CATEGORY: er420
+#+STARTUP: overview
+#+FILETAGS: :audio:restoration:er420:
+
+Subsystem-level findings and tracing notes — what's been learned about
+how each block actually works, not just where it sits. Zone ranges and
+board assignment stay in ZONES.org; this is the "what did we figure
+out" layer. One heading per subsystem, same list as ZONES.org's table.
+
+* Power supply
+
+* Phono EQ
+
+Not a distinct physical block on this sheet. The phono jacks (PHONO
+MAG, PHONO CER/X-TAL) feed a plain resistor divider — R1/R3/R5 left
+channel, R2/R4/R6 right — straight into the shared preamp tubes (V1/
+V2). A resistor divider alone is frequency-flat; it can't be doing
+RIAA correction by itself. Wherever the actual equalization happens
+(feedback around V1/V2, or folded into the tone-control network at
+R25/R27/R29/R30) hasn't been traced yet.
+
+** Background: what RIAA equalization is, for when this gets traced
+
+The general term is RIAA equalization (or de-emphasis/correction) —
+the inverse of the pre-emphasis applied when the record was cut.
+Two physical constraints drive the curve:
+- Bass is cut on the way in: full-amplitude bass would need groove
+  excursions large enough to swing into neighboring grooves. Cut
+  before cutting, boost back on playback.
+- Treble is boosted on the way in: surface noise is roughly flat or
+  worse at high frequencies. Boosting treble before cutting and
+  cutting it back down on playback drags noise in that band down
+  with it — same trick as FM broadcast pre-emphasis or Dolby B/C.
+
+Net curve: boost bass, cut treble on playback. Defined by three time
+constants — 3180µs (~50Hz), 318µs (~500Hz), 75µs (~2.1kHz).
+
+Standardized by RIAA in 1954; the US industry converged on it through
+the mid-to-late 1950s. Before that, Columbia, RCA Victor, Decca (ffrr)
+and others each ran incompatible curves, which is why earlier-'50s
+preamps often had a multi-position equalization selector switch. By
+1966 RIAA was the only standard in use — consistent with this
+receiver having no curve-select switch, just a fixed network.
+
+Typical circuit: not a passive filter (lossy, harder to hit the curve
+precisely) but frequency-dependent negative feedback around a gain
+stage — less feedback at low frequencies (more gain, bass boost),
+more feedback at high frequencies (less gain, treble cut). Minimum
+2 resistors + 2 capacitors in the feedback path realize the three
+time constants; tube designs often add one more capacitor purely to
+block DC bias current from the feedback path, unrelated to the curve
+itself. Exact topology needs deriving/verifying against the traced
+circuit when this comes up — not assumed from a textbook example.
+
+* FM front end
+
+* FM IF
+
+* Ratio detector
+
+* AM section
+
+* Multiplex
+
+* Tone / preamp
+
+* Driver
+
+* Output stage
+
+* Selector switch
+
+S1 (input selector) isn't a single localized block — it's drawn as
+four disconnected wafer sections spread from C1 to G7: "4/4F"/"4/4R"
+near the input jacks, "2/4" and "3/4" wafers in the tone-control area
+(D5-E9), "1/4" wafer out near G5-G7 (tuner-band-related switching).
+No single zone describes it.
