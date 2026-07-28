@@ -18,7 +18,7 @@ Read before every session.
 - Never work tired. Most damage happens in the last twenty minutes.
 - Never upsize the fuse. A blowing fuse is information.
 
-* Phase 0 — Before the cover comes off
+* TODO Phase 0 — Before the cover comes off [0/4]
 
 ** TODO Do not plug it in
 Not even to "see if it works." A cold mains start on degraded caps is
@@ -37,7 +37,7 @@ replace it — this is your progress tracker and your error check.
 Phone is fine. Consistent angles, good light, more shots than feel
 necessary. You will be referring back to these for weeks.
 
-* Phase 1 — Access and make safe
+* TODO Phase 1 — Access and make safe [0/5]
 
 ** TODO Unplug. Wait.
 ** TODO Remove case / bottom cover
@@ -57,7 +57,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* Phase 2 — Survey before touching anything
+* TODO Phase 2 — Survey before touching anything [0/13]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -94,7 +94,7 @@ intact → optional.
 This gates the safety cap order. See Phase 4.
 
 ** TODO Verify R77/R79/R80 connection point
-Do the headphone divider resistors tap in *before* or *after* S8? If
+Do the feadphone divider resistors tap in *before* or *after* S8? If
 before, the secondary always sees ~100 Ω and "speakers off" is safe
 with nothing plugged in. If after, it does not.
 
@@ -128,7 +128,7 @@ Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
 
-* Phase 3 — Clean before you solder
+* TODO Phase 3 — Clean before you solder [0/4]
 
 ** TODO Blow out dust
 Compressed air, outdoors. Sixty years of it.
@@ -146,7 +146,7 @@ travel repeatedly.
 Pull each tube, note position, clean pins, reseat. Poor socket contact
 is a top cause of noise and intermittents.
 
-* Phase 4 — Power supply
+* TODO Phase 4 — Power supply [0/8]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -184,7 +184,7 @@ across the line (X2).
 ** TODO C61 → 10 µF 450 V
 ** TODO New 2 A slow-blow fuse
 
-* Phase 5 — First power-up
+* TODO Phase 5 — First power-up [0/6]
 
 Nothing else gets replaced until the supply checks out.
 
@@ -216,7 +216,7 @@ pair. Substantially high = a tube or a leaking coupling cap.
 
 ** TODO Only after all rails check out: run without the bulb limiter
 
-* Phase 6 — Audio chain
+* TODO Phase 6 — Audio chain [0/5]
 
 Method matters more than speed.
 
@@ -251,7 +251,7 @@ Metal film. 1/2 W minimum, 1 W or high-voltage rated on B+ positions —
 watch the *voltage* rating, not just wattage. A 1/4 W part maxes around
 200–250 V regardless of the power math.
 
-* Phase 7 — Output section decision
+* TODO Phase 7 — Output section decision [0/1]
 
 ** TODO S7 impedance switch
 Options:
@@ -263,7 +263,7 @@ If hardwiring: *confirm which tap is which by measurement*, not by wire
 color. 16 Ω tap has more turns and higher DC resistance. S7 is two
 sections (S7 1/2, S7 2/2) — both channels.
 
-* Phase 8 — Commission
+* TODO Phase 8 — Commission [0/6]
 
 ** TODO Power up, aux input, low volume
 Known-good source. Listen before measuring.
@@ -284,7 +284,7 @@ connected but silence without = ground loop, not a floating arm.
 ** TODO Exercise every switch and pot again
 Second DeOxit pass now that everything is warm and settled.
 
-* Phase 9 — Deferred
+* TODO Phase 9 — Deferred [1/3]
 
 ** TODO Tuner section health check
 Not alignment — just condition. Tubes not shorted, no obviously failed
