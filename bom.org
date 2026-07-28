@@ -453,7 +453,8 @@ Notes:
 Notes:
 - S1 :: input positions — FM mono/stereo/AM/phono/tape head/aux
 - S2 :: mode positions — stereo/left/right/mono
-- S7 :: confirmed 2026-07-27 (speaker impedance selector, rear)
+- S7 :: confirmed 2026-07-27 (speaker impedance selector, rear); reported physically broken at acquisition — see [[file:history.org]]
+- S8 :: may have been left off while the amp was powered at acquisition, a possible no-load event — see [[file:history.org]]
 - S9 :: confirmed 2026-07-28 from schematic legend (line voltage selector, rear)
 - S11 :: shared switch — reads differently depending on S1 band selection
 * Miscellaneous

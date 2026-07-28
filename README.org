@@ -5,6 +5,8 @@
 
 [[file:photos/2026-07-24-front-panel-01.jpg]]
 
+Where this particular unit came from: [[file:history.org]].
+
 * Start here
 
 - =CLAUDE.md= — conventions, and how I want Claude to engage with this project

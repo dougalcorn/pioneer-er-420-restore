@@ -111,7 +111,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [1/14]
+* TODO Phase 2 — Survey before touching anything [1/15]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -123,6 +123,16 @@ transformers, the whole power supply area.
 Modern-looking parts, mismatched solder, hacked wiring, non-original
 values. If someone has been in here, the manual is no longer ground
 truth.
+
+** TODO Inspect T7/T8 output transformers for no-load damage
+At acquisition, S8 (front Speakers ON/OFF) may have been left off
+while the amp was powered — no speaker load on the output, a real
+risk to output transformer insulation. Also known from that night: L
+and R channels each worked individually but not at the same time, and
+the volume pot caused heavy distortion at the slightest turn-up from
+zero. See [[file:history.org]] for the full account. Look for anything
+consistent with an arc or insulation breakdown before assuming these
+symptoms are just dirty contacts.
 
 ** TODO Identify C99 and C100 physically
 - Twist-lock or clamp mount?
@@ -323,10 +333,14 @@ watch the *voltage* rating, not just wattage. A 1/4 W part maxes around
 * TODO Phase 7 — Output section decision [0/1]
 
 ** TODO S7 impedance switch
-Options:
-- DeOxit and keep — preserves 8 Ω flexibility
+Reported physically broken at acquisition — loose, would slide and
+also push in, felt nearly broken off. Never opened up to confirm. See
+[[file:history.org]]. This isn't really an open choice anymore so much as
+confirming what's already suspected:
+- DeOxit and keep — preserves 8 Ω flexibility, only sensible if it
+  turns out not to actually be broken
 - Hardwire to 16 Ω — removes a contact from the highest-consequence
-  path in the receiver
+  path in the receiver, and the likely call given the damage report
 
 If hardwiring: *confirm which tap is which by measurement*, not by wire
 color. 16 Ω tap has more turns and higher DC resistance. S7 is two
