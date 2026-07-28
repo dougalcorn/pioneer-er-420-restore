@@ -3,9 +3,6 @@
 #+STARTUP: overview
 #+FILETAGS: :audio:restoration:er420:
 
-DRAFT — built from the Facebook Marketplace listing, the pre-purchase
-chat with David, and the pickup-night story.
-
 * Acquisition
 
 Bought from David H. via Facebook Marketplace locally in SW Ohio.
