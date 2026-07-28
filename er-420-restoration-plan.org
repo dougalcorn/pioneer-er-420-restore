@@ -18,7 +18,7 @@ Read before every session.
 - Never work tired. Most damage happens in the last twenty minutes.
 - Never upsize the fuse. A blowing fuse is information.
 
-* TODO Phase -1 — Schematic Prep [7/8]
+* DONE Phase -1 — Schematic Prep [8/8]
 
 ** DONE Extract page 2 as a high-res raw image
 Done 2026-07-28: cropped in Preview to just the schematic (confirmed
@@ -65,11 +65,12 @@ tracing whenever phono work resumes. And S1 (input selector) is drawn
 in four disconnected wafer sections spanning nearly the whole sheet
 (C1 to G7) — no single zone for it.
 
-** TODO Crop sections for what's actually in scope
-Aux-only means power supply, the shared tone/preamp/driver chain,
-output stage, and the relevant switches — not phono EQ or the
-tuner/MPX sections yet. Into =schematic/sections/=, named like
-ZONES.org's own example (=G1-H3-power-supply.png=).
+** DONE Point ZONES.org at the tiles covering what's in scope
+Done 2026-07-28: no separate =sections/= crops needed — the
+generated tiles already cover everything at a legible size, so this
+became listing which =tiles/= filenames cover each in-scope
+subsystem (power supply, tone/preamp, driver, output stage) directly
+in ZONES.org, rather than cropping duplicate copies onto disk.
 
 * TODO Phase 0 — Before the cover comes off [0/4]
 

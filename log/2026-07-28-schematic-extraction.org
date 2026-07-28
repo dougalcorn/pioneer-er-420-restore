@@ -62,9 +62,18 @@ as C99 — it's C98, an easy 8/9 misread at this print size. Also
 noticed C99's three sections (40+20+20µF) may land at three different
 points along the B+ dropping-resistor chain (R111→R112/R113→R114/
 R115→R116/R117) rather than one shared node — not confirmed, but
-directly relevant to the discrete rebuild if true. Driver and Output
-stage zones in ZONES.org run a little short — real boundary extends
-into column F, not just to E.
+directly relevant to the discrete rebuild if true. Corrected Driver
+and Output stage zones in ZONES.org to extend into column F, which
+the original walk had missed.
+
+Decided against curated crops in =schematic/sections/= — the
+generated tiles already cover everything at a legible size, so
+copying them into a second directory under new names would just be
+duplicate pixels on disk. Pointed ZONES.org's subsystem table at the
+relevant =tiles/= filenames directly instead (as proper org
+=[[file:]]= links), noting where Driver and Output stage share the
+same tiles since they're adjacent stages on the same rows. Phase -1
+is done — 8/8.
 
 * Measurements
 
@@ -90,8 +99,7 @@ tiles, not verified against the physical unit.
 
 * Next
 
-Crop the in-scope sections (power supply, shared audio chain, output
-stage, relevant switches) — Phase -1's last remaining step. Worth
-nudging Driver/Output stage zones into column F first, and fixing
-tiles.sh's column-12 coverage gap properly rather than relying on the
-manual patch.
+Phase -1 is fully done. Next real work is Phase 0 — dim bulb tester,
+printed schematic, photo workflow — before the cover comes off.
+Worth fixing tiles.sh's column-12 coverage gap properly at some point
+rather than relying on the manual patch, but not blocking anything.
