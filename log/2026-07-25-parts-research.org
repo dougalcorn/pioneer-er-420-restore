@@ -58,13 +58,17 @@ None — parts research and ordering only, no bench work this session.
 
 * Open questions
 
-** TODO What are the 280V 0.047µF film caps (qty 3, PN 80-PHE840MK5470MK04R17) for?
-Ordered in 281232819 alongside the recap parts, doesn't match anything
-committed in the Work section above. Best guess: standby replacements
-for C501/C514/C516 (0.05µF Mylar, MPX section — see
-restoration-plan.org Phase 2 "Test remaining Mylars") if they fail
-leakage testing — unconfirmed. Raised in a couple of sessions without
-ever getting written down.
+** DONE What are the 280V 0.047µF film caps (qty 3, PN 80-PHE840MK5470MK04R17) for?
+Resolved 2026-07-28: they're KEMET PHE840 X2-rated safety caps, bought
+for C96 — which the power supply schematic crop shows sitting in the
+AC line region next to S10, the fuse, R118, C94, and C95. Only one is
+needed; the other two are spares. (Original guess here — standby
+replacements for C501/C514/C516 — was wrong; those are MPX-section
+Mylars, out of scope now that the aux-only decision is settled, and
+staying untouched regardless.)
+
+Whether C96 actually needs this part is still open — that's
+restoration-plan.org Phase 2's "Trace C96," not tracked here.
 
 * Next
 
