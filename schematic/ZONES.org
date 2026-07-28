@@ -8,8 +8,8 @@ Read this before opening any image. It is the map of the map.
 - Source scan :: =raw/er-420-schematic.png= — DO NOT MODIFY
 - Gridded full sheet (human viewing) :: =er-420-schematic-grid.png=
 - Cell-labelled copy (tiling source) :: =er-420-schematic-cells.png=
-- Grid :: N columns × M rows — fill in after running scripts/grid.sh
-- Cell size :: __ × __ px
+- Grid :: 12 columns × 9 rows
+- Cell size :: 468 × 451 px
 - Letters run down the vertical axis, numbers across the horizontal.
 
 * Subsystems

@@ -18,6 +18,54 @@ Read before every session.
 - Never work tired. Most damage happens in the last twenty minutes.
 - Never upsize the fuse. A blowing fuse is information.
 
+* TODO Phase -1 — Schematic Prep [6/8]
+
+** DONE Extract page 2 as a high-res raw image
+Done 2026-07-28: cropped in Preview to just the schematic (confirmed
+against the PDF's embedded scan — native 600 PPI, so this is the true
+resolution ceiling, not an arbitrary choice), exported to
+=schematic/raw/er-420-schematic.png= at 5623 x 4061px / 600 DPI. This
+file is now untouchable going forward.
+
+** DONE Pick a grid size and test it
+Done 2026-07-28: 12 x 9 (validated against the 1500px tile ceiling
+before running, not just eyeballed) — cell 468 x 451px. Checked
+against the actual sheet; legible, cell boundaries land sensibly.
+
+** DONE Generate the real grid
+=schematic/er-420-schematic-grid.png= and =-cells.png= written.
+=grid.sh= needed a =-font= fix first — ImageMagick had no font
+database registered on a fresh Homebrew install (=magick -list font=
+came back empty); pointed it at a real font file directly
+(=/System/Library/Fonts/Supplemental/Andale Mono.ttf=) rather than
+relying on name resolution.
+
+** DONE Record the grid in ZONES.org
+12 x 9, cell 468 x 451.
+
+** DONE Choose tile size and stride, respecting the 1500px limit
+Kept =tiles.sh='s defaults — 3x3 cells, stride 2 — since 12x9 was
+chosen specifically to keep 3x3 tiles under the ceiling (1404 x
+1353px, confirmed after generation).
+
+** DONE Generate tiles
+20 tiles written to =schematic/tiles/=. Spot-checked one
+(tile-C1-E3) — every component value and designator reads cleanly at
+full resolution.
+
+** TODO Walk the whole sheet, fill in ZONES.org's subsystem table
+Power supply, Phono EQ, FM front end, FM IF, Ratio detector, AM
+section, Multiplex, Tone/preamp, Driver, Output stage, Selector
+switch — replace the current placeholder ranges with real ones. Worth
+doing for the whole sheet even with aux-only scope right now — the map
+is needed later when phono and RF get picked back up.
+
+** TODO Crop sections for what's actually in scope
+Aux-only means power supply, the shared tone/preamp/driver chain,
+output stage, and the relevant switches — not phono EQ or the
+tuner/MPX sections yet. Into =schematic/sections/=, named like
+ZONES.org's own example (=G1-H3-power-supply.png=).
+
 * TODO Phase 0 — Before the cover comes off [0/4]
 
 ** TODO Do not plug it in

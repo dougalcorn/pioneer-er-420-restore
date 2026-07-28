@@ -1,0 +1,61 @@
+#+TITLE: Schematic extraction and gridding — 2026-07-28
+#+DATE: 2026-07-28
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Extract the schematic at full resolution, grid and tile it for
+reference, and check the service manual for anything else worth
+pulling out before retiring it from active use.
+
+* Work
+
+Cropped page 2 of the manual to just the schematic in Preview and
+exported to =schematic/raw/er-420-schematic.png=. Checked the PDF's
+embedded scan with =pdfimages -list= first — native 600 PPI, so that's
+the true resolution ceiling, not a guess. Came out 5623 x 4061px.
+
+=scripts/grid.sh= failed on a fresh ImageMagick install — no font
+database registered at all. Fixed by pointing =-font= at a real font
+file directly instead of relying on name resolution.
+
+Picked 12 x 9 (cell 468 x 451px), validated against =tiles.sh='s
+~1500px downsample ceiling before running rather than after. Ran
+=grid.sh=, then =tiles.sh= with its 3x3-cell/stride-2 defaults — 20
+tiles, 1404 x 1353px each. Spot-checked one; every value and
+designator reads cleanly at full resolution.
+
+Reading the grid legend resolved S9 — line voltage selector
+(115V/230V), confirmed directly rather than left as a guess. Updated
+bom.org.
+
+Reviewed the rest of the manual for completeness. Parts lists and
+alignment procedures are fully covered already (bom.org, and
+correctly excluded per the RF/MPX scope decision). Pulled the power
+circuit and audio circuit troubleshooting tables into
+troubleshooting.org — the only in-scope content that wasn't captured
+anywhere yet.
+
+* Measurements
+
+None — no bench work this session.
+
+* Open questions
+
+The schematic legend labels VR5/VR6 "LEFT/RIGHT PHONO HUM ADJ,"
+while restoration-plan.org's Phase 8 calls V1/V2 "the phono input
+tubes." V1/V2 are shared first-gain-stage tubes for every input
+though, not phono-exclusive — worth tracing whether this adjustment
+is genuinely phono-only or matters for aux too before assuming either
+way at Phase 8.
+
+Still open from the manual review, not urgent: the layout page/block
+diagram and the dial cord stringing diagram aren't captured anywhere.
+Phase 9's dial-cord TODO still points at "p.2 of the manual," which
+won't resolve once the PDF isn't in active use.
+
+* Next
+
+Walk the tiles, fill in ZONES.org's subsystem table, then crop the
+in-scope sections (power supply, shared audio chain, output stage,
+relevant switches) — Phase -1's two remaining steps.

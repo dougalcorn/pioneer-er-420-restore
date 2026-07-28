@@ -27,6 +27,7 @@ OUTDIR="${4:-$(dirname "$IN")}"
 LINES="${LINES:-0}"
 COLOR="${COLOR:-#FF00FF}"   # magenta — cannot be mistaken for wiring
 MARGIN="${MARGIN:-70}"
+FONT="${FONT:-/System/Library/Fonts/Supplemental/Andale Mono.ttf}"
 
 if command -v magick >/dev/null 2>&1; then
   MAGICK="magick"                    # ImageMagick 7
@@ -76,7 +77,7 @@ if [ "$LINES" = "1" ]; then
   done
 fi
 
-eval $MAGICK "\"$IN\"" -fill "\"$COLOR\"" -stroke "\"$COLOR\"" -strokewidth 1 \
+eval $MAGICK "\"$IN\"" -font "\"$FONT\"" -fill "\"$COLOR\"" -stroke "\"$COLOR\"" -strokewidth 1 \
   -pointsize "$PT_CELL" $draw_cells "\"${OUTDIR}/${BASE}-cells.png\""
 
 # --------------------------------------------------------------- gridded copy
@@ -103,7 +104,7 @@ done
 
 eval $MAGICK "\"${OUTDIR}/${BASE}-cells.png\"" \
   -bordercolor white -border "$MARGIN" \
-  -fill "\"$COLOR\"" -stroke "\"$COLOR\"" -strokewidth 2 \
+  -font "\"$FONT\"" -fill "\"$COLOR\"" -stroke "\"$COLOR\"" -strokewidth 2 \
   -pointsize "$PT_MARG" -gravity NorthWest $draw_grid \
   "\"${OUTDIR}/${BASE}-grid.png\""
 
