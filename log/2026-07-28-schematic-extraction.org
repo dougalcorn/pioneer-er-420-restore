@@ -27,27 +27,27 @@ designator reads cleanly at full resolution.
 
 Reading the grid legend resolved S9 — line voltage selector
 (115V/230V), confirmed directly rather than left as a guess. Updated
-bom.org.
+[[file:../bom.org][bom.org]].
 
 Reviewed the rest of the manual for completeness. Parts lists and
-alignment procedures are fully covered already (bom.org, and
+alignment procedures are fully covered already ([[file:../bom.org][bom.org]], and
 correctly excluded per the RF/MPX scope decision). Pulled the power
 circuit and audio circuit troubleshooting tables into
-troubleshooting.org — the only in-scope content that wasn't captured
+[[file:../troubleshooting.org][troubleshooting.org]] — the only in-scope content that wasn't captured
 anywhere yet.
 
 Walked all 24 tiles (the original 20 plus 4 supplementary — tiles.sh's
 coverage math never reaches the last column at 12 cols/3-cell
 tiles/stride 2, patched with direct crops rather than changing the
-script's defaults) and filled in ZONES.org's subsystem table with
+script's defaults) and filled in [[file:../schematic/ZONES.org][ZONES.org]]'s subsystem table with
 real zones. Two findings worth more than a table cell: "Phono EQ"
 isn't a distinct block — the phono jacks feed a plain resistor divider
 straight into the shared preamp, no RIAA network to point to — and S1
 (input selector) is drawn in four disconnected wafer sections spanning
 nearly the whole sheet (C1-G7), not one zone.
 
-Created =schematic/circuit-notes.org= for subsystem-level findings —
-one heading per subsystem, same list as ZONES.org's table, so the
+Created [[file:../schematic/circuit-notes.org][circuit-notes.org]] for subsystem-level findings —
+one heading per subsystem, same list as [[file:../schematic/ZONES.org][ZONES.org]]'s table, so the
 index stays lean (zones/board only) and the actual tracing notes live
 somewhere consolidated instead of fragmenting into a file per
 subsystem. Moved the Phono EQ and S1 findings there, plus general
@@ -63,13 +63,13 @@ noticed C99's three sections (40+20+20µF) may land at three different
 points along the B+ dropping-resistor chain (R111→R112/R113→R114/
 R115→R116/R117) rather than one shared node — not confirmed, but
 directly relevant to the discrete rebuild if true. Corrected Driver
-and Output stage zones in ZONES.org to extend into column F, which
+and Output stage zones in [[file:../schematic/ZONES.org][ZONES.org]] to extend into column F, which
 the original walk had missed.
 
 Decided against curated crops in =schematic/sections/= — the
 generated tiles already cover everything at a legible size, so
 copying them into a second directory under new names would just be
-duplicate pixels on disk. Pointed ZONES.org's subsystem table at the
+duplicate pixels on disk. Pointed [[file:../schematic/ZONES.org][ZONES.org]]'s subsystem table at the
 relevant =tiles/= filenames directly instead (as proper org
 =[[file:]]= links), noting where Driver and Output stage share the
 same tiles since they're adjacent stages on the same rows. Phase -1
@@ -82,7 +82,7 @@ None — no bench work this session.
 * Open questions
 
 The schematic legend labels VR5/VR6 "LEFT/RIGHT PHONO HUM ADJ,"
-while restoration-plan.org's Phase 8 calls V1/V2 "the phono input
+while [[file:../er-420-restoration-plan.org][restoration-plan.org]]'s Phase 8 calls V1/V2 "the phono input
 tubes." V1/V2 are shared first-gain-stage tubes for every input
 though, not phono-exclusive — worth tracing whether this adjustment
 is genuinely phono-only or matters for aux too before assuming either

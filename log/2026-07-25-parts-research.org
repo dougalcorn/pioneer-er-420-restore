@@ -38,7 +38,7 @@ twist-lock cans (period-correct look), restuffing the originals (most
 authentic, most work), or discrete caps underneath with the original
 can left in place cosmetically (easiest/cheapest, nothing shows from
 outside). Landed on discrete — decided 2026-07-27, see
-restoration-plan.org Phase 4.
+[[file:../er-420-restoration-plan.org][restoration-plan.org]] Phase 4.
 
 **What's staying original.** Mica, ceramic disc, polyethylene, and
 stirol (polystyrene) caps essentially don't fail with age — that
@@ -50,7 +50,7 @@ the MPX section ever gets used. Mylar (C9, C10, C21, C22, C49–C52) is
 generally reliable — test rather than replace outright.
 
 Order placed with Mouser (281232819, $79.42) covering the above plus
-fuses. Designator-level detail lives in bom.org now, not here.
+fuses. Designator-level detail lives in [[file:../bom.org][bom.org]] now, not here.
 
 * Measurements
 
@@ -68,7 +68,7 @@ Mylars, out of scope now that the aux-only decision is settled, and
 staying untouched regardless.)
 
 Whether C96 actually needs this part is still open — that's
-restoration-plan.org Phase 2's "Trace C96," not tracked here.
+[[file:../er-420-restoration-plan.org][restoration-plan.org]] Phase 2's "Trace C96," not tracked here.
 
 * Next
 

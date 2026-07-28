@@ -36,7 +36,7 @@ duplicate copies of the same pixels onto disk.
 
 AM section and FM front end overlap in zone range (G1-I5 / G1-H5)
 because they share the front-end module and are drawn interleaved
-rather than side by side. See =circuit-notes.org= for what's actually
+rather than side by side. See [[file:circuit-notes.org]] for what's actually
 been learned about each subsystem, rather than just where it sits.
 
 Tiles covering what's currently in scope (aux-only — power supply,

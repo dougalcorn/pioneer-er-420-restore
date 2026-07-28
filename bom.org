@@ -15,9 +15,9 @@ service manual's own three parts lists:
 - =Main= the main chassis board
 - =Front End= AM0111(U), the FM tuner front-end module, 300-series designators
 - =MPX= AM0103A, the multiplex/stereo decoder module, 500-series designators
-  — not currently in use, see restoration-plan.org Phase 9.
+  — not currently in use, see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 9.
 
-Zone is blank throughout — fill in once schematic/ZONES.org has real
+Zone is blank throughout — fill in once [[file:schematic/ZONES.org][ZONES.org]] has real
 grid coordinates.
 
 Notes belong in a bullet list under each table, keyed by Ref/Item —
@@ -182,7 +182,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 |------+-----+--+--------------+--------+-----+------+--+------+--+--|
 
 Notes:
-- C99, C100 :: discrete rebuild (47+22+22µF per can), can left in place cosmetically — see restoration-plan.org Phase 4
+- C99, C100 :: discrete rebuild (47+22+22µF per can), can left in place cosmetically — see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 4
 - C101, C102 :: voltage doubler, ~190V per cap
 - C502, C506 :: cheap insurance — MPX not in use but shares a rail
 - C507, C508 :: original manual part number AC3501A
@@ -495,7 +495,7 @@ Notes:
 - FM Front-end assembly, MPX unit assembly :: whole sub-board, not itemized further here
 - Neon lamp (FM stereo indicator) :: front panel, right of dial; driven by MPX circuit
 - Fuse :: 5x Littelfuse 0313002.MXP (3AG 2A slo-blo) + 5x Bel Fuse 0618002.MXP (5x20mm 2A slo-blo) — two holder sizes covered
-- Line cord :: 2-prong, non-polarized (original); see restoration-plan.org Phase 4 for 3-wire conversion decision
+- Line cord :: 2-prong, non-polarized (original); see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 4 for 3-wire conversion decision
 * Order log
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.

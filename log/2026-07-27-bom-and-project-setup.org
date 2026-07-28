@@ -6,7 +6,7 @@
 
 Reconcile the files Claude Desktop produced two days ago (shopping
 list, restoration plan, Mouser receipt) with the actual repo
-structure, fully populate bom.org from the service manual and the
+structure, fully populate [[file:../bom.org][bom.org]] from the service manual and the
 first order, and get org-agenda actually tracking this project.
 
 * Work
@@ -16,7 +16,7 @@ Filed the Mouser receipt into =receipts/=, renamed to
 
 Read the service manual's three parts lists (main chassis,
 =PARTS LIST OF FM FRONT-END=, =PARTS LIST OF MULTIPLEX SECTION=) and
-transcribed all of it into bom.org — Capacitors, Resistors,
+transcribed all of it into [[file:../bom.org][bom.org]] — Capacitors, Resistors,
 Potentiometers, Coils/Chokes & Transformers, Tubes and Diodes,
 Switches, Miscellaneous. Every row started at =Status: spec=. Added a
 =Board= column (Main / Front End / MPX) so parts are traceable to
@@ -40,7 +40,7 @@ directly. Dropped the separate Controls section afterward — Noisy?/
 Cleaned? columns now live directly on the Potentiometers and Switches
 tables instead.
 
-Simplified bom.org's status tracking: dropped the redundant =Ord=/
+Simplified [[file:../bom.org][bom.org]]'s status tracking: dropped the redundant =Ord=/
 =In= columns in favor of a single =Status= field (spec / keep /
 ordered / installed) — Doug did the column deletion by hand with
 =org-table-delete-column= and split the C99/C100 rows into one row
@@ -48,16 +48,16 @@ per discrete section rather than cramming three part numbers into one
 cell.
 
 Retired =er-420-recap-shopping-list.org= — its designator tables were
-now redundant with bom.org, its "before ordering" checklist was
-already duplicated in restoration-plan.org Phase 2. The reasoning that
+now redundant with [[file:../bom.org][bom.org]], its "before ordering" checklist was
+already duplicated in [[file:../er-420-restoration-plan.org][restoration-plan.org]] Phase 2. The reasoning that
 had no other home (oil paper failure mode, E12 substitution rationale,
 the C99/C100 options comparison, why most of the caps are staying
-original) moved into log/2026-07-25-parts-research.org. One safety
+original) moved into [[file:2026-07-25-parts-research.org][log/2026-07-25-parts-research.org]]. One safety
 point not captured elsewhere (high voltage isn't only in the caps —
-tube sockets and terminal strips too) went into restoration-plan.org's
+tube sockets and terminal strips too) went into [[file:../er-420-restoration-plan.org][restoration-plan.org]]'s
 Standing Rules.
 
-Turned restoration-plan.org into a living document rather than a
+Turned [[file:../er-420-restoration-plan.org][restoration-plan.org]] into a living document rather than a
 static checklist — decisions get recorded inline on the relevant TODO
 as they're made (the C99/C100 "Chosen approach" line is the model for
 this). Created open-questions.org at one point as a centralized
@@ -67,11 +67,11 @@ surface in org-agenda, not copied into a separate file that requires
 remembering to promote things into it. Its three seed entries
 redistributed: the 280V cap question became a TODO here in the
 parts-research log, the R77/R79/R80 discrepancy folded into
-restoration-plan.org's existing Phase 2 TODO, and the C99/C100
+[[file:../er-420-restoration-plan.org][restoration-plan.org]]'s existing Phase 2 TODO, and the C99/C100
 mounting question needed no new home since Phase 4 already asks for
 it.
 
-Gave every Phase heading in restoration-plan.org a TODO keyword and a
+Gave every Phase heading in [[file:../er-420-restoration-plan.org][restoration-plan.org]] a TODO keyword and a
 statistics cookie ([0/4], [0/13], etc.) so phase completion rolls up
 automatically in org-agenda as sub-TODOs get marked done.
 
@@ -89,9 +89,9 @@ org-agenda properly scoped to this project (Doug ended up using a
 projectile-based dynamic command rather than a static file list, so
 new log files show up automatically without reloading config).
 
-Committed everything in stages: bom.org's initial population, the
+Committed everything in stages: [[file:../bom.org][bom.org]]'s initial population, the
 order reconciliation + receipt + parts-research log, and
-restoration-plan.org as its own commit.
+[[file:../er-420-restoration-plan.org][restoration-plan.org]] as its own commit.
 
 * Measurements
 
@@ -101,8 +101,8 @@ None — this was entirely file organization and tooling, no bench work.
 
 Already tracked where they're relevant rather than repeated here:
 what the spare 280V 0.047µF caps are for (TODO above, this file), the
-R77/R79/R80 divider tracing (restoration-plan.org Phase 2), and S9's
-identity (bom.org Switches table, still blank).
+R77/R79/R80 divider tracing ([[file:../er-420-restoration-plan.org][restoration-plan.org]] Phase 2), and S9's
+identity ([[file:../bom.org][bom.org]] Switches table, still blank).
 
 * Next
 

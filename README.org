@@ -10,9 +10,9 @@ Where this particular unit came from: [[file:history.org]].
 * Start here
 
 - =CLAUDE.md= — conventions, and how I want Claude to engage with this project
-- =er-420-restoration-plan.org= — the living phase-by-phase plan; what's done and what's next
-- =schematic/ZONES.org= — the schematic index; read before opening any image
-- =bom.org= — one row per component; the file that makes review possible
+- [[file:er-420-restoration-plan.org]] — the living phase-by-phase plan; what's done and what's next
+- [[file:schematic/ZONES.org]] — the schematic index; read before opening any image
+- [[file:bom.org]] — one row per component; the file that makes review possible
 
 * Conventions
 

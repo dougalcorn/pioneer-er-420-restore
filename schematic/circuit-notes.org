@@ -5,8 +5,8 @@
 
 Subsystem-level findings and tracing notes — what's been learned about
 how each block actually works, not just where it sits. Zone ranges and
-board assignment stay in ZONES.org; this is the "what did we figure
-out" layer. One heading per subsystem, same list as ZONES.org's table.
+board assignment stay in [[file:ZONES.org][ZONES.org]]; this is the "what did we figure
+out" layer. One heading per subsystem, same list as [[file:ZONES.org][ZONES.org]]'s table.
 
 * Power supply
 

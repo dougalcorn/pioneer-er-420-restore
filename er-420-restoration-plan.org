@@ -40,7 +40,7 @@ came back empty); pointed it at a real font file directly
 (=/System/Library/Fonts/Supplemental/Andale Mono.ttf=) rather than
 relying on name resolution.
 
-** DONE Record the grid in ZONES.org
+** DONE Record the grid in [[file:schematic/ZONES.org][ZONES.org]]
 12 x 9, cell 468 x 451.
 
 ** DONE Choose tile size and stride, respecting the 1500px limit
@@ -53,7 +53,7 @@ chosen specifically to keep 3x3 tiles under the ceiling (1404 x
 (tile-C1-E3) — every component value and designator reads cleanly at
 full resolution.
 
-** DONE Walk the whole sheet, fill in ZONES.org's subsystem table
+** DONE Walk the whole sheet, fill in [[file:schematic/ZONES.org][ZONES.org]]'s subsystem table
 Done 2026-07-28, all 24 tiles (including 4 supplementary ones — the
 original 20 missed column 12 entirely, tiles.sh's coverage math
 doesn't reach the last column at 12 cols/3-cell tiles/stride 2).
@@ -65,12 +65,12 @@ tracing whenever phono work resumes. And S1 (input selector) is drawn
 in four disconnected wafer sections spanning nearly the whole sheet
 (C1 to G7) — no single zone for it.
 
-** DONE Point ZONES.org at the tiles covering what's in scope
+** DONE Point [[file:schematic/ZONES.org][ZONES.org]] at the tiles covering what's in scope
 Done 2026-07-28: no separate =sections/= crops needed — the
 generated tiles already cover everything at a legible size, so this
 became listing which =tiles/= filenames cover each in-scope
 subsystem (power supply, tone/preamp, driver, output stage) directly
-in ZONES.org, rather than cropping duplicate copies onto disk.
+in [[file:schematic/ZONES.org][ZONES.org]], rather than cropping duplicate copies onto disk.
 
 * TODO Phase 0 — Before the cover comes off [0/4]
 
