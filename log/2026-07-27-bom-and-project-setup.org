@@ -1,0 +1,112 @@
+#+TITLE: BOM buildout and project setup — 2026-07-27
+#+DATE: 2026-07-27
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Reconcile the files Claude Desktop produced two days ago (shopping
+list, restoration plan, Mouser receipt) with the actual repo
+structure, fully populate bom.org from the service manual and the
+first order, and get org-agenda actually tracking this project.
+
+* Work
+
+Filed the Mouser receipt into =receipts/=, renamed to
+=2026-07-26-mouser-recap-caps-fuses.pdf=.
+
+Read the service manual's three parts lists (main chassis,
+=PARTS LIST OF FM FRONT-END=, =PARTS LIST OF MULTIPLEX SECTION=) and
+transcribed all of it into bom.org — Capacitors, Resistors,
+Potentiometers, Coils/Chokes & Transformers, Tubes and Diodes,
+Switches, Miscellaneous. Every row started at =Status: spec=. Added a
+=Board= column (Main / Front End / MPX) so parts are traceable to
+which physical sub-assembly they live on.
+
+Reconciled Mouser order 281232819 against the shopping list and the
+manual's designators: 31 capacitors plus fuses moved to
+=Status: ordered= with Replacement value and Mfr PN filled in. Landed
+on discrete caps underneath the original can for the C99/C100 rebuild
+(47+22+22 µF, 450V) — confirmed by the order quantities matching that
+approach rather than a drop-in can replacement.
+
+Worked out the front-panel switch/pot-to-schematic-symbol mapping
+across several rounds: S1 Selector, S2 Mode, S3 Tape Monitor, S4
+Loudness, S5 High Filter, S6 Low Filter, S7 Speaker Impedance
+Selector (rear, confirmed Glide not Slide), S8 Speaker, S10 Power
+(Rotary, not Slide — corrected an assumption of mine), S11 AM
+Sharp/Broad which doubles as FM AFC on the same switch. S9 is still
+unidentified. VR1–VR4 (Balance/Volume/Treble/Bass) matched the manual
+directly. Dropped the separate Controls section afterward — Noisy?/
+Cleaned? columns now live directly on the Potentiometers and Switches
+tables instead.
+
+Simplified bom.org's status tracking: dropped the redundant =Ord=/
+=In= columns in favor of a single =Status= field (spec / keep /
+ordered / installed) — Doug did the column deletion by hand with
+=org-table-delete-column= and split the C99/C100 rows into one row
+per discrete section rather than cramming three part numbers into one
+cell.
+
+Retired =er-420-recap-shopping-list.org= — its designator tables were
+now redundant with bom.org, its "before ordering" checklist was
+already duplicated in restoration-plan.org Phase 2. The reasoning that
+had no other home (oil paper failure mode, E12 substitution rationale,
+the C99/C100 options comparison, why most of the caps are staying
+original) moved into log/2026-07-25-parts-research.org. One safety
+point not captured elsewhere (high voltage isn't only in the caps —
+tube sockets and terminal strips too) went into restoration-plan.org's
+Standing Rules.
+
+Turned restoration-plan.org into a living document rather than a
+static checklist — decisions get recorded inline on the relevant TODO
+as they're made (the C99/C100 "Chosen approach" line is the model for
+this). Created open-questions.org at one point as a centralized
+question tracker, then retired it again in the same session once the
+better fit became clear: questions belong inline, tagged so they
+surface in org-agenda, not copied into a separate file that requires
+remembering to promote things into it. Its three seed entries
+redistributed: the 280V cap question became a TODO here in the
+parts-research log, the R77/R79/R80 discrepancy folded into
+restoration-plan.org's existing Phase 2 TODO, and the C99/C100
+mounting question needed no new home since Phase 4 already asks for
+it.
+
+Gave every Phase heading in restoration-plan.org a TODO keyword and a
+statistics cookie ([0/4], [0/13], etc.) so phase completion rolls up
+automatically in org-agenda as sub-TODOs get marked done.
+
+Spent a while debugging why the Phase-level TODOs weren't showing up
+in org-agenda at all while the ordinary sub-TODOs were — chased a
+stale restriction lock, an "e" custom command with a bad match
+argument (=(todo "")= doesn't mean "all keywords" the way =alltodo=
+does), and finally found the real cause: old copies of both
+=er-420-recap-shopping-list.org= and =er-420-restoration-plan.org=
+were sitting inside the music-map directory tree from before the
+projects were split apart, and =org-agenda-files= only pointed at
+music-map — so every scan was quietly reading the stale duplicates
+instead of the real files here. Deleted the duplicates and set up
+org-agenda properly scoped to this project (Doug ended up using a
+projectile-based dynamic command rather than a static file list, so
+new log files show up automatically without reloading config).
+
+Committed everything in stages: bom.org's initial population, the
+order reconciliation + receipt + parts-research log, and
+restoration-plan.org as its own commit.
+
+* Measurements
+
+None — this was entirely file organization and tooling, no bench work.
+
+* Open questions
+
+Already tracked where they're relevant rather than repeated here:
+what the spare 280V 0.047µF caps are for (TODO above, this file), the
+R77/R79/R80 divider tracing (restoration-plan.org Phase 2), and S9's
+identity (bom.org Switches table, still blank).
+
+* Next
+
+Physical work hasn't started yet. Phase 0: print the schematic large,
+build or borrow the dim bulb tester, set up the photo workflow. Then
+Phase 1 — unplug, remove the cover, discharge and verify every
+capacitor section before anything else happens.
