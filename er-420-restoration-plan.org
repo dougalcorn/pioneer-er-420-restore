@@ -57,7 +57,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [0/13]
+* TODO Phase 2 — Survey before touching anything [1/14]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -80,21 +80,32 @@ truth.
 ** TODO Measure clearance at C101 / C102
 Incoming parts are 18 × 25 mm. Note original size and orientation.
 
-** TODO Trace C94, C95, C96
-The decision point for safety caps.
-- Line-to-chassis → Y2 (or delete, if converting to 3-wire)
-- Line-to-neutral → X2
-- Elsewhere → ordinary film, already covered
+** TODO Verify C94, C95 identity, then pull
+3-wire conversion decided — these come out and stay out regardless of
+where exactly they sit. Visually confirm they're actually C94/C95
+(0.002µF +100%/-0% 1400V per the manual) before removing anything, so
+nothing else gets mistaken for them.
+
+** TODO Trace C96
+Still the open decision point. Three outcomes:
+- *Line-to-chassis* → needs a Y2-rated safety cap. Nothing ordered
+  for this yet — the X2 part on hand does not cover this duty; would
+  need to source a proper Y2 part first.
+- *Line-to-neutral* → X2-rated. Candidate already on hand: KEMET
+  PHE840MK5470MK04R17 (280V, 0.047µF, X2).
+- *Elsewhere* (ordinary coupling position) → covered by the standard
+  630V film batch already ordered (667-ECW-FD2J473J4).
 
 ** TODO Inspect the line cord
 Flex along its length. Stiff, cracked, or crazed → replace. Supple and
 intact → optional.
 
-** TODO Decide: 2-wire or 3-wire grounded conversion
-This gates the safety cap order. See Phase 4.
+** DONE Decide: 2-wire or 3-wire grounded conversion
+Decided 2026-07-28: 3-wire. Gates C94/C95's removal and the rest of
+the safety cap disposition — see Phase 4.
 
 ** TODO Verify R77/R79/R80 connection point
-Do the feadphone divider resistors tap in *before* or *after* S8? If
+Do the headphone divider resistors tap in *before* or *after* S8? If
 before, the secondary always sees ~100 Ω and "speakers off" is safe
 with nothing plugged in. If after, it does not.
 
@@ -112,8 +123,7 @@ substitutions. Check for obvious shorts with the DMM.
 replacements. If any leak, order before you get further.
 
 ** TODO Test remaining Mylars
-C9, C10, C21, C22 (0.1 µF); C501, C514, C516 (0.05 µF); C509 (0.5 µF);
-C512 (0.7 µF).
+C9, C10, C21, C22 (0.1 µF) — audio chain, in scope.
 
 ** TODO In-circuit resistor sweep
 In-circuit readings can only read *low*, never high — parallel paths
@@ -146,7 +156,7 @@ travel repeatedly.
 Pull each tube, note position, clean pins, reseat. Poor socket contact
 is a top cause of noise and intermittents.
 
-* TODO Phase 4 — Power supply [0/8]
+* TODO Phase 4 — Power supply [0/9]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -176,9 +186,14 @@ Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
 - Restuff: gut can, fit radials inside, reinstall.
 - Hayseed / CE Mfg: bolt-in, no decisions.
 
-** TODO C94, C95, C96 per Phase 2 findings
-3-wire conversion → C94/C95 come out and stay out. C96 stays if it's
-across the line (X2).
+** TODO C94, C95 — remove
+Come out and stay out under the 3-wire conversion. Pending only the
+Phase 2 visual ID check, not a trace.
+
+** TODO C96 — install per Phase 2 trace result
+Whichever of the three Phase 2 outcomes applies: Y2 (not yet sourced),
+X2 (PHE840MK5470MK04R17, in hand), or the standard 630V film (in
+hand, part of the batch order).
 
 ** TODO C11, C12 → 22 µF 450 V
 ** TODO C61 → 10 µF 450 V

@@ -122,7 +122,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C93  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
 | C94  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |                                                    |
 | C95  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |                                                    |
-| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |                                                    |
+| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
 | C97  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |                                                    |
 | C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |                                                    |
 | C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 | Ordered discrete                                   |
