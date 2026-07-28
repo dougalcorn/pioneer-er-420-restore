@@ -1,0 +1,84 @@
+#+TITLE: ER-420 Troubleshooting Reference
+#+CATEGORY: er420
+#+STARTUP: overview
+#+FILETAGS: :audio:restoration:er420:
+
+Transcribed from the service manual's own troubleshooting section
+(pages 17-18). Covers the power supply and audio chain only — the
+AM/FM tuner and MPX troubleshooting tables are deliberately left out,
+same scope decision as the rest of this restoration.
+
+* Power Circuit
+
+** Does not light up or function at all
+
+1. No power supplied.
+   a. Severed power cable — check where cable enters plug.
+   b. Defective power switch — check contact point.
+   c. Fuse blown or no fuse inserted — replace or insert new fuse.
+2. Fuse blows.
+   a. Power transformer heats up — short between transformer winding
+      layers.
+   b. Defective insulation in OPT between primary and secondary —
+      replace OPT.
+   c. Short between electrodes in tubes or diodes — mainly in
+      rectifier or power tube.
+   d. Defective electrolytic capacitor — mainly in ripple filter
+      circuit.
+3. Emits smoke.
+   a. Short in filament wiring — check wiring by removing tubes.
+   b. Defective tube socket — mainly poor insulation of wafer-type
+      socket.
+
+** Lights up, but does not function
+
+1. Insufficient plate voltage.
+   a. Rectifier tube/diode burned out — replace tube or diode.
+   b. Resistor in ripple filter circuit burned out — replace
+      resistor.
+   c. No rectifier.
+2. No voltage at plate circuit.
+   a. Primary windings of OPT burned out.
+
+* Audio Circuit
+
+** Does not function
+
+1. Power amplifier section.
+   a. Severed output transformer(s) windings (primary and secondary).
+   b. Power output tubes damaged or heaters burned out.
+   c. Plate load resistors between stages burned out.
+   d. Bias resistor in cathode circuit burned out.
+2. Preamplifier section.
+   a. Plate load resistors between stages burned out.
+   b. Poor contact(s) in input selector switch or mode switch.
+   c. Defective cathode resistor.
+   d. Defective de-coupling resistors between stages.
+   e. Defective tubes.
+
+** Noises
+
+1. Tubes — defective tubes.
+2. Resistors — defective plate resistors, negative feedback
+   resistors, or cathode resistors.
+3. Capacitors — defective capacitor in the coupling/phase
+   compensation circuit.
+4. Potentiometers — noise from a defective volume control or other
+   variable resistor.
+
+** Hum
+
+1. Tubes — defective tubes, particularly a short between electrodes.
+2. Resistors — defective load resistor in the phase inverter circuit,
+   cathode end.
+3. Capacitors — defective electrolytic capacitor in the filter
+   circuit or de-coupling circuit.
+
+** Distortion
+
+1. Transformer — defective output transformer, output tubes, or
+   rectifier (tube or diode); short between primary and secondary.
+2. Capacitor — defective capacitor in the output tube bias circuit.
+3. Resistor — defective grid leak resistor.
+4. Rectifier — defective rectifier in the bias circuit, when a fixed
+   bias circuit is employed.
