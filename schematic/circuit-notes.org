@@ -10,6 +10,103 @@ out" layer. One heading per subsystem, same list as [[file:ZONES.org][ZONES.org]
 
 * Power supply
 
+C99 and C100 are each 3-section cans (schematic shows them as discrete
+20µF/350V sections cascaded down the B+ filter chain — raw 340V rail,
+through R116 1K/4W to one node, through R117 2K/8W to the next —
+rather than three sections all tapping the same node). Physically
+each can has 4 terminals: one common/negative lug plus one lug per
+section. Confirmed 2026-07-28 with a meter, not just wire color: the
+black-wire lug on both C99 and C100 reads continuity to chassis
+ground, matching a nearby tie-point strip's grounded center lug. The
+other three lugs on each can (orange wires) are the individual section
+taps and should NOT be assumed grounded — see [[file:../log/2026-07-28-first-teardown.org][today's log]] for the
+discharge procedure this informed.
+
+S9 (line voltage selector) has a plate screwed to the outside of the
+chassis that physically prevents it from sliding, printed "115V" on
+the visible face. Confirmed original, not a field addition: the other
+side of the plate reads "230V," and the chassis shows uniform patina
+all around it with a shiny, protected patch underneath — consistent
+with the plate having been mounted since near-manufacture, flipped to
+the correct face for the export market rather than added later.
+
+D3/D4 (SD-1A ×2) physically identified 2026-07-28: the two green
+diodes in the bottom-close-up-06 cluster. Per the schematic, D4 goes
+to ground and D3 goes to C101's hot ("+") side. DMM-confirmed: the
+lower diode in the photo is tied to the same grounded point as C102's
+negative terminal (C102 being the rear-panel-closest can) — so that
+diode is D4, not D3 as first guessed. This matches the manual's
+physical layout diagram exactly (C102 nearest the rear panel); there
+is no manual erratum here, unlike what was logged earlier. The other
+diode, tied directly to D4, is D3, and should land on C101's "+" —
+not yet independently confirmed which physical terminal that is.
+
+Wire colors at T9: the red wire from the top of T9 is the 130V AC
+winding's hot lead (feeds D3/D4) — a different wire than the red that
+goes to S9 (a primary lead). The black wire from the top of T9 ties
+to C102's *positive* terminal — a different terminal than D4's ground
+connection to C102's negative side. This completes a standard
+series-doubler picture: D3 → C101(+); C101(−)/C102(+) → the series
+junction, where the black wire from T9 lands; C102(−) → ground, where
+D4 lands. Confirms wire colors repeat across different windings on
+this transformer, not unique per lead.
+
+T9 lead tracing, 2026-07-28: primary is 4 wires — white, orange,
+yellow, red — confirmed by all four landing directly on S9 (which
+only switches the primary). White+orange pair opposite yellow+red at
+the switch, consistent with two 115V half-windings wired parallel for
+115V or series for 230V. All four primary leads exit the same
+physical side of T9, alongside two more wires (blue, green) that are
+NOT primary — they go elsewhere, presumably secondary. The other side
+of T9 has 4 more wires: 2×blue, black, red — also secondary. So
+leads aren't split cleanly primary-side/secondary-side on this
+transformer; S9's known function was the reliable way to identify the
+primary leads, not physical position.
+
+Secondary winding count doesn't obviously reconcile: the schematic
+shows ~5 secondary functions (6.3V/4.8A heater, a separate 6.3V/3.6A
+heater, V1's and V2's individual hum-balance heater taps via VR5/VR6,
+and the 130V AC winding feeding D3/D4), but only 6 secondary wires
+exist total. Likely one wire is a shared common return across
+multiple windings rather than each winding having its own independent
+pair — not yet confirmed by resistance grouping.
+
+Heater hum-balance components, clarified 2026-07-28: VR5 and VR6
+(100Ω, at H11 on the schematic) are adjustable hum-balance pots for
+V1's and V2's heater supply specifically — *not* cathode-related
+despite the "(K)" symbol next to each. Checked directly: V1/V2's own
+cathode circuits (tile-C1-E3) show no matching "(K)" symbol, just a
+plain cathode resistor to ground (e.g. R9 3k, 0.6V at V1) — an order
+of magnitude different from the "5.5V 0.3A" spec at VR5/VR6, which is
+a heater figure (6.3V winding sagging under load), not cathode bias.
+So "(K)" isn't used consistently for "cathode" across this sheet — it
+does mean cathode where it appears directly at V6-V9's own symbols in
+the output stage (next to real cathode resistors/bypass caps at
+sensible small voltages like 11V), but at H11 it's something else,
+possibly an arbitrary connector label in the original draftsman's
+convention.
+
+A third, physically-confirmed but not-yet-located-on-the-schematic
+heater-balance component exists at V8: a fixed wire-wound resistor
+(ends on V8 pins 4/5 — heater/filament, confirmed via EL84 datasheet)
+with an adjustable center tap (sliding clamp) grounded at the same
+local point C94/C95 also reference. Wiring is dressed under other
+factory wiring, consistent with an original component, not a field
+addition. Same function as VR5/VR6 (artificial center-tap for hum
+reduction) but fixed/grounded rather than adjustable/cathode-routed,
+and serving an output tube rather than a preamp tube. Not found on
+the schematic despite checking the output/driver and power supply
+tiles — possibly a running production change not reflected in this
+printed revision.
+
+V1/V2 aren't a phono-specific stage — see [[*Phono EQ][Phono EQ]] below: they're the
+shared first-gain stage for whichever input S1 selects. They warrant
+the extra hum-balance care regardless of source because they handle
+the lowest signal levels in the receiver (phono mag 2.7mV, tape head
+1.8mV, vs. 200mV for aux) — hum picked up here gets amplified by
+everything downstream, making this the most hum-sensitive point in
+the chain independent of which input is active.
+
 * Phono EQ
 
 Not a distinct physical block on this sheet. The phono jacks (PHONO
@@ -68,6 +165,51 @@ circuit when this comes up — not assumed from a textbook example.
 * Driver
 
 * Output stage
+
+V6-V9 are 6BQ5/EL84 (standard 9-pin) — pin 7 is the plate on this
+tube type, fixed by construction, not something that needs measuring.
+
+T7/T8 (output transformers, AT6123U) wiring traced 2026-07-28:
+- Primary side, three wires: red, brown, green. Red confirmed to V6
+  pin 7, green confirmed to V7 pin 7 (both plates, traced directly to
+  the tube socket) — so red/green are the two plate leads and brown
+  is the center tap by elimination.
+- Secondary side, three wires: blue, white, yellow — taps feeding S7
+  (impedance selector). Not individually traced to specific ohm taps
+  yet.
+- These colors are this transformer's own convention, not assumed
+  from a general (e.g. EIA) color code — confirm by tracing/measuring
+  on any similar part rather than reusing this key elsewhere.
+
+Schematic confirms T7 and T8's primary center taps are the *same
+electrical node* — a single continuous trace with a junction dot
+ties them together (tile-C10-E12, dot between the two transformers),
+one shared B+ feed for both channels' output stage, matching the
+335V figure at V6's plate. Physical access is asymmetric: T8's brown
+wire and the tie point were visible enough to trace directly, but
+T7's red/green/brown group is buried under other wiring and flat
+caps, so the brown-to-brown connection wasn't directly confirmed at
+the T7 end — inferred from the schematic and partial tracing at T8,
+not fully visually verified at both ends. Continuity check between
+T7's and T8's brown wires (expect a dead short) would close this out
+definitively.
+
+No-load damage check, done 2026-07-28 (both transformers still wired
+in-circuit, DMM resistance):
+- T8: brown-red 122Ω, brown-green 122Ω (primary halves matched).
+  Primary-to-secondary climbed slowly toward ~21kΩ rather than
+  settling — consistent with the in-circuit cathode bypass caps
+  (C53/C54) and ground returns charging under the meter's test
+  current, not a clean isolation reading, since the transformer isn't
+  lifted out of circuit. Not the low/stable reading that would
+  indicate arc damage.
+- T7: brown-red 127Ω, brown-green 128Ω (matched). Same slow-climb
+  primary-to-secondary behavior as T8.
+- Both transformers read consistent with each other and show no
+  signature of shorted turns or insulation breakdown. A fully clean
+  primary/secondary isolation reading would require lifting the leads
+  out of circuit — not done, not judged necessary given these
+  results. Real confirmation still comes at Phase 5 first power-up.
 
 * Selector switch
 

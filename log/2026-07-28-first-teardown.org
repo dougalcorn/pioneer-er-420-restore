@@ -1,0 +1,157 @@
+#+TITLE: First teardown — 2026-07-28
+#+DATE: 2026-07-28
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Remove the bottom cover, discharge and verify every capacitor
+section, and photograph the underside before anything gets touched.
+
+* Work
+
+Chronological. Reference photos inline where they happen; the
+surrounding sentence is the caption.
+
+Top case screws are flathead (2 per side), not JIS as the plan
+assumed — corrected in restoration-plan.org. All of them have factory
+paint-dot seals intact, never removed before.
+
+With the top off: all tubes visible, plus several of the big
+electrolytic cap cans.
+
+[[file:../photos/2026-07-28-top-cover-off-01.jpg]]
+
+Both output transformers (T7/T8, AT6123U) clearly visible in the
+overview shot — nothing obviously charred or bulging, but that's
+eyeballing, not a real check. Still want continuity/insulation
+checked given the possible no-load event from acquisition night.
+
+Photographed the back panel too. Located S7 and S9 by matching the
+rear legend plate against the physical switches:
+
+[[file:../photos/2026-07-28-back-panel-01.jpg]]
+[[file:../photos/2026-07-28-back-panel-02.jpg]]
+
+S9 (line voltage) is the switch tagged "115V," far left of the
+panel, right below the LINE VOLTAGE legend icon. S7 (speaker
+impedance) is the small slide switch next to the black 4-terminal
+block positioned near MPX SEPARATION, matching the legend's SPKR IMP
+icon. Photo-based match, not electrically traced yet. Updated
+bom.org.
+
+Discharged every capacitor section before going further. All read
+dead — no residual charge anywhere.
+
+While doing that, pinned down C99 and C100 physically: each is a
+3-section can with 4 terminals (one common + one per section), not
+the single node I'd assumed. Confirmed which terminal is common with
+a meter rather than guessing from wire color — black-wire lug on both
+cans reads continuity to chassis, matching a nearby tie-point strip's
+grounded center lug. Full writeup in [[file:../schematic/circuit-notes.org][circuit-notes.org]] under Power
+supply, including how the schematic shows these sections cascading
+down the B+ filter chain rather than all tapping one node.
+
+Also found the etched label on C99's own can — "ELYT.CAP. W. 40-20-20µF
+350V," pins numbered 1-4 with pin 4 marked NEG — matching the meter
+reading exactly, straight from the factory stamp:
+
+[[file:../photos/2026-07-28-c99-label-01.jpg]]
+
+C101/C102 (the voltage-doubler caps) physically measured too: can is
+67mm tall × 25mm dia, versus 71mm × 25mm for C99/C100. Confirmed which
+is which by tracing D3/D4 physically — see circuit-notes.org — and
+after an initial mix-up (logged, then corrected the same night), C102
+is the rear-panel-closest can, matching the manual's own layout
+diagram after all.
+
+Checked T7/T8 for no-load damage (S8 may have been left off while
+powered at acquisition — see [[file:../history.org][history.org]]). Primary halves matched well
+on both (T8: 122/122Ω, T7: 127/128Ω — no shorted turns), and
+primary-to-secondary showed a slow climb rather than a low stable
+reading on both, which is what arc damage would look like. Full
+writeup and caveats in circuit-notes.org; real confirmation still
+waits for Phase 5 first power-up.
+
+Spent a long stretch tracing T9 (the power transformer) and the
+130V/doubler circuit around D3, D4, C101, and C102 — wire colors,
+which side of T9 the primary vs. secondary leads exit from, and how
+D3/D4 relate to the two caps. Got the D3/D4 identification backwards
+at first (thought the diode touching the grounded cap terminal was
+D3; it's actually D4, per the schematic), corrected once the physical
+tracing was clear enough to be sure. Also traced V1/V2's hum-balance
+setup (VR5/VR6) and realized they're heater-related, not
+cathode-related, despite a "(K)" symbol on the schematic that reads
+like it should mean cathode — checked V1/V2's actual cathode circuits
+directly and they don't have a matching symbol, so this schematic
+apparently uses "(K)" for two different things in two different
+places. Full detail, all corrections included rather than just the
+final answer, in circuit-notes.org under Power supply.
+
+Found a probable running-production addition while looking at V8: a
+factory-wired heater hum-balance resistor (wire-wound, ends on V8
+pins 4/5, grounded center tap) that doesn't appear on the schematic
+despite checking the tiles that should show it. Wiring is dressed
+under other factory wiring, so it reads as original, not a field
+repair.
+
+Also confirmed C94/C95 physically — the two AC-line safety caps near
+the fuse holder and T9's primary, matched on both value (0.002µF) and
+position, with a caveat that the manual's 1400V spec and the printed
+150VAC marking are probably two different rating conventions rather
+than a contradiction:
+
+[[file:../photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+
+And a good originality find on S9: the locking plate that pins it to
+115V isn't a field addition — the back of the plate reads 230V, and
+the chassis shows uniform patina around it with a shiny protected
+patch underneath, consistent with it being mounted since
+near-manufacture and just flipped to the correct face for the US
+export market.
+
+Diagnosed S7 (the broken rear impedance selector): mechanical, not
+electrical. All parts are present and the wiring/solder joints look
+intact — the two small metal bridge contacts have simply come
+unglued from their grooves in the plastic slider.
+
+[[file:../photos/2026-07-29-s7-teardown-01.jpg]]
+[[file:../photos/2026-07-29-s7-teardown-02.jpg]]
+
+Looks repairable by re-gluing the contacts back into position rather
+than needing replacement or a hardwire-to-16Ω workaround — changes
+the framing of Phase 7's "repair vs. hardwire" question. Worth a
+dry-fit through the pin comb to confirm contact at both the 8Ω and
+16Ω positions before committing any adhesive, and keeping glue off
+the actual contact faces so the repair doesn't just trade a broken
+switch for a high-resistance one.
+
+Across the night, closed out Phase 0 down to just the dim bulb tester
+[3/4], all of Phase 1 [5/5], and Phase 2 up to [8/15] — see
+restoration-plan.org for the full breakdown of what's done.
+
+* Measurements
+
+- T8: primary brown-red 122Ω, brown-green 122Ω
+- T7: primary brown-red 127Ω, brown-green 128Ω
+- Both: primary-to-secondary climbed slowly toward roughly 21kΩ
+  rather than settling, in-circuit (not lifted out) — see
+  circuit-notes.org for why that's expected and not a red flag
+- C99/C100 can: 71mm tall × 25mm dia
+- C101/C102 can: 67mm tall × 25mm dia
+
+* Open questions
+
+- Secondary winding lead grouping on T9 doesn't obviously reconcile —
+  6 physical wires against roughly 5 secondary winding functions on
+  the schematic. Likely a shared common return; not confirmed by
+  resistance grouping yet.
+- D3's exact physical terminal (on C101) traced from the schematic but
+  not independently confirmed the way D4's was.
+- V8's heater-balance resistor still has no schematic designator.
+
+* Next
+
+Build or borrow the dim bulb tester — the one thing left in Phase 0.
+Re-glue S7's contacts (dry-fit first). Continue Phase 2: C94/C95
+removal, C96 trace, R77/R79/R80 divider tap, tube inventory, Mylar
+tests, in-circuit resistor sweep.
