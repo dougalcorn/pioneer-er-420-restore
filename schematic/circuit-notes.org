@@ -215,6 +215,23 @@ in-circuit, DMM resistance):
   out of circuit — not done, not judged necessary given these
   results. Real confirmation still comes at Phase 6 first power-up.
 
+R77/R78 (100Ω composition) and R79/R80 (wirewound, printed 16Ω —
+manual's parts list says 10Ω, physical part disagrees, trusting the
+physical marking) identified 2026-07-29. R77/R78 confirmed by color
+code (brown-black-brown-silver) and continuity to the headphone jack.
+R79/R80 confirmed by position: they tap in at the S7-to-S8 junction,
+*before* S8 (speakers on/off), not on the speaker-terminal side.
+
+This answers the standing question about S8 and no-load risk: with
+S8 switched off, T7/T8's secondary is not actually open — it still
+sees a real path through R79/R80 (16Ω) in series with R77/R78 (100Ω),
+roughly 116Ω, via the headphone circuit. Higher than the normal 8-16Ω
+speaker load, but a finite load, not an open secondary — the
+distinction the "never power up with the output transformer secondary
+open" standing rule actually cares about. Holds only if R77-R80 are
+themselves intact; an independent failure in any of the four would
+reopen the no-load risk.
+
 * Selector switch
 
 S1 (input selector) isn't a single localized block — it's drawn as

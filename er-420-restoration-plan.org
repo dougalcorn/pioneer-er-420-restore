@@ -127,7 +127,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [9/17]
+* TODO Phase 2 — Survey before touching anything [12/17]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -215,7 +215,10 @@ intact → optional.
 Decided 2026-07-28: 3-wire. Gates C94/C95's removal and the rest of
 the safety cap disposition — see Phase 5.
 
-** TODO 10. Verify R77/R79/R80 connection point
+** DONE 10. Verify R77/R79/R80 connection point
+CLOSED: [2026-07-29 Wed 22:18]
+- CLOSING NOTE [2026-07-29 Wed 22:18] \\
+  We verified that R79 and R80 are actually 16 Ohm wire wrap resistors. With S8 switched off, T7/T8's secondary is not actually open. It still sees the real path through R79/R80 in parallel with R77/R78 (100 Ohm).
 Do the headphone divider resistors tap in *before* or *after* S8? If
 before, the secondary always sees ~100 Ω and "speakers off" is safe
 with nothing plugged in. If after, it does not.
@@ -229,11 +232,19 @@ before relying on this grouping.
 Confirm all present and correct types per the parts list. Note any
 substitutions. Check for obvious shorts with the DMM.
 
-** TODO 12. Test C49, C50, C51, C52 (0.1 µF Mylar)
+** DONE 12. Test C49, C50, C51, C52 (0.1 µF Mylar)
+CLOSED: [2026-07-29 Wed 22:46]
+- CLOSING NOTE [2026-07-29 Wed 22:46] \\
+  I found all four capacitors near V6-V9. I did a simple continuity test on them
+  while in circuit none of them showed shorted it out. Did not lift a lead to be
+  completely certain. I'm pretty certain it's resin-dipped.
 *Priority.* These feed the output tube grids directly. You have no
 replacements. If any leak, order before you get further.
 
-** TODO 13. Test remaining Mylars
+** DONE 13. Test remaining Mylars
+CLOSED: [2026-07-29 Wed 23:12]
+- CLOSING NOTE [2026-07-29 Wed 23:12] \\
+  Continuity test shows all either open loop, or resistance of 1MOhm +
 C9, C10, C21, C22 (0.1 µF) — audio chain, in scope.
 
 ** TODO 14. In-circuit resistor sweep

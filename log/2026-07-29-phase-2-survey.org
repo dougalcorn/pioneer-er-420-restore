@@ -73,6 +73,42 @@ functional or safety issue) — the one failure mode that would matter,
 shorted, would need checking for but hasn't shown up. Phase 2's
 "Trace C96" item closed.
 
+Traced R77/R79/R80 (and R78/R80's right-channel mirror) while working
+the same area — found they tap in before S8 rather than after,
+answering the standing question about whether "speakers off" recreates
+a no-load condition on T7/T8. Full writeup in circuit-notes.org; short
+version is it doesn't, as long as R77-R80 stay intact. R79/R80 turned
+out to be 16Ω on the actual part, not the 10Ω the manual's parts list
+states — trusted the physical marking, logged in bom.org.
+
+Identified C49 (V6's grid coupling cap) by cross-checking three things
+at once: tube position, the EL84's known pin-2-is-grid pinout, and the
+adjacent resistor reading 2.2K — an exact match to R73. Found three
+more caps of the same "A.1-M 400V" construction clustered near the
+other output tubes, consistent with C49-C52 all being physically
+grouped together. Ran an in-circuit DC leakage check (DMM resistance
+mode) on all four — all read clean, no leakage detected, no legs
+lifted since the results weren't ambiguous enough to need it.
+
+[[file:../photos/2026-07-29-c13-c14-01.jpg]]
+
+Got some secondhand advice midway through claiming these are Nissei
+"Type A" capacitors with a decodable date-code marking, and separately
+that 1960s molded caps like this have a "near-100% failure rate" and
+should be replaced automatically without testing. Checked both claims
+before acting on them: Nissei Electric is a real film capacitor
+manufacturer, but nothing about a "Type A" series or that specific
+marking scheme turned up anywhere, and the "replace without testing"
+advice directly contradicts both the Reddit thread read earlier
+tonight and the clean test results already in hand. Didn't act on
+either claim. Phase 2's C49-C52 test item closed.
+
+Checked bom.org for other 0.1µF/400V Mylars beyond C49-C52 — found
+four more, C9/C10/C21/C22, same spec exactly. Ran the same in-circuit
+leakage check on all four: OL or 1MΩ+ on every one, no leakage. That's
+all eight of the amp's 0.1µF Mylars now tested clean. Phase 2's
+remaining-Mylars item closed.
+
 * Measurements
 
 None yet — S7 verification (continuity at both impedance positions)
@@ -88,6 +124,6 @@ repair near it.
 * Next
 
 Once cured: re-assemble S7, verify continuity at both positions, then
-continue Phase 2 — C96 trace, R77/R79/R80 divider tap, tube inventory,
-Mylar tests, gray-electrolytic and oil-paper cap surveys against
+continue Phase 2 — tube inventory, remaining Mylar tests (C9, C10,
+C21, C22), gray-electrolytic and oil-paper cap surveys against
 bom.org, in-circuit resistor sweep.

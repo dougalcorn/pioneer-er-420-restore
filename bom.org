@@ -40,8 +40,8 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C6   | Main      |      | Mica            | 1500pF     |       10% | 400V   |        | spec    |                     |                       |
 | C7   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
 | C8   | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
-| C9   | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
-| C10  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
+| C9   | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| C10  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C11  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
 | C12  | Main      |      | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
 | C13  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
@@ -52,8 +52,8 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C18  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec    |                     |                       |
 | C19  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
 | C20  | Main      |      | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
-| C21  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
-| C22  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
+| C21  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| C22  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C23  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C24  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C25  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
@@ -80,10 +80,10 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C46  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |
 | C47  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
 | C48  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
-| C49  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
-| C50  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
-| C51  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
-| C52  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | spec    |                     |                       |
+| C49  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| C50  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| C51  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| C52  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C53  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C54  | Main      |      | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C55  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |
@@ -127,7 +127,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C93  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C94  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
 | C95  | Main      |      | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
-| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | spec    |                     |                       |
+| C96  | Main      |      | Oil paper       | 0.05uF     |       10% | 400V   |        | keep    |                     |                       |
 | C97  | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
 | C99  | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
@@ -272,8 +272,8 @@ mark an exception to the 1/2W default.
 | R76  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |
 | R77  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
 | R78  | Main      |      | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
-| R79  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |
-| R80  | Main      |      | Wire wound      | 10         |           | 5W   |          | spec   |             |        |
+| R79  | Main      |      | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
+| R80  | Main      |      | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
 | R81  | Main      |      | Composition     | 10k        |       20% | 1/2W |          | spec   |             |        |
 | R82  | Main      |      | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |
 | R83  | Main      |      | Composition     | 22k        |       20% | 1/2W |          | spec   |             |        |
@@ -352,6 +352,9 @@ mark an exception to the 1/2W default.
 | R519 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |
 | R520 | MPX       |      | Carbon          | 40k        |        5% |      |          | spec   |             |        |
 |------+-----------+------+-----------------+------------+-----------+------+----------+--------+-------------+--------|
+
+Notes:
+- R79, R80 :: physically confirmed 2026-07-29 at 16Ω, not the manual's stated 10Ω — trusting the part's own printed marking. Sensible either way: taps in before S8 (speakers on/off) alongside R77/R78, keeping T7/T8's secondary loaded (not open) when speakers are switched off — see [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage
 * Potentiometers
 
 | Ref   | Board | Zone | Function                      | Value     | Status | Orig PN | Noisy? | Cleaned? |
