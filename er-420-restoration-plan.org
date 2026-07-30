@@ -127,7 +127,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [12/17]
+* TODO Phase 2 — Survey before touching anything [13/17]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -247,7 +247,15 @@ CLOSED: [2026-07-29 Wed 23:12]
   Continuity test shows all either open loop, or resistance of 1MOhm +
 C9, C10, C21, C22 (0.1 µF) — audio chain, in scope.
 
-** TODO 14. In-circuit resistor sweep
+** DONE 14. In-circuit resistor sweep
+CLOSED: [2026-07-30 Thu 00:02]
+- CLOSING NOTE [2026-07-30 Thu 00:02] \\
+  I did a sweep of the resistors on the power lines and signal path. Basically,
+  every resistor that connected to a tube (but not the tubes for the MPX or IF
+  tuner). Only three were out of spec and they were low. It's likely it was the
+  in-circuit network that was pulling them down. I was using claude mobile in voice
+  mode. So i called out the bands, got a value from claude, then measured. I taped
+  the resistors that were out of spec, but I didn't write anything down.
 In-circuit readings can only read *low*, never high — parallel paths
 add conductance. So anything reading *above* nominal is definitively
 drifted. Flag those, lift one leg to confirm.

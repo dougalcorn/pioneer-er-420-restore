@@ -16,6 +16,7 @@ Current status: circuit tracing and orienting underway, nothing electrical repla
 
 * Log
 
+- [[file:log/2026-07-29-phase-2-survey.org][2026-07-29]]: Started S7 repair, traced "speakers off" circuit, tested all eight mylar coupling caps, resistor sweep of signal and power only
 - [[file:log/2026-07-28-first-teardown.org][2026-07-28]]: Cover off, all caps discharged and verified, S7's rear switch diagnosed as a mechanical fix
 - [[file:log/2026-07-28-schematic-extraction.org][2026-07-28]]: Schematic gridded and tiled at full resolution for reference
 - [[file:log/2026-07-27-bom-and-project-setup.org][2026-07-27]]: Full BOM built from the service manual and reconciled against the first parts order

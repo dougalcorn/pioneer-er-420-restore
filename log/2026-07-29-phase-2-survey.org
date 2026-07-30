@@ -109,6 +109,28 @@ leakage check on all four: OL or 1MΩ+ on every one, no leakage. That's
 all eight of the amp's 0.1µF Mylars now tested clean. Phase 2's
 remaining-Mylars item closed.
 
+Did an in-circuit resistor sweep — partial, not exhaustive: signal
+path and power tube resistors only, not the rest of the mainboard,
+not the front panel, not MPX. Used Claude mobile in voice mode to call
+out color bands and get values hands-free while measuring. Result:
+almost everything read in tolerance. Three in the signal path read
+low, which per this project's own sweep methodology isn't actually
+diagnostic — in-circuit readings can only read low from parallel-path
+conductance, never high, so a low reading is expected background
+noise, not evidence of drift. Nothing came back *above* nominal, which
+is the only in-circuit-diagnostic direction — a clean result as far as
+it goes.
+
+Taped the three low-reading resistors on the chassis for reference,
+but didn't record which designators or what values at the time —
+voice mode kept hands free for measuring but didn't leave a written
+record, and that detail didn't make it back into this log. Calling
+the sweep done for now despite the gap, given the partial coverage
+was already a deliberate scope choice and the low readings aren't
+diagnostic anyway. The three taped resistors' identities are
+recoverable later if it ever matters (physically marked, or possibly
+still in the mobile conversation history), just not captured here.
+
 * Measurements
 
 None yet — S7 verification (continuity at both impedance positions)
