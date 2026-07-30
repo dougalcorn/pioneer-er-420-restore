@@ -1,0 +1,41 @@
+#+TITLE: Food for Thought
+#+CATEGORY: er420
+#+STARTUP: overview
+#+FILETAGS: :audio:restoration:er420:
+
+Outside perspective — forum advice, other people's experience, things
+worth weighing that aren't a measurement or a part spec. Not a task
+list: entries here inform decisions, they don't track them. Date
+each one, note the source, and where it actually lands (agree,
+disagree, still open) so this doesn't just become a pile of quotes
+nobody revisits.
+
+* Test oil-paper caps individually rather than blanket-replacing
+
+Source: Dandy, Audiokarma reply, 2026-07-29. "Yes, the PIO caps can
+be leaky, but all aren't. And the old electrolytics can also be good
+after many years. Try not to change too much till you are confident
+you know what really needs repair."
+
+Status: open, unresolved against an existing decision. bom.org
+currently has all 14 oil-paper designators (C7, C8, C13, C14, C19,
+C20, C25, C26, C47, C48, C56, C60, C70, C96) marked for blanket
+replacement, on the theory that oil-impregnated paper is a
+known-bad-by-construction failure mode (see
+[[file:log/2026-07-25-parts-research.org][parts-research.org]]) — not
+a "maybe" the way old electrolytics are. Dandy's challenge is fair:
+testing in-circuit first (the way Phase 2 already plans to test the
+Mylars) would catch which ones are actually still fine, at the cost
+of more bench time and more handling of 60-year-old solder joints per
+cap kept in. Worth a deliberate decision either way, not a default.
+
+* Restoration can strip a unit's "magic"
+
+Source: Dandy, Audiokarma reply, 2026-07-29. Restored a Pioneer SX-82
+fully and never liked the result; picked up a Pioneer SA-400 amp
+needing no work at all and liked its sound as-is.
+
+Status: noted, not actionable. Unmeasurable and subjective, but worth
+remembering as a reason not to fix something that isn't actually
+broken just because it's original and old — a check against
+over-restoring corners of the set that already work fine.

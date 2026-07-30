@@ -1,0 +1,93 @@
+#+TITLE: Phase 2 survey — 2026-07-29
+#+DATE: 2026-07-29
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Work through as much of Phase 2's survey as possible tonight.
+
+* Work
+
+Started with S7, since it moved up ahead of Phase 2/3 in the plan —
+its repair gates Phase 6 (first power-up) via the Standing Rules'
+"never power up with the output transformer secondary open," so it
+made sense to get it moving before the rest of tonight's survey work.
+
+Cleaned the two small metal bridge contacts and their grooves in the
+plastic slider with isopropyl alcohol, then glued them back into
+position with ZXH Bond B-7000 (acrylic-based, Shore A 65-80 after
+cure, 3 min tack / 24-28 hr full cure). Kept glue off the contact legs
+themselves — they're bent/leaf-spring shaped, not rigid, so the plan
+was to bond only the flat back of each piece into its slot in the
+plastic and leave the spring action free, rather than gluing the
+whole piece down solid. Did the gluing fully outside the chassis on a
+clean bench surface rather than in situ, since the parts were already
+removed and there was no reason to risk it near other wiring.
+
+Deliberately keeping DeOxit away from the glued joint when Phase 3's
+switch treatment happens later — DeoxIT D5 is mostly odorless mineral
+spirits, and mineral spirits can be harder on a solvent-based rubber
+adhesive like B-7000 than on a fully-cured CA or epoxy joint. Applying
+DeOxit precisely to the actual sliding contact surfaces rather than
+broadly should keep the two apart.
+
+Now curing. Per the plan: cure 24-28 hours before re-assembling the
+switch and circuit board, then verify with continuity at both the 8Ω
+and 16Ω positions before trusting it with anything live.
+
+Pulled the front faceplate (all knobs and switches) to trace C96 near
+S10, and found a matched pair of 0.05µF/400V oil caps in the process —
+turned out to be C13/C14 (Tape Monitor path via S3), not C96. C96
+itself is still unfound.
+
+[[file:../photos/2026-07-29-c13-c14-01.jpg]]
+
+Found C96 itself inside S10's switch housing — a green OKI-brand
+0.05µF/400V cap mounted directly across the switch's own two
+terminals.
+
+[[file:../photos/2026-07-29-power-switch-02.jpg]]
+
+First guess was that this was an undocumented arc-suppression snubber
+unrelated to C96, since neither terminal reads continuity to chassis
+— physically traced all three wires in the switch's gray cable bundle
+(orange to the switched rear outlet via the fuse, yellow to a pin on
+S9, and a separate black-insulated wire soldered directly to chassis)
+and confirmed the cap connects to none of them. Re-reading the
+schematic at I9-I10 more closely resolved it instead: C96 bridges
+S10's contacts rather than going to chassis ground, which is exactly
+what the physical trace shows. So this is C96 after all, just doing
+arc-suppression duty across the switch rather than the line-to-chassis
+duty originally guessed at.
+
+Decided not to replace it. The label reads "OKI... 0.05µF (M)" with
+no "OIL" marking, unlike C13/C14's explicit "OIL JCP-A" — construction
+looks like resin-dipped film, not paper-in-oil (visually distinct too:
+green rectangular body with straight leads, versus C13/C14's cream
+cylindrical bodies with pointed metal end caps). Film caps age well,
+same category as the mica/ceramic/polystyrene parts already staying
+original. Duty cycle is gentle (switching transients only, not
+continuous line exposure) and the failure mode if it does eventually
+fail is benign (open — more arcing at the switch over time, not a
+functional or safety issue) — the one failure mode that would matter,
+shorted, would need checking for but hasn't shown up. Phase 2's
+"Trace C96" item closed.
+
+* Measurements
+
+None yet — S7 verification (continuity at both impedance positions)
+comes after the adhesive cures.
+
+* Open questions
+
+Whether the B-7000/DeOxit interaction is actually a problem or just a
+theoretical concern — untested. Cheap to check: cure a scrap drop for
+the full 24-28 hours and dab DeOxit on it before trusting the real
+repair near it.
+
+* Next
+
+Once cured: re-assemble S7, verify continuity at both positions, then
+continue Phase 2 — C96 trace, R77/R79/R80 divider tap, tube inventory,
+Mylar tests, gray-electrolytic and oil-paper cap surveys against
+bom.org, in-circuit resistor sweep.

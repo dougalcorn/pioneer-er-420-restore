@@ -162,6 +162,10 @@ circuit when this comes up — not assumed from a textbook example.
 
 * Tone / preamp
 
+C13/C14 (0.05µF oil paper) physically located 2026-07-29, behind the
+front faceplate near S10 — tied to S3 (Tape Monitor), confirmed
+against the schematic (C13 at D5-E5, below S1's "2/4" wafer).
+
 * Driver
 
 * Output stage
@@ -209,7 +213,7 @@ in-circuit, DMM resistance):
   signature of shorted turns or insulation breakdown. A fully clean
   primary/secondary isolation reading would require lifting the leads
   out of circuit — not done, not judged necessary given these
-  results. Real confirmation still comes at Phase 5 first power-up.
+  results. Real confirmation still comes at Phase 6 first power-up.
 
 * Selector switch
 

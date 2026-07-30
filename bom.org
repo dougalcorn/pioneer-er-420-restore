@@ -182,7 +182,8 @@ schematic's nominal. It is what makes the headroom column meaningful
 |------+-----------+------+-----------------+------------+-----------+--------+--------+---------+---------------------+-----------------------|
 
 Notes:
-- C99, C100 :: discrete rebuild (47+22+22µF per can), can left in place cosmetically — see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 4; can measures 71mm tall × 25mm dia, confirmed 2026-07-28
+- C13, C14 :: physically located 2026-07-29, behind the front faceplate near S10 — printed "OIL JCP-A 0.05µF 400WV" (Suzuki), matching spec exactly. Identified by tracing directly to S3 (Tape Monitor), confirmed against the schematic (C13 sits at D5-E5 right below S1's "2/4" wafer; only one S3 exists per this table) — not C96, which was the original hypothesis before the trace ruled it out.
+- C99, C100 :: discrete rebuild (47+22+22µF per can), can left in place cosmetically — see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 5; can measures 71mm tall × 25mm dia, confirmed 2026-07-28
 - C101, C102 :: voltage doubler, ~190V per cap; can measures 67mm tall × 25mm dia, confirmed 2026-07-28; C102 is the rear-panel-closest can, confirmed via its grounded terminal tying to D4 — matches the manual's layout diagram, no discrepancy
 - C502, C506 :: cheap insurance — MPX not in use but shares a rail
 - C507, C508 :: original manual part number AC3501A
@@ -453,7 +454,7 @@ Notes:
 Notes:
 - S1 :: input positions — FM mono/stereo/AM/phono/tape head/aux
 - S2 :: mode positions — stereo/left/right/mono
-- S7 :: confirmed 2026-07-27 (speaker impedance selector, rear); reported physically broken at acquisition — see [[file:history.org]]; physically located 2026-07-28 next to the 4-terminal block near MPX SEPARATION, matching the rear legend's SPKR IMP icon — not yet electrically traced. Damage diagnosed 2026-07-28: mechanical, not electrical — the circuit board has come off the plastic slider part. All parts present, wiring/solder joints look intact. Likely repairable by reseating the board rather than replacing or hardwiring — reconsider the Phase 7 repair-vs-hardwire framing in light of this.
+- S7 :: confirmed 2026-07-27 (speaker impedance selector, rear); reported physically broken at acquisition — see [[file:history.org]]; physically located 2026-07-28 next to the 4-terminal block near MPX SEPARATION, matching the rear legend's SPKR IMP icon — not yet electrically traced. Damage diagnosed 2026-07-28: mechanical, not electrical — the circuit board has come off the plastic slider part. All parts present, wiring/solder joints look intact. Likely repairable by reseating the board rather than replacing or hardwiring — reconsider the Phase 4 repair-vs-hardwire framing in light of this.
 - S8 :: may have been left off while the amp was powered at acquisition, a possible no-load event — see [[file:history.org]]
 - S9 :: confirmed 2026-07-28 from schematic legend (line voltage selector, rear); physically located same day — tagged "115V" on the rear panel, far left below the LINE VOLTAGE legend icon
 - S11 :: shared switch — reads differently depending on S1 band selection
@@ -495,7 +496,7 @@ Notes:
 - FM Front-end assembly, MPX unit assembly :: whole sub-board, not itemized further here
 - Neon lamp (FM stereo indicator) :: front panel, right of dial; driven by MPX circuit
 - Fuse :: 5x Littelfuse 0313002.MXP (3AG 2A slo-blo) + 5x Bel Fuse 0618002.MXP (5x20mm 2A slo-blo) — two holder sizes covered
-- Line cord :: 2-prong, non-polarized (original); see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 4 for 3-wire conversion decision
+- Line cord :: 2-prong, non-polarized (original); see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 5 for 3-wire conversion decision
 * Order log
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.

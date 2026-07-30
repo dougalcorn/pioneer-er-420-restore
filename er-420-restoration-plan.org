@@ -17,6 +17,9 @@ Read before every session.
 - Never power up with the output transformer secondary open.
 - Never work tired. Most damage happens in the last twenty minutes.
 - Never upsize the fuse. A blowing fuse is information.
+- Handle old carbon comp resistors gently. The end-cap crimp can work
+  loose from bumping or flexing the leads, causing a sudden open —
+  that's a fault you caused, not one you found.
 
 * DONE Phase -1 — Schematic Prep [8/8]
 
@@ -124,7 +127,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [8/15]
+* TODO Phase 2 — Survey before touching anything [9/17]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -184,7 +187,13 @@ where exactly they sit. Visually confirm they're actually C94/C95
 (0.002µF +100%/-0% 1400V per the manual) before yemoving anything, so
 nothing else gets mistaken for them.
 
-** TODO 7. Trace C96
+** DONE 7. Trace C96
+CLOSED: [2026-07-29 Wed 21:44]
+- CLOSING NOTE [2026-07-29 Wed 21:44] \\
+  Found C96 to be a green Oki film capacitor wired directly across the power
+  switch and not an oil paper capacitor. The evidence of film capacitor vs the
+  light duty cycle and benign failure mode, I'm not going to replace this
+  capacitor
 Still the open decision point. Three outcomes:
 - *Line-to-chassis* → needs a Y2-rated safety cap. Nothing ordered
   for this yet — the X2 part on hand does not cover this duty; would
@@ -204,7 +213,7 @@ intact → optional.
 
 ** DONE 9. Decide: 2-wire or 3-wire grounded conversion
 Decided 2026-07-28: 3-wire. Gates C94/C95's removal and the rest of
-the safety cap disposition — see Phase 4.
+the safety cap disposition — see Phase 5.
 
 ** TODO 10. Verify R77/R79/R80 connection point
 Do the headphone divider resistors tap in *before* or *after* S8? If
@@ -235,7 +244,27 @@ drifted. Flag those, lift one leg to confirm.
 Expect worst drift at: 2.2M (R19, R20, R33, R34, R90, R94, R127), 2M
 (R15, R16), 4.7M (R123, R124), and anything running hot — R111–R117.
 
-** TODO 15. Place second parts order
+** TODO 15. Survey all the gray electrolytics against bom.org
+At least one (ELNA, 60µF/150V, seen in bottom-close-up-05) doesn't
+match any of the 17 electrolytic designators currently in bom.org.
+Prompted by a forum comment ("the grey caps need to go") plus a rough
+visual count of ~15 grey-bodied electrolytics scattered through the
+chassis — go through the bottom-close-up and cap-close-up photos
+systematically, note every visible one's printed value/voltage, and
+cross-check against bom.org to find out how many are genuine gaps
+versus already-catalogued parts not yet matched to a photo.
+
+** TODO 16. Survey all the oil-paper caps against bom.org
+Same idea as the gray-electrolytic survey above: 14 oil-paper
+designators are currently catalogued (C7, C8, C13, C14, C19, C20,
+C25, C26, C47, C48, C56, C60, C70, C96 — all 0.02µF or 0.05µF at
+400V). Go through the teardown photos and count/identify the
+physical oil-paper caps the same systematic way, and confirm the
+physical population matches what's in bom.org before assuming the
+list is complete — this is the highest-priority failure mode in the
+whole set, so a gap here matters more than most.
+
+** TODO 17. Place second parts order
 Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
@@ -258,7 +287,34 @@ travel repeatedly.
 Pull each tube, note position, clean pins, reseat. Poor socket contact
 is a top cause of noise and intermittents.
 
-* TODO Phase 4 — Power supply [0/9]
+* TODO Phase 4 — Output section decision [2/4]
+** DONE 1. Fix or Replace S7 impedance switch
+CLOSED: [2026-07-29 Wed 19:54]
+- CLOSING NOTE [2026-07-29 Wed 19:54] \\
+  After seeing the switch it looks very repairable
+Reported physically broken at acquisition — loose, would slide and
+also push in, felt nearly broken off. Never opened up to confirm. See
+[[file:history.org]]. This isn't really an open choice anymore so much as
+confirming what's already suspected:
+- DeOxit and keep — preserves 8 Ω flexibility, only sensible if it
+  turns out not to actually be broken
+- Hardwire to 16 Ω — removes a contact from the highest-consequence
+  path in the receiver, and the likely call given the damage report
+
+If hardwiring: *confirm which tap is which by measurement*, not by wire
+color. 16 Ω tap has more turns and higher DC resistance. S7 is two
+sections (S7 1/2, S7 2/2) — both channels.
+** DONE 2. Clean and glue contacts
+CLOSED: [2026-07-29 Wed 20:00]
+- CLOSING NOTE [2026-07-29 Wed 20:00] \\
+  ZXH Bond B-7000 used solvent based rubber cement. I'm afraid this might be
+  subject to DoOxit mineral spirits disolving it. Not sure this switch will need
+  DeOxit. I've already cleaned it before I glued it in place. On the plastic
+  slide, there's definite grooves that hold the contact clip in place. That
+  plastic is doing all the work keeping the clip from sliding within the guide.
+** TODO 3. Cure adhesive 24 - 28 hours
+** TODO 4. Re-assemble switch and circuit board
+* TODO Phase 5 — Power supply [0/9]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -301,7 +357,7 @@ hand, part of the batch order).
 ** TODO 8. C61 → 10 µF 450 V
 ** TODO 9. New 2 A slow-blow fuse
 
-* TODO Phase 5 — First power-up [0/6]
+* TODO Phase 6 — First power-up [0/6]
 
 Nothing else gets replaced until the supply checks out.
 
@@ -333,7 +389,7 @@ pair. Substantially high = a tube or a leaking coupling cap.
 
 ** TODO 6. Only after all rails check out: run without the bulb limiter
 
-* TODO Phase 6 — Audio chain [0/5]
+* TODO Phase 7 — Audio chain [0/5]
 
 Method matters more than speed.
 
@@ -367,22 +423,6 @@ current — low-impedance parts are a genuine benefit there.
 Metal film. 1/2 W minimum, 1 W or high-voltage rated on B+ positions —
 watch the *voltage* rating, not just wattage. A 1/4 W part maxes around
 200–250 V regardless of the power math.
-
-* TODO Phase 7 — Output section decision [0/1]
-
-** TODO 1. S7 impedance switch
-Reported physically broken at acquisition — loose, would slide and
-also push in, felt nearly broken off. Never opened up to confirm. See
-[[file:history.org]]. This isn't really an open choice anymore so much as
-confirming what's already suspected:
-- DeOxit and keep — preserves 8 Ω flexibility, only sensible if it
-  turns out not to actually be broken
-- Hardwire to 16 Ω — removes a contact from the highest-consequence
-  path in the receiver, and the likely call given the damage report
-
-If hardwiring: *confirm which tap is which by measurement*, not by wire
-color. 16 Ω tap has more turns and higher DC resistance. S7 is two
-sections (S7 1/2, S7 2/2) — both channels.
 
 * TODO Phase 8 — Commission [0/6]
 
