@@ -506,4 +506,4 @@ One row per purchase so the Mouser/eBay trail stays attached to the project.
 
 |       Date | Vendor |   Order # | Total  | Covers                                                           | Arrived |
 |------------+--------+-----------+--------+------------------------------------------------------------------+---------|
-| 2026-07-26 | Mouser | 281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses |         |
+| 2026-07-26 | Mouser | 281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses | 2026-07-30 |

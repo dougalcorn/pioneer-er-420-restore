@@ -127,7 +127,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [13/17]
+* TODO Phase 2 — Survey before touching anything [13/18]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -283,7 +283,24 @@ physical population matches what's in bom.org before assuming the
 list is complete — this is the highest-priority failure mode in the
 whole set, so a gap here matters more than most.
 
-** TODO 17. Place second parts order
+** TODO 17. Sweep VR2 (volume) resistance through full travel
+Suspect in the acquisition-night symptom: loud at minimum, distorts
+almost as soon as it's turned up (see [[file:history.org]]). Tonight's
+continuity check only confirmed VR2's grounding topology is correct
+(case and the shared cold-end terminal both ground, nothing
+miswired) — it didn't test the actual variable-resistance behavior,
+which is what would cause this symptom.
+
+Measure wiper-to-end resistance on both sections (VR2 1/2, VR2 2/2)
+while rotating through full travel. Look for smooth, monotonic change
+versus jumps, dead spots, or resistance failing to approach zero
+right at the minimum end — classic wear pattern from decades
+concentrated in a "normal listening" range, leaving the rarely-used
+extremes thin or worn through. If it's genuinely worn track rather
+than dirty contacts, DeOxit (Phase 3) won't fix it — would need a
+replacement pot instead.
+
+** TODO 18. Place second parts order
 Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
