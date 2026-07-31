@@ -39,3 +39,29 @@ Status: noted, not actionable. Unmeasurable and subjective, but worth
 remembering as a reason not to fix something that isn't actually
 broken just because it's original and old — a check against
 over-restoring corners of the set that already work fine.
+
+* Long-term component ID tracking isn't standard practice
+
+Source: gadget73, Audiokarma reply, 2026-07-31, asked directly how he
+tracks which physical component is which while working. "Personally I
+don't usually bother but if i have to order a bunch of parts, I will
+use Mousers customer part number field to ID the new parts, then put
+the old in the bag with that number. If there are 6 identical caps I
+don't label each one though. If I'm working out of my parts stock, bad
+parts just go into a bag or other container and once I'm done they go
+in the trash."
+
+Status: agree, and already the de facto practice here without anyone
+stating it as a rule. He's answering from an experienced-tech,
+fast-turnaround context — components are usually interchangeable once
+identified, so nothing to track long-term. This project's reason for
+[[file:component-notes.org][component-notes.org]] is different (beginner, first-time
+verification work, don't want to redo it after walking away for
+months) but the scoping instinct matches exactly: every component that
+got the deep-dive treatment tonight (R79/R80, C13/C14, C96, T7/T8) had
+a real question attached, not just "label it because it exists" — the
+four identical C49-C52 Mylars got confirmed-same-spec-and-clean, not
+individually distinguished. Worth adopting directly: the Mouser
+customer-PN-field + bagged-old-part trick, once Phase 6 pulling parts
+actually starts, as a cheap physical complement to the digital
+tracking rather than a replacement for it.
