@@ -48,20 +48,20 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C6   | Main      | F3   | Mica            | 1500pF     |       10% | 400V   |        | spec    |                     |                       |
 | C7   | Main      | D3   | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
 | C8   | Main      | F3   | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
-| C9   | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
-| C10  | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C9][C9]] | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C10][C10]] | Main      |      | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C11  | Main      | F3   | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
 | C12  | Main      | F3   | Electrolytic    | 20uF       |           | 250V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
-| C13  | Main      | D5   | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
-| C14  | Main      | E5   | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
+| [[file:component-notes.org::*C13][C13]] | Main      | D5   | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
+| [[file:component-notes.org::*C14][C14]] | Main      | E5   | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
 | C15  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |
 | C16  | Main      |      | Mica            | 200pF      |       10% | 400V   |        | spec    |                     |                       |
 | C17  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec    |                     |                       |
 | C18  | Main      |      | Mica            | 100pF      |       10% | 400V   |        | spec    |                     |                       |
 | C19  | Main      | D7   | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
 | C20  | Main      | E7   | Oil paper       | 0.02uF     |       10% | 400V   |        | ordered | 0.022uF 630V        | 667-ECW-FD2J223JB     |
-| C21  | Main      | D7   | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
-| C22  | Main      | E7   | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C21][C21]] | Main      | D7   | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C22][C22]] | Main      | E7   | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C23  | Main      | D8   | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C24  | Main      |      | Electrolytic    | 30uF       |           | 6V     |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C25  | Main      | D8   | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
@@ -88,10 +88,10 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C46  | Main      |      | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |
 | C47  | Main      | D10  | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
 | C48  | Main      | E10  | Oil paper       | 0.05uF     |       10% | 400V   |        | ordered | 0.047uF 630V        | 667-ECW-FD2J473J4     |
-| C49  | Main      | D11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
-| C50  | Main      | E11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
-| C51  | Main      | D11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
-| C52  | Main      | E11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C49][C49]] | Main      | D11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C50][C50]] | Main      | E11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C51][C51]] | Main      | D11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C52][C52]] | Main      | E11  | Mylar           | 0.1uF      |       10% | 400V   |        | keep    |                     |                       |
 | C53  | Main      | D11  | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C54  | Main      | E11  | Electrolytic    | 50uF       |           | 25V    |        | ordered | 47uF 50V            | 232-50YXM47MEFR63X11  |
 | C55  | Main      | I2   | Ceramic disk    | 100pF      |       10% | 400V   |        | spec    |                     |                       |
@@ -133,19 +133,19 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C91  | Main      | H9   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C92  | Main      | H9   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C93  | Main      | H9   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
-| C94  | Main      | I9   | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
-| C95  | Main      | I9   | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
-| C96  | Main      | I9   | Oil paper       | 0.05uF     |       10% | 400V   |        | keep    |                     |                       |
+| [[file:component-notes.org::*C94][C94]] | Main      | I9   | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
+| [[file:component-notes.org::*C95][C95]] | Main      | I9   | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec    |                     |                       |
+| [[file:component-notes.org::*C96][C96]] | Main      | I9   | Oil paper       | 0.05uF     |       10% | 400V   |        | keep    |                     |                       |
 | C97  | Main      | C1   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | ordered | 22uF 450V           | 232-450LLE22MEFC125X  |
-| C99  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
-| C99  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
-| C99  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
-| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
-| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
-| C100 | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
-| C101 | Main      | G11  | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    |
-| C102 | Main      | G11  | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    |
+| [[file:component-notes.org::*C99][C99]] | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
+| [[file:component-notes.org::*C99][C99]] | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
+| [[file:component-notes.org::*C99][C99]] | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
+| [[file:component-notes.org::*C100][C100]] | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
+| [[file:component-notes.org::*C100][C100]] | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
+| [[file:component-notes.org::*C100][C100]] | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | ordered | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
+| [[file:component-notes.org::*C101][C101]] | Main      | G11  | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    |
+| [[file:component-notes.org::*C102][C102]] | Main      | G11  | Electrolytic    | 100uF      |           | 250V   |        | ordered | 100uF 350V          | 647-UCY2V101MHD3TN    |
 | C103 | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec    |                     |                       |
 | C301 | Front End | G1   | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |
 | C302 | Front End | G1   | Feed Through    | 2pF        |           |        |        | spec    |                     |                       |
@@ -274,14 +274,14 @@ mark an exception to the 1/2W default.
 | R70  | Main      | E10  | Composition     | 220k       |           | 1/2W |          | spec   |             |        |
 | R71  | Main      | D11  | Composition     | 220k       |           | 1/2W |          | spec   |             |        |
 | R72  | Main      | E11  | Composition     | 220k       |           | 1/2W |          | spec   |             |        |
-| R73  | Main      | D11  | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |
+| [[file:component-notes.org::*R73][R73]] | Main      | D11  | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |
 | R74  | Main      | E11  | Composition     | 2.2k       |       20% | 1/2W |          | spec   |             |        |
 | R75  | Main      | D11  | Wire wound      | 150        |           | 4W   |          | spec   |             |        |
 | R76  | Main      |      | Wire wound      | 150        |           | 4W   |          | spec   |             |        |
-| R77  | Main      | D12  | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
-| R78  | Main      | E11  | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
-| R79  | Main      | D12  | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
-| R80  | Main      | F11  | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
+| [[file:component-notes.org::*R77][R77]] | Main      | D12  | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
+| [[file:component-notes.org::*R78][R78]] | Main      | E11  | Composition     | 100        |       20% | 1/2W |          | spec   |             |        |
+| [[file:component-notes.org::*R79][R79]] | Main      | D12  | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
+| [[file:component-notes.org::*R80][R80]] | Main      | F11  | Wire wound      | 16         |           | 5W   |          | spec   |             |        |
 | R81  | Main      | F9   | Composition     | 10k        |       20% | 1/2W |          | spec   |             |        |
 | R82  | Main      | I3   | Composition     | 1M         |       20% | 1/2W |          | spec   |             |        |
 | R83  | Main      | I3   | Composition     | 22k        |       20% | 1/2W |          | spec   |             |        |
@@ -371,8 +371,8 @@ Notes:
 | VR2   | Main  | D7   | Volume                        | 500k dual | spec   | AR8542  |        |          |
 | VR3   | Main  | D8   | Treble                        | 1M dual   | spec   | AR8546  |        |          |
 | VR4   | Main  | D8   | Bass                          | 1M dual   | spec   | AR8546  |        |          |
-| VR5   | Main  | H11  | Hum Balance                   | 100       | spec   | AR9104  |        |          |
-| VR6   | Main  | H11  | Hum Balance                   | 100       | spec   | AR9104  |        |          |
+| [[file:component-notes.org::*VR5][VR5]] | Main  | H11  | Hum Balance                   | 100       | spec   | AR9104  |        |          |
+| [[file:component-notes.org::*VR6][VR6]] | Main  | H11  | Hum Balance                   | 100       | spec   | AR9104  |        |          |
 | VR7   | Main  | I8   | Tuning Meter Sens Adjust      | 1k        | spec   | AR0021  |        |          |
 | VR501 | MPX   | C1   | Separation control            | 250k      | spec   | AR0011  |        |          |
 | VR502 | MPX   | A4   | FM Stereo Indicator light adj | 30k       | spec   | AR0020  |        |          |
@@ -391,9 +391,9 @@ Notes:
 | T4    | Main      | G7   | Transformer, AM IF              | spec   | AT7210A |
 | T5    | Main      |      | Transformer, FM IF              | spec   | AT8114  |
 | T6    | Main      |      | Transformer, FM IF              | spec   | AT8208  |
-| T7    | Main      | D12  | Transformer, Output             | spec   | AT6123U |
-| T8    | Main      | F11  | Transformer, Output             | spec   | AT6123U |
-| T9    | Main      | I9   | Transformer, Power              | spec   | AT5296  |
+| [[file:component-notes.org::*T7][T7]] | Main      | D12  | Transformer, Output             | spec   | AT6123U |
+| [[file:component-notes.org::*T8][T8]] | Main      | F11  | Transformer, Output             | spec   | AT6123U |
+| [[file:component-notes.org::*T9][T9]] | Main      | I9   | Transformer, Power              | spec   | AT5296  |
 | VC    | Front End |      | Variable Condenser, AM/FM       | spec   | AC6427  |
 | CT301 | Front End |      | OSC Trimmer                     | spec   | AC0302  |
 | L301  | Front End | G1   | Filament Choke Coil 1uH         | spec   | AL0502  |
@@ -432,8 +432,8 @@ Notes:
 | V14  | Main      | H9   | 6BE6     | AM converter      | spec   |        |             |        |
 | D1   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
 | D2   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
-| D3   | Main      |      | SD-1A    | Silicon rectifier | spec   |        |             |        |
-| D4   | Main      |      | SD-1A    | Silicon rectifier | spec   |        |             |        |
+| [[file:component-notes.org::*D3][D3]] | Main      | I11  | SD-1A    | Silicon rectifier | spec   |        |             |        |
+| [[file:component-notes.org::*D4][D4]] | Main      | I11  | SD-1A    | Silicon rectifier | spec   |        |             |        |
 | D5   | Main      | I8   | 0A-70    | Tuning meter      | spec   |        |             |        |
 | V301 | Front End | G3   | 6C9      |                   | spec   |        |             |        |
 | D301 | Front End | H4   | 1S89     |                   | spec   |        |             |        |
@@ -449,7 +449,7 @@ Notes:
 
 | Ref | Board | Zone | Function                                 | Type    | Status | Orig PN | Noisy? | Cleaned? |
 |-----+-------+------+------------------------------------------+---------+--------+---------+--------+----------|
-| S1  | Main  |      | Input Selector Switch                    | Rotary  | spec   | AS1626  |        |          |
+| [[file:component-notes.org::*S1][S1]] | Main  |      | Input Selector Switch                    | Rotary  | spec   | AS1626  |        |          |
 | S2  | Main  |      | Mode Selector Switch                     | Rotary  | spec   | AS1625  |        |          |
 | S3  | Main  | D6   | Tape Monitor ON/OFF                      | See'saw | spec   | AS0210  |        |          |
 | S4  | Main  | D7   | Loudness Contour ON/OFF                  | See'saw | spec   | AS0210  |        |          |
@@ -457,7 +457,7 @@ Notes:
 | S6  | Main  | D9   | Low Filter ON/OFF                        | See'saw | spec   | AS0210  |        |          |
 | S8  | Main  | D12  | Speaker ON/OFF                           | See'saw | spec   | AS0210  |        |          |
 | S7  | Main  | D12  | Speaker Impedance Selector (rear)        | Glide   | spec   | AS6216  |        |          |
-| S9  | Main  | I9   | Line Voltage Selector (rear) — 115V/230V | Glide   | spec   | AS6216  |        |          |
+| [[file:component-notes.org::*S9][S9]] | Main  | I9   | Line Voltage Selector (rear) — 115V/230V | Glide   | spec   | AS6216  |        |          |
 | S10 | Main  | I9   | Power Switch                             | Rotary  | spec   | AS0213  |        |          |
 | S11 | Main  | H5   | AM Sharp/Broad (AM) / AFC (FM)           | See'saw | spec   | AS0210  |        |          |
 |-----+-------+------+------------------------------------------+---------+--------+---------+--------+----------|
@@ -515,3 +515,4 @@ One row per purchase so the Mouser/eBay trail stays attached to the project.
 |       Date | Vendor |   Order # | Total  | Covers                                                           | Arrived |
 |------------+--------+-----------+--------+------------------------------------------------------------------+---------|
 | 2026-07-26 | Mouser | 281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses | 2026-07-30 |
+
