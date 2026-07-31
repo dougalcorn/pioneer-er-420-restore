@@ -17,14 +17,16 @@ service manual's own three parts lists:
 - =MPX= AM0103A, the multiplex/stereo decoder module, 500-series designators
   — not currently in use, see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 9.
 
-Zone filled in 2026-07-30 by walking the schematic tiles component by
-component (309/378 rows). Deliberately left blank: S1 and S11 (each
-spans multiple disconnected wafers across the sheet, no single cell
-applies — see [[file:schematic/ZONES.org][ZONES.org]]) and other switches pending the same check.
-Remaining blanks are mostly mica/ceramic caps and resistors in
-corners not closely re-examined during this pass, plus a handful of
-MPX-section parts — not verified against the physical unit, schematic
-position only.
+Zone filled in 2026-07-30/31 by walking the schematic tiles component
+by component (318/378 rows). Deliberately left blank: S1 and S2, each
+spread across multiple disconnected wafers with no single correct
+cell — see [[file:schematic/ZONES.org][ZONES.org]]. Every other switch (S3-S11) got a single
+representative cell even though some have two schematic sections
+(one per channel); the two are always adjacent, so one cell was
+picked as representative rather than left blank. Remaining blanks are
+mostly mica/ceramic caps and resistors in corners not closely
+re-examined this pass, plus a handful of MPX-section parts — not
+verified against the physical unit, schematic position only.
 
 Notes belong in a bullet list under each table, keyed by Ref/Item —
 not in a Notes cell on the row itself. A long note in a cell forces
@@ -365,7 +367,7 @@ Notes:
 
 | Ref   | Board | Zone | Function                      | Value     | Status | Orig PN | Noisy? | Cleaned? |
 |-------+-------+------+-------------------------------+-----------+--------+---------+--------+----------|
-| VR1   | Main  |      | Balance                       | 500k dual | spec   | AR8541  |        |          |
+| VR1   | Main  | D7   | Balance                       | 500k dual | spec   | AR8541  |        |          |
 | VR2   | Main  | D7   | Volume                        | 500k dual | spec   | AR8542  |        |          |
 | VR3   | Main  | D8   | Treble                        | 1M dual   | spec   | AR8546  |        |          |
 | VR4   | Main  | D8   | Bass                          | 1M dual   | spec   | AR8546  |        |          |
@@ -449,15 +451,15 @@ Notes:
 |-----+-------+------+------------------------------------------+---------+--------+---------+--------+----------|
 | S1  | Main  |      | Input Selector Switch                    | Rotary  | spec   | AS1626  |        |          |
 | S2  | Main  |      | Mode Selector Switch                     | Rotary  | spec   | AS1625  |        |          |
-| S3  | Main  |      | Tape Monitor ON/OFF                      | See'saw | spec   | AS0210  |        |          |
-| S4  | Main  |      | Loudness Contour ON/OFF                  | See'saw | spec   | AS0210  |        |          |
-| S5  | Main  |      | High Filter ON/OFF                       | See'saw | spec   | AS0210  |        |          |
-| S6  | Main  |      | Low Filter ON/OFF                        | See'saw | spec   | AS0210  |        |          |
-| S8  | Main  |      | Speaker ON/OFF                           | See'saw | spec   | AS0210  |        |          |
-| S7  | Main  |      | Speaker Impedance Selector (rear)        | Glide   | spec   | AS6216  |        |          |
+| S3  | Main  | D6   | Tape Monitor ON/OFF                      | See'saw | spec   | AS0210  |        |          |
+| S4  | Main  | D7   | Loudness Contour ON/OFF                  | See'saw | spec   | AS0210  |        |          |
+| S5  | Main  | D9   | High Filter ON/OFF                       | See'saw | spec   | AS0210  |        |          |
+| S6  | Main  | D9   | Low Filter ON/OFF                        | See'saw | spec   | AS0210  |        |          |
+| S8  | Main  | D12  | Speaker ON/OFF                           | See'saw | spec   | AS0210  |        |          |
+| S7  | Main  | D12  | Speaker Impedance Selector (rear)        | Glide   | spec   | AS6216  |        |          |
 | S9  | Main  | I9   | Line Voltage Selector (rear) — 115V/230V | Glide   | spec   | AS6216  |        |          |
 | S10 | Main  | I9   | Power Switch                             | Rotary  | spec   | AS0213  |        |          |
-| S11 | Main  |      | AM Sharp/Broad (AM) / AFC (FM)           | See'saw | spec   | AS0210  |        |          |
+| S11 | Main  | H5   | AM Sharp/Broad (AM) / AFC (FM)           | See'saw | spec   | AS0210  |        |          |
 |-----+-------+------+------------------------------------------+---------+--------+---------+--------+----------|
 
 Notes:
