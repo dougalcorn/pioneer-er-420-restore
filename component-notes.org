@@ -162,9 +162,14 @@ the highest-consequence coupling position in the amp (leak here red-
 plates an output tube directly). Tested clean 2026-07-29, in-circuit
 DC leakage check.
 
+Photos:
+- [[file:photos/2026-07-28-bottom-close-up-03.jpg]]
+- [[file:photos/2026-07-28-bottom-close-up-02.jpg]]
 * C50
 Function: mirrors C49, feeds V7's grid. Tested clean.
 
+Photos:
+- [[file:photos/2026-07-28-bottom-close-up-03.jpg]]
 * C51
 Function: mirrors C49, feeds V8's grid. Tested clean.
 

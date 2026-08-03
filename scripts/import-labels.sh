@@ -46,12 +46,15 @@ for shape in data.get("shapes", []):
         seen.add(label)
         labels.append(label)
 
-designator_re = re.compile(r'^[A-Z][A-Z]?[0-9]+[a-z]?$')
+designator_re = re.compile(r'^[A-Za-z][A-Za-z]?[0-9]+[A-Za-z]?$')
 
 with open(bom_path) as f:
     bom_lines = f.readlines()
 
-known_refs = set()
+# Case-insensitive lookup: labelme text entry doesn't enforce case, and a
+# stray "c49" vs "C49" shouldn't create a duplicate heading — map back to
+# whatever casing bom.org actually uses.
+known_refs = {}
 for line in bom_lines:
     if not line.startswith("| "):
         continue
@@ -60,10 +63,18 @@ for line in bom_lines:
         continue
     ref = re.sub(r'\[\[.*?\]\[(.*?)\]\]', r'\1', cols[1].strip())
     if designator_re.match(ref):
-        known_refs.add(ref)
+        known_refs[ref.upper()] = ref
 
-matched = [l for l in labels if designator_re.match(l) and l in known_refs]
-unmatched = [l for l in labels if l not in matched]
+# Normalize labels to their canonical bom.org casing before matching.
+canonical_labels = []
+for l in labels:
+    if designator_re.match(l) and l.upper() in known_refs:
+        canonical_labels.append(known_refs[l.upper()])
+    else:
+        canonical_labels.append(l)
+
+matched = [l for l in canonical_labels if l in known_refs.values()]
+unmatched = [l for l in canonical_labels if l not in matched]
 
 with open(notes_path) as f:
     notes_lines = f.readlines()
