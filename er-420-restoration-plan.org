@@ -75,14 +75,17 @@ became listing which =tiles/= filenames cover each in-scope
 subsystem (power supply, tone/preamp, driver, output stage) directly
 in [[file:schematic/ZONES.org][ZONES.org]], rather than cropping duplicate copies onto disk.
 
-* TODO Phase 0 — Before the cover comes off [3/4]
+* TODO Phase 0 — Before the cover comes off [4/4]
 
 ** DONE 1. Do not plug it in
 Not even to "see if it works." A cold mains start on degraded caps is
 the single most likely moment to lose T9 or an output transformer.
 Honored throughout — hasn't been powered on since acquisition.
 
-** TODO 2. Build or borrow a dim bulb tester
+** DONE 2. Build or borrow a dim bulb tester
+CLOSED: [2026-08-04 Tue 22:56]
+- CLOSING NOTE [2026-08-04 Tue 22:56] \\
+  I bought and built the dim bulb tester, but the housing isn't quite right. I need to get a new housing
 Socket + plug + outlet + 100 W incandescent in series with the hot
 leg. Receiver draws roughly 130–150 W, so a 100 W bulb limits usefully
 without being uselessly restrictive.

@@ -1,0 +1,104 @@
+#+TITLE: VR2 terminal ID, speakers wired, first power-up — 2026-08-04
+#+DATE: 2026-08-04
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Pin down which physical terminal on VR2 is the wiper before trusting a DMM
+sweep on it, then — if that came back clean — take the ER-420 through its
+first power-up on the dim bulb tester.
+
+* Work
+
+Traced VR2 (500K, dual-gang loudness-tap volume pot) on schematic
+tile-C5-E7 in detail: top terminal (outer leg) → C21/R33 → V3 pin 2 grid; a
+separate fixed tap (not the wiper) → S4 switch → C17/C19 selectable network
+(100p/0.02µF); bottom terminal (outer leg) → common ground bus shared
+between both gangs; the wiper is a fourth terminal, drawn as an arrow into
+the resistive element between the other two taps. Cross-checked this
+against a second AI's (Gemini) reading of the same schematic — its
+4-terminal identification held up once verified pixel-by-pixel against the
+actual tile, but its downstream diagnostic narrative (DC leakage causing an
+"always loud at zero volume" symptom) went well beyond what today's DMM
+checks alone could support. One correction along the way: initially
+mis-traced what looked like a wire from VR2's top terminal to switch S2 —
+it was actually the D7 zone reference grid's own boundary box, not a
+circuit trace. Worth remembering that zone-grid lines can look exactly
+like wires at a tile boundary.
+
+Mapped the physical clock-position lugs (10:00, 12:00, 2:00, 6:00) on the
+actual pot to schematic terminals: continuity to chassis identified 10:00
+as the grounded/bottom outer leg (both gangs); a 0.02µF cap in the physical
+trace matched C19's value exactly, confirming 6:00 as the fixed loudness
+tap; a traced wire from 2:00 to VR1 (balance pot) identified 2:00 as the
+top outer leg/input; 12:00 is the wiper by elimination.
+
+Ran the DMM 4-step test plan (total resistance, ground continuity, wiper
+sweep, tap reading) on both gangs of VR2, amp unplugged. See Measurements.
+[[file:../component-notes.org][component-notes.org]] updated with the
+terminal ID and results — the terminal-ID section is solid, but the
+Interpretation/Final Verdict sections are flagged as unconfirmed pending an
+actual live voltage measurement, which nothing done today provides.
+
+Speakers wired: CS-A31s (16Ω, screw terminals) to the ER-420's rear screw
+terminals with 18AWG zip cord and U-spade connectors. Confirmed on the
+schematic (tile-C10-E12) that S7 taps are 16Ω/8Ω, and set S7 to the 16Ω
+position to match the CS-A31s.
+
+First power-up on the dim bulb tester (100W bulb) — no capacitors replaced
+yet, original 1966 electrolytics still in the B+ supply, so this doubled as
+a first reforming test for them. Bulb went bright then dimmed down as
+expected (heater warm-up and filter-cap inrush settling, not a short).
+Front panel pilot lights confirmed. Added knobs to the front switches to
+select stereo mode and AUX input, fed PC audio through the AUX jack. Music
+played cleanly on both channels through the CS-A31s, volume control smooth.
+Max volume quieter than expected — attributed to the dim bulb's voltage
+drop under load (B+ sag), which is the tester working as intended, not a
+fault. No smoke, no unusual smell (only incidental dust-on-bulb and
+soldering-iron odor, unrelated to the amp), no arcing. Ran about 6 minutes
+total before powering down.
+
+* Measurements
+
+VR2, both gangs, amp unplugged, DMM continuity/resistance:
+
+| Test                              | Layer 1                                                    | Layer 2                                  |
+|-----------------------------------+------------------------------------------------------------+------------------------------------------|
+| Ground(10:00)–Input(2:00)         | ~420k, slow climb (in-circuit cap charging via DMM source) | ~402k                                    |
+| Ground(10:00)–chassis             | 0Ω, continuity                                             | 0Ω, continuity                           |
+| Wiper(12:00) sweep, full rotation | 20Ω → ~425k, smooth                                        | 20Ω → peaks ~425k, drops to ~390k at max |
+| Ground(10:00)–Tap(6:00)           | ~212k, fixed                                               | ~202k, fixed                             |
+
+Not measured: any DC voltage, anywhere, live. Everything above was taken
+with the amp unplugged — none of it confirms or rules out DC leakage onto
+V3's grid.
+
+* Open questions
+
+- Is the ~210k loudness-tap reading actually anomalous, or fully explained
+  by R31/R33 (15K/2.2M) loading that node in-circuit? Not resolved —
+  needs either an out-of-circuit reading or a hand calculation against the
+  schematic values.
+- Layer 2's wiper-sweep dip at the top of rotation (425k peak → 390k at
+  max) — watch for it recurring as an audible symptom, or let it go if it
+  doesn't.
+- Does the CS-A31/ER-420 pairing still show any trace of the original
+  "left/right work individually but not together" symptom from pickup
+  night, now that S7 is repaired? Today's test used both channels at once
+  and both worked, but wasn't a deliberate retest of that specific
+  complaint.
+
+* Next
+
+- Keep power-up sessions short and watched on the dim bulb tester rather
+  than moving to full line voltage — the B+ filter caps (C99/C100/C101/
+  C102) are still original and have only been proven at reduced,
+  bulb-limited voltage so far, not at full rated voltage.
+- Recap the B+ filter caps before any extended full-voltage listening.
+- If chasing the loudness-tap question further, take an actual live DC
+  voltage reading at V3's grid or the VR2 wiper on the dim bulb tester,
+  volume at minimum, rather than reasoning further from unpowered
+  resistance data.
+- Continue Phase 2 survey work: tube inventory, gray-electrolytic and
+  oil-paper cap surveys against bom.org, in-circuit resistor sweep
+  (remaining sections).

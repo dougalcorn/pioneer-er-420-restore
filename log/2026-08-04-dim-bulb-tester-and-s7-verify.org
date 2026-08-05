@@ -1,0 +1,42 @@
+#+TITLE: Dim bulb tester built, S7 re-assembled and verified — 2026-08-04
+#+DATE: 2026-08-04
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Build the dim bulb tester (the last open item in Phase 0), and close
+out S7's repair now that the adhesive has had well past its 24-28 hour
+cure time — re-assemble and verify before trusting it with anything
+live.
+
+* Work
+
+Bought parts at Lowe's and built the dim bulb tester — socket, plug,
+outlet, 100W incandescent in series with the hot leg, per the plan.
+Wired it up and tested it. One issue: bought the wrong enclosure box,
+so it doesn't fasten to it properly — currently held with electrical
+tape wrapped fully around the box, securing the faceplate. Checked:
+nothing exposed, internal wiring proper, cord terminations not
+depending on the tape for strain relief. Temporary until a proper box
+is picked up in the next day or two — fine to use in the meantime.
+
+Re-assembled S7 (the impedance selector switch repaired with B-7000
+adhesive a few sessions back) back onto the amp. Tested with
+continuity: very positive action, conducts properly, feels very
+secure.
+
+* Measurements
+
+None numeric yet — continuity check on S7 was pass/fail (good), not a
+logged resistance value at each position.
+
+* Open questions
+
+None outstanding.
+
+* Next
+
+Pick up a proper enclosure box in the next day or two. Continue Phase
+2 survey work: tube inventory, gray-electrolytic and oil-paper cap
+surveys against bom.org, VR2 resistance sweep, in-circuit resistor
+sweep (remaining sections).
