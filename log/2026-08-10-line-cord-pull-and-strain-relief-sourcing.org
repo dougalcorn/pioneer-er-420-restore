@@ -1,0 +1,92 @@
+#+TITLE: Line cord pulled, strain relief destroyed, cable gland sourced — 2026-08-10
+#+DATE: 2026-08-10
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Get the original 2-wire line cord out to inspect/measure the chassis strain-relief
+opening ahead of the 3-wire conversion, and source a replacement strain relief sized
+to fit.
+
+* Work
+
+Decided the evening before (2026-08-09) that pulling the cord was the natural first
+step of Phase 5.1, but flagged it as a real commitment — no clean way back to a
+working 2-wire cord once the interior leads are disconnected — and it was late with
+poor lighting, so it got deferred overnight rather than rushed.
+
+Attempted removal this session: the original strain-relief bushing had no visible
+seam and the cord wouldn't slide within it, so the interior leads were cut (rather
+than desoldered as planned) to free the cord, and the strain relief itself was
+destroyed getting it out of the chassis panel. Recovered one number from the
+wreckage: the bare chassis panel hole. See Measurements.
+
+Spent the rest of the session sourcing a replacement, working through several
+strain-relief styles:
+- Heyco-style snap-in bushings — catalog has a gap right at the measured hole
+  size (nearest standard sizes are .375" and .500", nothing at .4").
+- A Mouser M16x1.5 cable gland listing — wrong on both counts: thread needs a
+  ~16mm hole (would require enlarging the chassis hole significantly), and its
+  2-6mm clamping range excludes the fatter of the two candidate cords anyway.
+- An Adam Tech CG-P-M10-1.5 datasheet (local PDF) — strong match: recommended
+  panel cutout of 10.30mm lines up closely with the measured 10.2mm chassis
+  hole. Cable range 3-6mm covers the thinner "computer cord" candidate (~5.1mm)
+  but excludes the 16-gauge extension cord candidate (~7.6mm) — this spec
+  effectively decides which cord family gets used.
+- Cross-checked a Meccanixity M10x1.5 20-pack on Amazon against the Adam Tech
+  datasheet numbers rather than trusting "exact same specs" marketing language —
+  thread size, thread OD, thread length, and IP68 rating all matched, cable
+  range (2.5-6mm) was even slightly wider on the low end. Ordered.
+
+* Measurements
+
+| Item                                         | Value                              |
+|-----------------------------------------------+-------------------------------------|
+| 16-gauge extension cord, OD                   | 0.3"                                |
+| "Black computer cord" candidate, OD           | 0.2"                                |
+| Original strain relief (destroyed), outer OD  | 0.5" (measured in place)           |
+| Original strain relief (destroyed), inner OD  | 0.4" (measured in place)           |
+| Chassis panel hole, bare (after removal)      | 0.4" / ~10.2mm                      |
+| Chassis sheet metal thickness                 | 1mm, measured elsewhere on chassis, not at the hole itself — assumed uniform by visual inspection |
+
+Reference part, Adam Tech CG-P-M10-1.5 datasheet (not what was ordered, used to
+sanity-check the Amazon listing):
+| Recommended panel cutout | 0.405" / 10.30mm |
+| Max panel thickness      | 0.059" / 1.5mm   |
+| Cable range               | 3-6mm            |
+| Thread                    | M10x1.5          |
+
+Ordered (Amazon, arriving 2026-08-11): MECCANIXITY M10x1.5 cable gland, 20-pack,
+$9.69. Cable range 2.5-6mm, IP68, PA6 nylon. No max-panel-thickness spec published
+for this specific listing.
+
+* Open questions
+
+- Chassis thickness (1mm) was measured, but not directly at the strain-relief
+  hole — taken elsewhere on the chassis and assumed uniform by visual
+  inspection. The Adam Tech reference part's 1.5mm max gives some margin if
+  that assumption holds, but the hole itself hasn't been checked directly
+  (e.g. for double thickness from a formed edge or reinforcement near the
+  opening) — worth a direct check before/at install.
+- Max panel thickness isn't published for the actual Meccanixity part ordered,
+  only inferred from the closely-matching Adam Tech reference. Worth a sanity
+  check once the part is in hand rather than assuming the reference number
+  transfers exactly.
+- Replacement 3-wire cord itself hasn't been sourced yet. The gland's 2.5-6mm
+  clamping range rules out the 16-gauge extension cord candidate (7.6mm) and
+  points toward something in the "computer cord" family (~5mm) instead — that
+  choice is effectively made by the gland now, just not yet acted on.
+- Which side of the fuse holder/S10 is hot was supposed to be traced before
+  disconnecting the old cord (per Phase 5.1) — the leads were cut rather than
+  traced/photographed first. Worth checking whether enough of the original
+  dressing/routing survived intact nearby to still work this out, or whether
+  it needs to come from the manual/schematic instead.
+
+* Next
+
+- Check chassis thickness directly at the hole, not just assumed from elsewhere.
+- Source a 3-wire cord with OD in the gland's 2.5-6mm range.
+- Install the gland when it arrives tomorrow, confirm fit against the actual
+  chassis panel and cord before terminating anything at the fuse holder/switch.
+- This session's cord removal fully commits Phase 5 to the 3-wire path — no
+  going back to the original 2-wire cord now.

@@ -501,13 +501,19 @@ Notes:
 | Terminal, Input 6P                |       | Main      | spec    | AP2113    |
 | Terminal, Antenna 3P              |       | Main      | spec    | AP3111    |
 | Line cord                         |       | Main      | spec    |           |
+| Strain relief / cable gland       |       | Main      | ordered | MECCANIXITY M10x1.5 |
 |-----------------------------------+-------+-----------+---------+-----------|
 
 Notes:
 - FM Front-end assembly, MPX unit assembly :: whole sub-board, not itemized further here
 - Neon lamp (FM stereo indicator) :: front panel, right of dial; driven by MPX circuit
 - Fuse :: 5x Littelfuse 0313002.MXP (3AG 2A slo-blo) + 5x Bel Fuse 0618002.MXP (5x20mm 2A slo-blo) — two holder sizes covered
-- Line cord :: 2-prong, non-polarized (original); see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 5 for 3-wire conversion decision
+- Line cord :: 2-prong, non-polarized (original); removed/destroyed 2026-08-10 pulling it
+  for the 3-wire conversion — see [[file:log/2026-08-10-line-cord-pull-and-strain-relief-sourcing.org][2026-08-10 log]]. Replacement cord not yet sourced;
+  must be ≤6mm OD to fit the ordered strain relief's clamping range.
+- Strain relief / cable gland :: original bushing destroyed removing it (see log above);
+  replacement is MECCANIXITY M10x1.5, 20-pack, ordered via Amazon 2026-08-10, cable range
+  2.5-6mm, arriving 2026-08-11.
 * Order log
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.
