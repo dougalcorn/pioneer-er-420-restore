@@ -75,8 +75,10 @@ became listing which =tiles/= filenames cover each in-scope
 subsystem (power supply, tone/preamp, driver, output stage) directly
 in [[file:schematic/ZONES.org][ZONES.org]], rather than cropping duplicate copies onto disk.
 
-* TODO Phase 0 — Before the cover comes off [4/4]
+* DONE Phase 0 — Before the cover comes off [4/4]
+CLOSED: [2026-08-06 Thu 09:20]
 
+- CLOSING NOTE [2026-08-06 Thu 09:20]
 ** DONE 1. Do not plug it in
 Not even to "see if it works." A cold mains start on degraded caps is
 the single most likely moment to lose T9 or an output transformer.
@@ -130,7 +132,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [13/18]
+* TODO Phase 2 — Survey before touching anything [14/18]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -286,7 +288,9 @@ physical population matches what's in bom.org before assuming the
 list is complete — this is the highest-priority failure mode in the
 whole set, so a gap here matters more than most.
 
-** TODO 17. Sweep VR2 (volume) resistance through full travel
+** DONE 17. Sweep VR2 (volume) resistance through full travel
+CLOSED: [2026-08-05 Wed 19:22]
+- CLOSING NOTE [2026-08-05 Wed 19:22]
 Suspect in the acquisition-night symptom: loud at minimum, distorts
 almost as soon as it's turned up (see [[file:history.org]]). Tonight's
 continuity check only confirmed VR2's grounding topology is correct
@@ -308,17 +312,23 @@ Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
 
-* TODO Phase 3 — Clean before you solder [0/4]
+* TODO Phase 3 — Clean before you solder [2/4]
 
 ** TODO 1. Blow out dust
 Compressed air, outdoors. Sixty years of it.
 
-** TODO 2. DeOxit all switches
+** DONE 2. DeOxit all switches
+CLOSED: [2026-08-05 Wed 19:22]
+- CLOSING NOTE [2026-08-05 Wed 19:22] \\
+  Actually performed on 7/28/2026
 S1 input selector (multi-wafer, both tuner and audio sections), S2 mode,
 the seesaw switches, S7, S8, S9, S10. Apply, then *exercise 20–30 times*
 — the mechanical action does the work, not the fluid.
 
-** TODO 3. DeOxit all pots
+** DONE 3. DeOxit all pots
+CLOSED: [2026-08-05 Wed 19:22]
+- CLOSING NOTE [2026-08-05 Wed 19:22] \\
+  Actually performed on 7/28/2026
 VR1 balance, VR2 volume, VR3 treble, VR4 bass. Rotate through full
 travel repeatedly.
 
@@ -326,7 +336,7 @@ travel repeatedly.
 Pull each tube, note position, clean pins, reseat. Poor socket contact
 is a top cause of noise and intermittents.
 
-* TODO Phase 4 — Output section decision [2/4]
+* TODO Phase 4 — Output section decision [4/4]
 ** DONE 1. Fix or Replace S7 impedance switch
 CLOSED: [2026-07-29 Wed 19:54]
 - CLOSING NOTE [2026-07-29 Wed 19:54] \\
@@ -351,8 +361,13 @@ CLOSED: [2026-07-29 Wed 20:00]
   DeOxit. I've already cleaned it before I glued it in place. On the plastic
   slide, there's definite grooves that hold the contact clip in place. That
   plastic is doing all the work keeping the clip from sliding within the guide.
-** TODO 3. Cure adhesive 24 - 28 hours
-** TODO 4. Re-assemble switch and circuit board
+** DONE 3. Cure adhesive 24 - 28 hours
+CLOSED: [2026-08-05 Wed 19:21]
+- CLOSING NOTE [2026-08-05 Wed 19:21]
+** DONE 4. Re-assemble switch and circuit board
+CLOSED: [2026-08-05 Wed 19:21]
+- CLOSING NOTE [2026-08-05 Wed 19:21] \\
+  Re-assembled and re-installed. Works like a champ!
 * TODO Phase 5 — Power supply [0/9]
 
 Do this first. Everything downstream depends on it, and you want a

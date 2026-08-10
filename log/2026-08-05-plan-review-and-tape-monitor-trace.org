@@ -1,0 +1,130 @@
+#+TITLE: Plan review, DeOxit timeline check, second-input research — 2026-08-05
+#+DATE: 2026-08-05
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Desk session, no chassis work: reconcile the plan file against what's
+actually been done, close out a couple of loose threads from earlier
+sessions, and figure out how to add a second line-level input for a
+Schiit Mani 2 (phono preamp) and a WiiM streamer.
+
+* Work
+
+Reviewed [[file:../er-420-restoration-plan.org][er-420-restoration-plan.org]] against the session logs. Corrected
+a mix-up: Phase 3 (DeOxit/cleaning) had not actually been started as
+of the start of this session — what was being remembered was Phase
+4's S7 switch repair, a different phase. Also confirmed Phase 5's
+electrolytics are already physically in hand (Mouser order 281232819,
+placed 2026-07-26, arrived 2026-07-30 per bom.org's order log), even
+though the per-component Status column still reads "ordered" rather
+than "received" — noted here, not changed, since bom.org edits should
+happen in the same sitting as the physical work, not as a side effect
+of a conversation.
+
+Reviewed five items closed out in Emacs this session:
+- Phase 2.17 (VR2 resistance sweep) — backed by the 2026-08-04 log.
+- Phase 4.3/4.4 (cure adhesive, re-assemble S7) — backed by the
+  2026-08-04 morning log.
+- Phase 3.2/3.3 (DeOxit all switches, DeOxit all pots) — no log entry
+  anywhere. Recalled as a single whole-amp DeOxit pass, done late one
+  night, date not remembered at first pass.
+
+Confirmed S1's wafer coverage for that DeOxit pass: S1 has four
+physical wafer discs on its shaft, matching the four disconnected
+schematic sections found back in Phase -1. Spray was messy/wider than
+intended but reached all four.
+
+That raised a real question: S7's contacts were cleaned and re-glued
+with B-7000 (solvent-based rubber cement) around the same time, and
+the original Phase 2 survey log had explicitly flagged mineral-spirits
+DeOxit as a possible risk to that adhesive, untested. Pinned down the
+actual date of the DeOxit pass: 2026-07-28, the same night S7 was
+pulled for repair — a full day *before* the B-7000 glue joint was made
+(2026-07-29). No DeOxit was applied after re-assembly. Concern doesn't
+apply. Logged the resolution against the original open question in
+[[file:2026-07-29-phase-2-survey.org][2026-07-29-phase-2-survey.org]], and tightened the VR2 timing note in
+[[file:../component-notes.org][component-notes.org]] to the confirmed date — the DeOxit pass on VR2
+predates both the 2026-08-04 DMM sweep and that session's power-up
+(where volume control was smooth throughout), so the smooth power-up
+behavior is informal corroborating evidence for the "dirty contacts,
+not worn track" verdict already on record there.
+
+Second half of the session: worked through options for adding a
+second AUX-equivalent input (currently want to run a turntable through
+a dedicated Schiit Mani 2 phono preamp *and* a WiiM streamer, but only
+have one AUX jack). Ruled out feeding either into PHONO MAG, PHONO
+CER/X-TAL, or TAPE HEAD directly — all three are low-level inputs
+(1.8-29mV) built for raw, unamplified sources feeding the shared V1/V2
+gain stage; a line-level signal (~200mV+) into any of them would
+overdrive that stage or hit EQ it doesn't need. Looked at both manual
+external RCA selectors and signal-auto-sensing switchers (the latter's
+real drawback: they detect based on signal presence, so quiet
+passages/gaps between tracks can cause an audible flip-away-and-back).
+Searched for period-style options too, both new-made-to-look-vintage
+and genuine period units (RadioShack/Realistic Tape Control Center,
+Russound TMS-1) — the honest tradeoff there is that a real vintage
+selector box is itself 40-50 years old and likely needs the same
+contact-cleaning care the ER-420 did, not zero-maintenance despite
+looking the part.
+
+Pulled up [[file:../schematic/tiles/tile-C1-E3.png][tile-C1-E3.png]] to actually look at the input jack column
+and S1's first wafer directly, rather than reasoning from memory.
+Confirmed the six jacks there (TAPE REC, TAPE MONITOR, AUX, TAPE HEAD,
+PHONO MAG, PHONO CER/X-TAL) are three different functions, not six
+variations on "input": TAPE REC is actually an *output*, tapped
+post-selector pre-volume, feeding a deck's record input; TAPE MONITOR
+is the matching input for a deck's own playback output, working with
+S3 (Tape Monitor ON/OFF, logged separately in bom.org) to A/B source
+vs. tape; AUX is generic line level; the two PHONO jacks serve
+different cartridge types (magnetic needs RIAA EQ, ceramic/crystal is
+largely self-equalizing and would get the wrong tonal balance through
+the mag path); TAPE HEAD is a raw tape-head signal for a deck with no
+onboard preamp of its own.
+
+That makes TAPE MONITOR the promising candidate for the second
+line-level input — it's built to accept an already-amplified,
+already-equalized external device's output, no different in job from
+AUX, and using it costs no chassis modification at all. Confirmed via
+the schematic tile that TAPE MONITOR lands on the same S1 wafer as the
+other jacks, sharing the wiper bus into V1's grid. What's *not*
+confirmed: whether S3 has to be in a specific position for that S1
+selection to actually pass signal through, or whether S3 does
+something unrelated. Not traced — flagged as something to test live
+rather than resolve from the diagram.
+
+* Measurements
+
+None. Desk session — no chassis access, no DMM work.
+
+* Open questions
+
+- Does S3 (Tape Monitor ON/OFF) gate the TAPE MONITOR jack's signal
+  path, or is it unrelated? Untested. Resolve by feeding a known
+  source into TAPE MONITOR, selecting that position on S1, and trying
+  both S3 positions once the amp's running again — cheaper than
+  tracing the wire.
+- Phase 2.15/2.16 (gray-electrolytic and oil-paper cap surveys)
+  should be done by physically inspecting the amp with bom.org in
+  hand, not by reviewing the teardown photos at a desk — the plan
+  text's current wording says "go through the photos," which doesn't
+  match the actual intent. Worth updating that wording, or just doing
+  it the better way and treating the text as stale.
+- bom.org's Status column still says "ordered" for parts that have
+  actually arrived (Phase 5 electrolytics, confirmed received
+  2026-07-30). Worth a pass to bring Status in line with the order
+  log next time bom.org is open for an unrelated edit.
+
+* Next
+
+- Physical cap survey (2.15, 2.16) as the first move of the next
+  bench session, in person with bom.org, before touching anything —
+  natural fit since Phase 5's own first step (line cord/grounding)
+  doesn't involve the caps yet either.
+- Before pulling any Phase 5 caps: get an actual B+ rail and output
+  cathode voltage reading on the bulb-limited original supply, even
+  though last night's power-up already proved sound quality — Phase 6
+  items 4 and 5 were never done, and a before number is the only way
+  to know if the recap actually changed anything.
+- Live-test the TAPE MONITOR/S3 question before buying or building
+  anything for the Mani 2 / WiiM setup.

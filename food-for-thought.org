@@ -65,3 +65,30 @@ individually distinguished. Worth adopting directly: the Mouser
 customer-PN-field + bagged-old-part trick, once Phase 6 pulling parts
 actually starts, as a cheap physical complement to the digital
 tracking rather than a replacement for it.
+
+* In-circuit ESR meter, not just continuity, for cap testing
+
+Source: Novalux Stereophonic, "What 1000+ Repairs Taught Me About
+Recapping Vintage Receivers," 2026-05-19.
+https://www.youtube.com/watch?v=7X8sE9LF1MY. Demonstrates testing
+electrolytics with a Velleman Atlas ESR70 capacitance/ESR meter,
+in-circuit, as part of a break-fix-first methodology: baseline test
+everything before deciding what actually needs replacing, rather than
+replacing on age alone. Also notes that over 90% of pulled parts on a
+typical restoration test technically still good, and that failure
+correlates more with construction era/type and heat exposure than
+raw age — 1960s multi-section can electrolytics specifically get no
+benefit of the doubt ("I don't really trust any of them at this
+point"), which is a point in favor of Phase 5's planned discrete
+rebuild of C99/C100 rather than a reason to reconsider it.
+
+Status: open, actionable. Every capacitor test logged so far (Mylars,
+in-circuit resistor sweep) has been continuity/resistance only via
+DMM — real capacitance and ESR readings aren't something the current
+toolkit can produce. That's directly relevant to the still-open
+[[*Test oil-paper caps individually rather than blanket-replacing][oil-paper testing question]] above: an ESR meter would let that survey
+actually measure leakage/degradation in place rather than relying on
+continuity alone, which only catches a dead short, not a leaky or
+drifted cap. Worth deciding whether to buy one before Phase 5/7
+testing starts in earnest, or treat continuity-only as good enough
+for this unit's scope.

@@ -282,3 +282,10 @@ Your volume pot is healthy enough to function safely and quietly. The DeoxIT did
 its job. Because the wiper goes all the way down to a negligible resistance
 (~20Ω), the potentiometer itself is not the reason the amplifier was blasting
 audio at zero volume.
+
+Timing note added 2026-08-05: the DeoxIT pass on VR2 (2026-07-28, part of a
+whole-amp DeOxit pass) predates both these DMM readings and the 2026-08-04
+first power-up, where volume control was smooth through the whole session. That ordering makes the smooth power-up behavior informal corroborating
+evidence for this verdict, not just the unpowered DMM sweep alone — still no live
+DC voltage measurement at V3's grid or the wiper, which remains the one
+unconfirmed piece per the 2026-08-04 log.

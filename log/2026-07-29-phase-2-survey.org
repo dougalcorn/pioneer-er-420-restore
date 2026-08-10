@@ -143,6 +143,12 @@ theoretical concern — untested. Cheap to check: cure a scrap drop for
 the full 24-28 hours and dab DeOxit on it before trusting the real
 repair near it.
 
+Resolved 2026-08-05: doesn't apply. The DeOxit application to S7 (part
+of a whole-amp DeOxit pass, night of 2026-07-28) happened the same
+night S7 was pulled for repair — a full day before the B-7000 glue
+joint was made (2026-07-29). No DeOxit was applied after re-assembly,
+so the cured adhesive was never exposed to it.
+
 * Next
 
 Once cured: re-assemble S7, verify continuity at both positions, then
