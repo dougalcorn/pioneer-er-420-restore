@@ -132,7 +132,7 @@ The pen's LED is an indicator, not proof. Read every lug.
 Dielectric absorption: old caps recover charge as the dielectric
 relaxes.
 
-* TODO Phase 2 — Survey before touching anything [14/18]
+* TODO Phase 2 — Survey before touching anything [17/18]
 
 Goal: answer every open question, then place the second parts order.
 
@@ -233,7 +233,8 @@ Manual's parts list shows R77/R78 = 100 Ω composition, R79/R80 = 10 Ω
 which resistors actually form the divider by tracing the schematic
 before relying on this grouping.
 
-** TODO 11. Inventory tubes
+** DONE 11. Inventory tubes
+CLOSED: [2026-08-12 Wed 01:31]
 Confirm all present and correct types per the parts list. Note any
 substitutions. Check for obvious shorts with the DMM.
 
@@ -268,7 +269,10 @@ drifted. Flag those, lift one leg to confirm.
 Expect worst drift at: 2.2M (R19, R20, R33, R34, R90, R94, R127), 2M
 (R15, R16), 4.7M (R123, R124), and anything running hot — R111–R117.
 
-** TODO 15. Survey all the gray electrolytics against bom.org
+** DONE 15. Survey all the gray electrolytics against bom.org
+CLOSED: [2026-08-12 Wed 01:27]
+- CLOSING NOTE [2026-08-12 Wed 01:27] \\
+  All the electrolytic and oil caps identified. the 60uF cap is a replacement for C53 and C54.
 At least one (ELNA, 60µF/150V, seen in bottom-close-up-05) doesn't
 match any of the 17 electrolytic designators currently in bom.org.
 Prompted by a forum comment ("the grey caps need to go") plus a rough
@@ -278,7 +282,10 @@ systematically, note every visible one's printed value/voltage, and
 cross-check against bom.org to find out how many are genuine gaps
 versus already-catalogued parts not yet matched to a photo.
 
-** TODO 16. Survey all the oil-paper caps against bom.org
+** DONE 16. Survey all the oil-paper caps against bom.org
+CLOSED: [2026-08-12 Wed 01:30]
+- CLOSING NOTE [2026-08-12 Wed 01:30] \\
+  All electrolytic and oil paper caps surveyed
 Same idea as the gray-electrolytic survey above: 14 oil-paper
 designators are currently catalogued (C7, C8, C13, C14, C19, C20,
 C25, C26, C47, C48, C56, C60, C70, C96 — all 0.02µF or 0.05µF at
@@ -311,6 +318,7 @@ replacement pot instead.
 Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
+*** TODO Order C600 replacement: 68uF 200WV
 
 * TODO Phase 3 — Clean before you solder [2/4]
 
