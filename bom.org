@@ -128,7 +128,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C85  | Main      | G8   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec     |                     |                       |
 | C86  | Main      | G9   | Ceramic disk    | 200pF      |       10% | 400V   |        | spec     |                     |                       |
 | C87  | Main      | G9   | Ceramic disk    | 200pF      |       10% | 400V   |        | spec     |                     |                       |
-| C88  | Main      | C1   | Electrolytic    | 5uF        |           | 25V    |        | received | 4.7uF 50V           | 232-50YXM4R7MEFR5X11  |
+| C88  | Main      | G10  | Electrolytic    | 5uF        |           | 25V    |        | received | 4.7uF 50V           | 232-50YXM4R7MEFR5X11  |
 | C89  | Main      | G10  | Mica            | 1000pF     |       10% | 400V   |        | spec     |                     |                       |
 | C90  | Main      | G9   | Ceramic disk    | 200pF      |       10% | 400V   |        | spec     |                     |                       |
 | C91  | Main      | H9   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec     |                     |                       |
@@ -138,7 +138,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 | [[file:component-notes.org::*C95][C95]]  | Main      | I9   | Ceramic disk    | 0.002uF    | +100%/-0% | 1400V  |        | spec     |                     |                       |
 | [[file:component-notes.org::*C96][C96]]  | Main      | I9   | Oil paper       | 0.05uF     |       10% | 400V   |        | keep     |                     |                       |
 | C97  | Main      | C1   | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec     |                     |                       |
-| C98  | Main      |      | Electrolytic    | 20uF       |           | 350V   |        | received | 22uF 450V           | 232-450LLE22MEFC125X  |
+| C98  | Main      | C4   | Electrolytic    | 20uF       |           | 350V   |        | received | 22uF 450V           | 232-450LLE22MEFC125X  |
 | [[file:component-notes.org::*C99][C99]]  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | received | 47uF+22uF+22uF 450V | 232-450BXW47MEFR18X20 |
 | [[file:component-notes.org::*C99][C99]]  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | received | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
 | [[file:component-notes.org::*C99][C99]]  | Main      | F10  | Electrolytic    | 40+20+20uF |           | 350V   |        | received | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
@@ -168,11 +168,11 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C318 | Front End | H4   | Feed Through    | 1000pF     |           |        |        | spec     |                     |                       |
 | C319 | Front End |      | Ceramic disk    | 20pF       |           | 100V   |        | spec     |                     |                       |
 | C501 | MPX       | A2   | Mylar           | 0.05uF     |       20% | 50V    |        | spec     |                     |                       |
-| C502 | MPX       | B3   | Electrolytic    | 3uF        |           | 100V   |        | received | 3.3uF 160V          | 667-ECA-2CHG3R3B      |
+| C502 | MPX       | B3   | Electrolytic    | 3uF        |           | 150V   |        | received | 3.3uF 160V          | 667-ECA-2CHG3R3B      |
 | C503 | MPX       | C1   | Polyethylene    | 2500pF     |       10% | 100V   |        | spec     |                     |                       |
 | C504 | MPX       | C2   | Polyethylene    | 410pF      |        5% | 100V   |        | spec     |                     |                       |
 | C505 | MPX       | B4   | Polyethylene    | 2500pF     |       10% | 100V   |        | spec     |                     |                       |
-| C506 | MPX       |      | Electrolytic    | 20uF       |           | 250V   |        | received | 22uF 450V           | 232-450LLE22MEFC125X  |
+| C506 | MPX       | B4   | Electrolytic    | 20uF       |           | 250V   |        | received | 22uF 450V           | 232-450LLE22MEFC125X  |
 | C507 | MPX       | A3   | Mica            | 0.01uF     |           |        |        | spec     |                     |                       |
 | C508 | MPX       | A3   | Mica            | 0.01uF     |           |        |        | spec     |                     |                       |
 | C509 | MPX       | B4   | Mylar           | 0.5uF      |       20% | 300V   |        | spec     |                     |                       |
@@ -189,8 +189,11 @@ schematic's nominal. It is what makes the headroom column meaningful
 | C520 | MPX       | B7   | Polyethylene    | 350pF      |       10% | 100V   |        | spec     |                     |                       |
 | C521 | MPX       | B7   | Polyethylene    | 2500pF     |       10% | 100V   |        | spec     |                     |                       |
 |------+-----------+------+-----------------+------------+-----------+--------+--------+----------+---------------------+-----------------------|
+| [[file:component-notes.org::*C600][C600]] | Main      |      | Electrolytic    | 60uF       |           | 150V   |        | spec     |                     |                       |
+|------+-----------+------+-----------------+------------+-----------+--------+--------+----------+---------------------+-----------------------|
 
 Notes:
+- C600 :: not part of the schematic's own numbering (manual's item table caps Main at C1~C103) — assigned a new 600-series block for as-built parts absent from this schematic printing, rather than reusing C104+ which would misread as a gap in the original walk. See component-notes.org for the full story.
 - C13, C14 :: physically located 2026-07-29, behind the front faceplate near S10 — printed "OIL JCP-A 0.05µF 400WV" (Suzuki), matching spec exactly. Identified by tracing directly to S3 (Tape Monitor), confirmed against the schematic (C13 sits at D5-E5 right below S1's "2/4" wafer; only one S3 exists per this table) — not C96, which was the original hypothesis before the trace ruled it out.
 - C99, C100 :: discrete rebuild (47+22+22µF per can), can left in place cosmetically — see [[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 5; can measures 71mm tall × 25mm dia, confirmed 2026-07-28
 - C101, C102 :: voltage doubler, ~190V per cap; can measures 67mm tall × 25mm dia, confirmed 2026-07-28; C102 is the rear-panel-closest can, confirmed via its grounded terminal tying to D4 — matches the manual's layout diagram, no discrepancy
@@ -502,7 +505,7 @@ Notes:
 | Terminal, Input 6P                |       | Main      | spec     | AP2113              |
 | Terminal, Antenna 3P              |       | Main      | spec     | AP3111              |
 | Line cord                         |       | Main      | spec     |                     |
-| Strain relief / cable gland       |       | Main      | ordered  | MECCANIXITY M10x1.5 |
+| Strain relief / cable gland       |       | Main      | received | MECCANIXITY M10x1.5 |
 |-----------------------------------+-------+-----------+----------+---------------------|
 
 Notes:

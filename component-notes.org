@@ -71,6 +71,38 @@ closest can, matching the manual's own layout diagram. See
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
 
+* C600
+Function: shared cathode-bias network. Not part of the schematic's own
+numbering — the manual's item table caps the Main board at C1~C103, no
+room for an unlisted part — so this got a new 600-series block rather
+than a C104+ number that would misread as a gap in the original walk.
+Most likely a factory running change postdating this schematic
+printing: construction (braided cloth leads, twisted-and-soldered
+joints, tag-board mounting) matches the rest of the factory harness,
+with no sign of later rework.
+
+60µF/150V Elyt. Cap (Suzuki, date code 2602 — same as C98) in parallel
+with a 1kΩ 10W "SEF" wirewound resistor, bridging a shared cathode bus
+(V1 pin 3, V6/V7/V8/V9 pin 3 — confirmed by continuity, all tied
+together) to chassis. Standard cathode-bias topology (resistor develops
+the bias voltage, cap bypasses it to shunt AC/hum to ground) but built
+as one shared network across five tubes rather than the schematic's
+separate per-pair arrangement (R71/C53, R75/C54). Initially misread as
+a heater-related network before the pin was confirmed as cathode, not
+heater, on both a 12AX7 (V1) and an EL84 (V6-V9).
+
+C53 and C54 (50µF/25V, the schematic's individual output-stage cathode
+bypass caps) have not been found as physical parts despite a careful
+visual search — their function is very likely consolidated into this
+shared network instead. Open question: V1 has its own dedicated cathode
+resistor in the schematic (R9, 3k) for its own preamp stage; if V1's
+pin 3 is also on this shared output-stage bias bus, that implies two
+cathode paths unless R9 has been removed or reworked. Needs a
+continuity check on R9 to resolve.
+
+Photos:
+- [[file:photos/2026-08-12-c600-marking-01.jpg]]
+
 * D3
 Function: doubler rectifier diode (SD-1A), feeds C101's hot side from
 T9's 130V winding. Schematically at I11, off T9. Full trace in

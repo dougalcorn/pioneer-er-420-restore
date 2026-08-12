@@ -1,0 +1,155 @@
+#+TITLE: Gray capacitor survey and reconciliation — 2026-08-11
+#+DATE: 2026-08-11
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Catalog every "gray" (Elna electrolytic / Suzuki oil-paper JCP-A) capacitor
+found by physical inspection, and reconcile the count and location against
+bom.org. Also: rename measurements/baseline-voltages.org to a reusable
+TEMPLATE.org, and mark the strain relief received now that it's arrived.
+
+* Work
+
+Surveyed every gray cap visible from the bottom panel (see the raw table
+pasted into chat — not re-transcribed here). Initial pass grouped them by
+rough physical location without designators.
+
+Reconciled by count first, then by trace:
+- 0.05 µF/400V oil (Suzuki JCP-A): 9 found, matches BOM's 10 rows at that
+  spec minus C96 (known non-oil-paper exception, see component-notes.org).
+- 0.02 µF/400V oil: 4 found, matches BOM exactly (C7/C8/C19/C20).
+- 10 µF/250V Elna: 1 found — traced by continuity (neg to chassis, pos
+  through T2) to *C61*.
+- 20 µF electrolytic: found 4 physical, not 3. Two near the AM/FM front-end
+  cluster (physically behind the power switch, schematically the Phono EQ
+  divider zone — another case of physical layout not matching schematic
+  zone) are C11/C12, both now trace-confirmed:
+  - Pos through R18 (250k) to V2 pin 1 → *C12*.
+  - Pos through R17 (250k) to V1 pin 1 → *C11*. Mirror of C12/R18/V2 —
+    makes sense, V1/V2 are the dual-triode 12AX7 pair, each half with its
+    own decoupling resistor into its own filter cap.
+  Two more near the MPX module:
+  - Large can, 350WV/400SV, neg to chassis, pos tied through a 470k
+    resistor (yellow-purple-yellow-silver = R512) *and* in continuity with
+    both T501 and T502 — this is *C98*. Zone confirmed C4 by direct read
+    off the schematic (print was fuzzy, cross-checked against the trace).
+  - Smaller can (same size as C11/C12), neg to chassis, pos through a 22k
+    resistor (red-red-orange-silver = R506) toward V502 — this is *C506*,
+    the MPX board's other 20 µF part. Zone assigned B4 based on schematic
+    position near R506/R507, not yet independently traced to the same
+    confidence as C98.
+- Traced the three oil caps near the AM/FM front end individually instead
+  of relying on spec-matching:
+  - Outer foil to chassis, other end into V10/T1's stage → *C70* (G5).
+  - Neg to chassis, other end at V14's cathode network (R83/R127) → *C60*
+    (I3).
+  - Neg to chassis, other end taps the AM antenna line feeding V14's grid
+    → *C56* (I2).
+  - *C25*, *C26* (D8/E8) visually identified and labeled directly on the
+    chassis — matches BOM as-is, no change needed.
+  - *C47* (D10) traced to V4, *C48* (E10) traced to V5 — output coupling
+    from V4/V5, downstream of C25/C26 which feed their grids from V3.
+    Matches BOM as-is.
+  - *C13* (D5), *C14* (E5) — initially thought unidentified/possibly
+    undocumented (found landing on S3's switch terminals, which the
+    schematic's S3 wafers didn't appear to show any capacitor on). Traced
+    further and resolved: C13 bridges S1 2/4 pin 1 to S3 1/2 pin 2, C14
+    does the same for the other channel (S1 3/4 to S3 2/2). Not an
+    undocumented modification — the schematic was right, the first trace
+    just hadn't followed the wire past S1 far enough to see it also lands
+    on S3. All 10 documented 0.05 µF/400V rows (including C96, resolved
+    separately as non-oil-paper) are now accounted for.
+  - *C7*, *C8* (D3/F3) visually identified as Suzuki oil JCP-A, 0.02
+    µF/400V — matches BOM as-is, no change needed.
+- Found and fixed a wrong zone in passing: *C88* (5 µF/25V) was logged at
+  C1; confirmed by direct schematic read to actually be at *G10*, in the
+  power-supply decoupling section near R108/R109 — nowhere near where it
+  was previously filed.
+- *C502* (cathode bypass, V501a, zone B3) — the 3 µF electrolytic found in
+  the original survey read 150WV on the physical part, matching the
+  schematic's printed "3µ 150V." BOM had it at 100V, a transcription slip
+  from the original zone-walk; corrected.
+
+Learned what the lettered hollow-dot nodes on the schematic mean (SEP, B,
+IND, AFC, AGC, etc.) — same-page net ties, not physical connectors. Two
+hollow dots with the same letter are the same electrical node, drawn apart
+to avoid routing a long wire across a crowded page. The "B" node here is
+the shared B+ decoupling tap feeding both the C97/R120/C98 corner and, via
+R512, V503.
+
+Also this session: renamed measurements/baseline-voltages.org to
+measurements/TEMPLATE.org (generalized the header to a copy-per-session
+instruction, matching the log/TEMPLATE.org convention) since a single
+wide table across many power-up sessions would be unreadable — better to
+get one dated file per session. No voltage readings exist yet; first one
+will happen once the 3-wire cord conversion is done and the amp can be
+powered up again.
+
+Strain relief (Meccanixity M10x1.5) arrived; BOM marked received. The
+16/3 shop cord bought for the 3-wire conversion measured 7mm OD bare —
+over the gland's stated 6mm max — and was confirmed not to fit on
+dry-fit. Cord not yet resolved; need to source something in the gland's
+2.5-6mm range (the "computer cord" family identified back on 2026-08-10).
+
+- The 60 µF/150V Elna from the original bottom-panel survey (date code
+  2602, same as C98) — resolved as *not* a numbered BOM/schematic part.
+  The manual's own item table (C1~C103, excluding MPX, vacant only at
+  C31/C32) confirms there's no room in the numbering for an unlisted
+  part, ruling out "just an unwalked BOM row." Initially suspected as a
+  later repair addition, but construction (braided cloth leads, twisted
+  and soldered joints, tag-board mounting) matches the rest of the
+  factory harness — most likely a factory running change postdating
+  this schematic printing, not a repair.
+
+  Traced (through several corrections) to a *shared cathode-bias
+  network*: the 60µF cap in parallel with a 1kΩ 10W "SEF" resistor,
+  bridging V1 pin 3 and V6/V7/V8/V9 pin 3 (confirmed by continuity, all
+  tied together) to chassis — standard cathode-bias topology (resistor
+  develops the bias voltage, cap bypasses it for AC/hum), just built as
+  one shared network across five tubes instead of the schematic's
+  separate per-pair arrangement (R71/C53, R75/C54). Was briefly
+  misidentified as a heater-related network before the shared pin was
+  confirmed as cathode (pin 3), not heater, on both a 12AX7 and an EL84.
+
+  C53/C54 (the schematic's individual 50µF/25V output-stage cathode
+  caps) were searched for and not found as physical parts — their
+  function is very likely consolidated into this shared network.
+  Decision: keep the as-built shared network rather than rebuild to the
+  schematic's individual-cap design, so a replacement needs sourcing for
+  this part specifically (target spec discussed: ~68µF, ~200V, axial,
+  to match the existing mount) — the already-received 47µF/50V parts
+  bought for C53/C54 won't be used for this position.
+
+  Assigned Ref *C600* — a new 600-series block (distinct from the
+  300-series Front End and 500-series MPX ranges already in use) marking
+  it explicitly as outside the schematic's own numbering, rather than
+  C104+ which would misread as a gap in the original walk. Added to
+  bom.org (spec status, no replacement chosen yet) and written up in
+  component-notes.org with a marking photo
+  ([[file:../photos/2026-08-12-c600-marking-01.jpg]]). This closes out
+  the last item from the whole reconciliation, but opens one new
+  question below.
+
+* Measurements
+
+None numeric this session — all continuity/trace work, no voltages taken.
+
+* Open questions
+
+- C506's zone (B4) is a schematic-position guess, weaker confidence than
+  the others resolved by direct trace.
+- V1 has its own dedicated cathode resistor in the schematic (R9, 3k)
+  for its own preamp stage. If V1's pin 3 is also on C600's shared
+  output-stage bias bus, that implies two cathode paths unless R9 has
+  been removed or reworked — needs a continuity check on R9 to resolve.
+- Still need a 3-wire cord in the gland's 2.5-6mm OD range.
+
+* Next
+
+- Source a thinner line cord (computer-cord family, ~5mm OD) and dry-fit
+  against the M10x1.5 gland before terminating anything.
+- Check R9's continuity to resolve whether V1 has one cathode path or
+  two.
+- Source and order a replacement for C600 (~68µF/~200V axial, pending
+  confirmation).

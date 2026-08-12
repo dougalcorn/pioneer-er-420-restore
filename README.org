@@ -16,6 +16,7 @@ Current status: circuit tracing and orienting underway, nothing electrical repla
 
 * Log
 
+- [[file:log/2026-08-11-gray-cap-reconciliation.org][2026-08-11]]: Traced every physical oil-paper and electrolytic capacitor to its BOM designator by continuity, fixed a wrong zone and a wrong voltage along the way, and discovered/documented C600, an as-built shared cathode-bias network absent from the schematic
 - [[file:log/2026-08-04-vr2-terminal-id-and-first-power-up.org][2026-08-04]]: Identified VR2's wiper terminal against the schematic, wired the speakers, and ran the first power-up on the dim bulb tester
 - [[file:log/2026-08-04-dim-bulb-tester-and-s7-verify.org][2026-08-04]]: Built the dim bulb tester and re-assembled/verified S7 after its adhesive repair cured
 - [[file:log/2026-07-29-phase-2-survey.org][2026-07-29]]: Started S7 repair, traced "speakers off" circuit, tested all eight mylar coupling caps, resistor sweep of signal and power only

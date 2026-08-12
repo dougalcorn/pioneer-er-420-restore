@@ -1,8 +1,9 @@
-#+TITLE: ER-420 Baseline Voltages (pre-recap)
+#+TITLE: ER-420 Voltage Readings — YYYY-MM-DD
 #+STARTUP: overview
 
-Taken before anything comes out, on a variac brought up slowly, with a dim bulb
-limiter in line. Record conditions — these numbers are worthless without them.
+Copy to =measurements/YYYY-MM-DD-voltages.org= each time you power up and take
+readings. On a variac brought up slowly, with a dim bulb limiter in line.
+Record conditions — these numbers are worthless without them.
 
 * Conditions
 
