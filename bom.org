@@ -485,7 +485,7 @@ Notes:
 | Pilot lamp                        | PL4   | Main      | spec     | AV7206              |
 | Pilot lamp                        | PL5   | Main      | spec     | AV7206              |
 | Neon lamp (FM stereo indicator)   | NL501 | Main      | spec     | AV7402              |
-| Fuse                              |       | Main      | received | 2A                  |
+| Fuse                              |       | Main      | installed | 2A                  |
 | Fuse holder                       |       | Main      | spec     | AK9603              |
 | AC concent (receptacle)           |       | Main      | spec     | AK8207              |
 | Dress panel                       |       | Main      | spec     | AM21022             |

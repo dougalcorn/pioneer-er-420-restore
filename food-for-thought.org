@@ -92,3 +92,108 @@ continuity alone, which only catches a dead short, not a leaky or
 drifted cap. Worth deciding whether to buy one before Phase 5/7
 testing starts in earnest, or treat continuity-only as good enough
 for this unit's scope.
+
+* Recap paper and electrolytic on sight; leave mica/ceramic alone
+
+Source: antiqueradio.org, "Recapping Old Radios and TVs," retrieved
+2026-08-14. https://www.antiqueradio.org/recap.htm. Paper/molded-paper
+and electrolytic caps: always replace. Mica and ceramic: "extremely
+reliable," rarely worth touching. Failure mode for paper caps is
+leakage from water vapor penetrating the wax/coating over decades, not
+outright shorting. Also: replace one capacitor at a time and
+double-check each against the schematic before moving to the next;
+match or exceed original voltage rating (250V→450V called out
+explicitly as fine); non-electrolytics should stay within ~20% of
+original capacitance, electrolytics can go up to 100% higher.
+
+Status: agree, and mostly already the de facto practice here rather
+than new advice. The oil-paper/electrolytic-only split matches
+bom.org's own strategy and README.org's stated plan exactly; "one at a
+time, check against schematic" matches CLAUDE.md's standing rule
+already. Two pieces are more than just confirmation, though: the
+capacitance-tolerance numbers (~20% for film/ceramic, up to 100% for
+electrolytics) are a concrete rule of thumb this project hasn't
+written down anywhere, and they directly bear on the still-open C600
+replacement decision (2026-08-12/13 log) — 100µF against a 60µF
+original is exactly at this article's stated electrolytic ceiling, so
+that choice has outside backing, not just gadget73's rough parallel-cap
+math. Second, this is a real counterweight to the still-open
+[[*Test oil-paper caps individually rather than blanket-replacing][Dandy entry above]] arguing for individual testing before replacement
+— this source leans the opposite way, treating paper-cap leakage as
+inevitable-by-construction rather than a "maybe." Doesn't resolve that
+open question on its own, but it's a second, independent voice on the
+blanket-replace side of it.
+
+* Standard restoration order: inspect, test tubes, order parts, power supply first, dim-bulb power-up
+
+Source: antiqueradio.org, "First Steps in Restoration," retrieved
+2026-08-14. https://www.antiqueradio.org/FirstStepsInRestoration.htm.
+Never power up an unrestored radio without preliminary checks — "may
+destroy expensive parts or start a fire, and it won't tell you
+anything very useful." Get the schematic first. Remove chassis, clean
+with isopropyl alcohol (not water submersion), inspect for obvious
+damage, test every tube (filament continuity by hand if no tester).
+Then: order replacement parts (especially caps) while working
+cosmetics in parallel, replace power-supply electrolytics first,
+power up cautiously on a variac or dim-bulb limiter, address remaining
+issues against that baseline. Also: "most of the time, most of your
+tubes will still be usable," and extensive testing before recapping is
+wasteful — systematic replacement of known failure-prone categories
+beats chasing certainty on each individual part.
+
+Status: agree, and this is closer to a structural sanity-check than
+new advice — the restoration plan's own phase order (schematic prep,
+then access/make-safe, then survey including tube inventory, parts
+ordering throughout, Phase 5 power supply first, Phase 6 dim-bulb
+power-up) already matches this sequence almost exactly, arrived at
+independently rather than copied from this article. Good sign the plan
+isn't missing a step. One new, concrete, actionable detail this
+project hasn't written down: isopropyl alcohol for chassis cleaning
+rather than water — worth folding into Phase 3's still-open "blow out
+dust" item. Also a third independent voice (after Dandy and the recap
+article above) on the still-open
+[[*Test oil-paper caps individually rather than blanket-replacing][oil-paper testing question]], this
+time explicit that extensive pre-testing is "wasteful" — the
+blanket-replace side of that question now has more outside backing
+than the individual-testing side, though it's still not been decided
+one way or the other on this project's own terms.
+
+* "How Tube Amplifiers Work" — Uncle Doug, YouTube (2-part series)
+
+Source: Uncle Doug, YouTube, 2014-03-15.
+Part 1, Power Supply: https://www.youtube.com/watch?v=x5SSKX74DKg
+(the ~15:52 mark walks through full-wave rectification directly — how
+the rectifier sorts the transformer secondary's AC into "tops" and
+"bottoms," sending each half-cycle to build the DC output, center-tap
+referenced).
+Part 2, Pre-Amp and Power Amp: https://www.youtube.com/watch?v=901iaPVVzY0
+
+Status: reference, not advice to weigh — a general tube-amp-theory
+primer, not project-specific guidance. Worth keeping as a refresher on
+power-supply and gain-stage fundamentals given how much of this
+project (rectification, filter caps, cathode networks) has turned out
+to need that grounding. Uncle Doug is a well-known, generally
+well-regarded source in the vintage-tube restoration community, for
+context on how much weight to give it.
+
+* "How Does a Tube Amp Work?" — AudioKarma community FAQ (PDF)
+
+Source: AudioKarma.org community-authored FAQ, saved locally as
+How-a-tube-amp-works.pdf. General glossary/primer covering tube
+element function (cathode, grid, anode, heater, getter), tube types
+(dual-triode preamp tubes vs. pentode power tubes), power transformer
+and rectification basics, and — most relevant here — power supply
+filter caps vs. coupling caps (polar/parallel vs. non-polar/series,
+with a clean explanation from @GordonW at AudioKarma: caps are a short
+for AC and open for DC, so a supply filter cap shunts ripple to ground
+while a coupling cap blocks DC and passes signal), plus fixed vs.
+self/cathode biasing for power tubes. Directly cites and links the
+same antiqueradio.org recap.htm article already logged above.
+
+Status: reference, not advice to weigh — same category as the Uncle
+Doug videos above, general theory rather than a position on this
+project's decisions. The cathode-biasing section is the most directly
+relevant part given this week's C600 investigation (shared cathode-bias
+network, corner-frequency reasoning) — worth rereading that section
+specifically if the R9/V1 double-cathode-path question from the
+2026-08-11 log ever gets picked back up.

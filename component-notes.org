@@ -48,7 +48,16 @@ one per section. Full trace in [[file:schematic/circuit-notes.org][circuit-notes
 
 * C100
 Function: matches C99 — see that entry and
-[[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
+[[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply. Two of its three sections are fed by
+R116 and R117 (schematic tile G10-I12, spec 270/247V and 296/280V
+respectively) — the "4th pin" open question from the 2026-08-11 log
+is resolved: that section decouples the screen supply, fed from the
+main rail via R65/R66 (2.5k) rather than through R116/R117, confirmed
+2026-08-15 by continuity from that pin to V6/V7/V8/V9 pin 9 — the
+shared screen-grid (g2) node, reading 181V under dim-bulb-limited
+conditions. Per the real B9A pinout for 6BQ5/EL84 (r-type.org), pin 9
+is screen grid, pin 7 is plate — initially misidentified backwards
+before being corrected by that reference.
 
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]

@@ -1,0 +1,107 @@
+#+TITLE: Line cord termination — 2026-08-15
+#+DATE: 2026-08-15
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Solder the original 2-wire cord back onto the chassis (fuse holder /
+power switch), reusing the cord already in hand rather than the
+still-unresolved 3-wire replacement search.
+
+* Work
+
+Before desoldering, photographed the existing wiring at the fuse
+holder/switch for reference — this is what has to go back together
+correctly once the cord's reattached.
+
+[[file:../photos/2026-08-15-line-cord-before-desolder-01.jpg]]
+
+While in the output-tube corner, noticed a small hardened amber
+residue on the chassis floor beneath C600 — present since the very
+first teardown, not new. Waxy, no smell, semi-hardened but deforms
+under gentle pressure rather than cracking. That texture rules out
+dried rosin flux (which ages brittle/glassy) and points instead to
+either leaked/dried electrolyte or a wax end-seal compound weeping
+from C600 itself, sitting directly above it. Doesn't change any
+plan — C600 is already slated for replacement — but it's one more
+piece of physical evidence that part has earned retirement.
+Documented, not disturbed; out of the way of today's actual work at
+the fuse holder.
+
+[[file:../photos/2026-08-15-c600-area-residue-01.jpg]]
+[[file:../photos/2026-08-15-c600-area-residue-02.jpg]]
+
+Desoldered and re-terminated the original 2-wire cord.
+
+[[file:../photos/2026-08-15-line-cord-soldered-01.jpg]]
+
+Pulled the original glass fuse to inspect before deciding whether to
+reuse it. Element looked visually intact — continuous, no blackening
+of the glass — but decided to install the already-received 2A
+slow-blow replacement instead rather than trust a 60-year-old
+element's actual trip point from a visual check alone.
+
+[[file:../photos/2026-08-15-fuse-old-pulled-01.jpg]]
+
+Compared old and new side by side before installing. New fuse's
+element is visibly coiled/spring-wound versus the original's straight
+wire — correct visual signature of slow-blow (time-delay) construction
+vs. the original's fast-blow-style element. Confirms the right part
+was sourced; installed the new one — the Littelfuse 0313002.MXP (3AG
+2A slo-blo), specifically, of the two fuse options in bom.org's
+Miscellaneous notes.
+
+[[file:../photos/2026-08-15-fuse-new-vs-old-01.jpg]]
+
+Powered up on the dim bulb tester (first power-up since the cord/fuse
+work) and took baseline voltage readings — full detail in
+[[file:../measurements/2026-08-15-voltages.org]], summary here.
+Confirmed rectifier-out, the C101/C102 doubler, both C100 sections,
+and the B+ chain generally read proportionally consistent with the
+schematic spec under dim-bulb suppression (~57-75% of spec across most
+points). Traced C100's long-open "4th pin" mystery (from 2026-08-11)
+to the screen supply, not plate as first guessed — corrected in
+component-notes.org. Spent real time sorting out the 6BQ5/EL84 pin
+identities on V6 after misreading the schematic's cramped print twice;
+settled by an outside reference (r-type.org) rather than continued
+guessing — pin 7 is plate, pin 9 is screen grid. Swept V3/V4's plate
+voltages (mostly consistent with the pattern; V4 pin 6 and the
+grid/cathode bias on V4's second section are outliers worth
+rechecking at full B+, not necessarily faults). Swept V10-V13 in the
+IF chain; light-current stages there recovered notably closer to spec
+(~89-90%) than the output/preamp stages.
+
+Amp played music cleanly throughout (aux in from Mac, speakers off at
+S8) on the dim bulb tester.
+
+* Open questions
+
+- Hot-leg verification (Phase 5.1) was never explicitly confirmed with
+  the DMM before today's power-up, despite being flagged as a
+  pre-power-up step. The amp did power up and play music normally,
+  which is reassuring but isn't the same as having verified the fuse
+  and switch are genuinely in the hot leg — worth doing properly
+  before this gets run unattended or off the bulb limiter.
+- V12: no voltage readable on any pin with the auto-ranging DMM.
+  Not yet determined whether the tube is seated well, whether its
+  heater is lit, or whether this is a true 0V-everywhere condition —
+  session ended before this could be resolved.
+- V13 pin 5 and pin 6 both read 45V — not yet confirmed whether
+  they're genuinely tied together or coincidentally matching.
+- C600's cathode-bias reading (0.977V) and V4's second-section
+  grid/cathode bias (~-21V implied) were both taken under
+  dim-bulb-limited conditions and are expected to behave nonlinearly
+  once measured at full B+ — neither should be treated as final until
+  rechecked without the bulb.
+- Still need a 3-wire cord in the gland's 2.5-6mm OD range, or a final
+  decision to stay with the 2-wire original — this remains parked.
+
+* Next
+
+- Do the hot-leg continuity check (still outstanding despite today's
+  power-up).
+- Diagnose V12's no-reading condition.
+- Continuity-check V13 pins 5/6.
+- Once off the dim bulb tester: recheck C600 and V4's second-section
+  bias at true full B+.
+- Original fuse kept as spare/reference rather than discarded.
