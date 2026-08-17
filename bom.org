@@ -433,7 +433,7 @@ Notes:
 | V11  | Main      | H9   | 6BA6     | IF amp            | spec   |        |             |        |
 | V12  | Main      | H9   | 6AU6     | IF amp            | spec   |        |             |        |
 | V13  | Main      | H9   | 6AU6     | IF amp            | spec   |        |             |        |
-| V14  | Main      | H9   | 6BE6     | AM converter      | spec   |        |             |        |
+| V14  | Main      | H3   | 6BE6     | AM converter      | spec   |        |             |        |
 | D1   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
 | D2   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
 | [[file:component-notes.org::*D3][D3]]   | Main      | I11  | SD-1A    | Silicon rectifier | spec   |        |             |        |

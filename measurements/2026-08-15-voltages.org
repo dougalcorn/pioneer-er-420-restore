@@ -14,85 +14,83 @@ Record conditions — these numbers are worthless without them.
 - Warm-up time before reading ::
 - Meter :: DMM, auto-ranging AC/DC
 - Reference point for all measurements :: chassis ground
+- Mode (AM/FM) :: not recorded this session — worth noting for any
+  future session, since several spec values are AM/FM pairs
 
-* B+ rail
+* Voltage callouts
 
-No literal choke in this design — R116/R117 dropping resistors serve that
-role (schematic tile G10-I12). "After choke" below means "after R116/R117."
+Converted 2026-08-17 to match measurements/TEMPLATE.org's unified table
+format. # matches the master callout list in TEMPLATE.org where this
+session's reading corresponds to one; blank # rows are session-specific
+extras (mostly individual V6 pins with no printed schematic spec) that
+aren't part of that master list.
 
-| Node                       | Zone | Spec V                           | Measured V | Delta |
-|----------------------------+------+-----------------------------------+------------+-------|
-| Rectifier out (C101 "+")   |      | 340                               |        194 | -146  |
-| C101/C102 midpoint         |      | ~170 (half of 340, doubler math)  |         93 | ~-77  |
-| After R117 (C100 section)  |      | 296/280 (AM/FM)                   |        184 | ~-100 |
-| After R116 (C100 section)  |      | 270/247 (AM/FM)                   |        185 | ~-73  |
-| Screen supply (C100 3rd section) | | not on schematic as a distinct spec |    181 | n/a   |
-| Preamp rail                |      |                                    |            |       |
+|  # | Location                                |                           Spec V | Zone    | Subsystem                       | Role                    | Measured V               | Delta |
+|----+-----------------------------------------+----------------------------------+---------+---------------------------------+-------------------------+--------------------------+-------|
+|  5 | V3 Pin 1                                |                              120 | D8      | Tone/preamp                     | Plate, sec. 1           | 89 V                     |   -31 |
+|  7 | V4 Pin 1                                |                              130 | D10     | Driver                          | Plate, sec. 1           | 73 V                     |   -57 |
+|  9 | V4 Pin 6                                |                               85 | C10     | Driver                          | Plate, sec. 2           | 105 V                    |   +20 |
+|    | V4 Pin 7                                |                                  | D10     | Driver                          | Grid, sec. 2            | 9 V                      |       |
+| 10 | V4 Pin 8                                |                               44 | D10     | Driver                          | Cathode, sec. 2         | 30 V                     |       |
+| 11 | V6, V7, V8, V9 Pin 3                    |                               11 | D11-F11 | Output stage                    | Cathode (shared, C600)  | +0.977 VDC               | -10.0 |
+|    | V6 Pin 1                                |                                  | D11     | Output stage                    | Cathode/g3 tie, unwired | (empty)                  |       |
+|    | V6 Pin 2                                |                                  | D11     | Output stage                    | Grid                    | ohms only                |       |
+|    | V6 Pin 3                                |                       see row 11 | D11     | Output stage                    | Cathode                 | ohms only                |       |
+|    | V6 Pin 4                                |                                  | D11     | Output stage                    | Heater                  | 1.58 V                   |       |
+|    | V6 Pin 5                                |                                  | D11     | Output stage                    | Heater                  | 1.97 V                   |       |
+|    | V6 Pin 6                                |                                  | D11     | Output stage                    | Cathode/g3 tie, unwired | (empty)                  |       |
+| 12 | V6, V7, V8, V9 Pin 9                    |                              300 | D11-F11 | Output stage                    | Screen grid (shared)    | 181 V                    |  -119 |
+| 13 | V6 Pin 7                                |                              335 | D11     | Output stage                    | Plate                   | 200 V                    |  -135 |
+|    | V6 Pin 8                                |                                  | D11     | Output stage                    | Cathode/g3 tie, unwired | (empty)                  |       |
+| 18 | C100 (20µF+ section, R116-fed)          |                          270/247 | G11-H11 | Power supply                    | B+ decoupling node      | 185 V                    |  ~-73 |
+| 19 | C100 (20µF+ section, between R116/R117) |                          296/280 | G11-H11 | Power supply                    | B+ decoupling node      | 184 V                    | ~-100 |
+| 20 | C101 (100µF+ section)                   |                              340 | ~G10    | Power supply                    | Rectifier output        | 194 V                    |  -146 |
+|    | C101/C102 midpoint                      | ~170 (half of 340, doubler math) | ~G10    | Power supply                    | C101 "-" / C102 "+"     | 93 V                     |  ~-77 |
+| 21 | V10 Pin 5                               |                               85 | G5      | AM/FM front end / IF            | Plate                   | 76 V                     |    -9 |
+| 23 | V11 Pin 5                               |                               87 | G7      | FM IF                           | Plate                   | 78 V                     |    -9 |
+| 25 | V12 Pin 5                               |                               50 | G8-G9   | FM IF / Ratio detector boundary | Plate                   | not measured — see notes |       |
+| 27 | V13 Pin 5                               |                               50 | G8-G9   | FM IF / Ratio detector boundary | Plate                   | 45 V                     |    -5 |
+| 28 | V13 Pin 6                               |                               50 | G8-G9   | FM IF / Ratio detector boundary | Screen grid             | 45 V                     |       |
 
 Notes:
-- Rectifier out :: confirmed via continuity from this terminal to D3,
-  matching component-notes.org (D3 lands on C101's "+").
-- C101/C102 midpoint :: C101's "-" / C102's "+". Not one of the
-  template's original four rows, kept for the record since it was
-  measured alongside rectifier-out and confirms the doubler's internal
-  ratio looks healthy (~2:1, roughly matching 194:93).
-- After R117 :: C100's R117-fed section. ~62-64% of spec, proportionally
-  consistent with rectifier-out's ~57% — dim-bulb suppression, not a
-  localized fault.
-- After R116 :: C100's R116-fed section. 185V against 270/247V spec is
-  ~69-75% of spec — a bit higher proportionally than the other two
-  readings (57-64%) but still broadly in the same range; not alarming on
-  its own, worth keeping in mind if the pattern diverges further once
+- Rectifier out (row 20) :: confirmed via continuity from this
+  terminal to D3, matching component-notes.org (D3 lands on C101's
+  "+").
+- C101/C102 midpoint :: not in the master callout list — kept for the
+  record since it was measured alongside rectifier-out and confirms
+  the doubler's internal ratio looks healthy (~2:1, roughly matching
+  194:93).
+- Row 19 (After R117) :: ~62-64% of spec, proportionally consistent
+  with rectifier-out's ~57% — dim-bulb suppression, not a localized
+  fault.
+- Row 18 (After R116) :: 185V against 270/247V spec is ~69-75% of
+  spec — a bit higher proportionally than the other two readings
+  (57-64%) but still broadly in the same range; not alarming on its
+  own, worth keeping in mind if the pattern diverges further once
   more of the chain is measured.
-- Screen supply (C100 3rd section) :: this is the "4th pin" open
-  question from the 2026-08-11 gray-cap log, now resolved. Confirmed
-  by continuity to V6/V7/V8/V9 pin 9 — the screen grid (g2), per the
-  real B9A pinout for 6BQ5/EL84 (r-type.org), not plate as first
-  guessed — a separate C100 section, fed via R65/R66 (2.5k) from the
-  main rail rather than through R116/R117. Written up in
-  component-notes.org's C100 entry.
-
-* Tube socket voltages
-
-Service manual socket tables go in the Spec column. Delta is what matters; a
-consistent offset across every tube usually means line voltage, not a fault.
-
-| Tube                    | Type      | Zone |                 Pin | Spec V                         | Measured V | Delta |
-|-------------------------+-----------+------+---------------------+--------------------------------+------------+-------|
-| V1, V6-V9 (shared)      |           |      |  pin 3 (common bus) | 11 (schematic's V6 pin 3)      | +0.977 VDC | -10.0 |
-| V6                      | 6BQ5/EL84 | D11  | 1 (cathode/g3 tie, unwired) |                         | (empty)    |       |
-| V6                      | 6BQ5/EL84 | D11  |            2 (grid) |                                | ohms only  |       |
-| V6                      | 6BQ5/EL84 | D11  |         3 (cathode) | see shared row above           | ohms only  |       |
-| V6                      | 6BQ5/EL84 | D11  |          4 (heater) |                                | 1.58 V     |       |
-| V6                      | 6BQ5/EL84 | D11  |          5 (heater) |                                | 1.97 V     |       |
-| V6                      | 6BQ5/EL84 | D11  | 6 (cathode/g3 tie, unwired) |                         | (empty)    |       |
-| V6                      | 6BQ5/EL84 | D11  |           7 (plate) | 335                            | 200 V      |  -135 |
-| V6                      | 6BQ5/EL84 | D11  | 8 (cathode/g3 tie, unwired) |                         | (empty)    |       |
-| V6, V7, V8, V9 (shared) | 6BQ5/EL84 |      | 9 (screen grid, all tied) | not on schematic as a distinct spec | 181 V | n/a |
-| V4                      | 12AX7     | C10  |       1 (plate, sec. 1) | 130                       | 73 V       | -57   |
-| V4                      | 12AX7     | C10  |       6 (plate, sec. 2) | ~85 (position uncertain)  | 105 V      | +20   |
-| V4                      | 12AX7     | C10  |        7 (grid, sec. 2) |                            | 9 V        |       |
-| V4                      | 12AX7     | C10  |     8 (cathode, sec. 2) |                            | 30 V       |       |
-| V3                      | 12AX7     | D8   |       1 (plate, sec. 1) | 120                        | 89 V       | -31   |
-| V10                     | 6BA6      | G5   |            5 (plate)    | 85                         | 76 V       | -9    |
-| V11                     | 6BA6      | G6   |            5 (plate)    | 87                         | 78 V       | -9    |
-| V12                     | 6AU6      | G7   |            5 (plate)    | 50                         | not measured — see notes |  |
-| V13                     | 6AU6      | H8/H9 |           5 (plate)    | 50                         | 45 V       | -5    |
-| V13                     | 6AU6      | H8/H9 |    6 (screen grid, g2) |                            | 45 V       |       |
-
-Notes:
-- V1, V6-V9 (shared) :: C600 shared cathode-bias node, pos side to
-  chassis. Neg side of C600 shows continuity with chassis (as
+- Row 12 (screen supply, C100 3rd section) :: this is the "4th pin"
+  open question from the 2026-08-11 gray-cap log, now resolved.
+  Confirmed by continuity to V6/V7/V8/V9 pin 9 — the screen grid (g2),
+  per the real B9A pinout for 6BQ5/EL84 (r-type.org), not plate as
+  first guessed — a separate C100 section, fed via R65/R66 (2.5k) from
+  the main rail rather than through R116/R117. Written up in
+  component-notes.org's C100 entry. Originally logged here as having
+  no distinct schematic spec; TEMPLATE.org's full callout walk on
+  2026-08-17 found one (300V, printed near V9). 181V against that spec
+  is ~60% — consistent with the rest of this session's B+ chain
+  proportions (57-75%), not an unscaled outlier after all.
+- Row 11 / V1, V6-V9 (shared) :: C600 shared cathode-bias node, pos
+  side to chassis. Neg side of C600 shows continuity with chassis (as
   expected). C600 itself isn't on the schematic, but the node it
   bridges (V6 pin 3) is, marked 11V there. Measured value is only ~9%
   of that spec — a much bigger proportional drop than the B+ chain
   readings (57-75% of spec), consistent with tube current dropping off
   nonlinearly as B+ is suppressed by the dim bulb tester, not a fault.
-  Don't scale this one proportionally to estimate the full-power
-  value the way the B+ readings reasonably can be — reading taken
-  under dim-bulb-limited conditions; expect this to rise once measured
-  at full B+ without the bulb, and not linearly. Not yet the
-  number to size C600's replacement voltage against.
+  Don't scale this one proportionally to estimate the full-power value
+  the way the B+ readings reasonably can be — reading taken under
+  dim-bulb-limited conditions; expect this to rise once measured at
+  full B+ without the bulb, and not linearly. Not yet the number to
+  size C600's replacement voltage against.
 - V6 full pin sweep :: real B9A pinout for 6BQ5/EL84 confirmed via
   r-type.org after some back-and-forth misreading the schematic's tiny
   pin-position print (see 2026-08-15 log for the full story). Pins 1,
@@ -101,36 +99,36 @@ Notes:
   3 (where C600 lands), leaving the redundant tie points unconnected
   at the socket. Pins 2 and 3 (grid, cathode) only showed ohms on the
   auto-ranging DMM rather than a clean voltage — both are very
-  low-voltage nodes (grid near ground, cathode ~1V per the shared row
-  above), plausibly why the meter fell back to resistance mode. Pins 4
-  and 5 (1.58V, 1.97V) are heater, confirmed by the pinout reference.
-  Pin 7 is plate (200V against 335V spec, delta -135, ~60% of spec —
+  low-voltage nodes (grid near ground, cathode ~1V per row 11),
+  plausibly why the meter fell back to resistance mode. Pins 4 and 5
+  (1.58V, 1.97V) are heater, confirmed by the pinout reference. Pin 7
+  is plate (200V against 335V spec, delta -135, ~60% of spec —
   consistent with the rest of today's B+ chain).
-- Pin 9 across V6/V7/V8/V9 :: this is screen grid (g2), not plate as
-  first assumed — all four tubes' screens share one common node, fed
-  from C100's third section (R65/R66, see B+ rail table above and
-  component-notes.org's C100 entry). All four reading the same 181V
-  and showing continuity to each other is normal: unlike plates, which
-  need to be split out-of-phase across the output transformer primary
-  for push-pull operation, screens have no such requirement and can
-  share one common supply across all four tubes without issue. This
-  also resolves the "4th pin" open question from 2026-08-11 — that
-  section decouples the screen supply, not the plate.
+- Row 13 / Pin 9 across V6/V7/V8/V9 :: this is screen grid (g2), not
+  plate as first assumed — all four tubes' screens share one common
+  node, fed from C100's third section (R65/R66). All four reading the
+  same 181V and showing continuity to each other is normal: unlike
+  plates, which need to be split out-of-phase across the output
+  transformer primary for push-pull operation, screens have no such
+  requirement and can share one common supply across all four tubes
+  without issue. This also resolves the "4th pin" open question from
+  2026-08-11 — that section decouples the screen supply, not the
+  plate.
 - V4 :: pin identities here are read directly off the tube socket
   (physically keyed, unambiguous), not inferred from the schematic
   drawing the way V6's pins were — standard 12AX7 pinout (pin 1/6 =
   plate sections 1/2, pin 7 = grid section 2, pin 8 = cathode section
-  2) trusted without needing a resistor trace to confirm it. Two things
-  stand out: pin 6 (105V) reads *above* its ~85V-ish spec rather than
-  below like every other reading today (spec position on the schematic
-  is a bit uncertain — it sits between V4's two sections, so it may not
-  be exactly pin 6's value). And pins 7/8 imply roughly a -21V
-  grid-to-cathode bias, large for a 12AX7. Reading this the same way as
-  C600's disproportionate drop: this stage's bias network depends on
-  actual current flow, which is heavily suppressed on the dim bulb
-  tester, so this isn't necessarily a fault — it may just not be
-  meaningful data yet. Worth rechecking at full B+ before drawing any
-  conclusion about this stage.
+  2) trusted without needing a resistor trace to confirm it. Two
+  things stand out: pin 6 (105V) reads *above* its 85V spec rather
+  than below like every other reading today (TEMPLATE.org's callout
+  walk pins this spec's zone to C10 but flags the exact position as
+  uncertain — the "85V" label sits between V4's two triode sections).
+  And pins 7/8 imply roughly a -21V grid-to-cathode bias, large for a
+  12AX7. Reading this the same way as C600's disproportionate drop:
+  this stage's bias network depends on actual current flow, which is
+  heavily suppressed on the dim bulb tester, so this isn't necessarily
+  a fault — it may just not be meaningful data yet. Worth rechecking
+  at full B+ before drawing any conclusion about this stage.
 - V10, V11 :: both plate readings land at ~89-90% of spec (76/85V,
   78/87V) — notably closer to nominal than the output/preamp stages
   (57-75%). Consistent with each other, which supports a real pattern
@@ -149,12 +147,6 @@ Notes:
   pins 5 and 6 to see if they're genuinely tied together in this stage
   or just coincidentally matching at this operating point. Not yet
   checked.
-
-* Heater string
-
-| Point | Spec | Measured | Notes |
-|-------+------+----------+-------|
-|       |      |          |       |
 
 * Observations
 
