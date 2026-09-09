@@ -1,0 +1,145 @@
+#+TITLE: Voltage sweep with new template and DMM — 2026-09-08
+#+DATE: 2026-09-08
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+First full voltage-callout pass with the new measurements/TEMPLATE.org and
+the Fluke 15B+, on the dim bulb tester. No speakers wired, S8 off, starting
+on AUX.
+
+* Work
+
+Started with R77-R80 (the S8/speaker-off no-load question left over from
+earlier sessions). Left/right identity resolved by tracing red/white wire
+color from the labeled rear speaker terminal block through S8 pin 2: R79 =
+red = left = T7, R80 = white = right = T8. Both measured ~16Ω isolated (S8
+off), matching the printed spec.
+
+[[file:../photos/2026-09-08-r77-r80-divider-01.jpg]]
+
+That led to actually reading tile-D12-F12's S8 wiring directly, which
+corrected the standing model: S8 is a break-before-make switch, not a
+simple series on/off. Pin 1 routes the transformer tap straight to the
+speaker terminal; pin 2 routes it to R79/R80 to ground. R79/R80 are only in
+circuit when S8 is *off* — the opposite of what the 2026-07-29 log assumed
+("taps in before S8"). circuit-notes.org and component-notes.org corrected.
+
+Moved to C99/C100/C101 pin identification, since none of the three cans had
+a confirmed per-lug mapping. C100: pin 4 = ground, pin 1 = 40µF+
+screen-decoupling section, pin 2 = between R116/R117, pin 3 = R116-fed —
+confirmed both by tracing and by re-measuring directly on the can pins
+(within 0.2-0.3V of the resistor-lead readings). That trace also caught
+circuit-notes.org's R116/R117 order being backwards — tile-G10-I12 shows
+R117 upstream of R116, not the reverse. C99: pin 4 = ground, pin 2 = the
+205V section (traced via continuity from V3 Pin 1 through a 100kΩ resistor
+matching R38), pins 1 and 3 matched by voltage magnitude (230V and 110V
+sections respectively) since the reverse assignment would put one section
+above spec. "Near R81" in the old row 15 label was wrong — R81 is an
+unrelated 10k resistor elsewhere; the real feed is R38. C101: "+" confirmed
+at 209.4V (matches the earlier resistor-lead reading), black-dot/"-" pin is
+the C101/C102 doubler midpoint (104.7V), not ground — came out exactly half
+of the "+" reading, cleaner symmetry than 2026-08-15's pass.
+
+Ran the full tube-pin sweep next (V1, V3, V4, V6-V14) against the template.
+V1's first pass, taken right at the dim-bulb-settle point, showed the
+classic cold-tube signature and was superseded by a second pass after 20+
+minutes of warm-up (a trash-run interruption extended this well past plan).
+
+Biggest find of the night: V12 Pin 5/6 and V14 Pin 5/6 all read ~0V, which
+first looked like a possible open B+ fault. Traced V12's branch down through
+a super-junction (T5 pin 4, R97, C80, one side of R101) and row 31
+(R101's other side, C82+/R98/C67+) — both dead on AUX. Turned out to be
+mode-dependent, not a fault: switching S1 to FM brought both nodes up to
+sensible values (41.89V and 107.9V, healthy ratios against spec). Same
+story for V14 on AM mode (115.1V/72.9V). AUX leaves both the AM and FM
+sections completely unpowered, not just switched out of the signal path —
+now documented in TEMPLATE.org so it doesn't cost a future session the same
+chase.
+
+R87 physically identified along the way (row 32's node) — NOT near V14
+despite schematic-zone adjacency, actually near C99.
+
+[[file:../photos/2026-09-09-r87-01.jpg]]
+
+Found two part-value discrepancies against the schematic/manual, trusting
+the physical markings same as R79/R80's precedent: R85 is 25kΩ (red-green-
+orange-silver), not the spec'd 15k. Also noticed R91/R93 are silver-band
+(±10%) against bom.org's listed ±20% — flagged but not chased further.
+R101 and its neighbors turned out to be printed-text KOA-branded resistors,
+not color-banded — a real, plausible-original part style, not a modern
+replacement as first guessed from the printed marking alone.
+
+Row 4 ("Between R21 and R17") got a real correction too: reading
+tile-C3-E5 and tracing at the bench, it's V1's 110V bias-supply bus, not
+"V1 sec. 2 cathode area" as originally guessed. R19 (2.2M) confirmed
+grounded as pin 7's grid-leak resistor — its value never fit a cathode
+resistor anyway.
+
+Biggest open thread: V1 Pin 3 (section 1 cathode) read exactly 0V both
+passes, with Pin 1 and Pin 6 both riding high — the classic no-current
+signature, but not the cold-tube version since it held after full warm-up.
+Pin identity was double-checked physically (pins 2 and 4 clearly labeled,
+Pin 3 positionally between them despite its own label being obscured by
+rosin) — ruling out an earlier pin-shift theory. Checked R9 (cathode
+resistor) end to end tonight, from the Pin 3 socket lug through R9 to its
+ground joint: 2.979kΩ, matching spec closely. That clears R9 completely,
+narrowing it down to the tube itself or a grid-circuit fault at Pin 2.
+
+R86 (row 33) was not found despite real effort — leading theory for next
+time is that it's printed-text like the KOA parts near R101, not
+color-banded, so hunting for bands may be the wrong search.
+
+Changed the measurements table's Delta column to % Diff
+((Measured−Spec)/Spec×100) partway through, since comparing a 0.6V cathode
+spec against a 340V rail spec on the same absolute scale wasn't useful.
+Once converted, a real pattern showed up by grouping rows by role rather
+than table order: cathode pins sag hardest (~-50% to -57%), B+
+decoupling/rectifier nodes sag moderately and consistently (~-30% to -39%),
+and lightly-loaded front-end plate/screen pins barely sag at all (~-7% to
+-16%) — consistent with tonight's reduced line voltage (71.6V at the
+receiver's own plug, well under nominal) affecting current-dependent
+cathode points hardest and lightly-loaded stages least.
+
+Power down at the end of session: filter caps (C99, C100, C101, C102) and
+all tube pins discharge-pen checked before closing up.
+
+* Measurements
+
+Full table in [[file:../measurements/2026-09-08-voltages.org]]. Conditions:
+100W dim bulb (no variac), line voltage 71.6V at the receiver's own plug
+(pre/post-bulb split not confirmed), Fluke 15B+ auto-ranging DC volts,
+reference assumed chassis ground (not reconfirmed this session). Several
+rows measured twice under different S1 positions (AUX vs. FM vs. AM) —
+see the table's dual readings and notes.
+
+* Open questions
+
+- V1 Pin 3 (section 1 cathode): genuinely 0V, R9 and its full path to
+  ground confirmed good. Tube section itself or a grid-circuit fault at
+  Pin 2 are the remaining candidates.
+- R86 (row 33) still not physically found. Try the KOA printed-text
+  hypothesis next time instead of hunting for color bands.
+- V4 Pin 6 outlier continues to worsen (105V on 2026-08-15, 118.7V
+  tonight) against an 85V spec — still unresolved, not connected to
+  anything else found tonight.
+- R91/R93 tolerance mismatch (bom.org says 20%, physical parts read
+  silver/10%) — noted, not chased.
+- C99 pins 1 and 3 identified by voltage-magnitude matching only, not by
+  tracing — worth confirming properly if it matters later.
+
+* Next
+
+- V1/V3 tube swap test, first thing next session (power off, caps
+  re-verified discharged, let anything recently powered cool first —
+  both confirmed 12AX7(T) per bom.org, valid swap):
+  1. Move V3's tube into V1's socket, re-measure V1 Pin 3. Reads
+     correctly (~0.6V) → confirms the original V1 tube's section 1 was
+     bad. Still 0V → points away from the tube, toward the socket or
+     circuit itself.
+  2. Move V1's original tube into V3's socket, re-measure V3 Pin 3.
+     Same starved-cathode symptom there too → further confirms the
+     tube. Reads fine in V3's socket → points specifically at V1's
+     socket/circuit, not the tube.
+- Go back to the R101/KOA cluster and check the other unidentified parts
+  there for a printed "1K" before resuming a color-band search for R86.

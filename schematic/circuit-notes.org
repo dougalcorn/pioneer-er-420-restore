@@ -12,7 +12,7 @@ out" layer. One heading per subsystem, same list as [[file:ZONES.org][ZONES.org]
 
 C99 and C100 are each 3-section cans (schematic shows them as discrete
 20µF/350V sections cascaded down the B+ filter chain — raw 340V rail,
-through R116 1K/4W to one node, through R117 2K/8W to the next —
+through R117 2K/8W to one node, through R116 1K/4W to the next —
 rather than three sections all tapping the same node). Physically
 each can has 4 terminals: one common/negative lug plus one lug per
 section. Confirmed 2026-07-28 with a meter, not just wire color: the
@@ -21,6 +21,17 @@ ground, matching a nearby tie-point strip's grounded center lug. The
 other three lugs on each can (orange wires) are the individual section
 taps and should NOT be assumed grounded — see [[file:../log/2026-07-28-first-teardown.org][today's log]] for the
 discharge procedure this informed.
+
+Order corrected 2026-09-08 — this originally read "through R116...
+to one node, through R117... to the next," backwards from what
+tile-G10-I12 actually shows. R117 sits closer to raw B+ (340V rail),
+R116 further downstream. Confirmed by measuring across both resistors
+under load: the raw-B+ side of R117 read highest, the far side of
+R116 read lowest, with the R116/R117 junction in between — the
+descending order only makes sense in this sequence. C100's own pins
+are labeled: pin 1 = 40µF+ section (screen-decoupling node), pin 2 =
+between R116/R117, pin 3 = R116-fed (downstream), pin 4 =
+common/ground. See [[file:../measurements/2026-09-08-voltages.org][2026-09-08 measurements]].
 
 S9 (line voltage selector) has a plate screwed to the outside of the
 chassis that physically prevents it from sliding, printed "115V" on
@@ -215,22 +226,43 @@ in-circuit, DMM resistance):
   out of circuit — not done, not judged necessary given these
   results. Real confirmation still comes at Phase 6 first power-up.
 
-R77/R78 (100Ω composition) and R79/R80 (wirewound, printed 16Ω —
-manual's parts list says 10Ω, physical part disagrees, trusting the
-physical marking) identified 2026-07-29. R77/R78 confirmed by color
-code (brown-black-brown-silver) and continuity to the headphone jack.
+R77/R78 (100Ω composition) and R79/R80 (wirewound, printed 16Ω on the
+part body — both the manual's parts list and the schematic's own
+printed value say 10Ω, physical part disagrees, trusting the physical
+marking) identified 2026-07-29. R77/R78 confirmed by color code
+(brown-black-brown-silver) and continuity to the headphone jack.
 R79/R80 confirmed by position: they tap in at the S7-to-S8 junction,
-*before* S8 (speakers on/off), not on the speaker-terminal side.
+*before* S8 (speakers on/off), not on the speaker-terminal side —
+**superseded, see 2026-09-08 correction below.**
 
-This answers the standing question about S8 and no-load risk: with
-S8 switched off, T7/T8's secondary is not actually open — it still
-sees a real path through R79/R80 (16Ω) in series with R77/R78 (100Ω),
-roughly 116Ω, via the headphone circuit. Higher than the normal 8-16Ω
-speaker load, but a finite load, not an open secondary — the
-distinction the "never power up with the output transformer secondary
-open" standing rule actually cares about. Holds only if R77-R80 are
-themselves intact; an independent failure in any of the four would
-reopen the no-load risk.
+Topology corrected 2026-09-08, reading tile-C10-E12 directly (the
+2026-07-29 line above was based on physical wire position, not a
+schematic trace, and turned out wrong):
+- T7's secondary has two taps selected by S7 (impedance selector):
+  the top winding (16Ω) and the center tap (8Ω). The center tap is
+  permanently wired to R77, on to the HEADPHONES (1V/8Ω) jack —
+  independent of S7 or S8 position.
+- S7's selected tap (16Ω or 8Ω) feeds S8's pole. S8 is a
+  break-before-make switch, not a simple series on/off: pin 1 routes
+  the pole straight to the CHANNEL-LEFT/RIGHT speaker terminals; pin 2
+  routes it to R79 (or R80), then to ground.
+- R79/R80 are therefore only in the circuit when S8 is in the *off*
+  (pin 2) position — confirmed 2026-09-08 by measuring R79 in
+  isolation with S8 verifiably on (clean 16Ω, matching the part's own
+  marking, no transformer influence) vs. off (transformer-influenced
+  ~2Ω, drifting — consistent with the transformer secondary's
+  inductance joining the measurement loop through the closed pin-2
+  contact). Photo:
+  [[file:../photos/2026-09-08-r77-r80-divider-01.jpg]]
+
+This still answers the standing question about S8 and no-load risk,
+just via a different mechanism than first documented: with S8 off,
+the pole routes through pin 2 to R79/R80 (16Ω) to ground directly —
+not through R77/R78 to the headphone jack, and not "before S8" as
+originally written. A finite 16Ω dummy load, not an open secondary.
+Holds only if R79/R80 themselves are intact (confirmed 2026-09-08,
+above) and S8's pin-2 contact makes reliably — an independent failure
+there would reopen the no-load risk.
 
 * Selector switch
 

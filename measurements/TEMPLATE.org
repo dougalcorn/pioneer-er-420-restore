@@ -21,8 +21,11 @@ Record conditions — these numbers are worthless without them.
 * Voltage callouts
 
 Every printed voltage callout on the schematic, walked by eye. Spec V, Zone,
-Subsystem, and Role are fixed reference data — fill in Measured V and Delta
-each session. Subsystem uses ZONES.org's named ranges; several zones straddle
+Subsystem, and Role are fixed reference data — fill in Measured V and % Diff
+each session. % Diff = (Measured − Spec) / Spec × 100 — below spec is
+negative, above is positive; easier to compare across rows spanning
+fractions of a volt to hundreds of volts than a raw delta was. Subsystem
+uses ZONES.org's named ranges; several zones straddle
 two subsystems (noted where that happens) since the physical grid doesn't
 respect circuit boundaries. Additional pins with no printed spec (most grids
 and unmarked cathodes) aren't pre-populated here — add them as extra rows in
@@ -37,12 +40,12 @@ matches the legend: AM first, FM second. Compare your measurement against the
 half matching the session's actual Mode condition above, not just whichever
 number looks closer.
 
-|  # | Location                                |  Spec V | Zone    | Subsystem                             | Role                                             | Measured V | Delta |
+|  # | Location                                |  Spec V | Zone    | Subsystem                             | Role                                             | Measured V | % Diff |
 |----+-----------------------------------------+---------+---------+---------------------------------------+--------------------------------------------------+------------+-------|
 |  1 | V1 Pin 1                                |      65 | D3      | Tone/preamp                           | Plate, sec. 1                                    |            |       |
 |  2 | V1 Pin 3                                |     0.6 | D3      | Tone/preamp                           | Cathode, sec. 1                                  |            |       |
 |  3 | V1 Pin 6                                |      74 | D3      | Tone/preamp                           | Plate, sec. 2                                    |            |       |
-|  4 | Between R21 and R17                     |     110 | D4      | Tone/preamp                           | Signal/bias node (likely V1 sec. 2 cathode area) |            |       |
+|  4 | Between R21 and R17                     |     110 | D4      | Tone/preamp                           | Bias-supply bus (not a cathode node — see notes) |            |       |
 |  5 | V3 Pin 1                                |     120 | D8      | Tone/preamp                           | Plate, sec. 1                                    |            |       |
 |  6 | V3 Pin 3                                |    0.75 | D8      | Tone/preamp                           | Cathode, sec. 1                                  |            |       |
 |  7 | V4 Pin 1                                |     130 | D10     | Driver                                | Plate, sec. 1                                    |            |       |
@@ -52,12 +55,12 @@ number looks closer.
 | 11 | V6, V7, V8, V9 Pin 3                    |      11 | D11-F11 | Output stage                          | Cathode (shared, C600)                           |            |       |
 | 12 | V6, V7, V8, V9 Pin 9                    |     300 | D11-F11 | Output stage                          | Screen grid (shared)                             |            |       |
 | 13 | V6 Pin 7                                |     335 | D11     | Output stage                          | Plate                                            |            |       |
-| 14 | C99 (40µF+ section)                     |     230 | F10     | Driver                                | B+ decoupling node                               |            |       |
-| 15 | C99 (20µF+ section, near R81)           |     205 | F8      | FM IF / Driver boundary               | B+ decoupling node                               |            |       |
-| 16 | C99 (20µF+ section, near R104)          |     110 | ~F9     | Driver (zone uncertain)               | B+ decoupling node                               |            |       |
-| 17 | C100 (40µF+ section)                    |     300 | F11-G11 | Power supply / Output stage boundary  | B+ decoupling node                               |            |       |
-| 18 | C100 (20µF+ section, R116-fed)          | 270/247 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
-| 19 | C100 (20µF+ section, between R116/R117) | 296/280 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
+| 14 | C99 (40µF+ section, pin 1)              |     230 | F10     | Driver                                | B+ decoupling node                               |            |       |
+| 15 | C99 (20µF+ section, pin 2, R38-fed)     |     205 | F8      | FM IF / Driver boundary               | B+ decoupling node                               |            |       |
+| 16 | C99 (20µF+ section, pin 3, near R104)   |     110 | ~F9     | Driver (zone uncertain)               | B+ decoupling node                               |            |       |
+| 17 | C100 (40µF+ section, pin 1)             |     300 | F11-G11 | Power supply / Output stage boundary  | B+ decoupling node                               |            |       |
+| 18 | C100 (20µF+ section, pin 3, R116-fed)   | 270/247 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
+| 19 | C100 (20µF+ section, pin 2, between R116/R117) | 296/280 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
 | 20 | C101 (100µF+ section)                   |     340 | ~G10    | Power supply                          | Rectifier output                                 |            |       |
 | 21 | V10 Pin 5                               |      85 | G5      | AM/FM front end / IF                  | Plate                                            |            |       |
 | 22 | V10 Pin 7                               |     0.8 | G5      | AM/FM front end / IF                  | Cathode                                          |            |       |
@@ -69,8 +72,8 @@ number looks closer.
 | 28 | V13 Pin 6                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Screen grid                                      |            |       |
 | 29 | V14 Pin 5                               |     160 | H3      | AM section                            | not yet identified                               |            |       |
 | 30 | V14 Pin 6                               |      82 | I3      | AM section                            | not yet identified                               |            |       |
-| 31 | C81 and C67                             |     150 | H5-H8   | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
-| 32 | C66 and R87                             |     110 | H6      | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
+| 31 | C82+/R101 (far side)/R98/C67+ junction  | 150 | H5-H8   | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
+| 32 | C66+ and R87 (R87 bridges C66+/C67+, downstream of row 31) | 110 | H6      | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
 | 33 | C64 and R86                             |     100 | H4      | FM front end                          | B+ decoupling node                               |            |       |
 | 34 | C75, S1 1/4, and R85                    |     270 | I4-I6   | AM section / Selector switch boundary | Signal node                                      |            |       |
 
@@ -79,6 +82,14 @@ Notes:
   zone F4 (Selector switch's C1-G7 range) — a different subsystem than
   this node's own D4 (Tone/preamp). Worth remembering if tracing this
   net physically; it crosses a subsystem boundary.
+  Role corrected 2026-09-08, reading tile-C3-E5 directly plus physical
+  tracing at the bench: this is V1's 110V bias-supply bus, not "V1
+  sec. 2 cathode area" as originally guessed. R21 (100k) is section
+  2's plate load (ties to pin 6/C9); R17 (250k) ties into this same
+  110V bus, confirmed by tracing; R19 (2.2M, previously unclear
+  whether cathode or grid-leak) confirmed grounded — it's pin 7's
+  grid-leak resistor, which also fits its value far better than a
+  cathode resistor would (2.2M would bias a 12AX7 essentially off).
 - V4 Pin 6 :: zone filled in from the 2026-08-15 log (C10), not from
   this pass — the log flagged its exact schematic position as
   uncertain (the "85V" label sits between V4's two triode sections).
@@ -95,12 +106,37 @@ Notes:
 - C99/C100 sections :: "40µF+," "20µF+" labels refer to the discrete
   rebuild's section values per component-notes.org, not necessarily
   the physical tap order on the can.
+- C100 pinout :: read directly off the can's own labeled pins,
+  2026-09-08 — pin 1 = 40µF+ section (row 17, screen-decoupling node
+  per component-notes.org — inferred by elimination, not
+  re-independently confirmed this session), pin 2 = 20µF+ section
+  between R116/R117 (row 19), pin 3 = 20µF+ section, R116-fed (row
+  18), pin 4 = common/ground (black wire). C99's pins are not labeled
+  the same way and remain unidentified per-lug.
 - C99 (20µF+, near R104) and C101 :: zones are inferred/approximate,
   not directly confirmed the way most of this list was — worth a
   closer schematic check if precision here matters later.
-- H-column entries (C81/C67, C66/R87) :: H5-H8 and H6 don't fall
-  cleanly into any of ZONES.org's named subsystem ranges. C64/R86 (H4)
-  does land in FM front end's range (G-H, 1-5).
+- C99 pinout :: pin 4 = ground (confirmed by continuity, 2026-09-08,
+  matching C100's convention). Pin 2 = the 205V section (row 15) —
+  traced 2026-09-08 via continuity from V3 Pin 1 through a 100kΩ
+  resistor to this pin; that resistor matches R38's value and position
+  (tile-E7-G9, adjacent to this section's "1" label on the schematic —
+  inferred, not independently confirmed as R38 by designator). "Near
+  R81" in the row label was a proximity guess and appears wrong; R81
+  is a 10k resistor in an unrelated switch section per bom.org. Pins 1
+  and 3 matched 2026-09-08 by voltage magnitude, not by tracing: pin 1
+  = row 14 (230V section, 156.5V measured, 0.68 ratio), pin 3 = row 16
+  (110V section, 91.8V measured, 0.84 ratio) — the reverse assignment
+  doesn't fit (would put one section's reading above spec, unlike
+  every other reading that session). Row 16's "near R104" label is
+  still unconfirmed by tracing, same caveat as before — only the pin
+  number is new.
+- H-column entries (row 31's C82/R101/R98/C67+ junction, row 32's
+  C66+/R87) :: H5-H8 and H6 don't fall cleanly into any of ZONES.org's
+  named subsystem ranges. C64/R86 (H4) does land in FM front end's
+  range (G-H, 1-5). Row 31 was originally mislabeled "C81 and C67" —
+  corrected 2026-09-08, see notes; C81 is a real, different component
+  elsewhere, not part of this junction.
 - AM/FM overlap entries (V10, V12) :: ZONES.org already documents that
   AM section and FM front end share drawn space; several zones here
   genuinely belong to more than one subsystem rather than one being
@@ -118,6 +154,35 @@ Notes:
   C11/C12) turning out to matter. Roles not identified yet; 160V/82V
   could plausibly be plate/screen or oscillator-section pins on this
   heptode, but that's a guess, not a trace.
+- Row 31 topology (C82/R101/R98/C67+ junction) :: reading the
+  schematic directly, 2026-09-08 — R87 sits between C66+ and C67+
+  (both caps' negatives grounded), stepping down from row 31's
+  junction to row 32's. R101 sits *between* two separate nodes, not
+  inside one shared junction as first thought: one side is a
+  "super-junction" shared by T5 pin 4, V12 Pin 6, R97, and C80 — this
+  is the same node as row 26 (V12 Pin 6, spec 50V), not part of row
+  31. R101's *other* side is row 31 itself (150V spec), continuing to
+  C82+/R98/C67+. R98 (6k, 6W) continues from row 31's node toward
+  another point further downstream, also marked ~150V with 15mA/16mA
+  current arrows.
+  This whole branch (row 26 and row 31 both) reads ~0V when the
+  selector is on AUX and comes up to sensible values (41.89V / 107.9V
+  respectively, both a reasonable fraction of spec) when switched to
+  FM — this branch is FM-specific and simply unpowered outside FM
+  mode, not a fault. See 2026-09-08 measurements for the full story;
+  this was mistaken for a possible open B+ feed before the mode
+  dependency was found. V14 (rows 29-30, AM section) showed the exact
+  same pattern — ~0V on AUX, healthy readings (115.1V/72.9V) once
+  switched to AM.
+- AUX and AM/FM section power :: confirmed 2026-09-08 — selecting AUX
+  doesn't just reroute the signal path, it leaves BOTH the AM section
+  (V14) and at least part of the FM section (V12/T5 branch, rows
+  26/31) completely unpowered, not just switched out of circuit. Any
+  AM- or FM-tagged row in this table will read near 0V on AUX and
+  isn't a fault — test those rows in their own mode (AM or FM
+  respectively), not AUX, or a perfectly healthy section will look
+  like an open B+ feed. Worth setting Mode to AM or FM rather than AUX
+  whenever this table's AM/FM-zone rows matter for a session.
 
 * Observations
 

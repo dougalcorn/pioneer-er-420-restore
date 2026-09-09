@@ -156,24 +156,60 @@ Function: matches VR5, for V2's heater. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
 
 * R77
-Function: 100Ω, part of the headphone-output divider with R79, tapping
-in *before* S8 (speakers on/off) — the reason "speakers off" doesn't
-create a true open-secondary condition on T7. See
+Function: 100Ω, tied permanently to T7's 8Ω center tap, feeding the
+HEADPHONES jack — independent of S7/S8 position. Corrected 2026-09-08:
+not a divider with R79 as first assumed; that's a separate path
+through S8 pin 2. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
 
 * R78
-Function: right-channel mirror of R77, paired with R80 for T8. See
-[[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
+Function: right-channel mirror of R77 — off T8's 8Ω center tap, to the
+headphone jack. See [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
 
 * R79
-Function: 16Ω wirewound (manual says 10Ω; physical part disagrees,
-trusted) — dummy-load resistor keeping T7 loaded when S8 is off, part
-of the same divider chain as R77. See
+Function: 16Ω wirewound (manual and the schematic's own printed value
+both say 10Ω; physical part disagrees, trusted) — dummy-load resistor
+between S8 pin 2 and ground, only in circuit when S8 is off. Keeps T7
+loaded instead of open when speakers are switched off. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
 
 * R80
-Function: right-channel mirror of R79, for T8. See
+Function: right-channel mirror of R79, for T8, via S8 pin 2. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
+
+Left/right identity resolved 2026-09-08: R79 carries the red wire
+(left, matches T7), R80 carries the white wire (right, matches T8) —
+confirmed by tracing the same red/white pair from the labeled rear
+speaker terminal block (bottom pair = right, top = left) through S8
+pin 2 to these two resistors. Both measure ~16Ω isolated (S8 off),
+matching the printed spec. With S8 on, in-circuit readings drop to
+~2Ω and drift downward — consistent with the output transformer
+secondary's inductance joining the measured loop through S8, not a
+fault in either resistor.
+
+Photo: [[file:photos/2026-09-08-r77-r80-divider-01.jpg]]
+
+* R87
+Function: 4.7k, 1W, bridges C66+ and C67+ in the FM IF strip's B+
+decoupling chain (measurements TEMPLATE.org row 32, 110V spec) —
+downstream of row 31's junction (R101/C82+/R98/C67+). Physically
+identified 2026-09-08/09 near C99, NOT next to V14 as schematic-zone
+proximity (tile-G3-I5) suggested — another reminder that physical
+chassis layout doesn't reliably track schematic zone lettering here.
+Reads 0V on AUX (unpowered, same as the rest of this FM branch — see
+[[file:measurements/2026-09-08-voltages.org][2026-09-08 measurements]], row 31) and 89.5V under FM mode, a healthy
+0.81 ratio against spec on tonight's stepped-down line voltage.
+
+* R85
+Function: part of the AM section/selector switch boundary junction
+with C75 and S1 1/4 (measurements TEMPLATE.org row 34, 270V spec).
+Physically confirmed 2026-09-08 at 25kΩ (red-green-orange-silver),
+not the schematic/manual's stated 15k — same trust-the-part call made
+for R79/R80. 2W, ±10% (silver) against the manual's ±20%. Row 34
+measured 194.5V under AM mode (S1 on AM, matching this row's tagged
+subsystem) — a healthy 0.72 ratio against the 270V spec.
+
+Photo: [[file:photos/2026-09-09-r87-01.jpg]]
 
 * T7
 Function: left-channel output transformer. Primary leads (red/green)
