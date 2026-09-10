@@ -12,11 +12,16 @@ polyethylene capacitors original. My primary use will be turntable. I'm actually
 just going to focus on the AUX input signal path and not worry about the RF or
 Phono inputs for now.
 
-Current status: circuit tracing and orienting underway, nothing electrical replaced yet.
+Current status: line cord and fuse replaced, baseline voltage sweep done, recap underway (C101 replaced, C102 next), and a V1 socket/tube fault under active investigation.
 
 * Log
 
+- [[file:log/2026-09-09-v1-v3-swap-and-c101-recap.org][2026-09-09]]: V1/V3 tube cross-swap isolated two coincident faults (V1's socket kills any tube, V1's original tube is dead in any socket); re-stuffed C101 into its original Nichicon can with a modern 350V part, confirmed by a clean doubler-symmetry reading after power-up
+- [[file:log/2026-09-08-voltage-sweep.org][2026-09-08]]: Full tube-pin voltage sweep against the new template, resolved two mode-gated "dead" tube readings (V12/V14 unpowered on AUX, not faulty), found V1 Pin 3's cathode reading genuinely dead, physically identified R101 and R87
+- [[file:log/2026-08-15-line-cord-termination.org][2026-08-15]]: Re-terminated the original 2-wire line cord, installed the new 2A slow-blow fuse, first baseline voltage sweep since the cord/fuse work
 - [[file:log/2026-08-11-gray-cap-reconciliation.org][2026-08-11]]: Traced every physical oil-paper and electrolytic capacitor to its BOM designator by continuity, fixed a wrong zone and a wrong voltage along the way, and discovered/documented C600, an as-built shared cathode-bias network absent from the schematic
+- [[file:log/2026-08-10-line-cord-pull-and-strain-relief-sourcing.org][2026-08-10]]: Pulled the original line cord (destroying the strain relief in the process) and sourced a replacement sized to the chassis opening
+- [[file:log/2026-08-05-plan-review-and-tape-monitor-trace.org][2026-08-05]]: Desk session reconciling the restoration plan against actual progress, plus research into adding a second line-level input
 - [[file:log/2026-08-04-vr2-terminal-id-and-first-power-up.org][2026-08-04]]: Identified VR2's wiper terminal against the schematic, wired the speakers, and ran the first power-up on the dim bulb tester
 - [[file:log/2026-08-04-dim-bulb-tester-and-s7-verify.org][2026-08-04]]: Built the dim bulb tester and re-assembled/verified S7 after its adhesive repair cured
 - [[file:log/2026-07-29-phase-2-survey.org][2026-07-29]]: Started S7 repair, traced "speakers off" circuit, tested all eight mylar coupling caps, resistor sweep of signal and power only

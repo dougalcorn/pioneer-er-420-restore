@@ -1,0 +1,216 @@
+#+TITLE: V1/V3 tube swap test and C101 recap — 2026-09-09
+#+DATE: 2026-09-09
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Two threads tonight: (1) follow up on 2026-09-08's open thread — V1 Pin 3
+(section 1 cathode) reads 0V with R9 and its ground path already
+cleared; swap V3's tube into V1's socket to test whether the original
+V1 tube's section 1 is bad, or whether the fault is in the
+socket/circuit itself. (2) First cap of the recap: pull and replace
+C101.
+
+* Work
+
+Before opening back up: verified 0V across chassis and all pins of
+C99-C102 with the DMM.
+
+Confirmed the swap pair as V1/V3 (not V2), matching the 2026-09-08 plan —
+both are 12AX7(T) per bom.org, a valid like-for-like swap.
+
+Pulled the metal shields off V1 and V3 to access the tubes; left off for
+this test since it's a static DC measurement, not a hum/listening check
+— shields will go back on before any signal test. V3's socket was
+noticeably tighter than V1's on both the pull and the reseat; V1's
+socket felt like normal resistance both removing the original tube and
+inserting V3's, which argues against a loose V1 socket contact as the
+explanation for Pin 3's 0V reading.
+
+Moved V3's tube into V1's socket. S1 left on AUX, matching the mode
+2026-09-08's baseline V1 Pin 3 reading was taken under.
+
+Power on at 5:44pm. Dim bulb settled to a stable glow in under a minute.
+5:50pm: 73.4VAC measured across the receiver's own line input — close to
+2026-09-08's 71.6V, so tonight's conditions should be comparable to that
+session's.
+
+5:52pm: V1 Pin 3 read 0V, but this is only ~8 minutes into warm-up —
+per 2026-09-08's finding that the first-pass V1 readings were cold-tube
+artifacts (superseded after 20+ minutes), too early to treat as
+conclusive.
+
+6:15pm (~31 minutes in, past the 20-minute mark that mattered last
+session): V1 Pin 3 still reads 0V.
+
+While waiting out the warm-up window, physically identified and
+photographed R101 — the horizontal printed-text resistor near C99 with
+the blue wire running underneath it, part of the KOA-branded cluster
+2026-09-08 flagged as printed-text rather than color-banded. Added a
+dedicated [[file:../component-notes.org::*R101][R101]] entry to
+component-notes.org with this photo.
+
+[[file:../photos/2026-09-09-r101-01.jpg]]
+
+Ran step 2 of the swap: moved V1's original tube into V3's socket (V3's
+tube stayed in V1's socket from step 1 — full cross-swap, not a
+three-way). Same power cycle, so warm-up was already well past 20
+minutes; no fresh cold-tube risk for this reading.
+
+Result: V3 Pin 3 read 0V (dead) and V3 Pin 1 read 149.5V — elevated
+above V3's 120V spec, the same "no current → plate rides high" signature
+V1's own pins showed. V3's socket had read a healthy (if low) 0.322V on
+Pin 3 with its own tube on 2026-09-08, so this is new: V1's original
+tube is now dead in a socket that was otherwise working.
+
+Powered off, swapped both tubes back to their original sockets
+(V1's tube to V1, V3's tube to V3), powered back up, same warm-up wait.
+V3 Pin 3 re-measured at 0.344V — matches the original 0.322V baseline
+closely, confirming V3's socket/circuit is fine and the swap process
+itself didn't disturb anything.
+
+Powered off at the end of this test sequence.
+
+** C101 recap
+
+Discharge-checked C101/C102 fresh (power had been cycled several times
+by this point) — 0.2V across C101+ to chassis, well under any hazard
+threshold, clear to proceed.
+
+Decision on approach: re-stuff the original Nichicon can rather than
+mount the new part on a separate terminal strip, after reviewing an
+AudioKarma restoration thread on this same approach. Confirmed C101 is
+a single-section cap (unlike the multi-tap C99/C100 cans), so no
+shared-ground complexity to sort out.
+
+Disassembly: unclamped and pulled the can. Photographed the original
+wiring (two wires, one per terminal, straightforward joint — no shared
+junctions) before touching anything.
+
+[[file:../photos/2026-09-09-c101-recap-01.jpg]]
+
+Dremeled the outer aluminum sleeve open to see the construction: an
+aluminum-can outer sleeve over a paper-wrapped capacitor element, with
+a separate two-lug terminal header (orange/brown sealant, two rigid
+posts) crimped into one end. Black material at the element's cut ends
+crumbled into brittle chips rather than fraying like burnt paper —
+reads as normal pitch/wax end-seal compound, not heat damage.
+
+[[file:../photos/2026-09-09-c101-recap-02.jpg]]
+
+Element was printed "nichicon ELECTROLYTIC CAPACITOR 100MFD 250WV
+NEGATIVE BLACK, Nichicon Capacitor Ltd." — matches bom.org's listed
+original spec exactly, so this reads as the original part, not a prior
+repair's replacement.
+
+[[file:../photos/2026-09-09-c101-recap-03.jpg]]
+
+Rejected two other approaches before settling on the final method:
+mounting the new cap loose on a separate terminal strip (would work
+but loses the original look, and the empty can would just be
+decorative rather than functional); and soldering the new leads
+directly to the terminal header's flimsy folded tabs then epoxying the
+can shut with the new cap potted inside (rejected — those tabs have no
+mechanical support once separated from the crimped shell, and potting
+a modern electrolytic in epoxy blocks its vent, turning a normal aging
+failure into a worse one with nowhere to vent).
+
+Final method: drilled two holes through the terminal header to reach
+the rigid posts underneath (sturdier anchor point than the folded
+tabs), ran the new Nichicon 100µF/350V cap's leads through the holes,
+and test-fit the crimp before soldering.
+
+[[file:../photos/2026-09-09-c101-recap-04.jpg]]
+
+Polarity confirmed by matching the new cap's striped (negative) lead
+to the same post the old element's black-marked negative lead was on
+— per component-notes.org this post is C101's "−", tied to C102's "+"
+at the doubler midpoint, not to chassis ground. Soldered both leads to
+the posts.
+
+[[file:../photos/2026-09-09-c101-recap-05.jpg]]
+
+Added electrical tape inside the can to keep the new cap's body from
+touching the shell. Drilled a vent hole in the can's top, though in
+hindsight the lead-holes in the terminal header would likely have
+vented enough on their own. Left the can air-filled, no potting.
+Reassembled can to header using the original clamp only (no adhesive
+available) — confirmed a snug fit, took some trial and error to get
+the terminals realigned to their original rotational position.
+Resoldered the original two wires to the same terminals, marking the
+negative lead's insulator edge with pen before final assembly so
+polarity stays checkable without opening it back up.
+
+[[file:../photos/2026-09-09-c101-recap-06.jpg]]
+
+Pre-power checks: no continuity between either new terminal and the
+chassis, the can shell, or each other. Clear to power up.
+
+Power on 9:16pm, dim bulb tester as usual. 9:23pm (~7 min in): 73.4VAC
+input, C101+ 212.5V, C101−/C102+ midpoint 106V (both sides agree),
+C102− 0V (correctly grounded, matches component-notes.org). C101+'s
+212.5V against 2026-09-08's 209.4V baseline tracks almost exactly with
+tonight's slightly higher line voltage (73.4V vs. 71.6V) — consistent,
+not a red flag. Doubler symmetry (106V vs. half of 212.5V = 106.25V) is
+tighter than 2026-09-08's already-good split. Reads as a clean,
+successful replacement.
+
+* Measurements
+
+Spot checks only, not a full sweep — see
+[[file:../measurements/2026-09-08-voltages.org][2026-09-08 measurements]]
+rows 2 and 6 for the original V1/V3 Pin 3 baselines this session tested
+against.
+
+- Line voltage at the receiver's own plug, ~5:50pm :: 73.4VAC
+- V1 Pin 3, with V3's tube in V1's socket, 6:15pm (~31 min warm-up) :: 0V
+- V3 Pin 1, with V1's tube in V3's socket, same power cycle (well past
+  warm-up) :: 149.5V (spec 120V)
+- V3 Pin 3, with V1's tube in V3's socket, same power cycle :: 0V
+- V3 Pin 3, tubes back in original sockets, fresh power cycle + full
+  warm-up :: 0.344V (matches 2026-09-08's 0.322V baseline)
+
+C101 recap, post-replacement, 9:23pm (~7 min warm-up), 73.4VAC input:
+- C101+ :: 212.5V (2026-09-08 baseline 209.4V, difference tracks line
+  voltage)
+- C101−/C102+ midpoint :: 106V
+- C102− :: 0V (grounded)
+
+* Open questions (carried forward, set aside for tonight)
+
+Full cross-swap result, laid out as a table:
+
+| Tube               | Socket                          | Pin 3 (cathode)                      |
+|--------------------+---------------------------------+--------------------------------------|
+| V3's original tube | V3's own (2026-09-08, pre-swap) | 0.322V — low but alive               |
+| V3's original tube | V1's socket                     | 0V — dead                            |
+| V1's original tube | V3's socket                     | 0V — dead                            |
+| V1's original tube | V1's own (post-swap-back)       | (not re-measured; presumed still 0V) |
+
+Reads as two separate, coincident faults rather than one clean
+explanation:
+- V1's socket/circuit kills cathode current for *any* tube put in it
+  (V3's known-good tube went dead there too) — points at V1's
+  socket/circuit itself, independent of the tube.
+- V1's original tube has never conducted in either socket tested
+  (including V3's otherwise-good one) — points at the tube's section 1
+  being genuinely bad, separately from the socket issue.
+
+Not resolved tonight; deliberately set aside to move to the C101
+replacement. Next session should pick this back up — likely a third
+known-good 12AX7(T) in V1's socket (if one's on hand) to confirm the
+socket fault independent of both existing tubes, and/or tracing V1's
+socket contacts and grid circuit at Pin 2 directly.
+
+* Next
+
+- C101 done, bom.org updated to installed. **C102 is next** — same
+  re-stuff method should carry over directly (rigid posts, not the
+  folded tabs; vent, don't pot; match polarity via the can's own
+  black-negative marking), since it's the same single-section
+  Nichicon construction as C101. C99/C100 will need the shared-ground
+  handling gadget73's AudioKarma post described, since those are
+  multi-section cans — a different job, save for later.
+- Pick the V1 socket/tube double-fault thread back up: third-tube test
+  in V1's socket, or grid-circuit trace at V1 Pin 2.
+- Reinstall shields on V1/V3 once testing in this area resumes.
