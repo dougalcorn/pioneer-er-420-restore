@@ -1,0 +1,84 @@
+#+TITLE: C102 recap — 2026-09-10
+#+DATE: 2026-09-10
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Short session, planned as just pulling C102 (same recap candidate as
+C101, same single-section Nichicon construction) — ended up completing
+the full re-stuff in one sitting.
+
+* Work
+
+Discharge-checked C101/C102 fresh — 0V across both to chassis, clear
+to proceed.
+
+Photographed the original wiring before touching anything: black and
+brown wires twisted together onto the positive terminal, a bare ground
+wire and a diode onto the negative terminal. A nearby blue wire passes
+through this area but isn't part of C102's circuit.
+
+[[file:../photos/2026-09-10-c102-recap-01.jpg]]
+
+Desoldered the wires off the terminals — messier than C101's job, the
+black and brown wires' insulation melted back a bit from the heat.
+Dremeled the can open, pulled the old element with pliers, cleaned the
+inside of the can.
+
+[[file:../photos/2026-09-10-c102-recap-02.jpg]]
+
+Same method as C101: drilled two holes next to the terminal header's
+soldering posts, ran the new Nichicon 100µF/350V cap's leads through,
+matched negative to the black-painted terminal, crimped to the posts.
+Before soldering the black/brown pair back onto the new cap's positive
+lead, sleeved them to cover the section where insulation had melted
+back. Reassembled into the can, reinstalled in the chassis in the
+original orientation, fed the original wires back through the terminal
+holes, soldered.
+
+[[file:../photos/2026-09-10-c102-recap-03.jpg]]
+
+Pre-power checks: no continuity between either new terminal and the
+chassis/can shell, or between the two terminals. Clear to power up.
+
+Power on, dim bulb tester as usual. A few minutes' warm-up — enough to
+trust this reading, since the B+/doubler rail isn't subject to the slow
+tube-cathode warm-up curve that mattered for V1 Pin 3 on 2026-09-08/09.
+73.3VAC input, C101+ 214.5V, C101-/C102+ midpoint 106.7V (both sides
+agree), C102- 0V (correctly grounded). Doubler symmetry (106.7V vs.
+half of 214.5V = 107.25V, a 0.4977 ratio) matches C101's own
+post-replacement check from last night. Both halves of the doubler are
+now new and reading as a healthy matched pair.
+
+* Measurements
+
+- Line voltage at the receiver's own plug :: 73.3VAC
+- C101+ :: 214.5V
+- C101-/C102+ midpoint :: 106.7V (both sides)
+- C102- :: 0V (grounded)
+
+* Open questions
+
+C98 (Phase 5's item 3, "22µF 450V") physically located tonight — easy
+access, both terminals on a terminal strip, no can to disassemble.
+But its zone (C4 per bom.org) falls in ZONES.org's Tone/preamp range
+(C1-E9), not anywhere near the power-supply zones C99-C102 occupy
+(F10-H8). No component-notes.org entry or schematic trace exists for
+it yet, unlike its C94-C99 neighbors. Worth confirming what it
+actually does before treating it as a power-supply part — deferred in
+favor of finishing the real power-supply cans first.
+
+V1 socket/tube double-fault thread (2026-09-08/09) still open — not
+touched this session.
+
+* Next
+
+- Priority: finish the power supply properly — C99 and C100 next, both
+  multi-section cans with shared grounds (gadget73's AudioKarma post
+  describes the handling), a harder job than C101/C102's simple
+  single-section swaps.
+- C98 deferred until its actual circuit role is traced — it's not
+  clearly power-supply despite Phase 5's grouping.
+- Pick the V1 socket/tube double-fault thread back up: third-tube test
+  in V1's socket, or grid-circuit trace at V1 Pin 2.
+- Reinstall shields on V1/V3 (still off since 2026-09-09).

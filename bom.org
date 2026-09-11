@@ -146,7 +146,7 @@ schematic's nominal. It is what makes the headroom column meaningful
 | [[file:component-notes.org::*C100][C100]] | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | received | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
 | [[file:component-notes.org::*C100][C100]] | Main      |      | Electrolytic    | 40+20+20uF |           | 350V   |        | received | 47uF+22uF+22uF 450V | 232-450LLE22MEFC125X  |
 | [[file:component-notes.org::*C101][C101]] | Main      | G11  | Electrolytic    | 100uF      |           | 250V   | 212.5V | installed | 100uF 350V          | 647-UCY2V101MHD3TN    |
-| [[file:component-notes.org::*C102][C102]] | Main      | G11  | Electrolytic    | 100uF      |           | 250V   |        | received | 100uF 350V          | 647-UCY2V101MHD3TN    |
+| [[file:component-notes.org::*C102][C102]] | Main      | G11  | Electrolytic    | 100uF      |           | 250V   | 106.7V | installed | 100uF 350V          | 647-UCY2V101MHD3TN    |
 | C103 | Main      |      | Ceramic disk    | 0.01uF     |       10% | 400V   |        | spec     |                     |                       |
 | C301 | Front End | G1   | Feed Through    | 2pF        |           |        |        | spec     |                     |                       |
 | C302 | Front End | G1   | Feed Through    | 2pF        |           |        |        | spec     |                     |                       |

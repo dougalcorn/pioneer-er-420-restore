@@ -77,8 +77,22 @@ its negative terminal is where D4 lands. Confirmed as the rear-panel-
 closest can, matching the manual's own layout diagram. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
 
+Re-stuffed 2026-09-10 with a modern 100µF/350V Nichicon, same method as
+C101 (rigid posts, not the folded tabs; vented, not potted). Positive
+leads (black+brown into this can's positive terminal) had insulation
+melted back during desolder — sleeved before re-soldering. Post-power
+readings: C101+ 214.5V, C101-/C102+ midpoint 106.7V both sides, C102-
+0V (grounded) — clean doubler symmetry (0.4977 ratio), matching C101's
+own post-replacement check.
+
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+- [[file:photos/2026-09-10-c102-recap-01.jpg]] — original wiring before
+  desolder
+- [[file:photos/2026-09-10-c102-recap-02.jpg]] — terminal header after
+  the can was opened
+- [[file:photos/2026-09-10-c102-recap-03.jpg]] — reinstalled and
+  soldered
 
 * C600
 Function: shared cathode-bias network. Not part of the schematic's own

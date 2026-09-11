@@ -376,7 +376,7 @@ CLOSED: [2026-08-05 Wed 19:21]
 CLOSED: [2026-08-05 Wed 19:21]
 - CLOSING NOTE [2026-08-05 Wed 19:21] \\
   Re-assembled and re-installed. Works like a champ!
-* TODO Phase 5 — Power supply [0/9]
+* TODO Phase 5 — Power supply [2/9]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -392,13 +392,16 @@ If converting to 3-wire:
 - Verify: < 1 Ω chassis to ground pin; no continuity line pin to
   chassis.
 
-** TODO 2. C101, C102 → 100 µF 350 V Nichicon
+** DONE 2. C101, C102 → 100 µF 350 V Nichicon
+CLOSED: [2026-09-10 Thu 22:29]
+- CLOSING NOTE [2026-09-10 Thu 22:29] \\
+  Replaced C101 on [[file:log/2026-09-09-v1-v3-swap-and-c101-recap.org][2026-09-09]] and C102 on [[file:log/2026-09-10-c102-recap.org][2026-09-10]]
 Observe polarity. Stripe = negative, long lead = positive.
 Note: likely a voltage doubler, each cap sees ~190 V.
 
 ** TODO 3. C98 → 22 µF 450 V
 
-** TODO 4. C99, C100
+** NEXT 4. C99, C100
 Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
 - Discrete: 47 µF + 22 µF + 22 µF per can. *Recreate the shared
   negative return at the original chassis point* — moving it invites
@@ -417,8 +420,11 @@ hand, part of the batch order).
 
 ** TODO 7. C11, C12 → 22 µF 450 V
 ** TODO 8. C61 → 10 µF 450 V
-** TODO 9. New 2 A slow-blow fuse
+** DONE 9. New 2 A slow-blow fuse
+CLOSED: [2026-09-10 Thu 22:37]
 
+- CLOSING NOTE [2026-09-10 Thu 22:37] \\
+  I installed this a long time ago
 * TODO Phase 6 — First power-up [0/6]
 
 Nothing else gets replaced until the supply checks out.
