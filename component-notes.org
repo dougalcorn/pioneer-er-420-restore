@@ -59,8 +59,32 @@ conditions. Per the real B9A pinout for 6BQ5/EL84 (r-type.org), pin 9
 is screen grid, pin 7 is plate — initially misidentified backwards
 before being corrected by that reference.
 
+Can's own printed spec confirms the pinout independently, 2026-09-11:
+"CAP. 40-20-20" printed directly above "1 2 3 / 4 NEG" — pin 1 = 40µF
+section, pins 2/3 = the two 20µF sections, pin 4 = negative/common.
+Matches the continuity/voltage-based mapping above exactly, though the
+label only confirms which lug is which *capacitance*, not which lug
+feeds which specific circuit node (R116 vs R117 vs the screen supply)
+— that part still comes from the tracing above, not the can's text.
+
+Physical layout confirmed 2026-09-11 (viewing the can top, label side
+up): pin 4 (NEG) at bottom with two black wires; pin 2 centered above
+it; pin 1 left with a single brown wire; pin 3 right. Pins 2 and 3
+both carry a single orange wire each — unlike every other cap on this
+project so far, color alone won't distinguish them. Tag each orange
+wire before desoldering rather than relying on a post-hoc electrical
+check; if a check is needed anyway, pin 2 (between R116/R117) should
+read closer to its 296/280V spec, pin 3 (R116-fed only) closer to
+270/247V.
+
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+- [[file:photos/2026-09-11-c100-pinout-label-01.jpg]] — the can's
+  printed pin/capacitance legend
+- [[file:photos/2026-09-11-c100-pinout-wiring-02.jpg]] and
+  [[file:photos/2026-09-11-c100-pinout-wiring-03.jpg]] — physical lead
+  colors and routing at each pin, before any desoldering, for
+  reference during the eventual recap
 
 * C101
 Function: series voltage-doubler cap with C102, fed from T9's

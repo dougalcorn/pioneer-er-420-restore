@@ -177,6 +177,66 @@ C13/C14 (0.05µF oil paper) physically located 2026-07-29, behind the
 front faceplate near S10 — tied to S3 (Tape Monitor), confirmed
 against the schematic (C13 at D5-E5, below S1's "2/4" wafer).
 
+** S3 (Tape Monitor ON/OFF) topology, read 2026-09-11
+
+Prompted by wanting a second line-level input (Schiit Mani 2 + WiiM
+streamer, only one AUX jack) — see
+[[file:../food-for-thought.org::*Second AUX-equivalent input: TAPE MONITOR jack via S3][food-for-thought.org]].
+2026-08-05's desk session guessed TAPE MONITOR lived on S1's own
+wafer; that's wrong. The switch legend (tile-A7-C9.png) confirms S1's
+Input Selector only has six positions (AM/FM MONO/FM STEREO/PHONO/TAPE
+HEAD/AUX) — no Tape Monitor. TAPE MONITOR ON/OFF is S3, a separate
+two-section (stereo L/R) seesaw switch, drawn at roughly D6-F6
+(tile-C5-E7.png) as "S3 1/2" and "S3 2/2."
+
+Tracing each section's two positions:
+- Position 1 (both sections) traces back to the same jack-column nodes
+  TAPE REC and TAPE MONITOR land on in tile-C1-E3.png.
+- Position 2 (both sections) routes through a 1M resistor (R25 left
+  channel, R26 right) to what reads as S1's own wafer output line
+  ("S1 3/4R" section) — i.e., whatever S1 has actually selected.
+
+Reads as a genuine A/B override: flip S3 to position 1 and the amp
+listens to the TAPE MONITOR jack directly, independent of where S1 is
+set; position 2 passes through S1's normal selection. If right, S1's
+dial position wouldn't need to be anywhere specific for a second
+line-level input fed through TAPE MONITOR.
+
+Still traced from the schematic scan only, no continuity check at the
+bench yet — same category of "looks right on paper" claim that's been
+wrong before on this project (R79/R80, the S8 break-before-make
+correction, R116/R117's order). Live-test before wiring anything to
+it: feed a known source into the TAPE MONITOR jack, flip S3, confirm
+it's audible regardless of S1's position.
+
+*** The unlabeled 5-pin circle at E6 (tile-C5-E7.png) is the TAPE
+REC/P.B DIN jack
+
+Confirmed 2026-09-11 against the rear panel's own printed legend,
+which shows a 5-pin DIN jack labeled "TAPE REC/P.B" next to (and
+separate from) the TAPE REC and TAPE MONITOR RCA jacks — a physical
+part this project had forgotten existed. That resolves the E6 circle:
+no reference designator or tube-type text was ever going to appear
+next to it because it's a connector, not an active component; this
+schematic just draws jack/connector faces the same way it draws tube
+sockets (circle, numbered contacts), which is what made it hard to
+read at a glance.
+
+Pin function, traced against the schematic and matching the rear
+panel legend's description of a combined record/playback DIN jack:
+- Pin 1 → R25 (1M), pin 4 → R27 (100k) — these two pins are the
+  record-out pair, attenuated by R25/R27 before leaving the chassis
+  (R25 itself traces back to S1 wafer 2's front face, position 1).
+- Pin 2 → chassis ground.
+- Pins 3 and 5 → both sections of S3 — the playback-in pair, wired in
+  parallel with the separate TAPE MONITOR RCA jack, both feeding the
+  same S3 override.
+
+Confirms the practical point for the second-input project: TAPE
+MONITOR's signal path into S3 is shared by two physical connectors
+(the RCA jack and DIN pins 3/5), not just one — doesn't change the
+live-test plan above, just gives two ways to feed it.
+
 * Driver
 
 * Output stage

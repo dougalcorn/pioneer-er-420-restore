@@ -10,6 +10,27 @@ each one, note the source, and where it actually lands (agree,
 disagree, still open) so this doesn't just become a pile of quotes
 nobody revisits.
 
+* Second AUX-equivalent input: TAPE MONITOR jack via S3
+
+Not outside advice — the project's own idea, tracked here anyway since
+it's a standing want, not a task: running both a Schiit Mani 2 (phono
+preamp) and a WiiM streamer with only one AUX jack available.
+
+2026-08-05 ruled out feeding either into PHONO MAG, PHONO CER/X-TAL, or
+TAPE HEAD directly (all three are low-level inputs, would overdrive
+the shared gain stage) and landed on TAPE MONITOR as the promising
+line-level candidate, gated by S3. That session's schematic read (TAPE
+MONITOR on S1's own wafer) turned out wrong once the physical panel
+was checked 2026-09-11 — S1 has no Tape Monitor position, only TAPE
+HEAD. Full corrected trace of S3's actual topology (a two-position
+override, independent of S1) is in
+[[file:schematic/circuit-notes.org::*S3 (Tape Monitor ON/OFF) topology, read 2026-09-11][circuit-notes.org]].
+
+Status: live test still pending — feed a known source into TAPE
+MONITOR, flip S3, confirm it comes through regardless of S1's
+position. No chassis modification needed either way, which is what
+made this candidate worth chasing over an external selector box.
+
 * Test oil-paper caps individually rather than blanket-replacing
 
 Source: Dandy, Audiokarma reply, 2026-07-29. "Yes, the PIO caps can

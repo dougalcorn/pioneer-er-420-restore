@@ -12,10 +12,11 @@ polyethylene capacitors original. My primary use will be turntable. I'm actually
 just going to focus on the AUX input signal path and not worry about the RF or
 Phono inputs for now.
 
-Current status: line cord and fuse replaced, baseline voltage sweep done, recap underway (C101/C102 doubler pair done, C99/C100 next), and a V1 socket/tube fault under active investigation.
+Current status: line cord and fuse replaced, baseline voltage sweep done, C101/C102 doubler pair done, C100 mid-recap (disassembled, on hold for hookup wire) with C99 still pending, a V1 socket/tube fault under active investigation, and a batch of oil-paper caps queued up while C100 waits.
 
 * Log
 
+- [[file:log/2026-09-11-c100-recap.org][2026-09-11]]: Identified an unlabeled schematic symbol as the TAPE REC/P.B DIN jack (see circuit-notes.org), confirmed C100's pinout against its own printed label, then disassembled C100 for a discrete-cap recap — on hold pending correctly-rated hookup wire
 - [[file:log/2026-09-10-c102-recap.org][2026-09-10]]: Re-stuffed C102 into its original can with a modern 350V Nichicon, same method as C101; post-power readings confirm both doubler halves now read as a healthy matched pair
 - [[file:log/2026-09-09-v1-v3-swap-and-c101-recap.org][2026-09-09]]: V1/V3 tube cross-swap isolated two coincident faults (V1's socket kills any tube, V1's original tube is dead in any socket); re-stuffed C101 into its original Nichicon can with a modern 350V part, confirmed by a clean doubler-symmetry reading after power-up
 - [[file:log/2026-09-08-voltage-sweep.org][2026-09-08]]: Full tube-pin voltage sweep against the new template, resolved two mode-gated "dead" tube readings (V12/V14 unpowered on AUX, not faulty), found V1 Pin 3's cathode reading genuinely dead, physically identified R101 and R87

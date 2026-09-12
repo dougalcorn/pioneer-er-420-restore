@@ -1,0 +1,111 @@
+#+TITLE: C100 recap — 2026-09-11
+#+DATE: 2026-09-11
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Continue the power-supply recap: C100 next (multi-section, 40+20+20µF
+— a harder job than C101/C102's single-section cans, shared-ground
+handling applies). Discrete replacement approach per
+er-420-restoration-plan.org Phase 5 item 4: 47µF + 22µF + 22µF per can.
+
+Before opening up tonight: confirmed the can's pinout against its own
+printed label and physical wire colors (see component-notes.org's C100
+entry) — pin 1 (brown wire) = 40µF section, pin 2 and pin 3 (both
+orange, tagged before desoldering to avoid mixing them up) = the two
+20µF sections, pin 4 (two black wires) = negative/common, physically
+at the bottom of the can with pin 2 centered above it, pin 1 left,
+pin 3 right.
+
+* Work
+
+Side thread before touching the chassis: chased down what turned out
+to be the TAPE REC/P.B DIN jack, prompted by wanting a second
+line-level input. Full trace is in
+[[file:../schematic/circuit-notes.org::*S3 (Tape Monitor ON/OFF) topology, read 2026-09-11][circuit-notes.org]]
+— corrected a wrong 2026-08-05 assumption (TAPE MONITOR is not on
+S1's wafer), worked through misreading the S1 multi-wafer numbering
+(wafer 4, not wafer 1, carries the actual jack audio), and identified
+an unlabeled schematic circle as a DIN jack only after finding the
+physical rear-panel label, not from the schematic alone. Still not
+live-tested at the bench.
+
+Discharge-checked before opening up — no voltage on the caps.
+
+Tagged pin 3's orange wire with a wrap of black tape before
+desoldering, to distinguish it from pin 2's identical-looking orange
+wire. Pin 2's orange wire is left untagged/plain.
+
+Pulled the can, cut it open (Dremel, same method as C101/C102) and got
+all three old paper elements out — a much tighter fit than either
+single-section can, more residue to clean out. Base/terminal header
+cleaned and confirmed against the earlier pinout work.
+
+[[file:../photos/2026-09-11-c100-pinout-label-01.jpg]]
+
+Test-fit the three discrete replacements (47µF, 22µF, 22µF) in the
+can — just barely fits. This job needs extension wires (to common the
+three sections' negatives into pin 4 and route three separate positive
+leads out through the base) that C101/C102 didn't need, plus
+insulation on those extensions given how little clearance there is.
+The can's original internal wire covering looked like woven/braided
+sleeving, not heat-shrink — not worth matching since none of this is
+visible once the can's closed up.
+
+Checked on hand: no hookup wire at all. Cheap generic "hookup wire
+kit" options were mostly rated 300V insulation, marginal against this
+node's actual spec voltage (270-296V, and likely higher yet at full
+line) — decided against relying on taping over 300V wire for a
+connection that gets sealed inside a can for years, rather than using
+correctly-rated wire from the start. Ordered a 100ft spool of 22 AWG
+red wire (arriving Sunday) rather than a pricier 6-color kit (arrives
+Thursday) — voltage rating still needs to be confirmed against the
+actual product on arrival, not assumed. Single color accepted as a
+cost tradeoff; tagging leads by hand (as done for pin 3 tonight) is
+the fallback for keeping track of which lead is which.
+
+C100 is now fully disassembled — three new caps, the can, the clamp,
+and the cleaned base sitting apart — and can't go back together until
+the wire arrives. Decided to pivot to the 13 received oil-paper caps
+in the meantime rather than sit idle, with a testing plan adapted to
+what these caps actually need: verify each replacement's value and
+check for shorts out-of-circuit before installing (rather than a live
+power-up per cap, which doesn't tell you much about a coupling cap
+anyway and isn't possible with C100 out), then treat the first
+power-up after C100 goes back in as one comprehensive confirmation
+sweep, run the same way as 2026-09-08's template.
+
+* Measurements
+
+None tonight — C100 is out of circuit, nothing to power up.
+
+* Open questions
+
+- Confirm the ordered red wire's actual voltage rating on arrival
+  before using it inside C100.
+- S3/DIN jack finding (circuit-notes.org) still needs a live test:
+  feed a known source into TAPE MONITOR, flip S3, confirm audible
+  regardless of S1's position.
+- V1 socket/tube double-fault thread (2026-09-08/09) still open, not
+  touched this session.
+- Accepted tradeoff: replacing several oil-paper caps before the next
+  power-up means a bad joint on any one of them won't be individually
+  isolated the way C101/C102's readings isolated each other — fine
+  given oil-paper caps aren't polarized, but worth remembering if the
+  eventual sweep turns up something unexpected.
+
+* Next
+
+- Tomorrow: pick one or two of the 13 received oil-paper caps (C7, C8,
+  C13, C14, C19, C20, C25, C26, C47, C48, C56, C60, C70, C96), verify
+  location against the schematic and photo the wiring before touching
+  each one, same one-at-a-time discipline as always — just with
+  out-of-circuit verification standing in for a live test.
+- Once the red wire arrives (Sunday): finish C100 — common the three
+  negatives to pin 4, route the three positive leads through the base
+  to pins 1/2/3, insulate, reassemble the can, reinstall.
+- After C100's back in: full voltage sweep against the 2026-09-08
+  template, row by row, covering everything replaced in the gap.
+- C99 still pending after C100 — same multi-section/shared-ground job.
+- Pick the V1 socket/tube double-fault thread back up when there's a
+  session for it.
