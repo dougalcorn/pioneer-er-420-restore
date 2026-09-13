@@ -40,6 +40,10 @@ line-to-chassis safety cap as first guessed. Resin/film construction,
 not oil-paper — decided not to replace. Full story in
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
 
+Physically inside S10's switch housing, buried behind a plate and
+almost invisible from outside — mounted directly across the switch's
+own two terminals. [[file:photos/2026-07-29-power-switch-02.jpg]]
+
 * C99
 Function: one of two 3-section B+ filter/decoupling cans, cascaded
 down the power supply's dropping-resistor chain rather than all three
@@ -317,11 +321,41 @@ Function: 0.1µF Mylar coupling cap. Tested clean 2026-07-29.
 * C22
 Function: right-channel mirror of C21. Tested clean.
 
-* S1
+* C7
+Function: 0.02uF oil-paper, wired directly across V1 pins 1 and 7 —
+interstage coupling between V1's own two triode sections (plate of
+section 1 to grid of section 2), not a connection to anything
+external. Fits circuit-notes.org's "V1/V2 as shared first-gain
+stage" picture: V1 and V2 are a stereo pair, each a dual-triode doing
+both cascaded gain stages for its own channel internally. Physically
+confirmed 2026-09-12, out of tolerance on removal (see bom.org).
+
+* C8
+Function: mirrors C7, same role (V2 pins 1 and 7) for the other
+channel. Physically confirmed 2026-09-12 — reading drifted down
+while measuring, a leakage signature also seen on C70.
+
+* C11
+Function: electrolytic, 20uF 250V per label (ELNA ELYT CAP), planned
+replacement 22uF 450V per bom.org. Physically mounted directly above
+V2 (E3, shared V1/V2 first-gain stage). BOM previously listed zone
+F3; schematic zone confirmed 2026-09-12 as F4, matching the
+2026-09-08 voltage-sweep note that had already flagged C11/C12 as a
+case of wrong BOM zone data.
+
+Photos: [[file:photos/2026-09-12-c11-c12-location-01.jpg]]
+
+* C12
+Function: mirrors C11, same physical mount above V2, same zone
+correction (F3 → F4). See C11 entry.
 Function: input selector. Not a single physical block on the
 schematic — four disconnected wafer sections spread across the sheet,
 which is why it has no single Zone in bom.org. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Selector switch.
+
+Photos:
+- [[file:photos/2026-09-12-s1-4-4r-01.jpg]] — physical wafer,
+  identified as 4/4R
 * VR2
 ** The 10:00, 12:00, and 2:00 Terminals (The Standard Trio):
 Potentiometers are traditionally laid out in a sequence: - Counter-Clockwise/Low (CCW) - Wiper - Clockwise/High (CW).
@@ -417,3 +451,17 @@ first power-up, where volume control was smooth through the whole session. That 
 evidence for this verdict, not just the unpowered DMM sweep alone — still no live
 DC voltage measurement at V3's grid or the wiper, which remains the one
 unconfirmed piece per the 2026-08-04 log.
+
+* C502
+Function: MPX board electrolytic, 3uF/150V. Out of scope for now
+under the aux-only decision (2026-07-25) — that decision was about
+not chasing MPX functionality, not a reason to skip recapping it
+forever. Replacement (3.3uF/160V) already =received=. See
+[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4.
+
+* C506
+Function: MPX board electrolytic, 20uF/250V. Same status as C502 —
+out of scope for now, not permanently skipped. Physically confirmed
+2026-09-12 as a 20uF electrolytic, matching bom.org. Replacement
+(22uF/450V) already =received=. See
+[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4.

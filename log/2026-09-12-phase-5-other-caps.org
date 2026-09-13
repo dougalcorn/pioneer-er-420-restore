@@ -1,0 +1,244 @@
+#+TITLE: Phase 5 — other caps — 2026-09-12
+#+DATE: 2026-09-12
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Continue Phase 5 power-supply recap, skipping C99/C100 for now.
+
+* Work
+:LOGBOOK:
+CLOCK: [2026-09-12 Sat 13:50]--[2026-09-12 Sat 21:45] =>  7:55
+:END:
+- Start Time:
+
+Discharge-checked the power supply before opening it up.
+
+Confirmed C98's location (zone C4) and pulled it — a simple
+point-to-point joint on both leads, not a riveted can terminal, so no
+structural risk lifting it. Measured 25.8µF out of circuit against
+20uF nominal, within period electrolytic tolerance; replacing anyway
+per Phase 5 item 3.
+
+New Rubycon 22µF 450V measured 22.14µF before install. Polarity
+checked against the original. The replacement's leads were too short
+to span the original run, so extended both with the old cap's leads,
+twisted and soldered, not just butt-jointed. Positive-side splice is
+fully insulated and routed through the same twist-tie bundle the
+original used. Negative/ground-side splice is not fully insulated,
+but it isn't touching anything and every nearby lead is also ground,
+so accepted as-is. Cap itself isn't mechanically supported — matches
+how the original was mounted, unsupported on its leads.
+
+[[file:../photos/2026-09-12-c98-installed-01.jpg]]
+
+Moved to C11/C12 next. Physical location confirmed directly above V2
+(E3) — corrected bom.org's zone from F3 to F4, matching what the
+2026-09-08 voltage sweep had already flagged as wrong BOM zone data.
+[[file:../photos/2026-09-12-c11-c12-location-01.jpg]]
+
+Pulled both, measured out of circuit, installed the replacements.
+Polarity checked before landing. Same ground/negative-lead extension
+technique as C98 — old leads spliced on, insulated the same way the
+original was dressed. New C11/C12 physically don't have final
+clearance yet: will need to move C11 again once C61 is replaced.
+
+[[file:../photos/2026-09-12-c11-c12-installed-01.jpg]]
+
+Moved to C61, then C60 (oil-paper, out of the 13-cap list — measured
+well out of tolerance, see Measurements). C60's replacement (WFD
+473J, 47nF/5%, no outer-foil marking) installed; not polarized, so
+orientation didn't matter.
+
+While in that area, noticed a messy prior-repair joint at V14 pin 6 —
+not touched tonight, flagging for later.
+
+[[file:../photos/2026-09-12-v14-pin6-joint-01.jpg]]
+[[file:../photos/2026-09-12-c60-installed-01.jpg]]
+
+Moved to C60/C56/C70 (from the 13-cap oil-paper list, not Phase 5
+proper) — see Measurements for the failure pattern.
+
+Then C600. No replacement had actually been ordered for this one —
+bom.org still showed status =spec= and the restoration plan's "Order
+C600 replacement: 68uF 200WV" TODO was never closed. Considered two
+options from parts on hand: two spare 47uF/50V caps (originally
+bought for C53/C54, which turned out not to physically exist —
+their function is believed folded into C600's shared network), or a
+spare 100uF/350V Nichicon (leftover from the C101/C102 order, qty 3
+bought, 2 used). Ruled out the 47uF/450V spares meant for C99's
+still-pending rebuild — using those would leave C99 short.
+
+Went with the 100uF/350V Nichicon: closer to C600's measured 91uF
+than the plan's 68uF target, massive voltage headroom over the
+~1V cathode-bias node (itself an unconfirmed dim-bulb-limited reading
+from 2026-08-15 that still needs a full-B+ recheck), and simpler as
+one part at the original two tie points rather than paralleling two
+smaller caps. Physically test-fit against the tag-board mount before
+committing — fits.
+
+[[file:../photos/2026-09-12-c600-original-01.jpg]]
+[[file:../photos/2026-09-12-c600-installed-01.jpg]]
+
+Last of the 13-cap oil-paper list tonight: C19/C20, the two loudness
+caps found buried behind the volume switch, one terminal easy to
+reach and the other trapped under it. Initially misjudged one as
+electrolytic from the can shape alone; the printed "OIL...400WV"
+label corrected that once photographed closely.
+
+Traced the schematic (S4 loudness switch / VR2 volume section)
+carefully before touching anything: C19/C20 actually bridge S4's own
+midpoint and pin 2, not the volume pot element directly — confirmed
+by a physical jumper wire tying the switch's midpoint to the volume
+pot's midpoint, which is why the old (larger) caps could physically
+land at either point and still be correct. Landed the new, smaller
+caps directly across the switch's midpoint and pin 2 instead of
+running the longer original span to the volume pot — shorter lead
+run enabled by the replacement's smaller size, not a topology change.
+
+Access solution: clipped both old caps' leads a few mm out from the
+body rather than trying to desolder the buried joint, then soldered
+the new caps to those stubs. Original joints at both ends never
+disturbed.
+
+Couldn't tell which physical position was C19 vs C20 — mirrored pair,
+doesn't matter functionally.
+
+[[file:../photos/2026-09-12-c19-c20-installed-01.jpg]]
+[[file:../photos/2026-09-12-c19-c20-installed-02.jpg]]
+
+C13/C14 (Tape Monitor path, already located 2026-07-29) replaced —
+7 for 7 on oil-paper failures now. Same access problem as C19/C20,
+on both ends this time: one lead landed right on the switch, the
+other buried on a solder bar. Clipped both old caps' leads at the
+cap body rather than desoldering either buried joint, and used the
+resulting full-length original leads as extensions to solder the new
+caps in. Both original joints undisturbed.
+
+[[file:../photos/2026-09-12-c13-c14-installed-01.jpg]]
+
+C8 next — straightforward install, direct access, no splice needed.
+Physically confirmed wired across V2 pins 1 and 7 (interstage
+coupling between V2's own two triode sections) before pulling it.
+
+[[file:../photos/2026-09-12-c8-installed-01.jpg]]
+
+* Measurements
+
+- C98, out-of-circuit on DMM after removal :: 25.8µF (nominal 20µF,
+  rated 350V) — within period electrolytic tolerance, being replaced
+  per plan regardless.
+- New C98 replacement, out-of-circuit on DMM before install :: 22.14µF
+  (nominal 22µF).
+- C11, out-of-circuit on DMM after removal :: 27.75µF (nominal 20µF,
+  rated 250V).
+- C12, out-of-circuit on DMM after removal :: 23.56µF (nominal 20µF,
+  rated 250V).
+- New C12 replacement, out-of-circuit on DMM before install :: 21.43µF
+  (nominal 22µF).
+- C61, out-of-circuit on DMM after removal :: 14.26µF (nominal 10µF,
+  rated 250V).
+- New C61 replacement, out-of-circuit on DMM before install :: 9.53µF
+  (nominal 10µF).
+- C60, out-of-circuit on DMM after removal :: 74nF (nominal 47nF,
+  spec 45-55nF at ±10%) — out of tolerance, not just high; likely
+  genuine leakage/drift rather than period tolerance.
+- New C60 replacement, out-of-circuit on DMM before install :: 46.7nF
+  (nominal 47nF).
+- New C56 replacement, out-of-circuit on DMM before install :: 46.0nF,
+  reconfirmed at 45.9nF just before landing it (nominal 47nF).
+- C56, out-of-circuit on DMM after removal :: 99nF (nominal 47nF,
+  spec 45-55nF at ±10%) — nearly double nominal, well out of
+  tolerance, same failure pattern as C60.
+- C19 and C20, out-of-circuit on DMM after removal :: 34.08nF and
+  34.22nF (nominal 20nF, spec 18-22nF at ±10%) — which reading
+  belongs to which designator wasn't tracked, since both leads were
+  clipped and pulled without labeling (mirrored pair, same value,
+  doesn't affect function). Both well out of tolerance — 5 for 5 on
+  oil-paper caps tested tonight.
+- C70, out-of-circuit on DMM after removal :: started at 80nF,
+  drifted down while measuring (sign of leakage current, not stable
+  capacitance), settled near 71nF before patience ran out — still
+  well out of the 45-55nF spec window either way.
+- New C70 replacement, one leg lifted post-install to measure ::
+  45.6nF (nominal 47nF).
+- New C13 and C14 replacements, out-of-circuit on DMM before install ::
+  46.7nF and 46.1nF (nominal 47nF).
+- C14, out-of-circuit on DMM after removal :: 94.4nF (nominal 47nF,
+  spec 45-55nF at ±10%) — 6 for 6 on oil-paper caps tested tonight.
+- C13, out-of-circuit on DMM after removal :: 98.1nF (nominal 47nF,
+  spec 45-55nF at ±10%) — 7 for 7.
+- C8, out-of-circuit on DMM after removal :: 29nF, drifting down
+  while measuring like C70 did (nominal 20nF, spec 18-22nF at ±10%)
+  — 8 for 8. Physically confirmed wired directly across V2 pins 1
+  and 7 (interstage coupling between V2's own two triode sections).
+- New C8 replacement, out-of-circuit on DMM before install :: 21.86nF
+  (nominal 22nF).
+- New C25 and C26 replacements, out-of-circuit on DMM before install ::
+  46.0nF and 46.3nF (nominal 47nF) — which is which wasn't tracked
+  (same value, doesn't matter functionally).
+- C25, out-of-circuit on DMM after removal :: 75nF (nominal 47nF,
+  spec 45-55nF at ±10%) — out of tolerance.
+- C47, out-of-circuit on DMM after removal :: 75.5nF (nominal 47nF,
+  spec 45-55nF at ±10%) — out of tolerance. 11 of 12 oil-paper caps
+  tested tonight have failed (only C7 passed).
+- New C47 and C48 replacements, out-of-circuit on DMM before install ::
+  46.3nF and 46.7nF (nominal 47nF) — which is which wasn't tracked
+  (mirrored pair, doesn't matter functionally).
+- C48, out-of-circuit on DMM after removal :: 87nF (nominal 47nF,
+  spec 45-55nF at ±10%) — out of tolerance. 12 of 13 oil-paper caps
+  tested tonight have failed (only C7 passed).
+- C502 (MPX board, out of scope per Phase 9 but done tonight anyway),
+  out-of-circuit on DMM after removal :: 3.737µF (nominal 3µF) —
+  high but plausible aged-electrolytic drift, consistent with
+  tonight's other electrolytics rather than an oil-paper-style
+  failure.
+- New C502 replacement, out-of-circuit on DMM before install ::
+  3.180µF (nominal 3.3µF).
+- C506 (MPX board, out of scope per Phase 9 but done tonight anyway),
+  out-of-circuit on DMM after removal :: 20.55µF (nominal 20µF) —
+  close to nominal, no real drift.
+- New C506 replacement, out-of-circuit on DMM before install ::
+  21.83µF (nominal 22µF).
+- C7, out-of-circuit on DMM after removal :: 21.36nF, steady (no
+  drift) — nominal 20nF, spec 18-22nF at ±10%. Actually within
+  tolerance, breaking the streak — first of tonight's oil-paper caps
+  to test genuinely good rather than failed. Replaced anyway, for
+  consistency with the rest of the recap rather than leaving one
+  original cap behind.
+- C26, out-of-circuit on DMM after removal :: started at 98nF,
+  dropped fast to 88nF and kept falling (leakage signature, same as
+  C70/C8) — reading abandoned rather than waiting for it to settle.
+  Nominal 47nF, spec 45-55nF at ±10%, badly out either way. 9 of 10
+  oil-paper caps tested tonight have failed (only C7 passed).
+- C600, out-of-circuit on DMM after removal :: 91µF (nominal 60µF) —
+  high, but consistent with the electrolytics tonight (C98/C11/C12/C61)
+  rather than the oil-paper failure pattern.
+
+* Open questions
+
+- V14 pin 6 has a messy-looking prior-repair joint, noticed while
+  working C60 nearby. Not inspected closely tonight — worth a look
+  next session.
+  [[file:../photos/2026-09-12-v14-pin6-joint-02.jpg]] — before state,
+  shot next to C60's old position for reference.
+
+* Next
+
+- All 13 oil-paper caps from the 2026-09-11 list are done (12 failed
+  on test, only C7 passed and was replaced anyway for consistency).
+  Only C99 and C100 remain from Phase 5's own list.
+- C11's final position/clearance was never revisited after C61 went
+  in, despite noting during install that it would need to move.
+- V14 pin 6's messy prior-repair joint (Open questions) — take a
+  closer look.
+- C503 (MPX board) measured tonight but has no replacement sourced —
+  needs a parts order before it can be touched.
+- C99, C100 still pending — deferred at the start of tonight's
+  session and never picked back up.
+- Three restoration-plan TODOs are done or partly done but not yet
+  marked: Phase 7 item 2 ("Coupling caps"), the Phase 2/18 "Order
+  C600 replacement" sub-item (done differently than specified — a
+  repurposed spare, not the planned 68uF/200WV part), and Phase 9
+  item 4 ("Recap MPX electrolytics," partial — C502/C506 done, C503
+  still open).

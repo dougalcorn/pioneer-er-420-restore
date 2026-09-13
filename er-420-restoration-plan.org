@@ -318,9 +318,9 @@ replacement pot instead.
 Resistors (measured values, correct wattage, high-voltage rated for B+
 positions), safety caps per the grounding decision, C99/C100 solution,
 0.1 µF films if the Mylars failed, wire, sleeving, hardware.
-*** TODO Order C600 replacement: 68uF 200WV
+*** SKIPPED Order C600 replacement: 68uF 200WV
 
-* TODO Phase 3 — Clean before you solder [2/4]
+* TODO Phase 3 — Clean before you solder [2/5]
 
 ** TODO 1. Blow out dust
 Compressed air, outdoors. Sixty years of it.
@@ -343,6 +343,13 @@ travel repeatedly.
 ** TODO 4. Clean tube pins and sockets
 Pull each tube, note position, clean pins, reseat. Poor socket contact
 is a top cause of noise and intermittents.
+** TODO 5. Re-clean the S1 switch
+Paying closer to the switch, there's still quite a bit of grime on the 4/4R
+wiper and clips for the tie-in lugs. I made an early attempt at cleaning them
+when I first got the unit. It probably needs to be re-done at some point. Rather
+than just spray and pray it with Deoxit, it would probably be better to use a
+q-tip to apply Deoxit to the wiper and lugs generously and then work them
+through the positions.
 
 * TODO Phase 4 — Output section decision [4/4]
 ** DONE 1. Fix or Replace S7 impedance switch
@@ -376,7 +383,7 @@ CLOSED: [2026-08-05 Wed 19:21]
 CLOSED: [2026-08-05 Wed 19:21]
 - CLOSING NOTE [2026-08-05 Wed 19:21] \\
   Re-assembled and re-installed. Works like a champ!
-* TODO Phase 5 — Power supply [2/9]
+* TODO Phase 5 — Power supply [7/9]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -399,8 +406,11 @@ CLOSED: [2026-09-10 Thu 22:29]
 Observe polarity. Stripe = negative, long lead = positive.
 Note: likely a voltage doubler, each cap sees ~190 V.
 
-** TODO 3. C98 → 22 µF 450 V
+** DONE 3. C98 → 22 µF 450 V
+CLOSED: [2026-09-12 Sat 15:30]
 
+- CLOSING NOTE [2026-09-12 Sat 15:30] \\
+  Installed [[file:log/2026-09-12-phase-5-other-caps.org][2026-09-12]]
 ** NEXT 4. C99, C100
 Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
 - Discrete: 47 µF + 22 µF + 22 µF per can. *Recreate the shared
@@ -409,17 +419,24 @@ Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
 - Restuff: gut can, fit radials inside, reinstall.
 - Hayseed / CE Mfg: bolt-in, no decisions.
 
-** TODO 5. C94, C95 — remove
+** SKIPPED 5. C94, C95 — remove
 Come out and stay out under the 3-wire conversion. Pending only the
 Phase 2 visual ID check, not a trace.
 
-** TODO 6. C96 — install per Phase 2 trace result
+** DONE 6. C96 — install per Phase 2 trace result
+CLOSED: [2026-09-12 Sat 15:43]
+- CLOSING NOTE [2026-09-12 Sat 15:43] \\
+  When inspecting the power switch component behind the shield, found C96 there. It's a ceramic disk and not a paper or electrolytic. Not replacing it. See [[file:component-notes.org][component-notes]] and [[file:photos/2026-07-29-power-switch-02.jpg][power switch photo]]
 Whichever of the three Phase 2 outcomes applies: Y2 (not yet sourced),
 X2 (PHE840MK5470MK04R17, in hand), or the standard 630V film (in
 hand, part of the batch order).
 
-** TODO 7. C11, C12 → 22 µF 450 V
-** TODO 8. C61 → 10 µF 450 V
+** DONE 7. C11, C12 → 22 µF 450 V
+CLOSED: [2026-09-12 Sat 21:45]
+- CLOSING NOTE [2026-09-12 Sat 21:45]
+** DONE 8. C61 → 10 µF 450 V
+CLOSED: [2026-09-12 Sat 21:45]
+- CLOSING NOTE [2026-09-12 Sat 21:45]
 ** DONE 9. New 2 A slow-blow fuse
 CLOSED: [2026-09-10 Thu 22:37]
 
@@ -457,7 +474,7 @@ pair. Substantially high = a tube or a leaking coupling cap.
 
 ** TODO 6. Only after all rails check out: run without the bulb limiter
 
-* TODO Phase 7 — Audio chain [0/5]
+* TODO Phase 7 — Audio chain [2/5]
 
 Method matters more than speed.
 
@@ -472,7 +489,9 @@ Method matters more than speed.
 - Electrolytics *are* polarized. Check twice.
 - Use the *same part* for both halves of a channel pair.
 
-** TODO 2. Coupling caps — the priority group
+** DONE 2. Coupling caps — the priority group
+CLOSED: [2026-09-12 Sat 21:48]
+- CLOSING NOTE [2026-09-12 Sat 21:48]
 Leaky oil paper puts DC on a grid and red-plates output tubes.
 
 | Value    | Positions                                        |
@@ -480,7 +499,8 @@ Leaky oil paper puts DC on a grid and red-plates output tubes.
 | 0.022 µF | C7, C8, C19, C20                                 |
 | 0.047 µF | C13, C14, C25, C26, C47, C48, C56, C60, C70, C96 |
 
-** TODO 3. Cathode bypass caps → 47 µF 50 V
+** DONE 3. Cathode bypass caps → 47 µF 50 V
+CLOSED: [2026-09-12 Sat 21:50]
 C23, C24, C43, C44, C53, C54.
 C53/C54 sit across the output cathode resistors and pass real AC
 current — low-impedance parts are a genuine benefit there.
@@ -513,7 +533,7 @@ connected but silence without = ground loop, not a floating arm.
 ** TODO 6. Exercise every switch and pot again
 Second DeOxit pass now that everything is warm and settled.
 
-* TODO Phase 9 — Deferred [1/3]
+* TODO Phase 9 — Deferred [2/5]
 
 ** TODO 1. Tuner section health check
 Not alignment — just condition. Tubes not shorted, no obviously failed
@@ -526,6 +546,25 @@ generator. Not doing this for a turntable-only use case.
 
 ** TODO 3. Cosmetics, dial cord, lamps
 Dial cord stringing diagram is on p.2 of the manual if needed.
+** DONE 4. Recap MPX electrolytics
+CLOSED: [2026-09-12 Sat 21:46]
+- CLOSING NOTE [2026-09-12 Sat 21:46]
+C502 (3uF/150V) and C506 (20uF/250V), at minimum — both already
+=received= in bom.org (3.3uF/160V and 22uF/450V respectively), just
+never installed since the MPX board is out of scope for the
+aux-only decision. That decision was about not chasing MPX
+functionality, not a reason to leave 60-year-old electrolytics in
+place indefinitely — worth a full pass over the MPX board's
+electrolytics when this phase comes up, not just these two.
+
+** TODO 5. Map out S1
+The complexity of this selector switch is not to be understated. At some point
+the thing to do is create a spreadsheet of all 8 wafer sides and 6 switch
+positions using the DMM to map out continuity between all the lugs at each of
+the positions. This would greatly help understanding the schematic, but doesn't
+really help in the physical process of replacing the caps. Where it would come
+in handy is when I'm trying to troubleshoot something that's going wrong and
+need a deep understanding of the schematic.
 
 * Session log
 
