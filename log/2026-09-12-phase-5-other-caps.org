@@ -40,16 +40,21 @@ sweep had already flagged as wrong BOM zone data.
 Pulled both, measured out of circuit, installed the replacements.
 Polarity checked before landing. Same ground/negative-lead extension
 technique as C98 — old leads spliced on, insulated the same way the
-original was dressed. New C11/C12 physically don't have final
-clearance yet: will need to move C11 again once C61 is replaced.
+original was dressed. Final position/clearance confirmed fine once
+C61 went in.
 
 [[file:../photos/2026-09-12-c11-c12-installed-01.jpg]]
 
 ** C61
 Pulled and measured out of circuit: 14.26µF (nominal 10µF). New
 replacement measured 9.53µF before install. Install details (leads,
-polarity, mounting) weren't captured for this one — moved straight on
-to C60.
+polarity, mounting) weren't captured for this one.
+
+While in that area, noticed a messy prior-repair joint at V14 pin 6 —
+this cap taps into that same pin, so installing it addressed the
+joint rather than leaving it as a separate open item.
+
+[[file:../photos/2026-09-12-v14-pin6-joint-01.jpg]]
 
 ** C60
 Oil-paper, from the 13-cap list rather than Phase 5 proper — measured
@@ -57,10 +62,6 @@ well out of tolerance (see Measurements). Replacement (WFD 473J,
 47nF/5%, no outer-foil marking) installed; not polarized, so
 orientation didn't matter.
 
-While in that area, noticed a messy prior-repair joint at V14 pin 6 —
-not touched tonight, flagging for later.
-
-[[file:../photos/2026-09-12-v14-pin6-joint-01.jpg]]
 [[file:../photos/2026-09-12-c60-installed-01.jpg]]
 
 ** C56
@@ -270,20 +271,7 @@ behind.
 
 * Open questions
 
-- V14 pin 6 has a messy-looking prior-repair joint, noticed while
-  working C60 nearby. Not inspected closely tonight — worth a look
-  next session.
-  [[file:../photos/2026-09-12-v14-pin6-joint-02.jpg]] — before state,
-  shot next to C60's old position for reference.
-
 * Next
 
-- All 13 oil-paper caps from the 2026-09-11 list are done (12 failed
-  on test, only C7 passed and was replaced anyway for consistency).
-  Only C99 and C100 remain from Phase 5's own list.
-- C11's final position/clearance was never revisited after C61 went
-  in, despite noting during install that it would need to move.
-- V14 pin 6's messy prior-repair joint (Open questions) — take a
-  closer look.
 - C99, C100 still pending — deferred at the start of tonight's
   session and never picked back up.

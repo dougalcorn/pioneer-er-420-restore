@@ -166,7 +166,8 @@ pin 3 is also on this shared output-stage bias bus, that implies two
 cathode paths unless R9 has been removed or reworked. Needs a
 continuity check on R9 to resolve.
 
-Replaced with 100uF 350V (spare from C101/C102 order).
+Replaced with 100uF 350V (spare from C101/C102 order). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C600][2026-09-12 log]].
 
 Photos:
 - [[file:photos/2026-08-12-c600-marking-01.jpg]]
@@ -303,7 +304,8 @@ S3 — was briefly suspected of being C96 before tracing ruled that out.
 See [[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp. Replaced 2026-09-12; one lead
 landed right on the switch, the other buried on a solder bar —
 clipped both old leads at the cap body and used them as extensions
-rather than desoldering either buried joint.
+rather than desoldering either buried joint. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C13, C14][2026-09-12 log]].
 
 Photos:
 - [[file:photos/2026-07-29-c13-c14-01.jpg]] and
@@ -313,7 +315,8 @@ Photos:
 * C14
 Function: right-channel mirror of C13. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp. Same replacement, same technique —
-see C13 entry.
+see C13 entry and
+[[file:log/2026-09-12-phase-5-other-caps.org::*C13, C14][2026-09-12 log]].
 
 * R73
 Function: 2.2K grid resistor feeding V6's control grid (pin 2) from
@@ -359,14 +362,16 @@ section 1 to grid of section 2), not a connection to anything
 external. Fits circuit-notes.org's "V1/V2 as shared first-gain
 stage" picture: V1 and V2 are a stereo pair, each a dual-triode doing
 both cascaded gain stages for its own channel internally. Physically
-confirmed 2026-09-12, out of tolerance on removal (see bom.org).
+confirmed 2026-09-12, out of tolerance on removal (see bom.org). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C7][2026-09-12 log]].
 
 * C8
 Function: mirrors C7, same role (V2 pins 1 and 7) for the other
 channel. Physically confirmed 2026-09-12 — reading drifted down
 while measuring, a leakage signature also seen on C70.
 
-Photos: [[file:photos/2026-09-12-c8-installed-01.jpg]]
+Photos: [[file:photos/2026-09-12-c8-installed-01.jpg]]. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C8][2026-09-12 log]].
 
 * C19
 Function: 0.02uF oil-paper loudness-compensation cap, bridges S4's
@@ -383,14 +388,16 @@ and soldering the new caps directly across S4's midpoint and pin 2
 (shorter than the original run, enabled by the replacement's smaller
 size — same electrical node, not a topology change). Which physical
 position was C19 vs C20 wasn't tracked — mirrored pair, doesn't
-affect function.
+affect function. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C19, C20][2026-09-12 log]].
 
 Photos: [[file:photos/2026-09-12-c19-c20-installed-01.jpg]] and
 [[file:photos/2026-09-12-c19-c20-installed-02.jpg]]
 
 * C20
 Function: mirrors C19, same role and same replacement session. See
-C19 entry.
+C19 entry and
+[[file:log/2026-09-12-phase-5-other-caps.org::*C19, C20][2026-09-12 log]].
 
 * C11
 Function: electrolytic, 20uF 250V per label (ELNA ELYT CAP), planned
@@ -398,14 +405,17 @@ replacement 22uF 450V per bom.org. Physically mounted directly above
 V2 (E3, shared V1/V2 first-gain stage). BOM previously listed zone
 F3; schematic zone confirmed 2026-09-12 as F4, matching the
 2026-09-08 voltage-sweep note that had already flagged C11/C12 as a
-case of wrong BOM zone data.
+case of wrong BOM zone data. Replaced 2026-09-12 — final physical
+position/clearance confirmed fine once C61 went in.
 
 Photos: [[file:photos/2026-09-12-c11-c12-location-01.jpg]] and
-[[file:photos/2026-09-12-c11-c12-installed-01.jpg]]
+[[file:photos/2026-09-12-c11-c12-installed-01.jpg]]. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C11, C12][2026-09-12 log]].
 
 * C12
 Function: mirrors C11, same physical mount above V2, same zone
-correction (F3 → F4). See C11 entry.
+correction (F3 → F4). See C11 entry and
+[[file:log/2026-09-12-phase-5-other-caps.org::*C11, C12][2026-09-12 log]].
 
 * S1
 Function: input selector. Not a single physical block on the
@@ -516,16 +526,57 @@ Photos: [[file:photos/2026-07-30-volume-pot-vr2-01.jpg]] and
 [[file:photos/2026-07-30-volume-pot-vr2-02.jpg]]
 
 * C60
-Function: 0.05µF oil-paper coupling cap, zone I2 (Main board).
+Function: 0.05µF oil-paper coupling cap, zone I3 (Main board).
 Replaced 2026-09-12 with a plain 0.047uF/630V film cap (no outer-foil
 marking, non-polarized, orientation doesn't matter) — measured well
-out of tolerance on removal (see bom.org).
+out of tolerance on removal (see bom.org). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C60][2026-09-12 log]].
 
-Photos: [[file:photos/2026-09-12-c60-installed-01.jpg]]. Also, while
-working this position, noticed a messy prior-repair joint at V14 pin
-6 — not touched, flagged for a later look:
-[[file:photos/2026-09-12-v14-pin6-joint-01.jpg]] and
+Photos: [[file:photos/2026-09-12-c60-installed-01.jpg]]
+
+* C56
+Function: 0.05µF oil-paper coupling cap, zone I2 (Main board).
+Replaced 2026-09-12 with 0.047uF/630V film — measured well out of
+tolerance on removal (see bom.org). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C56][2026-09-12 log]].
+
+* C61
+Function: electrolytic, 10uF/250V, zone I3 (Main board), taps into
+V14 pin 6. Replaced 2026-09-12 with 10uF/450V — install details
+(leads, polarity, mounting) weren't captured for this one. Installing
+it addressed a messy-looking prior-repair joint at V14 pin 6, noticed
+while working this position. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C61][2026-09-12 log]].
+
+Photos: [[file:photos/2026-09-12-v14-pin6-joint-01.jpg]] and
 [[file:photos/2026-09-12-v14-pin6-joint-02.jpg]]
+
+* C70
+Function: 0.05µF oil-paper coupling cap, zone G5 (Main board).
+Replaced 2026-09-12 with 0.047uF/630V film — old reading drifted
+down while measuring (leakage signature, not stable capacitance).
+See [[file:log/2026-09-12-phase-5-other-caps.org::*C70][2026-09-12 log]].
+
+* C25
+Function: 0.05µF oil-paper coupling cap, zone D8 (Main board).
+Mirrored pair with C26. Replaced 2026-09-12 with 0.047uF/630V film —
+measured well out of tolerance on removal (see bom.org). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C25, C26][2026-09-12 log]].
+
+* C26
+Function: mirrors C25, zone E8. Same replacement session — old
+reading also drifted down while measuring (leakage signature). See
+C25 entry and [[file:log/2026-09-12-phase-5-other-caps.org::*C25, C26][2026-09-12 log]].
+
+* C47
+Function: 0.05µF oil-paper coupling cap, zone D10 (Main board).
+Mirrored pair with C48. Replaced 2026-09-12 with 0.047uF/630V film —
+measured well out of tolerance on removal (see bom.org). See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C47, C48][2026-09-12 log]].
+
+* C48
+Function: mirrors C47, zone E10. Same replacement session. See
+C47 entry and [[file:log/2026-09-12-phase-5-other-caps.org::*C47, C48][2026-09-12 log]].
 
 * C98
 Function: electrolytic filter cap, zone C4 (Main board), simple
@@ -534,7 +585,8 @@ Replaced 2026-09-12 with a Rubycon 22uF/450V; leads too short for the
 original run, so both extended with the old cap's own leads, twisted
 and soldered.
 
-Photos: [[file:photos/2026-09-12-c98-installed-01.jpg]]
+Photos: [[file:photos/2026-09-12-c98-installed-01.jpg]]. See
+[[file:log/2026-09-12-phase-5-other-caps.org::*C98][2026-09-12 log]].
 
 * S7
 Function: impedance switch, output stage. Contacts cleaned and
@@ -555,11 +607,13 @@ Function: MPX board electrolytic, 3uF/150V. Out of scope for now
 under the aux-only decision (2026-07-25) — that decision was about
 not chasing MPX functionality, not a reason to skip recapping it
 forever. Replacement (3.3uF/160V) already =received=. See
-[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4.
+[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4, and
+[[file:log/2026-09-12-phase-5-other-caps.org::*C502][2026-09-12 log]].
 
 * C506
 Function: MPX board electrolytic, 20uF/250V. Same status as C502 —
 out of scope for now, not permanently skipped. Physically confirmed
 2026-09-12 as a 20uF electrolytic, matching bom.org. Replacement
 (22uF/450V) already =received=. See
-[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4.
+[[file:er-420-restoration-plan.org::*4. Recap MPX electrolytics][restoration-plan.org]] Phase 9, item 4, and
+[[file:log/2026-09-12-phase-5-other-caps.org::*C506][2026-09-12 log]].
