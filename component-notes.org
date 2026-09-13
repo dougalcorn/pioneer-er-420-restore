@@ -42,13 +42,21 @@ not oil-paper — decided not to replace. Full story in
 
 Physically inside S10's switch housing, buried behind a plate and
 almost invisible from outside — mounted directly across the switch's
-own two terminals. [[file:photos/2026-07-29-power-switch-02.jpg]]
+own two terminals.
+
+Photos:
+- [[file:photos/2026-07-29-power-switch-01.jpg]]
+- [[file:photos/2026-07-29-power-switch-02.jpg]]
 
 * C99
 Function: one of two 3-section B+ filter/decoupling cans, cascaded
 down the power supply's dropping-resistor chain rather than all three
 sections tapping one node. Four terminals: one common/negative plus
 one per section. Full trace in [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
+
+Photos:
+- [[file:photos/2026-07-28-c99-closeup-01.jpg]]
+- [[file:photos/2026-07-28-c99-label-01.jpg]]
 
 * C100
 Function: matches C99 — see that entry and
@@ -83,6 +91,7 @@ read closer to its 296/280V spec, pin 3 (R116-fed only) closer to
 
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+- [[file:photos/2026-07-28-c100-closeup-01.jpg]]
 - [[file:photos/2026-09-11-c100-pinout-label-01.jpg]] — the can's
   printed pin/capacitance legend
 - [[file:photos/2026-09-11-c100-pinout-wiring-02.jpg]] and
@@ -98,6 +107,12 @@ in [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
 
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+- [[file:photos/2026-09-09-c101-recap-01.jpg]],
+  [[file:photos/2026-09-09-c101-recap-02.jpg]],
+  [[file:photos/2026-09-09-c101-recap-03.jpg]],
+  [[file:photos/2026-09-09-c101-recap-04.jpg]],
+  [[file:photos/2026-09-09-c101-recap-05.jpg]],
+  [[file:photos/2026-09-09-c101-recap-06.jpg]] — recap sequence
 
 * C102
 Function: the ground-referenced half of the C101/C102 doubler pair —
@@ -151,8 +166,15 @@ pin 3 is also on this shared output-stage bias bus, that implies two
 cathode paths unless R9 has been removed or reworked. Needs a
 continuity check on R9 to resolve.
 
+Replaced with 100uF 350V (spare from C101/C102 order).
+
 Photos:
 - [[file:photos/2026-08-12-c600-marking-01.jpg]]
+- [[file:photos/2026-08-15-c600-area-residue-01.jpg]] and
+  [[file:photos/2026-08-15-c600-area-residue-02.jpg]]
+- [[file:photos/2026-09-12-c600-original-01.jpg]] — before removal
+- [[file:photos/2026-09-12-c600-installed-01.jpg]] — Nichicon
+  100uF/350V spare installed
 
 * D3
 Function: doubler rectifier diode (SD-1A), feeds C101's hot side from
@@ -278,11 +300,20 @@ Function: right-channel mirror of T7. See
 * C13
 Function: 0.05µF oil-paper coupling cap in the Tape Monitor path via
 S3 — was briefly suspected of being C96 before tracing ruled that out.
-See [[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp.
+See [[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp. Replaced 2026-09-12; one lead
+landed right on the switch, the other buried on a solder bar —
+clipped both old leads at the cap body and used them as extensions
+rather than desoldering either buried joint.
+
+Photos:
+- [[file:photos/2026-07-29-c13-c14-01.jpg]] and
+  [[file:photos/2026-07-29-c13-c14-02.jpg]] — original location
+- [[file:photos/2026-09-12-c13-c14-installed-01.jpg]]
 
 * C14
 Function: right-channel mirror of C13. See
-[[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp.
+[[file:schematic/circuit-notes.org][circuit-notes.org]] Tone/preamp. Same replacement, same technique —
+see C13 entry.
 
 * R73
 Function: 2.2K grid resistor feeding V6's control grid (pin 2) from
@@ -335,6 +366,32 @@ Function: mirrors C7, same role (V2 pins 1 and 7) for the other
 channel. Physically confirmed 2026-09-12 — reading drifted down
 while measuring, a leakage signature also seen on C70.
 
+Photos: [[file:photos/2026-09-12-c8-installed-01.jpg]]
+
+* C19
+Function: 0.02uF oil-paper loudness-compensation cap, bridges S4's
+own midpoint and pin 2 (not the volume pot element directly) — a
+physical jumper ties S4's midpoint to VR2's midpoint, so the two
+points are electrically the same node. Mirrored pair with C20; see
+[[file:schematic/circuit-notes.org][circuit-notes.org]] and bom.org for the trace and measurements.
+
+Found buried behind the volume switch, one terminal easy to reach and
+the other trapped under it — initially misjudged as electrolytic from
+the can shape before the printed "OIL...400WV" label corrected that.
+Replaced 2026-09-12 by clipping both old leads a few mm from the body
+and soldering the new caps directly across S4's midpoint and pin 2
+(shorter than the original run, enabled by the replacement's smaller
+size — same electrical node, not a topology change). Which physical
+position was C19 vs C20 wasn't tracked — mirrored pair, doesn't
+affect function.
+
+Photos: [[file:photos/2026-09-12-c19-c20-installed-01.jpg]] and
+[[file:photos/2026-09-12-c19-c20-installed-02.jpg]]
+
+* C20
+Function: mirrors C19, same role and same replacement session. See
+C19 entry.
+
 * C11
 Function: electrolytic, 20uF 250V per label (ELNA ELYT CAP), planned
 replacement 22uF 450V per bom.org. Physically mounted directly above
@@ -343,11 +400,14 @@ F3; schematic zone confirmed 2026-09-12 as F4, matching the
 2026-09-08 voltage-sweep note that had already flagged C11/C12 as a
 case of wrong BOM zone data.
 
-Photos: [[file:photos/2026-09-12-c11-c12-location-01.jpg]]
+Photos: [[file:photos/2026-09-12-c11-c12-location-01.jpg]] and
+[[file:photos/2026-09-12-c11-c12-installed-01.jpg]]
 
 * C12
 Function: mirrors C11, same physical mount above V2, same zone
 correction (F3 → F4). See C11 entry.
+
+* S1
 Function: input selector. Not a single physical block on the
 schematic — four disconnected wafer sections spread across the sheet,
 which is why it has no single Zone in bom.org. See
@@ -451,6 +511,44 @@ first power-up, where volume control was smooth through the whole session. That 
 evidence for this verdict, not just the unpowered DMM sweep alone — still no live
 DC voltage measurement at V3's grid or the wiper, which remains the one
 unconfirmed piece per the 2026-08-04 log.
+
+Photos: [[file:photos/2026-07-30-volume-pot-vr2-01.jpg]] and
+[[file:photos/2026-07-30-volume-pot-vr2-02.jpg]]
+
+* C60
+Function: 0.05µF oil-paper coupling cap, zone I2 (Main board).
+Replaced 2026-09-12 with a plain 0.047uF/630V film cap (no outer-foil
+marking, non-polarized, orientation doesn't matter) — measured well
+out of tolerance on removal (see bom.org).
+
+Photos: [[file:photos/2026-09-12-c60-installed-01.jpg]]. Also, while
+working this position, noticed a messy prior-repair joint at V14 pin
+6 — not touched, flagged for a later look:
+[[file:photos/2026-09-12-v14-pin6-joint-01.jpg]] and
+[[file:photos/2026-09-12-v14-pin6-joint-02.jpg]]
+
+* C98
+Function: electrolytic filter cap, zone C4 (Main board), simple
+point-to-point joint on both leads (not a riveted can terminal).
+Replaced 2026-09-12 with a Rubycon 22uF/450V; leads too short for the
+original run, so both extended with the old cap's own leads, twisted
+and soldered.
+
+Photos: [[file:photos/2026-09-12-c98-installed-01.jpg]]
+
+* S7
+Function: impedance switch, output stage. Contacts cleaned and
+re-glued 2026-07-29 — see
+[[file:er-420-restoration-plan.org][restoration-plan.org]] Phase 4.
+
+Photos: [[file:photos/2026-07-29-s7-teardown-01.jpg]] and
+[[file:photos/2026-07-29-s7-teardown-02.jpg]]
+
+* S8
+Function: front-panel Speakers ON/OFF switch. R79/R80 tap in before
+S8, not after — see [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
+
+Photos: [[file:photos/2026-07-29-s8-back-01.jpg]]
 
 * C502
 Function: MPX board electrolytic, 3uF/150V. Out of scope for now

@@ -10,10 +10,9 @@ Continue Phase 5 power-supply recap, skipping C99/C100 for now.
 :LOGBOOK:
 CLOCK: [2026-09-12 Sat 13:50]--[2026-09-12 Sat 21:45] =>  7:55
 :END:
-- Start Time:
-
 Discharge-checked the power supply before opening it up.
 
+** C98
 Confirmed C98's location (zone C4) and pulled it — a simple
 point-to-point joint on both leads, not a riveted can terminal, so no
 structural risk lifting it. Measured 25.8µF out of circuit against
@@ -32,9 +31,10 @@ how the original was mounted, unsupported on its leads.
 
 [[file:../photos/2026-09-12-c98-installed-01.jpg]]
 
-Moved to C11/C12 next. Physical location confirmed directly above V2
-(E3) — corrected bom.org's zone from F3 to F4, matching what the
-2026-09-08 voltage sweep had already flagged as wrong BOM zone data.
+** C11, C12
+Physical location confirmed directly above V2 (E3) — corrected
+bom.org's zone from F3 to F4, matching what the 2026-09-08 voltage
+sweep had already flagged as wrong BOM zone data.
 [[file:../photos/2026-09-12-c11-c12-location-01.jpg]]
 
 Pulled both, measured out of circuit, installed the replacements.
@@ -45,9 +45,16 @@ clearance yet: will need to move C11 again once C61 is replaced.
 
 [[file:../photos/2026-09-12-c11-c12-installed-01.jpg]]
 
-Moved to C61, then C60 (oil-paper, out of the 13-cap list — measured
-well out of tolerance, see Measurements). C60's replacement (WFD
-473J, 47nF/5%, no outer-foil marking) installed; not polarized, so
+** C61
+Pulled and measured out of circuit: 14.26µF (nominal 10µF). New
+replacement measured 9.53µF before install. Install details (leads,
+polarity, mounting) weren't captured for this one — moved straight on
+to C60.
+
+** C60
+Oil-paper, from the 13-cap list rather than Phase 5 proper — measured
+well out of tolerance (see Measurements). Replacement (WFD 473J,
+47nF/5%, no outer-foil marking) installed; not polarized, so
 orientation didn't matter.
 
 While in that area, noticed a messy prior-repair joint at V14 pin 6 —
@@ -56,12 +63,15 @@ not touched tonight, flagging for later.
 [[file:../photos/2026-09-12-v14-pin6-joint-01.jpg]]
 [[file:../photos/2026-09-12-c60-installed-01.jpg]]
 
-Moved to C60/C56/C70 (from the 13-cap oil-paper list, not Phase 5
-proper) — see Measurements for the failure pattern.
+** C56
+Old cap measured 99nF (nominal 47nF) — well out of tolerance, same
+failure pattern as C60. New replacement measured 46.0nF, reconfirmed
+at 45.9nF just before landing it.
 
-Then C600. No replacement had actually been ordered for this one —
-bom.org still showed status =spec= and the restoration plan's "Order
-C600 replacement: 68uF 200WV" TODO was never closed. Considered two
+** C600
+No replacement had actually been ordered for this one — bom.org still
+showed status =spec= and the restoration plan's "Order C600
+replacement: 68uF 200WV" TODO was never closed. Considered two
 options from parts on hand: two spare 47uF/50V caps (originally
 bought for C53/C54, which turned out not to physically exist —
 their function is believed folded into C600's shared network), or a
@@ -80,10 +90,11 @@ committing — fits.
 [[file:../photos/2026-09-12-c600-original-01.jpg]]
 [[file:../photos/2026-09-12-c600-installed-01.jpg]]
 
-Last of the 13-cap oil-paper list tonight: C19/C20, the two loudness
-caps found buried behind the volume switch, one terminal easy to
-reach and the other trapped under it. Initially misjudged one as
-electrolytic from the can shape alone; the printed "OIL...400WV"
+** C19, C20
+Last of the 13-cap oil-paper list originally in view tonight: the two
+loudness caps, found buried behind the volume switch, one terminal
+easy to reach and the other trapped under it. Initially misjudged one
+as electrolytic from the can shape alone; the printed "OIL...400WV"
 label corrected that once photographed closely.
 
 Traced the schematic (S4 loudness switch / VR2 volume section)
@@ -107,21 +118,63 @@ doesn't matter functionally.
 [[file:../photos/2026-09-12-c19-c20-installed-01.jpg]]
 [[file:../photos/2026-09-12-c19-c20-installed-02.jpg]]
 
-C13/C14 (Tape Monitor path, already located 2026-07-29) replaced —
-7 for 7 on oil-paper failures now. Same access problem as C19/C20,
-on both ends this time: one lead landed right on the switch, the
-other buried on a solder bar. Clipped both old caps' leads at the
+** C70
+Old cap started at 80nF, drifted down while measuring — a sign of
+leakage current, not stable capacitance — and settled near 71nF
+before patience ran out. New replacement: one leg lifted post-install
+to check, read 45.6nF.
+
+** C13, C14
+Tape Monitor path, already located 2026-07-29. Same access problem as
+C19/C20, on both ends this time: one lead landed right on the switch,
+the other buried on a solder bar. Clipped both old caps' leads at the
 cap body rather than desoldering either buried joint, and used the
 resulting full-length original leads as extensions to solder the new
-caps in. Both original joints undisturbed.
+caps in. Both original joints undisturbed. 7 for 7 on oil-paper
+failures at this point.
 
 [[file:../photos/2026-09-12-c13-c14-installed-01.jpg]]
 
-C8 next — straightforward install, direct access, no splice needed.
-Physically confirmed wired across V2 pins 1 and 7 (interstage
-coupling between V2's own two triode sections) before pulling it.
+** C8
+Straightforward install, direct access, no splice needed. Physically
+confirmed wired across V2 pins 1 and 7 (interstage coupling between
+V2's own two triode sections) before pulling it. Old reading drifted
+down while measuring, same leakage signature as C70.
 
 [[file:../photos/2026-09-12-c8-installed-01.jpg]]
+
+** C25, C26
+New replacements measured 46.0nF and 46.3nF before install (mirrored
+pair, which reading belongs to which wasn't tracked). C25's old
+value: 75nF, out of tolerance. C26's old value came later, after
+several other caps: started at 98nF, dropped fast to 88nF and kept
+falling (leakage signature, same as C70/C8) — reading abandoned
+rather than waiting for it to settle.
+
+** C47, C48
+C47's old value: 75.5nF, out of tolerance. New replacements measured
+46.3nF and 46.7nF before install (mirrored pair, not tracked
+individually). C48's old value: 87nF — corrected after an initial
+misreport of "47nF, in spec."
+
+** C502
+MPX board, out of scope per Phase 9 but done tonight anyway. Old
+value 3.737µF (nominal 3µF) — high but plausible aged-electrolytic
+drift, consistent with tonight's other electrolytics rather than an
+oil-paper-style failure. New replacement measured 3.180µF before
+install.
+
+** C506
+Same MPX/out-of-scope status as C502. Old value 20.55µF (nominal
+20µF) — close to nominal, no real drift. New replacement measured
+21.83µF before install.
+
+** C7
+Old value 21.36nF, steady, no drift — actually within the 18-22nF
+tolerance window, the first (and only) oil-paper cap tonight to test
+genuinely good rather than failed. Replaced anyway, for consistency
+with the rest of the recap rather than leaving one original cap
+behind.
 
 * Measurements
 
@@ -232,13 +285,5 @@ coupling between V2's own two triode sections) before pulling it.
   in, despite noting during install that it would need to move.
 - V14 pin 6's messy prior-repair joint (Open questions) — take a
   closer look.
-- C503 (MPX board) measured tonight but has no replacement sourced —
-  needs a parts order before it can be touched.
 - C99, C100 still pending — deferred at the start of tonight's
   session and never picked back up.
-- Three restoration-plan TODOs are done or partly done but not yet
-  marked: Phase 7 item 2 ("Coupling caps"), the Phase 2/18 "Order
-  C600 replacement" sub-item (done differently than specified — a
-  repurposed spare, not the planned 68uF/200WV part), and Phase 9
-  item 4 ("Recap MPX electrolytics," partial — C502/C506 done, C503
-  still open).
