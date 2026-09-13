@@ -82,9 +82,13 @@ signature, but not the cold-tube version since it held after full warm-up.
 Pin identity was double-checked physically (pins 2 and 4 clearly labeled,
 Pin 3 positionally between them despite its own label being obscured by
 rosin) — ruling out an earlier pin-shift theory. Checked R9 (cathode
-resistor) end to end tonight, from the Pin 3 socket lug through R9 to its
-ground joint: 2.979kΩ, matching spec closely. That clears R9 completely,
-narrowing it down to the tube itself or a grid-circuit fault at Pin 2.
+resistor) tonight, from the underside of the mainboard: Pin 3's solder
+point through R9 to its ground joint reads 2.979kΩ, matching spec
+closely. That clears R9 itself and its wiring/trace to ground, but NOT
+the tube-pin-to-socket spring contact at pin 3, which this underside
+measurement doesn't reach — narrowing it down to the tube itself, a
+grid-circuit fault at Pin 2, or that socket contact (see 2026-09-12 for
+the plan to check it directly from the topside, tube removed).
 
 R86 (row 33) was not found despite real effort — leading theory for next
 time is that it's printed-text like the KOA parts near R101, not
@@ -115,9 +119,11 @@ see the table's dual readings and notes.
 
 * Open questions
 
-- V1 Pin 3 (section 1 cathode): genuinely 0V, R9 and its full path to
-  ground confirmed good. Tube section itself or a grid-circuit fault at
-  Pin 2 are the remaining candidates.
+- V1 Pin 3 (section 1 cathode): genuinely 0V, R9 and its underside
+  wiring to ground confirmed good — but not the socket's own pin 3
+  contact, untested from the topside. Tube section itself, a
+  grid-circuit fault at Pin 2, or a bad socket contact are the
+  remaining candidates.
 - R86 (row 33) still not physically found. Try the KOA printed-text
   hypothesis next time instead of hunting for color bands.
 - V4 Pin 6 outlier continues to worsen (105V on 2026-08-15, 118.7V

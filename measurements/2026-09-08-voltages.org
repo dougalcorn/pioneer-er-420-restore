@@ -173,16 +173,21 @@ Notes:
   cathode (Pin 8) was never checked tonight, so it's not known whether
   section 2 shares this problem or the elevated Pin 6 has a different
   cause.
-  R9 checked 2026-09-08, full path: V1 Pin 3 through R9 to its ground
-  solder joint on the terminal strip measures 2.979kΩ, matching the 3k
-  spec closely. Not just the component but the actual connection is
-  confirmed good end to end — fully rules out R9 (open or bad joint)
-  as the cause.
-  With the whole cathode-to-ground path cleared, remaining candidates
-  narrow to two for next session: the tube's section 1 genuinely
-  weak/dead (try swapping V1 for a known-good tube — cheapest test,
-  do this first), or a grid-circuit fault at Pin 2 cutting the section
-  off. Not resolved tonight.
+  R9 checked 2026-09-08, from the underside of the mainboard: V1 Pin
+  3's solder point through R9 to its ground solder joint on the
+  terminal strip measures 2.979kΩ, matching the 3k spec closely. Rules
+  out R9 itself (open or bad joint) and the wiring/trace between its
+  underside solder points and ground — but NOT the tube-pin-to-socket
+  spring contact itself, since that mechanical connection sits above
+  this measurement's reach. That contact point is still untested as of
+  2026-09-08/09; see 2026-09-12 for the plan to check it directly
+  (probe the socket's pin 3 cup from the topside, tube removed).
+  With the underside path cleared, remaining candidates narrow to
+  three for next session: the tube's section 1 genuinely weak/dead
+  (try swapping V1 for a known-good tube — cheapest test, do this
+  first), a grid-circuit fault at Pin 2 cutting the section off, or a
+  corroded/fatigued socket contact at pin 3 itself. Not resolved
+  tonight.
 - V4 Pin 6 :: outlier is worsening, not resolving — 105V on 2026-08-15
   (spec 85V, +20), now 118.7V (+33.7). Same direction, larger gap.
 - V6/V7/V8/V9 Pin 3 and Pin 9 (rows 11-12) :: only V8 was actually

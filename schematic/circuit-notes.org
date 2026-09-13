@@ -331,3 +331,61 @@ four disconnected wafer sections spread from C1 to G7: "4/4F"/"4/4R"
 near the input jacks, "2/4" and "3/4" wafers in the tone-control area
 (D5-E9), "1/4" wafer out near G5-G7 (tuner-band-related switching).
 No single zone describes it.
+
+Looking at the photo of [[file:~/src/dougalcorn/er-420/photos/2026-09-12-s1-4-4r-01.jpg][S1 4/4R]], you can see tie-in terminals 8, 9, and 10 next
+to each other with a gap for 11 and then 12 at the top. That matches the
+schematic showing those tie-in positions as having connections. You can also see
+that the tie-in positions also have a little brass(?) clip that the wiper
+rotates under. That's what makes the connection between the tie-in positions.
+Amazingly, you can see that the tie-in clips for 10 and 12 are longer than the
+ones for 8 and 9. This corresponds to the length of the arrows on the schematic.
+
+** Rotary Switches on a Schematic [[https://audiokarma.org/forums/threads/gaps-in-my-understanding-of-a-schematic.1037491/post-16575798][Gaps in my understanding of a schematic]] by dankik
+1. I find that tracing the circuit path through a schematic is most difficult
+   when the signal is routed through one or many rotary switches. It is hard
+   because the path depends on the switch position. Generally, what is shown on
+   the schematic is the most counter-clockwise (CCW) position of the switch.
+   Sometimes a small picture of the rotary switch is included on the schematic
+   for reference.
+2. Each of the circular symbols with arrows and tabs represent the contact
+   wafers on the rotary switch. The "pointer" is drawn in the position
+   corresponding, again, to the CCW position of the switch. All wafers with the
+   same switch number are part of the same switch.
+3. Example:[[file:~/src/dougalcorn/er-420/photos/dankik-rotary-switch-example-2325.png][example rotary switch from 2325]]
+5. All of the switches labeled "S002" are part of the same rotary switch. The
+   "-" number and letter tell you which wafer and side (F=Front, R=Rear) it
+   represents. So if you look at the example, you can see S002-2F and S002-2R
+   are for the same wafer, front and back sides.
+6. Each circled number represents one of the contacts on the wafer, in this
+   example there are 12 per wafer, some are not connected.
+7. The ones with signal lines coming in with a small arrow are either signals in
+   or out.
+8. The circles with tabs towards the center are the contact rings on the switch.
+   There is usually a tab with an arrow that touches it and there are other
+   arrows in positions around it. Remember, it is shown in the position
+   corresponding to the CCW control position.
+9. For example, S002-2R, the signal on pin 5 is connected only to the signal on
+   pin 3 AND the signal on pin 11 does not touch anything (in this switch
+   position).
+10. Now if we were to rotate the center conductors one click CW, you can see on
+    S002-2R that now 5 is not connected to 3, but 1 is connected to 11.
+11. It's all a bit confusing and time consuming to trace the signals.
+
+** [[https://audiokarma.org/forums/threads/understanding-vintage-rotary-wafer-switch-schematics-looking-for-education-please.1103177/post-18236368][Understanding vintage rotary wafer switch schematics]] by gadget73
+The funky shape shown in the center is a drawing of what the rotating part
+actually looks like. If its done well you will be able to see what parts are
+connected and what parts are not. The one on the left appears to have two
+sections independant of one another. The upper has a notch in it.
+
+The arrows are the different terminals on it. Some go in further than others.
+The ones further in will make contact with the rotating part in any position
+that has metal under it.
+
+Tracing these things out is sort of annoying, especially when you have to
+imagine what that rotating bit looks like in a position other than what is
+drawn. Normally they are drawn fully counter-clockwise and the different
+positions listed as it rotates clockwise.
+
+Honestly most of the time I just get out the meter and ohm check through these
+things to figure out what goes where in any given position. Trying to picture
+what these look like rotated 3 clicks over just gives me a headache.
