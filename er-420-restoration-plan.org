@@ -383,7 +383,7 @@ CLOSED: [2026-08-05 Wed 19:21]
 CLOSED: [2026-08-05 Wed 19:21]
 - CLOSING NOTE [2026-08-05 Wed 19:21] \\
   Re-assembled and re-installed. Works like a champ!
-* TODO Phase 5 — Power supply [7/9]
+* TODO Phase 5 — Power supply [8/9]
 
 Do this first. Everything downstream depends on it, and you want a
 known-good supply before evaluating anything else.
@@ -411,7 +411,9 @@ CLOSED: [2026-09-12 Sat 15:30]
 
 - CLOSING NOTE [2026-09-12 Sat 15:30] \\
   Installed [[file:log/2026-09-12-phase-5-other-caps.org][2026-09-12]]
-** NEXT 4. C99, C100
+** DONE 4. C99, C100
+CLOSED: [2026-09-14 Mon 08:21]
+- CLOSING NOTE [2026-09-14 Mon 08:21]
 Chosen approach: Discrete (47 µF + 22 µF + 22 µF per can)
 - Discrete: 47 µF + 22 µF + 22 µF per can. *Recreate the shared
   negative return at the original chassis point* — moving it invites
@@ -442,25 +444,33 @@ CLOSED: [2026-09-10 Thu 22:37]
 
 - CLOSING NOTE [2026-09-10 Thu 22:37] \\
   I installed this a long time ago
-* TODO Phase 6 — First power-up [0/6]
+* TODO Phase 6 — First power-up [6/6]
 
 Nothing else gets replaced until the supply checks out.
 
-** TODO 1. Visual inspection
+** DONE 1. Visual inspection
+CLOSED: [2026-09-14 Mon 08:21]
+- CLOSING NOTE [2026-09-14 Mon 08:21]
 Every new joint. Every polarity. Look for solder splash, stray strands,
 leads touching what they shouldn't.
 
-** TODO 2. Power up on the dim bulb tester
+** DONE 2. Power up on the dim bulb tester
+CLOSED: [2026-09-14 Mon 08:21]
+- CLOSING NOTE [2026-09-14 Mon 08:21]
 Tubes installed. *Do not pull tubes to "protect" them* — less load
 means higher B+ on everything else.
 
 Bulb flashes bright then dims = normal inrush. Bulb stays bright =
 fault. Kill it immediately.
 
-** TODO 3. Watch and smell for 30 seconds
+** DONE 3. Watch and smell for 30 seconds
+CLOSED: [2026-09-14 Mon 08:21]
+- CLOSING NOTE [2026-09-14 Mon 08:21]
 Smoke, arcing, unusual noise, hot smell. Kill power at anything odd.
 
-** TODO 4. Measure B+ rails against the schematic
+** DONE 4. Measure B+ rails against the schematic
+CLOSED: [2026-09-14 Mon 08:22]
+- CLOSING NOTE [2026-09-14 Mon 08:22]
 Main rail ~340 V. Work down the chain: R111 → R112/R113 → R114/R115 →
 R116/R117, each followed by a cap section, each a lower rail.
 
@@ -468,12 +478,16 @@ Note the schematic's voltages are AM/FM pairs, no input signal,
 measured with a VTVM. Your DMM will read slightly high on
 high-impedance nodes.
 
-** TODO 5. Measure output tube cathode voltage
+** DONE 5. Measure output tube cathode voltage
+CLOSED: [2026-09-14 Mon 08:22]
+- CLOSING NOTE [2026-09-14 Mon 08:22]
 Across R75 and R76 (150 Ω 4 W). Schematic says ~11 V, roughly 73 mA per
 pair. Substantially high = a tube or a leaking coupling cap.
 
-** TODO 6. Only after all rails check out: run without the bulb limiter
+** DONE 6. Only after all rails check out: run without the bulb limiter
+CLOSED: [2026-09-14 Mon 08:22]
 
+- CLOSING NOTE [2026-09-14 Mon 08:22]
 * TODO Phase 7 — Audio chain [2/5]
 
 Method matters more than speed.
@@ -565,6 +579,33 @@ the positions. This would greatly help understanding the schematic, but doesn't
 really help in the physical process of replacing the caps. Where it would come
 in handy is when I'm trying to troubleshoot something that's going wrong and
 need a deep understanding of the schematic.
+
+* TODO Troubleshooting
+** TODO Tap Test
+With no audio, volume up, tap each tube with something non-metalic and listen to
+the output. Any tubes that "ring" need to be replaced.
+** TODO Tube pull test
+gadget73, "could be noisy tubes, could be noisy resistors, could just be a noisy
+circuit. Quick and dirty troubleshooting would just be to pull the first tube
+signal gets to and see if it stops the noise. If not, move to the next, so on
+and so forth. When you pull a tube and it goes away completely, the problem will
+generally be at or immediately upstream of that stage."
+
+"Remove the tube from the socket. It will run with tubes missing but won't pass
+signal. I might pull V3 and see if it shuts up. If it does, try swapping it with
+another 12ax7, maybe one of the phono tubes."
+
+Pulling a tube breaks the amplification at that point. Noise doesn't have to
+travel through the amplification chain to reach the speaker. It can get injected
+at a later stage through a completely separate path -- ripple on a shared B+
+supply rail hitting a downstream tube's plate directly, RF pickup at a
+downstream grid, or local oscillation happening entirely within a later statge.
+
+Pulling at tube will kill the signal, but there might still be audible
+hum/hiss/squeal in the background. If so, that noise is being generated or
+injected after the pulled tube. The inverse is also true, if pulling a tube
+results in total silence the noise is at or before that pulled tube, not after
+it.
 
 * Session log
 

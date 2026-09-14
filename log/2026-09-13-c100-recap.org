@@ -216,3 +216,6 @@ Still genuinely open:
 - Cleaner low-filter A/B test.
 - Recheck V6-V9 Pin 3 after reflow/more warm-up before treating it as
   more than a cold-tube artifact.
+
+Powered down and discharged at end of session — verified <1V on all
+cap terminals before closing up.

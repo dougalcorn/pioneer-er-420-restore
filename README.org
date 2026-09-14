@@ -42,6 +42,7 @@ Current status: Phase 5 power supply recap complete — C99 and C100 both finish
 - [[file:reference/pioneer_er-420_mpx_receiver_sm.pdf][Pioneer ER-420 Service Manual]] - a very good scan of the original service manual I found on the internet
 - [[file:schematic/er-420-schematic-grid.png][Schematic with Gridlines]] - and some of my [[file:schematic/circuit-notes.org][notes]] as I work and explore
 - [[file:food-for-thought.org]] — outside advice worth weighing, and where it landed
+- [[https://audiokarma.org/forums/threads/new-restoration-project-pioneer-er-420.1110160/][AudioKarma restoration thread]] — the live public build log this repo mirrors, with community advice as it comes in
 - =CLAUDE.md= — conventions, and how I want Claude to engage with this project
 
 * Conventions

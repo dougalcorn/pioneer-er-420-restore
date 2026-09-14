@@ -66,6 +66,42 @@ same scope decision as the rest of this restoration.
 4. Potentiometers — noise from a defective volume control or other
    variable resistor.
 
+*** Tap test for microphonics (2026-09-14)
+
+Tap each tube gently (insulated tool — wooden handle, never bare
+metal) with volume up and no source playing, so a result isn't
+masked by program material. A true *ring* — a decaying resonance
+after the tap, not just the knock itself coming through — is specific
+to the tube itself (loose internal elements mechanically resonating).
+A socket or adjacent resistor can't produce that signature; at most
+they'd crackle or pop when disturbed, not ring.
+
+Found 2026-09-14: V3 rings clearly. See [[file:log/2026-09-13-c100-recap.org][2026-09-13 log]] for the full
+tap-test results and V3's traced role (post-volume-control recovery
+gain stage, both channels in one envelope).
+
+*** Pull-tube isolation test (gadget73, AudioKarma, via Doug — 2026-09-14)
+
+#+begin_quote
+Could be noisy tubes, could be noisy resistors, could just be a noisy circuit.
+Quick and dirty troubleshooting would just be to pull the first tube signal gets
+to and see if it stops the noise. If not, move to the next, so on and so forth.
+When you pull a tube and it goes away completely, the problem will generally be
+at or immediately upstream of that stage.
+
+Remove the tube from the socket. It will run with tubes missing but won't pass
+signal. I might pull V3 and see if it shuts up. If it does, try swapping it with
+another 12ax7, maybe one of the phono tubes.
+--- [[https://audiokarma.org/forums/threads/new-restoration-project-pioneer-er-420.1110160/post-18483159][gadget73]]
+#+end_quote
+
+Pulling at tube will kill the signal, but there might still be audible
+hum/hiss/squeal in the background. If so, that noise is being generated or
+injected after the pulled tube. The inverse is also true, if pulling a tube
+results in total silence the noise is at or before that pulled tube, not after
+it.
+
+
 ** Hum
 
 1. Tubes — defective tubes, particularly a short between electrodes.
