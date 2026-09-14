@@ -120,6 +120,42 @@ Volume pot (VR2) still a little scratchy — already investigated at
 length previously and judged healthy enough; a repeat DeoxIT pass
 would likely help if it's bothersome, not urgent.
 
+** Tube tap test (microphonics), following up on the AM hiss/squeal
+
+First pass: tapped every tube except V1/V2/V3 (shielded) with a
+wooden paintbrush handle, music still playing, volume up. Heard
+nothing — inconclusive, since a subtle result could have been masked
+by the music.
+
+Second pass, done properly: paused the music, volume up, tapped every
+tube again including V1/V2/V3's shields. Results:
+- Most tubes: no reaction.
+- V1: a little noise, but not a ring — sounded like the tap itself
+  being amplified rather than the tube resonating. Milder, different
+  category than V3's result.
+- **V3: definite ring** — the classic microphonic signature (loose
+  internal elements resonating after the mechanical excitation, not
+  just picking up the knock itself).
+
+Traced V3's actual role before concluding anything (tile-C5-E7): V3
+is a recovery-gain stage immediately after the volume control, both
+channels in one envelope — top section fed from VR2 1/2, bottom
+section from VR2 2/2, each via a 0.1µF coupling cap (C21/C22). Plate
+(pin 1) feeds through R37 to the C99 pin-2 decoupling node traced
+last night. Not the single most hum/noise-sensitive point in the
+chain (that's still V1/V2, per existing circuit-notes.org), but a
+real, consequential position — right after volume, right before the
+driver stage amplifies whatever V3 puts out further.
+
+No spare 12AX7 on hand to swap-test with (the 2026-09-09 V1/V3 test
+swapped positions between two existing tubes, not a third spare).
+Ordered one 2026-09-14: JJ ECC803s, Low Noise & Microphonics graded
+($34.53 total, TubeDepot) — that grading option specifically matches
+what's being tested for, chosen over Balanced Triodes/High Gain
+add-ons which don't apply to a lone single-position swap. See
+bom.org's Order log. Still just a strong candidate until the swap
+confirms or rules it out.
+
 * Measurements
 
 - New C99 replacements (47µF + 22µF + 22µF), out-of-circuit on DMM
@@ -171,6 +207,9 @@ Still genuinely open:
 
 * Next
 
+- Swap-test V3 once the JJ ECC803s arrives (ordered 2026-09-14) — tap
+  test result is a strong microphonics candidate, worth confirming
+  before assuming it's the (or a) source of the hiss/squeal.
 - Investigate V4 Pin 6 and V6-V9 Pin 3 — the two real remaining
   voltage anomalies.
 - Listen for whether AM hum tracks with either of those.

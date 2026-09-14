@@ -526,6 +526,7 @@ Notes:
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.
 
-|       Date | Vendor |   Order # | Total  | Covers                                                           |    Arrived |
-|------------+--------+-----------+--------+------------------------------------------------------------------+------------|
-| 2026-07-26 | Mouser | 281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses | 2026-07-30 |
+|       Date | Vendor    | Order #    | Total  | Covers                                                                                                        |    Arrived |
+|------------+-----------+------------+--------+---------------------------------------------------------------------------------------------------------------+------------|
+| 2026-07-26 | Mouser    | 281232819  | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses                                              | 2026-07-30 |
+| 2026-09-14 | TubeDepot | R736580740 | $34.53 | JJ ECC803s (Low Noise & Microphonics graded), 1x — spare for V3 swap-test after tap-test found it microphonic |            |

@@ -216,9 +216,22 @@ Function: heater hum-balance pot for V1's heater supply — not
 cathode-related despite a "(K)" schematic symbol that looks like it
 should mean cathode. See [[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply for why.
 
+Physically, appears to be a single pot near V2/V14 — topside-
+adjustable, pot body mounted on the bottom (2026-09-14). Not yet
+confirmed whether this is one combined trimmer actually serving both
+VR5 and VR6, or just VR6 alone with VR5 still unlocated — worth
+settling before treating this as VR5's location too. See a related
+external note: a select45rpm.com review of this model describes two
+factory versions — one with rear-panel hum-adjust pots, one with a
+single internal pot and none on the rear — physically finding only
+one internal pot here (and no rear hum-adjust control, only MPX
+Separation) is consistent with the single-pot version, though not
+independently confirmed.
+
 * VR6
 Function: matches VR5, for V2's heater. See
-[[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply.
+[[file:schematic/circuit-notes.org][circuit-notes.org]] Power supply. Possibly the same physical pot as
+VR5 — see VR5 entry.
 
 * R77
 Function: 100Ω, tied permanently to T7's 8Ω center tap, feeding the
