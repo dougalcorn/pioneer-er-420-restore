@@ -202,12 +202,14 @@ set; position 2 passes through S1's normal selection. If right, S1's
 dial position wouldn't need to be anywhere specific for a second
 line-level input fed through TAPE MONITOR.
 
-Still traced from the schematic scan only, no continuity check at the
-bench yet — same category of "looks right on paper" claim that's been
-wrong before on this project (R79/R80, the S8 break-before-make
-correction, R116/R117's order). Live-test before wiring anything to
-it: feed a known source into the TAPE MONITOR jack, flip S3, confirm
-it's audible regardless of S1's position.
+**Live-tested and confirmed 2026-09-13**: AUX (phono, via Schiit Mani
+2) playing on one source, a Mac plugged into the TAPE MONITOR RCA
+jack playing another. Flipping S3 swapped cleanly between the two
+sources, independent of S1's position, exactly as traced — closes out
+the "looks right on paper" caveat below for this one. TAPE
+MONITOR/Mac came through clear with a very low noise floor. Confirmed
+using the plain TAPE MONITOR RCA jack, not the DIN connector (see
+below) — no DIN adapter needed for this use case.
 
 *** The unlabeled 5-pin circle at E6 (tile-C5-E7.png) is the TAPE
 REC/P.B DIN jack

@@ -1,0 +1,179 @@
+#+TITLE: C100 and C99 recap — 2026-09-13
+#+DATE: 2026-09-13
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Replace both C99 and C100 (discrete rebuild, 47µF + 22µF + 22µF per
+can, per Phase 5 item 4), then power on and test.
+
+* Work
+
+Verified pin/wire identity against component-notes.org's C100 entry
+before landing anything: pin 1 = brown wire, pin 2 = plain orange,
+pin 3 = orange tagged with black tape (color alone doesn't
+distinguish pins 2/3 on this can, per the 2026-09-11 finding).
+
+[[file:../photos/2026-09-13-c100-pinout-tagged-01.jpg]] — terminal
+header with wires landed, tags visible
+[[file:../photos/2026-09-13-c100-new-caps-mounted-01.jpg]] — the
+three discrete replacements clipped together
+[[file:../photos/2026-09-13-c100-new-caps-loose-01.jpg]] and
+[[file:../photos/2026-09-13-c100-can-and-header-01.jpg]] — staging
+shots, can and header alongside the three new caps before assembly
+
+Mounting/support: used the cut-off bottom of the original can as a
+mounting base — drilled holes through it near the solder leads and
+pulled the three new caps' leads through, so the can shell (not the
+leads) carries the mechanical load. Wrapped standard vinyl electrical
+tape around the lead bundle's perimeter so nothing bare is externally
+touchable, then reinstalled using the original spring clamp to hold
+the assembly in its original chassis position. Holes checked, no
+sharp edges to chafe the leads.
+
+This satisfies the plan's "support mechanically, don't leave them
+hanging on leads" concern for C99/C100 — the caps' weight/position is
+carried by the can shell and original clamp, leads only carry the
+electrical connection.
+
+Fuller description of the rebuild to follow.
+
+** C99
+
+Considered just powering up with C99 still original now that C100 was
+done, but decided against it and did C99 too rather than power up
+partially recapped. Discharge-checked before starting.
+
+*Physical wiring, confirmed before touching anything:* pin 1 = single
+orange wire (to R114 or R115), tagged with black tape before
+desoldering; pin 2 = brown wire on a long separate run; pin 3 = two
+orange wires together (both R114/R115 taps); pin 4 = common/ground.
+Also found a 100Ω-ish-looking resistor (brown-black-?-silver)
+soldered directly across pins 1 and 2, leads under 1/2" — genuinely
+on the can, not just nearby.
+
+*Third-section hunt:* like C100, only two of C99's three sections
+(both 20µF, fed by R114/R115) are drawn in the power-supply schematic
+tiles (G9-I11, G10-I12). Searched all 24 schematic tiles for the
+missing 40µF/third section — found it in tile-E7-G9, zone F8: C99's
+third section decouples a 205V node in the FM IF strip near V3, not
+anywhere near R114/R115. Confirmed physically: a brown-black-gold-
+silver resistor on V3 pin 1 (R37) reads continuity to C99 pin 2 —
+independent physical confirmation of the schematic-based find.
+
+Two false leads on the way, both the same "drawn nearby ≠ connected"
+trap this project keeps running into: R38 sits right next to C99's
+label on the schematic but isn't on the same net (R37 is); R81
+(10k) sits next to S6 on the page but isn't actually part of that
+switch's circuit — it just happens to be drawn there.
+
+*The pin 1/2 bridging resistor:* color bands were hard to read (first
+band faded/scratched, third band impossible to distinguish orange
+from brown by eye). In-circuit DMM reading climbed steadily — a
+capacitor-charging artifact (same effect already documented for
+VR2), not a stable value. Isolated it by lifting one leg: **9.84kΩ**,
+matching R81's 10k spec closely enough to confirm. So R81 turns out
+to do double duty — one leg bridges C99 pin 1 (40µF+) straight to
+pin 2 (the 205V node), and from that same pin 2 junction a separate
+wire continues on to S6's low-filter switch circuit. Full pinout now
+known: pin 1 = 40µF+, pin 2 = 20µF+ (205V, via R81 from pin 1 and via
+R37 to V3), pin 3 = two 20µF+ sections via R114/R115, pin 4 = common.
+
+Desoldering C99's terminals — scorched the header's end cap slightly
+in the process.
+
+[[file:../photos/2026-09-13-c99-terminal-scorched-01.jpg]]
+
+Installed — same reused-can-bottom mounting technique as C100.
+Continuity-tested all four joints after soldering to verify against
+the confirmed pinout before closing it up.
+
+[[file:../photos/2026-09-13-c99-terminal-installed-01.jpg]]
+[[file:../photos/2026-09-13-c99-mounted-01.jpg]]
+
+** Power-up and functional test
+
+Dim-bulb watch/smell pass clean, then straight to full mains (see
+Open questions for the voltage sweep findings and what got resolved
+vs. what's still open).
+
+Also did some rudimentary AM/FM listening checks with speakers on —
+informal spot-checks, not real alignment or a thorough tuner
+commissioning pass (that's still out of scope per Phase 9 item 2).
+In FM stereo: loudness, balance, bass, treble, and high filter all
+confirmed working by ear. Low filter's effect was unclear. FM tuning
+felt off with no stereo lock — expected, no antenna connected. AM
+"works" but is noisy — squeals and hum, not just fuzz; no established
+clean-AM baseline to compare against, so unclear if this is new or
+pre-existing.
+
+Confirmed the S3/TAPE MONITOR override theory that's been open since
+2026-08-05: AUX (phono) on one source, a Mac on TAPE MONITOR playing
+another, flipping S3 swapped cleanly between them independent of S1's
+position, exactly as traced from the schematic. TAPE MONITOR/Mac
+came through clear with a very low noise floor. Full writeup in
+[[file:../schematic/circuit-notes.org][circuit-notes.org]] (S3 topology) and [[file:../food-for-thought.org][food-for-thought.org]] (closes out
+the original "only one AUX jack" want — TAPE MONITOR RCA jack is a
+genuine second line-level input, no DIN adapter needed).
+
+Volume pot (VR2) still a little scratchy — already investigated at
+length previously and judged healthy enough; a repeat DeoxIT pass
+would likely help if it's bothersome, not urgent.
+
+* Measurements
+
+- New C99 replacements (47µF + 22µF + 22µF), out-of-circuit on DMM
+  before install :: 41.26µF, 21.78µF, 21.58µF.
+- R81 (bridging C99 pin 1 to pin 2), isolated with one leg lifted ::
+  9.84kΩ (nominal 10k).
+
+* Open questions
+
+Resolved during tonight's sweep, not carried forward: V1 Pin 3/socket
+thread fully closed — the topside socket-contact test (tube removed,
+flagged since 2026-08-05) was actually done and read 3kΩ, matching
+R9's spec cleanly; combined with Pin 3 coming back to 0.574V (in
+spec) at full power, there's no remaining open question on V1. The
+0V reading under the dim bulb was just a cold/under-heated artifact,
+not the long-standing fault reasserting itself.
+V14 Pin 6 (the "-0.9V, strange" reading was AUX mode leaving the AM
+section unpowered, confirmed sensible once in AM mode); C100 Pin 2
+appearing higher than Pin 1 (my own analysis error — they're parallel
+branches, not a series cascade); C101-/C102+ jumping to 181.9V (ratio
+against C101+ still matches the healthy 2026-09-10 doubler symmetry
+almost exactly, just scaled to a higher overall B+ level). Suspected
+cold joints were reflowed and resolved. Full readings and reasoning
+in [[file:../measurements/2026-09-13-voltages.org][2026-09-13 measurements]] (dim-bulb pass) and
+[[file:../measurements/2026-09-13-voltages-full-power.org][2026-09-13 measurements, full power]].
+
+Still genuinely open:
+- V4 Pin 6 :: 197.6V against an 85V spec (+132.5%) at full power —
+  not new, a documented worsening outlier since 2026-08-15 (105V →
+  118.7V → 197.6V). The biggest standing item from tonight's sweep.
+- V6-V9 Pin 3 (shared cathode via C600) :: swung from -98% under the
+  dim bulb to +79.7% at full power — genuinely unexplained, not
+  cold-tube warm-up (that would just mean low, not overshooting).
+  Possibly related to the AM noise below, given physical/circuit
+  adjacency to the output stage, but not confirmed.
+- AM reception is very noisy — not just fuzz, squeals and hum. Hum
+  plausibly ties to the two voltage anomalies above (B+ filtering in
+  the same neighborhood); squeals are more likely RF oscillation or
+  alignment, which the plan already puts out of scope (Phase 9 item 2,
+  turntable-only use case). Unknown whether this is new or a
+  pre-existing condition — no earlier "AM tested clean" baseline
+  exists to compare against.
+- Low filter switch :: effect unclear during listening test, worth a
+  cleaner A/B check later.
+- V12 Pin 6 read 53.4V while nominally in AUX mode, which the
+  project's own notes say should read ~0V on AUX (same as V14). Low
+  priority — likely just means that particular reading happened after
+  the mode had already changed, not a real fault.
+
+* Next
+
+- Investigate V4 Pin 6 and V6-V9 Pin 3 — the two real remaining
+  voltage anomalies.
+- Listen for whether AM hum tracks with either of those.
+- Cleaner low-filter A/B test.
+- Recheck V6-V9 Pin 3 after reflow/more warm-up before treating it as
+  more than a cold-tube artifact.

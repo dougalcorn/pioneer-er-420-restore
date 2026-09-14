@@ -26,6 +26,13 @@ HEAD. Full corrected trace of S3's actual topology (a two-position
 override, independent of S1) is in
 [[file:schematic/circuit-notes.org::*S3 (Tape Monitor ON/OFF) topology, read 2026-09-11][circuit-notes.org]].
 
+**Confirmed working 2026-09-13** — live-tested at the bench, not just
+traced: a Mac plugged into the TAPE MONITOR RCA jack, S3 flipped
+between it and AUX, clean swap both ways regardless of S1's position.
+Solves the "only one AUX jack" want — TAPE MONITOR is a genuine
+second line-level input for the WiiM streamer (or anything else),
+independent of whatever S1 has selected.
+
 Status: live test still pending — feed a known source into TAPE
 MONITOR, flip S3, confirm it comes through regardless of S1's
 position. No chassis modification needed either way, which is what
