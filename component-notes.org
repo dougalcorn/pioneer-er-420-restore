@@ -647,24 +647,29 @@ the normal VR1 → VR2 path and VR2 isn't shunting it to ground.
 left channel, rear gang = right channel.
 
 *Measurements* (power off, leads still attached — in-circuit)
-| Test                                   | Front (L)    | Rear (R)     | Expect |
-|----------------------------------------+--------------+--------------+--------|
-| Wiper → ground lug, CCW stop           | 10.67k       | 14.85k       | ~0-20Ω |
-| Ground lug → chassis                   | 0Ω           | 0Ω           | 0Ω     |
-| Rocking at stop (stop / backed off)    | 10.68k / 17.6-17.8k | 14.85k / 16.3-18.8k | —      |
-| Ground → input (10:00 → 2:00), bal. R  | 120k         | 390k         | —      |
-| Ground → input (10:00 → 2:00), bal. L  | 398k         | 136k         | —      |
+| Test                                                 | Front (L)           | Rear (R)            | Expect |
+|------------------------------------------------------+---------------------+---------------------+--------|
+| Wiper → ground lug, CCW stop                         | 10.67k              | 14.85k              | ~0-20Ω |
+| Ground lug → chassis                                 | 0Ω                  | 0Ω                  | 0Ω     |
+| Rocking at stop (stop / backed off)                  | 10.68k / 17.6-17.8k | 14.85k / 16.3-18.8k | —      |
+| Ground → input (10:00 → 2:00), bal. R                | 120k                | 390k                | —      |
+| Ground → input (10:00 → 2:00), bal. L                | 398k                | 136k                | —      |
+| Ground lug → carbon film at the clamp (needle probe) | not yet             | 15.49k              | ~0Ω    |
 
 - Wiper minimum readings are trustworthy in-circuit: parallel paths
   can only lower a reading, so the true residual is at least this.
   ~10-15k against a 500k track is roughly 30 dB down — the heard
   bleed level.
 - Rocking at the stop returns to the same value within a fraction of
-  a percent — no erratic jumps. Not a dirty contact. The wiper
-  reaches a consistent point short of the ground end: either the
-  ground-end termination/rivet has gone resistive, or the wiper stops
-  short of the pad. Both gangs doing it suggests a shared cause (the
-  common stop, or matching age wear). DeoxIT unlikely to fix.
+  a percent — no erratic jumps. Not a dirty contact; DeoxIT unlikely
+  to fix.
+- Located: through the case window, the wiper's contact dimple is
+  aligned with the ground terminal at the stop — it isn't stopping
+  short. Needle probe, ground lug → carbon film immediately beside
+  the terminal's clamp, rear section: 15.49k, matching the wiper
+  reading. So the resistance is the terminal's clamp contact onto the
+  carbon film (black film on brown phenolic), not wiper travel or
+  track wear. Front section's clamp not yet probed (expect ~10.7k).
 - Ground → input readings swap with balance position: VR1's lower
   section sits in parallel. Not a track finding; out-of-circuit
   totals still needed.
@@ -675,10 +680,21 @@ Conflict with 2026-08-04: one gang read ~20Ω at minimum then (the
 other gang's minimum wasn't recorded). Either that wasn't truly at
 the stop, or the contact has regressed since.
 
-*Plan*: fully desolder VR2 for bench work (lead map first, tape-flag
-each wire, don't cut leads). Bench baseline before opening: total,
-wiper minimum, loudness tap (first true out-of-circuit reading),
-mid-rotation (taper). Then open the rear (right) section first.
+*Decision*: not desoldering. Pulling VR2 would redo ~8 original,
+non-faulty joints and take the set out of service; opening the case
+isn't needed now that the fault is at the clamp, which sits at the
+wafer edge and is reachable from outside.
+
+*Plan*: bridge each gang's ground-terminal clamp onto the carbon film
+with silver conductive paste (Yuecoom, ordered 2026-09-18 — see
+bom.org Order log), a pinhead dot applied with a needle, clear of the
+wiper path and the tap/input lugs. Scrap-test on a junk carbon pot
+first (film doesn't lift, conducts after cure); cure with a hair
+dryer; never wipe it wet. Before painting, probe a few mm along the
+rear film (should read above 15.49k) and probe the front clamp.
+Success: wiper → ground at minimum drops from 10-15k to near 0Ω, then
+silence at minimum volume. Donor pot (AR8542, or A-500KΩ dual audio
+taper with loudness tap) only if this fails.
 
 Photos: [[file:photos/2026-09-18-vr2-rear-01.jpg]],
 [[file:photos/2026-09-18-vr2-rear-02.jpg]],
@@ -687,7 +703,10 @@ Photos: [[file:photos/2026-09-18-vr2-rear-01.jpg]],
 [[file:photos/2026-09-18-vr2-removed-01.jpg]],
 [[file:photos/2026-09-18-vr2-removed-02.jpg]] (unmounted);
 [[file:photos/2026-09-18-vr2-stamp-01.jpg]],
-[[file:photos/2026-09-18-vr2-stamp-02.jpg]] (case stamp). See
+[[file:photos/2026-09-18-vr2-stamp-02.jpg]] (case stamp);
+[[file:photos/2026-09-18-vr2-ground-joint-01.jpg]] (shared ground
+joint); [[file:photos/2026-09-18-vr2-wiper-near-ground-01.jpg]]
+(wiper at the ground terminal, through the case window). See
 [[file:log/2026-09-18-tube-pull-diagnostics.org][2026-09-18 log]].
 
 * VR5
