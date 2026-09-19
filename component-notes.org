@@ -388,14 +388,31 @@ different sessions don't agree on what's actually here:
   resistance to chassis: 1k alone → ~20mA total, ~5mA per tube (far
   too little); with R75/R76 also there → ~70Ω, ~280mA total, ~70mA
   per tube (well over EL84 plate dissipation).
-- gadget73 (AudioKarma, 2026-09-18) reads it as excessive current or
-  an off-value cathode resistor and is concerned: close to double the
-  voltage means close to double the current if the resistor is
-  on-value. Taken seriously; not yet worked through.
+- gadget73 (AudioKarma, 2026-09-18), verbatim: "Thats a sign of
+  excessive current flow for some reason, or a high/off value cathode
+  resistor. I would be concerned about this, close to double the
+  voltage means close to double the current flow assuming an on-value
+  resistor." Taken seriously; not yet worked through. His V4 comments
+  from the same reply are under V4.
 - Deciding measurement, not yet taken: power off, C600 discharged,
   any EL84 pin 3 → chassis. Current = 19.77V ÷ that reading. Until
   then, keep on-time short and watch the EL84 plates in a dim room for
   red glow.
+- On-time so far, for the record: extended full-power testing through
+  the 2026-09-18 evening session, then ~3 hours of recreational
+  listening on the morning of 2026-09-19. No red-plating check done
+  during either.
+- Measured 2026-09-19, power off, all caps drained (< 1VDC): pin 3 →
+  chassis reads *26Ω* on V6, V7, V8 and V9 alike (so it's the bus, not
+  a mis-probe). V9 pin 4 (heater) → chassis reads *23Ω*, confirmed on
+  V6 and V7. 26Ω can't be the operating cathode resistance —
+  19.77V ÷ 26Ω ≈ 760mA, impossible for four EL84s — so the meter is
+  seeing a path that doesn't behave as plain cathode bias in
+  operation. The near-match with the heater pins suggests the cathode
+  bus and the heater network are DC-connected, i.e. the heaters may be
+  elevated to the cathode bus (possibly what the schematic's "(K)"
+  markings at VR5/VR6 mean). Unconfirmed. The V ÷ R current estimate
+  above doesn't work until this is understood.
 
 Photos:
 - [[file:photos/2026-08-12-c600-marking-01.jpg]]
@@ -544,6 +561,59 @@ predict primary vs. secondary on this part. Full lead tracing in
 
 Photos:
 - [[file:photos/2026-07-28-fuse-holder-c94-c95-01.jpg]]
+
+* V4
+Function: 12AX7, left-channel driver and phase inverter (zone D10,
+tile-C9-E11). Section 1 (pins 1/2/3) is a voltage amp, plate load
+R55 220k. Section 2 (pins 6/7/8) is a split-load (cathodyne) phase
+inverter: plate load R67 47k, cathode load R61 1k + R63 47k, grid
+biased through R59 470k; the plate output feeds V6 via C49, the
+cathode output feeds V7 via C51. V5 is the right-channel mirror.
+
+*Pin 6 reads high — unresolved (noted 2026-09-19).* 197.6V at full
+power (2026-09-13) against the schematic's 85V; pin 8 (cathode) read
+45.7V against 44V, and pin 1 read 128.1V against 130V. The earlier
+"worsening trend" (105V → 118.7V → 197.6V) is confounded: the first
+two readings were under the dim bulb, where B+ sags, so the rise is at
+least partly full B+ arriving.
+
+gadget73 (AudioKarma, 2026-09-18, replying to the 09-13 numbers):
+#+begin_quote
+usually a sign that the triode isn't drawing current, or at least a
+lot less than it should be. Check the cathode resistor for being way
+off value. If its not off value the voltage at the cathode should be
+much lower than it ought to be thanks to the low current flow.
+Unlikely but its not impossible the plate resistor is much smaller
+than it should be. Worth checking, but if that were the case the
+cathode voltage should also be high.
+
+Does the inverter tube on the other channel show the same voltages? A
+glitch on the schematic is possible too, both channels should have
+the same kind of voltage in that spot.
+#+end_quote
+Thread: https://audiokarma.org/forums/threads/new-restoration-project-pioneer-er-420.1110160/
+
+Claude's read against the schematic (a hypothesis, not confirmed):
+the cathode voltage is normal, so by gadget73's logic it's either
+off-value cathode resistors masking low current, or a schematic
+glitch. The schematic's own numbers lean toward the glitch. In a
+cathodyne the same current flows through R67 and R61+R63, so the drop
+across R67 should roughly equal the cathode voltage (~45V), putting
+the plate ~45V below the supply feeding R67. An 85V plate would need a
+~130V supply — but as read on the tile, R67 shares that supply with
+R55, whose plate sits at 128V through 220k, so the supply must be well
+above 130V. With a supply around 240V, a healthy stage reads ~195V at
+pin 6 — about what was measured.
+
+Measurements that settle it (none taken yet):
+1. Powered: the supply end of R67. Drop across R67 ≈ 45V → stage is
+   healthy and the 85V label is the error.
+2. Powered: V5 pins 6 and 8 — never measured. Should match V4
+   (gadget73's cross-check).
+3. Power off: R67, R61, R63 — gadget73's off-value-resistor case.
+
+For the output-stage cathode question gadget73 raised in the same
+reply, see C600.
 
 * VR2
 ** The 10:00, 12:00, and 2:00 Terminals (The Standard Trio):
