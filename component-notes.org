@@ -353,7 +353,8 @@ with a 1kΩ 10W "SEF" wirewound resistor, bridging a shared cathode bus
 cathode-bias topology (resistor develops the bias voltage, cap
 bypasses it to shunt AC/hum to ground) but built as one shared network
 across the four output tubes rather than the schematic's separate
-per-pair arrangement (R71/C53, R75/C54). Initially misread as a
+per-pair arrangement (R75/C53 for V6/V7, R76/C54 for V8/V9, per
+tile-C9-E11; R71 is a 220k grid resistor, not part of this). Initially misread as a
 heater-related network before the pin was confirmed as cathode, not
 heater, on the EL84s (V6-V9).
 
@@ -374,6 +375,27 @@ second cathode path — is resolved: V1 isn't on this bus, see above.)
 
 Replaced with 100uF 350V (spare from C101/C102 order). See
 [[file:log/2026-09-12-phase-5-other-caps.org::*C600][2026-09-12 log]].
+
+*Unresolved, and muddled across sessions (noted 2026-09-19).* The
+output-stage cathode bias isn't understood yet, and notes from
+different sessions don't agree on what's actually here:
+- As-built differs from the schematic (one shared 1k/C600 network vs.
+  per-pair R75/C53 and R76/C54). C53/C54 weren't found; whether R75
+  and R76 are physically present, in parallel with the 1k, has never
+  been checked (both still =spec= in bom.org).
+- The bus reads 19.77V at full power (2026-09-13) against the
+  schematic's 11V. What that means depends entirely on the total
+  resistance to chassis: 1k alone → ~20mA total, ~5mA per tube (far
+  too little); with R75/R76 also there → ~70Ω, ~280mA total, ~70mA
+  per tube (well over EL84 plate dissipation).
+- gadget73 (AudioKarma, 2026-09-18) reads it as excessive current or
+  an off-value cathode resistor and is concerned: close to double the
+  voltage means close to double the current if the resistor is
+  on-value. Taken seriously; not yet worked through.
+- Deciding measurement, not yet taken: power off, C600 discharged,
+  any EL84 pin 3 → chassis. Current = 19.77V ÷ that reading. Until
+  then, keep on-time short and watch the EL84 plates in a dim room for
+  red glow.
 
 Photos:
 - [[file:photos/2026-08-12-c600-marking-01.jpg]]
