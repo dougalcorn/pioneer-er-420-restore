@@ -2,7 +2,7 @@
 #+CATEGORY: er420
 #+STARTUP: overview lognotedone
 #+TODO: TODO NEXT BLOCKED | DONE SKIPPED
-#+FILETAGS: :audio:restoration:er420:
+#+FILETAGS: :er420:
 
 * Standing rules                                                  :safety:
 

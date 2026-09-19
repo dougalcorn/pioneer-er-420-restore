@@ -207,7 +207,11 @@ line-level input fed through TAPE MONITOR.
 jack playing another. Flipping S3 swapped cleanly between the two
 sources, independent of S1's position, exactly as traced — closes out
 the "looks right on paper" caveat below for this one. TAPE
-MONITOR/Mac came through clear with a very low noise floor. Confirmed
+MONITOR/Mac came through clear — clean program, no distortion — but
+over noticeable scratchy noise that varied in intensity, somewhat less
+than AUX (possibly source-dependent: Mac vs. Mani 2). Correction
+2026-09-18, reconciled against the AudioKarma post: original wording
+said "very low noise floor," which was wrong. Confirmed
 using the plain TAPE MONITOR RCA jack, not the DIN connector (see
 below) — no DIN adapter needed for this use case.
 

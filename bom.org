@@ -376,7 +376,7 @@ Notes:
 | Ref   | Board | Zone | Function                      | Value     | Status | Orig PN | Noisy? | Cleaned? |
 |-------+-------+------+-------------------------------+-----------+--------+---------+--------+----------|
 | VR1   | Main  | D7   | Balance                       | 500k dual | spec   | AR8541  |        |          |
-| VR2   | Main  | D7   | Volume                        | 500k dual | spec   | AR8542  |        |          |
+| [[file:component-notes.org::*VR2][VR2]]   | Main  | D7   | Volume                        | 500k dual | keep   | AR8542  | yes    | yes      |
 | VR3   | Main  | D8   | Treble                        | 1M dual   | spec   | AR8546  |        |          |
 | VR4   | Main  | D8   | Bass                          | 1M dual   | spec   | AR8546  |        |          |
 | [[file:component-notes.org::*VR5][VR5]]   | Main  | H11  | Hum Balance                   | 100       | spec   | AR9104  |        |          |
@@ -385,6 +385,14 @@ Notes:
 | VR501 | MPX   | C1   | Separation control            | 250k      | spec   | AR0011  |        |          |
 | VR502 | MPX   | A4   | FM Stereo Indicator light adj | 30k       | spec   | AR0020  |        |          |
 |-------+-------+------+-------------------------------+-----------+--------+---------+--------+----------|
+
+Notes:
+- VR2 :: original, case stamped =A-500KΩ= / =6602A2= (likely Feb 1966
+  date code). Both gangs stop 10-15k short of ground at minimum
+  (front/left 10.7k, rear/right 14.9k) — the audible bleed at zero
+  volume. Traced 2026-09-18 to the ground terminal's clamp onto the
+  carbon film; repair pending with silver conductive paste (see Order
+  log). DeoxIT'd 2026-07-28. See [[file:component-notes.org::*VR2][component-notes.org]].
 * Coils, Chokes & Transformers
 
 | Ref   | Board     | Zone | Description                     | Status | Orig PN |
@@ -422,37 +430,44 @@ Notes:
 - VC :: tuning shaft — check dial cord condition here
 * Tubes and Diodes
 
-| Ref  | Board     | Zone | Type     | Function          | Status | Tested | Gm / result | Action |
-|------+-----------+------+----------+-------------------+--------+--------+-------------+--------|
-| V1   | Main      | D3   | 12AX7(T) | Audio amp         | spec   |        |             |        |
-| V2   | Main      | E3   | 12AX7(T) | Audio amp         | spec   |        |             |        |
-| V3   | Main      | D8   | 12AX7(T) | Audio amp         | spec   |        |             |        |
-| V4   | Main      | D10  | 12AX7(T) | Phase inverter    | spec   |        |             |        |
-| V5   | Main      | E10  | 12AX7(T) | Phase inverter    | spec   |        |             |        |
-| V6   | Main      | D11  | 6BQ5     | Power amp         | spec   |        |             |        |
-| V7   | Main      | D11  | 6BQ5     | Power amp         | spec   |        |             |        |
-| V8   | Main      | E11  | 6BQ5     | Power amp         | spec   |        |             |        |
-| V9   | Main      | F11  | 6BQ5     | Power amp         | spec   |        |             |        |
-| V10  | Main      | H9   | 6BA6     | IF amp            | spec   |        |             |        |
-| V11  | Main      | H9   | 6BA6     | IF amp            | spec   |        |             |        |
-| V12  | Main      | H9   | 6AU6     | IF amp            | spec   |        |             |        |
-| V13  | Main      | H9   | 6AU6     | IF amp            | spec   |        |             |        |
-| V14  | Main      | H3   | 6BE6     | AM converter      | spec   |        |             |        |
-| D1   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
-| D2   | Main      | G9   | 0A-70    | FM detector       | spec   |        |             |        |
-| [[file:component-notes.org::*D3][D3]]   | Main      | I11  | SD-1A    | Silicon rectifier | spec   |        |             |        |
-| [[file:component-notes.org::*D4][D4]]   | Main      | I11  | SD-1A    | Silicon rectifier | spec   |        |             |        |
-| D5   | Main      | I8   | 0A-70    | Tuning meter      | spec   |        |             |        |
-| V301 | Front End | G3   | 6C9      |                   | spec   |        |             |        |
-| D301 | Front End | H4   | 1S89     |                   | spec   |        |             |        |
-| V501 | MPX       | A3   | 6AQ8     |                   | spec   |        |             |        |
-| V502 | MPX       | A4   | 6AQ8     |                   | spec   |        |             |        |
-| V503 | MPX       | A4   | 6AV6     |                   | spec   |        |             |        |
-| D501 | MPX       | A7   | 0A79     | Switching bridge  | spec   |        |             |        |
-| D502 | MPX       | A7   | 0A79     | Switching bridge  | spec   |        |             |        |
-| D503 | MPX       | A7   | 0A79     | Switching bridge  | spec   |        |             |        |
-| D504 | MPX       | A7   | 0A79     | Switching bridge  | spec   |        |             |        |
-|------+-----------+------+----------+-------------------+--------+--------+-------------+--------|
+| Ref  | Board     | Zone | Type     | Function          | Status    |     Tested | Gm / result | Action   |
+|------+-----------+------+----------+-------------------+-----------+------------+-------------+----------|
+| V1   | Main      | D3   | 12AX7(T) | Audio amp         | spec      |            |             |          |
+| V2   | Main      | E3   | 12AX7(T) | Audio amp         | spec      |            |             |          |
+| V3   | Main      | D8   | 12AX7(T) | Audio amp         | installed | 2026-09-18 | microphonic | replaced |
+| V4   | Main      | D10  | 12AX7(T) | Phase inverter    | spec      |            |             |          |
+| V5   | Main      | E10  | 12AX7(T) | Phase inverter    | spec      |            |             |          |
+| V6   | Main      | D11  | 6BQ5     | Power amp         | spec      |            |             |          |
+| V7   | Main      | D11  | 6BQ5     | Power amp         | spec      |            |             |          |
+| V8   | Main      | E11  | 6BQ5     | Power amp         | spec      |            |             |          |
+| V9   | Main      | F11  | 6BQ5     | Power amp         | spec      |            |             |          |
+| V10  | Main      | H9   | 6BA6     | IF amp            | spec      |            |             |          |
+| V11  | Main      | H9   | 6BA6     | IF amp            | spec      |            |             |          |
+| V12  | Main      | H9   | 6AU6     | IF amp            | spec      |            |             |          |
+| V13  | Main      | H9   | 6AU6     | IF amp            | spec      |            |             |          |
+| V14  | Main      | H3   | 6BE6     | AM converter      | spec      |            |             |          |
+| D1   | Main      | G9   | 0A-70    | FM detector       | spec      |            |             |          |
+| D2   | Main      | G9   | 0A-70    | FM detector       | spec      |            |             |          |
+| [[file:component-notes.org::*D3][D3]]   | Main      | I11  | SD-1A    | Silicon rectifier | spec      |            |             |          |
+| [[file:component-notes.org::*D4][D4]]   | Main      | I11  | SD-1A    | Silicon rectifier | spec      |            |             |          |
+| D5   | Main      | I8   | 0A-70    | Tuning meter      | spec      |            |             |          |
+| V301 | Front End | G3   | 6C9      |                   | spec      |            |             |          |
+| D301 | Front End | H4   | 1S89     |                   | spec      |            |             |          |
+| V501 | MPX       | A3   | 6AQ8     |                   | spec      |            |             |          |
+| V502 | MPX       | A4   | 6AQ8     |                   | spec      |            |             |          |
+| V503 | MPX       | A4   | 6AV6     |                   | spec      |            |             |          |
+| D501 | MPX       | A7   | 0A79     | Switching bridge  | spec      |            |             |          |
+| D502 | MPX       | A7   | 0A79     | Switching bridge  | spec      |            |             |          |
+| D503 | MPX       | A7   | 0A79     | Switching bridge  | spec      |            |             |          |
+| D504 | MPX       | A7   | 0A79     | Switching bridge  | spec      |            |             |          |
+|------+-----------+------+----------+-------------------+-----------+------------+-------------+----------|
+
+Notes:
+- V3 :: original tube rang on a tap to the bare glass (music paused,
+  volume up); replaced 2026-09-18 with a JJ ECC803s (TubeDepot, see
+  Order log), which doesn't ring. The JJ's envelope is too large for
+  the original shield, so it runs unshielded. Original tube and shield
+  kept with the set. See [[file:log/2026-09-18-tube-pull-diagnostics.org][2026-09-18 log]].
 * Switches
 
 | Ref | Board | Zone | Function                                 | Type    | Status | Orig PN | Noisy? | Cleaned? |
@@ -526,7 +541,9 @@ Notes:
 
 One row per purchase so the Mouser/eBay trail stays attached to the project.
 
-|       Date | Vendor    | Order #    | Total  | Covers                                                                                                        |    Arrived |
-|------------+-----------+------------+--------+---------------------------------------------------------------------------------------------------------------+------------|
-| 2026-07-26 | Mouser    | 281232819  | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses                                              | 2026-07-30 |
-| 2026-09-14 | TubeDepot | R736580740 | $34.53 | JJ ECC803s (Low Noise & Microphonics graded), 1x — spare for V3 swap-test after tap-test found it microphonic |            |
+|       Date | Vendor    |             Order # | Total  | Covers                                                                                                                                                                                                                          |    Arrived |
+|------------+-----------+---------------------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------|
+| 2026-07-26 | Mouser    |           281232819 | $79.42 | recap film/electrolytics, C99/C100 discrete rebuild parts, fuses                                                                                                                                                                | 2026-07-30 |
+| 2026-09-14 | TubeDepot |          R736580740 | $34.53 | JJ ECC803s (Low Noise & Microphonics graded), 1x — spare for V3 swap-test after tap-test found it microphonic                                                                                                                   | 2026-09-17 |
+| 2026-09-11 | Amazon    | 112-2648846-9613844 | $9.01  | Jameco Valuepro 9313-3-R-100 (Consolidated Electronic Wire & Cable, mfg p/n 782201 OR005-JVP) — 22 AWG solid tinned-copper hook-up wire, PVC insulation, 600V, 105°C, MIL-W-16878/1 Type B, orange, 100ft reel                  | 2026-09-14 |
+| 2026-09-18 | Amazon    | 112-4367408-9201066 | $8.42  | Yuecoom Silver Conductive Paste, 0.2ml syringe (sold by Duyonzz, ASIN B0992H9MQZ) — for bridging VR2's ground-terminal clamp onto the carbon film, both gangs; scrap-test on a junk carbon pot first (solvent, hair-dryer cure) |            |

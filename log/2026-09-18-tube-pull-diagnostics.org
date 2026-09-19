@@ -1,0 +1,396 @@
+#+TITLE: V3 swap and tube-pull diagnostics — 2026-09-18
+#+DATE: 2026-09-18
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Walk the pull-tube isolation test (gadget73's method, see
+[[file:../troubleshooting.org][troubleshooting.org]]) to localize the scratchy noise present on every input,
+before any tube swapping. Then, depending on results, swap-test V3
+with the new JJ ECC803s (Low Noise & Microphonics graded).
+
+* Work
+
+Before starting: reconciled the 2026-09-13 log and circuit-notes.org
+against the AudioKarma post (post-18482975). TAPE MONITOR and AUX
+both carried noticeable scratchy noise that varied in intensity (TAPE
+MON somewhat less) — the notes had wrongly recorded TAPE MON as "very
+low noise floor." That puts V3 (common to every input) back in play.
+
+** Pull-tube isolation test — procedure
+
+Signal path, per the AudioKarma post and the voltage tables: V1 (left)
+| V2 (right) first gain → volume (VR2) → V3 (both channels, recovery
+gain) → V4 | V5 (per channel: voltage amp + split-load phase inverter)
+→ V6-V9 outputs. V1/V2 and V4/V5 are parallel pairs, not series — so
+every step is judged per channel.
+
+Setup:
+- S1 on AUX, AUX inputs shorted (RCA plugs, center tied to shell) —
+  an open jack picks up hum/RF of its own.
+- Balance centered. Speakers physically separated; judge each by ear
+  up close so the other channel doesn't bleed in.
+- One fixed volume mark, written down, same every step.
+- Judgment by ear: gone / better / same / worse. If a change is
+  marginal, reinsert and re-listen to the baseline back-to-back.
+
+Each step:
+1. Volume down, power off. Let glass cool or use a glove; twist off
+   the shield (V1-V3).
+2. Pull one tube only. Label every tube with its socket.
+3. Power on, wait 30-60 s for warm-up until the noise stops
+   changing, then bring volume to the mark and listen, L and R.
+4. Volume down, power off, reinsert before the next step.
+
+Order:
+0. Baseline, all tubes in.
+0b. Volume sweep, all tubes in — min to mark. Noise that rises with
+    volume enters upstream of VR2 (V1/V2, input); noise that doesn't
+    change enters downstream (V3 onward).
+1. V1 pulled (left first gain).
+2. V2 pulled (right first gain).
+3. V3 pulled (both channels).
+4. V4 pulled / 5. V5 pulled — *gated*: only if noise remains with V3
+   pulled, and only after checking the supply rail feeding V4/V5 and
+   the coupling-cap voltage rating on that plate. V4 pin 6 already
+   reads 197.6V vs 85V spec (2026-09-13); pulling V4 unloads that
+   node toward its rail.
+- V6-V9 not pulled.
+
+Reading results: noise remaining with tube N pulled is generated
+downstream of N. Where it drops, the source is in that stage — the
+tube, its plate/cathode resistors, coupling cap, or socket. A drop in
+steps rather than all at once means more than one source.
+
+** V3 re-tap, shield off
+
+Pulled V3's shield with the set on and program playing, tapped the
+bare glass with the wooden paintbrush handle: no ringing. Compare
+2026-09-13, where the ring was heard tapping *through the shield*
+with music paused. Not yet an apples-to-apples retest (music was
+playing this time).
+
+Retest with music paused, volume up, shield still off: *rings* on a
+tap to the bare glass. Rules out the shield as the resonator —
+confirms the ring is in V3's tube itself (microphonic).
+
+The replacement JJ ECC803s (left) beside the pulled V3 original
+(right, a Japanese-made 12AX7), with the paintbrush handle used for
+the tap tests:
+
+[[file:../photos/2026-09-18-v3-jj-vs-original-01.jpg]]
+
+Fit: the JJ's envelope is physically larger than the original. It
+seats in V3's socket fine, but the original tube shield won't go over
+it.
+
+Decision: keeping the JJ in V3, unshielded. By ear it's quieter and
+clearer unshielded than the original tube was with its shield.
+Original tube and shield kept with the set.
+
+Tap test on the JJ, same conditions (music paused, volume up, bare
+glass): no ring at all. Confirms the original V3 tube was the
+microphonic source.
+
+** Volume at minimum still passes music
+
+Both AUX and TAPE MON: music audible with VR2 turned all the way
+down. Level, channel(s), and tonal character (full-range vs. thin/
+treble-only) not yet noted.
+
+Characterized (turntable on AUX): full-spectrum and loud — about a
+comfortable background-music level with VR2 at minimum. Not
+capacitive crosstalk; a real signal path.
+
+Why that's odd, per tile-C5-E7: VR1 (balance) wiper → VR2 top; VR2
+wiper → C21 (0.1µF) → V3 grid; VR2 bottom → the common ground bus
+(which also carries VR1's center, the R33/R34 grid leaks, and S4 1/2's
+ground). 2026-08-04 DMM: VR2 wiper reaches ~20Ω to ground at minimum,
+ground lug 0Ω to chassis (power off). If that holds live, nothing
+coming through VR2 can reach V3 at minimum — so the signal is either
+bypassing VR2 or the ground bus isn't really at ground under power.
+One bypass the schematic offers: the loudness network (VR2's fixed
+tap, which carries signal regardless of wiper position → S4 → C19 →
+R31 15k → ground bus). If R31's far end landed on V3's grid side
+instead of the bus (miswire, or a prior repair), loudness would feed
+the grid directly at any volume setting. Unconfirmed.
+
+Test: loudness (S4) on vs. off at minimum volume — no difference.
+S4 swaps the tap's series cap between C17 (100p) and C19 (0.02µF),
+so if the loudness path fed the grid, the level would change sharply
+between positions. Loudness path ruled out.
+
+History note: [[file:../history.org::*Pickup night][history.org]] records "turned all the way down, still
+loud" at pickup — but that was with S7 physically broken (popping,
+garbled channels), and every session until 2026-09-13 ran on the dim
+bulb (reduced B+, reduced gain). So whether today's bleed is the same
+fault as pickup night is unknown; full-power sessions are the first
+where it would have been clearly audible.
+
+Test: V3 pulled, volume at minimum, turntable playing — no sound at
+all. The bleed enters at or before V3: V3's grid side (C21/C22,
+grid wiring, R33/R34) or the ground bus VR2 and the grid leaks share
+— not downstream at V4/V5.
+
+Test: balance (VR1) swept, V3 back in, volume at minimum, turntable
+playing.
+- Balance full left :: left bleeds, and *crackly*; right still has
+  sound but much quieter.
+- Balance full right :: right bleeds, clear; left silent.
+
+Both channels bleed. The bleed follows the balance control, so it
+travels the normal path — through VR1, into VR2's top — and VR2 isn't
+shunting it to ground at minimum. Points at VR2 itself (wiper not
+reaching its ground end live) or VR2's ground end / the shared ground
+bus not truly at ground. The crackle on the left channel is an
+intermittent contact in that channel's VR1 or VR2 gang — plausibly
+the same source as the 2026-09-13 scratchy noise. The asymmetry
+(right not fully cut at full-left balance, left fully cut at
+full-right) not yet explained.
+
+In-place resistance, power off, volume at minimum, balance centered
+(before unmounting VR2). VR2 has a front and a rear set of lugs;
+which gang is which channel not yet known.
+- VR2 rear, wiper (12:00) → ground lug (10:00) :: *15kΩ* (expect
+  ~20Ω). In-circuit parallel paths can only pull a reading *down*, so
+  the real wiper-to-ground-end resistance is at least 15k. Against a
+  500k element that's roughly 30 dB of attenuation at "zero" — about
+  the background-music level heard. Likely the bleed, at least for
+  this gang.
+- VR2 front and rear, ground lug (10:00) → chassis :: 0Ω both.
+  External ground path is fine; the 15k is inside the rear gang
+  (wiper-to-track-end contact, or the ground-end termination rivet).
+- VR2 front, wiper → chassis (= ground lug, per the 0Ω above) ::
+  *10.67kΩ*. Both gangs high at minimum — consistent with both
+  channels bleeding. Compare 2026-08-04: one gang read ~20Ω at
+  minimum shortly after the 2026-07-28 DeoxIT pass (the other gang's
+  minimum wasn't recorded). If that reading was genuinely at minimum,
+  the wiper contact has regressed since.
+- VR2 rear, rocking test at the CCW stop (meter on wiper → ground) ::
+  resting 14.95k; pressed into stop → brief fluctuation, settles
+  14.87k; backed off a hair CW → 18.79k; back to stop → 14.84k;
+  again: stop 14.88k, off 16.29k, stop 14.85k. Very repeatable at the
+  stop (~14.85k), no erratic jumps — not a dirty/intermittent contact.
+  The wiper reaches a consistent point that is still ~15k up from the
+  ground lug: either the ground-end termination (rivet/pad) has gone
+  resistive, or the wiper's travel stops short of it. Can't tell
+  those apart from outside the pot.
+- VR2 front, rocking test at the CCW stop :: 10.67k → off 17.78k →
+  stop 10.68k → off 17.6k → stop 10.69k. Same behavior as the rear:
+  steady, repeatable, not a dirty contact. Both gangs stop ~10-15k
+  short of ground. Both failing the same way suggests a shared cause
+  (the common shaft/stop, or age-worn end terminations on both tracks)
+  rather than one broken rivet.
+
+VR2 photographed in place from the rear before any unmounting, to
+record original wire dress and lug assignments. Overall view of the
+lugs, the braided shielded cable, and the white/blue/green/yellow
+leads:
+
+[[file:../photos/2026-09-18-vr2-rear-01.jpg]]
+
+Case stamp (reads roughly "…309" over "…-500K" — possibly a
+maker/date code, not yet read in person) and the lower lug carrying
+the green and yellow leads, which shows dark marks (old flux or
+scorching, not yet inspected):
+
+[[file:../photos/2026-09-18-vr2-rear-02.jpg]]
+
+From above, looking down past the dial cord to the lug row:
+
+[[file:../photos/2026-09-18-vr2-rear-03.jpg]]
+
+Sharpest view of the top lug row and rivets:
+
+[[file:../photos/2026-09-18-vr2-rear-04.jpg]]
+
+VR2 unmounted from the front panel, leads still attached. Close-up of
+the lug rows on the two stacked phenolic wafers (one per gang); the
+amber/orange residue at the joints and insulation ends looks like old
+rosin flux:
+
+[[file:../photos/2026-09-18-vr2-removed-01.jpg]]
+
+Side view, hanging on its leads: long threaded brass bushing with a
+hex positioning nut, splined/knurled shaft (push-on knob), two gangs
+stacked, case held together by bent crimp tabs:
+
+[[file:../photos/2026-09-18-vr2-removed-02.jpg]]
+
+Front-panel mounting hardware, as removed: one flat washer and one hex
+nut — no star/lock washer. Reinstall the same way.
+
+Case stamping, photographed from both sides (upside-down in both
+shots) and read in person: *A-500KΩ* and *6602A2*. "A" = audio
+(log) taper, matching the schematic's "500K(A)". "6602" plausibly a
+1966-02 (February 1966) date code, consistent with the set's
+vintage — maker's code convention not confirmed:
+
+[[file:../photos/2026-09-18-vr2-stamp-01.jpg]]
+[[file:../photos/2026-09-18-vr2-stamp-02.jpg]]
+
+Construction, per inspection: two crimp tabs at ~3:00 and ~9:00 join
+the rear section to the front section; the front section has its own
+case with four tabs holding its backing plate on.
+The two sections are also joined electrically: the front and rear
+ground lugs are soldered together. Separating the sections means
+desoldering that shared ground joint. Rotational alignment on
+reassembly is self-evident — the front and rear lugs line up.
+
+The shared ground joint: front and rear ground lugs soldered
+together, with a bare stranded ground wire, the braided cable's
+shield, and a black lead all landing in the same joint. The seam
+between the two sections' cases is visible above it:
+
+[[file:../photos/2026-09-18-vr2-ground-joint-01.jpg]]
+
+VR2 unmounted but still wired in, ground → input (10:00 → 2:00):
+front 125kΩ, rear 389kΩ (2026-08-04 in-circuit: ~420k / ~402k).
+In-circuit, so each reading is the track in parallel with VR1's
+lower section (input lug → VR1 wiper → VR1 track → ground bus); VR1's
+position changes that parallel path per channel. Balance position at
+the time of this reading not recorded — not a pot finding until
+remeasured out of circuit.
+
+Confirmed by sweeping balance, same measurement:
+- Balance full right :: front 120k, rear 390k.
+- Balance full left :: front 398k, rear 136k.
+The low reading swaps sides with the balance knob, so it's VR1's
+parallel path, not the VR2 tracks. It also maps the gangs: balance
+full right pulls the *left* channel's VR1 wiper toward ground, and
+the front reading dropped — so *front gang = left channel, rear gang
+= right channel*. That makes the rear (15k at minimum, the worse
+bleed) the right channel, and the crackle heard on the left (at
+full-left balance) the front gang's or VR1-left's.
+
+Decision: *not* desoldering VR2. Pulling it would mean redoing ~8
+original, non-faulty joints and taking the set out of service until
+the pot is repaired; it's usable as-is, just without a true zero.
+Repair deferred until a donor pot (used AR8542 or a matching A-500KΩ
+dual with loudness tap) is in hand, so the swap is one evening and
+the original can be repaired on the bench without a deadline.
+
+Considered and set aside: a dot of silver conductive paint applied
+from outside the case. The fault is on the inside face of the wafer
+(rivet-to-track, or the gap between the wiper's stop and the
+ground-end pad); everything reachable outside is already solid metal
+to chassis (0Ω). Blind application risks shorting part of the track
+or bridging to the tap/input lugs. It *is* a legitimate repair from
+the inside — extending the ground-end pad to where the wiper stops —
+if the rear section is ever opened (one joint: the shared ground).
+Worth having the paint on hand for that.
+
+VR2 remounted (flat washer + hex nut, as removed). Listen check with
+turntable on AUX — volume sweep, minimum, balance extremes, normal
+listening — all back to the same behavior as before removal.
+
+Confirming test, volume at minimum, set playing: shorting both VR2
+wipers to chassis → completely silent. Shorting one wiper silences
+one speaker; the other wiper, the other speaker. The whole bleed
+comes through VR2's wiper-to-ground residual, per channel; nothing
+downstream (C21/C22, V3 grid wiring) adds a path of its own.
+Diagnosis confirmed.
+
+Looking through the case windows with the shaft a hair shy of the
+CCW stop: the wiper's contact dimple is visible just short of the
+ground terminal and appears aligned with it — Doug's read is that
+the wiper is *not* stopping short. Each section shows the terminal
+sitting on top of a black layer over a brown layer: black = the
+carbon film, brown = the phenolic substrate. If the wiper does reach
+the terminal, the 10-15k is in the terminal-to-carbon contact (the
+lug/rivet clamping onto the film) rather than wiper travel — which
+also puts that joint at the edge, reachable from outside. Not yet
+confirmed by measurement:
+
+[[file:../photos/2026-09-18-vr2-wiper-near-ground-01.jpg]]
+
+Needle-probe test, power off: ground lug → carbon film immediately
+beside the terminal's clamp, rear (right) section: *15.49kΩ* —
+essentially the same as the 14.85k wiper-at-minimum reading. So the
+~15k sits between the lug and the film right at the clamp: the
+terminal-to-carbon contact has gone resistive. Not wiper travel, not
+track wear. That joint is at the wafer edge and reachable from
+outside — a targeted silver-paint bridge (terminal edge onto the
+film, clear of the wiper path) is now a real candidate repair. Front
+section not yet probed.
+
+** S3 crosstalk: unselected AUX bleeds into TAPE MON
+
+TAPE MON on (S3 selecting the TAPE MON jack), Mac paused on TAPE MON,
+Mani 2 + turntable playing on AUX: with volume turned up, the
+turntable is audible. So the unselected source leaks past S3. Likely
+the same family as the volume-at-minimum bleed above: signal getting
+around a selector or level control rather than through it.
+
+Follow-up: the leak is treble-only, no audible bass, and only heard
+with volume quite high. With volume at minimum (TAPE MON on, Mac
+paused) the turntable is inaudible. Treble-only = capacitive coupling
+across S3's contacts/wiring (reactance falls with frequency) — normal
+for a vintage selector, not a fault. And since it disappears at
+minimum volume, it enters upstream of VR2: a separate issue from the
+volume-at-minimum bleed, not the same mechanism.
+
+* Measurements
+
+Pull-test results. Full mains, warm. S1 on AUX, AUX inputs shorted,
+mode STEREO, balance centered, volume at mark: full. Judged by ear.
+
+| Step | Pulled           | Left | Right | Notes (hiss/hum, surging?) |
+|------+------------------+------+-------+----------------------------|
+| 0    | none (baseline)  | hum  | hiss  | Barely audible at full volume, only with ear at the speaker. Very quiet. |
+| 0b-5 | not run          |      |       | Baseline already near-silent; switched to source add-back below. |
+
+Baseline was already near-silent, so switched to adding sources back
+one at a time instead of pulling tubes. Mani 2 ruled out on its own
+(used daily into Edifier R1280DBs with no hiss); the 2026-09-13
+noisy condition had Mani 2 on AUX *and* Mac on TAPE MON connected at
+once, so the suspect is the combination (ground loop).
+
+| Step | Source on AUX                  | Result                                                                  |
+|------+--------------------------------+-------------------------------------------------------------------------|
+| A    | MacBook (M3 Pro) headphone jack, paused | Same as shorted baseline — very little hiss at full volume.     |
+| A'   | Same, music playing            | Very clear. Sweeping volume up/down: no crackle, hiss, or noise from VR2. |
+| B    | Mac on TAPE MON, AUX empty, S3 on | Clear as a bell at any volume.                                       |
+| B'   | Same, S3 off (listening to AUX) | Quiet at max volume.                                                   |
+| B''  | Toggling S3 on/off             | Switches cleanly both ways.                                             |
+| C    | Mani 2 + turntable on AUX, Mac on TAPE MON, both playing, S3 off | Clear as a bell (Laudate Dominum, Hallelujah chorus). Phono louder than Mac. 09-13 noise not reproduced. |
+
+* Open questions
+
+- 2026-09-13 noise not reproduced today under the same source setup
+  (Mani 2 + turntable on AUX, Mac on TAPE MON, Mac on its charger as
+  always, phono wiring unchanged). Doug's recollection: it was very
+  noticeable and *scratchy*, not a smooth hiss, and varied in
+  intensity. Scratchy + intermittent points at a contact or joint
+  (cold solder joint, switch contact, VR2 wiper, noisy carbon
+  resistor) more than at a tube or ground loop. VR2 was also
+  scratchy on 09-13 and is silent today. Candidates, unconfirmed:
+  settling after the recap/joint reflow, or an intermittent that
+  hasn't recurred yet.
+- Crackle on the left channel at full-left balance, volume at
+  minimum: front (left) gang of VR2, or VR1's left gang. Not isolated.
+- VR2 residual at minimum: rivet-to-track termination gone resistive,
+  or wiper stopping short of the ground-end pad? Only answerable by
+  opening the pot.
+- 2026-08-04 recorded ~20Ω wiper-to-ground on one gang; today both
+  read 10-15k. Mis-measurement then, or regression since?
+- VR1 (balance) at full-left leaves the right channel quieter but not
+  silent, while full-right silences left. Unexplained asymmetry.
+- Left-channel hum at the shorted-input baseline (barely audible):
+  V1 stage / VR5 hum balance? Not tested — V1 pull skipped.
+
+* Next
+
+- *First:* VR2 repair in place: silver conductive paint bridging each ground
+  terminal's clamp onto the carbon film, applied with a needle, clear
+  of the wiper path. Before painting: probe a few mm along the rear
+  film (reading should rise above 15.49k) and probe the front
+  section's clamp (expect ~10.7k). After full cure: wiper → ground at
+  minimum should drop to near 0Ω; then listen at minimum volume.
+  Paint: Yuecoom silver conductive paste, ordered 2026-09-18 (see
+  bom.org Order log). Scrap-test on a junk carbon pot first: no film
+  lifting, conducts after hair-dryer cure; never wipe it wet. Donor pot
+  (AR8542 / A-500KΩ dual with loudness tap) only if this fails.
+- Investigate V4 pin 6 (197.6V vs 85V, rising session over session)
+  and V6-V9 pin 3 (+80%) — carried from 2026-09-13; these bear on the
+  set's health, VR2 only on convenience.

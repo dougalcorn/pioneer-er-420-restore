@@ -486,6 +486,12 @@ Keep the amplifier unplugged.
 3. wiper to ground is not as smooth. it peaks at about 425k, but at max volume it actually drops to 390k
 4. ground to loudness is constant at about 202k
 ** Interpretation
+*Superseded 2026-09-18* — see [[*2026-09-18: bleed at minimum volume traced to VR2][2026-09-18 findings]] below. Both
+gangs now read 10-15k wiper-to-ground at the minimum stop, not ~20Ω,
+and that residual is the audible bleed at minimum volume. The
+DC-leakage explanation below isn't needed, and couldn't pass audio
+past a truly grounded wiper anyway. Kept for the record.
+
 1. The Carbon Track is Healthy (420kΩ)A reading of 420kΩ is well within the standard \(\pm20\%\) tolerance of a vintage 500kΩ potentiometer. The slow climbing behavior absolutely confirms your suspicion: the DMM battery is charging an inline coupling capacitor in the circuit. This tells us the carbon track itself is physically intact and not cracked.
 2. The Chassis Ground is Solid (0Ω)Because you have true continuity between the 10:00 terminal and the chassis, we can officially rule out a broken external ground connection. The volume should be able to pull down to zero.
 3. The Wiper Sweep is Excellent (20Ω to 425kΩ)The smooth sweep from just 20Ω up to the maximum resistance means your DeoxIT treatment worked beautifully. The internal wiper brush is making solid, continuous contact with the carbon track. More importantly, 20Ω is low enough to completely quiet the audio signal.
@@ -537,6 +543,74 @@ unconfirmed piece per the 2026-08-04 log.
 
 Photos: [[file:photos/2026-07-30-volume-pot-vr2-01.jpg]] and
 [[file:photos/2026-07-30-volume-pot-vr2-02.jpg]]
+
+** 2026-09-18: bleed at minimum volume traced to VR2
+
+Symptom: turntable on AUX is audible at a comfortable background
+level, full-range, with VR2 at minimum — both channels, and on TAPE
+MON too. Not loudness (S4 on/off makes no difference); disappears
+with V3 pulled; follows the balance control. So the signal is taking
+the normal VR1 → VR2 path and VR2 isn't shunting it to ground.
+
+*Markings and construction*
+- Case stamp: =A-500KΩ= and =6602A2= — audio taper, and "6602" is
+  plausibly a February 1966 date code (convention not confirmed).
+  Original, date-coded part: repair preferred over replacement.
+- Two stacked sections. Two crimp tabs (~3:00/~9:00) join rear to
+  front; the front section has its own four-tab case holding its
+  backing plate. The front and rear ground lugs are soldered
+  together — separating the sections means desoldering that joint.
+  Rotational alignment is self-evident (front/rear lugs line up).
+- Splined shaft (push-on knob), long threaded brass bushing with a
+  hex positioning nut. Front-panel hardware: one flat washer, one hex
+  nut, no star washer.
+
+*Channel mapping* (from sweeping balance, see below): front gang =
+left channel, rear gang = right channel.
+
+*Measurements* (power off, leads still attached — in-circuit)
+| Test                                   | Front (L)    | Rear (R)     | Expect |
+|----------------------------------------+--------------+--------------+--------|
+| Wiper → ground lug, CCW stop           | 10.67k       | 14.85k       | ~0-20Ω |
+| Ground lug → chassis                   | 0Ω           | 0Ω           | 0Ω     |
+| Rocking at stop (stop / backed off)    | 10.68k / 17.6-17.8k | 14.85k / 16.3-18.8k | —      |
+| Ground → input (10:00 → 2:00), bal. R  | 120k         | 390k         | —      |
+| Ground → input (10:00 → 2:00), bal. L  | 398k         | 136k         | —      |
+
+- Wiper minimum readings are trustworthy in-circuit: parallel paths
+  can only lower a reading, so the true residual is at least this.
+  ~10-15k against a 500k track is roughly 30 dB down — the heard
+  bleed level.
+- Rocking at the stop returns to the same value within a fraction of
+  a percent — no erratic jumps. Not a dirty contact. The wiper
+  reaches a consistent point short of the ground end: either the
+  ground-end termination/rivet has gone resistive, or the wiper stops
+  short of the pad. Both gangs doing it suggests a shared cause (the
+  common stop, or matching age wear). DeoxIT unlikely to fix.
+- Ground → input readings swap with balance position: VR1's lower
+  section sits in parallel. Not a track finding; out-of-circuit
+  totals still needed.
+- Crackle heard on the left channel at full-left balance: front gang
+  or VR1-left. Unresolved.
+
+Conflict with 2026-08-04: one gang read ~20Ω at minimum then (the
+other gang's minimum wasn't recorded). Either that wasn't truly at
+the stop, or the contact has regressed since.
+
+*Plan*: fully desolder VR2 for bench work (lead map first, tape-flag
+each wire, don't cut leads). Bench baseline before opening: total,
+wiper minimum, loudness tap (first true out-of-circuit reading),
+mid-rotation (taper). Then open the rear (right) section first.
+
+Photos: [[file:photos/2026-09-18-vr2-rear-01.jpg]],
+[[file:photos/2026-09-18-vr2-rear-02.jpg]],
+[[file:photos/2026-09-18-vr2-rear-03.jpg]],
+[[file:photos/2026-09-18-vr2-rear-04.jpg]] (in place);
+[[file:photos/2026-09-18-vr2-removed-01.jpg]],
+[[file:photos/2026-09-18-vr2-removed-02.jpg]] (unmounted);
+[[file:photos/2026-09-18-vr2-stamp-01.jpg]],
+[[file:photos/2026-09-18-vr2-stamp-02.jpg]] (case stamp). See
+[[file:log/2026-09-18-tube-pull-diagnostics.org][2026-09-18 log]].
 
 * C60
 Function: 0.05µF oil-paper coupling cap, zone I3 (Main board).

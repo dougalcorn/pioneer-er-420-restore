@@ -100,8 +100,11 @@ vs. what's still open).
 Also did some rudimentary AM/FM listening checks with speakers on —
 informal spot-checks, not real alignment or a thorough tuner
 commissioning pass (that's still out of scope per Phase 9 item 2).
-In FM stereo: loudness, balance, bass, treble, and high filter all
-confirmed working by ear. Low filter's effect was unclear. FM tuning
+In FM stereo: loudness, balance, bass, treble, high filter, and low
+filter all audibly modified the output, though how well loudness and
+the filters work was hard to judge by ear (corrected 2026-09-18 per
+the AudioKarma post; originally said low filter's effect was
+unclear). FM tuning
 felt off with no stereo lock — expected, no antenna connected. AM
 "works" but is noisy — squeals and hum, not just fuzz; no established
 clean-AM baseline to compare against, so unclear if this is new or
@@ -111,7 +114,11 @@ Confirmed the S3/TAPE MONITOR override theory that's been open since
 2026-08-05: AUX (phono) on one source, a Mac on TAPE MONITOR playing
 another, flipping S3 swapped cleanly between them independent of S1's
 position, exactly as traced from the schematic. TAPE MONITOR/Mac
-came through clear with a very low noise floor. Full writeup in
+came through clear — clean program, no distortion — but over
+noticeable scratchy noise that varied in intensity. Somewhat less than
+AUX (possibly source-dependent: Mac vs. Mani 2). Correction
+2026-09-18, reconciled against the AudioKarma post: original wording
+said "very low noise floor," which was wrong. Full writeup in
 [[file:../schematic/circuit-notes.org][circuit-notes.org]] (S3 topology) and [[file:../food-for-thought.org][food-for-thought.org]] (closes out
 the original "only one AUX jack" want — TAPE MONITOR RCA jack is a
 genuine second line-level input, no DIN adapter needed).
@@ -198,8 +205,9 @@ Still genuinely open:
   turntable-only use case). Unknown whether this is new or a
   pre-existing condition — no earlier "AM tested clean" baseline
   exists to compare against.
-- Low filter switch :: effect unclear during listening test, worth a
-  cleaner A/B check later.
+- Loudness / high / low filter :: all audibly change the sound, but
+  how well they work was hard to judge by ear — worth a cleaner A/B
+  check later.
 - V12 Pin 6 read 53.4V while nominally in AUX mode, which the
   project's own notes say should read ~0V on AUX (same as V14). Low
   priority — likely just means that particular reading happened after

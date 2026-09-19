@@ -1,0 +1,82 @@
+#+TITLE: Pioneer CS-A31 Speaker Restoration — Plan
+#+CATEGORY: cs-a31
+#+STARTUP: overview
+#+FILETAGS: :audio:restoration:cs-a31:speakers:
+
+* Status
+
+Not started — blocked behind ER-420 completion. This page captures
+research done 2026-09-14 while waiting, so it's not lost.
+
+* The speakers
+
+Pioneer CS-A31, 1968-1970. 16Ω, 40W. 12" woofer (30-08), midrange
+(MM122A), horn-loaded tweeter (PT-220). Alnico magnets throughout.
+
+* Known condition (unverified beyond visual/listening, 2026-09-14)
+
+- Cloth surrounds, look to be in good shape — ages much better than
+  foam, no rot/crumble expected at this point if intact now.
+- Sound "pretty OK" as-is, untouched.
+- Have not yet done a voice-coil push test, DCR check, or opened the
+  crossover.
+
+* Plan
+
+Recap-and-preserve, not a driver/baffle rebuild — keep the original
+drivers and cabinet, replace only the aged crossover caps and
+stuffing/damping. Decision driven by the condition above: no evidence
+of a driver-level problem yet (healthy surrounds, DMM/push-test still
+pending), so there's no reason yet to reach for a more invasive
+rebuild.
+
+Before any cap purchase: confirm the actual populated values by
+opening the crossover and measuring/reading them directly — do not
+just trust the reference schematic below.
+
+** Steps (once ER-420 is done)
+
+1. Open crossover, identify component values on the physical caps.
+2. Voice-coil push test + DCR check on all drivers before touching
+   anything, to rule out a driver-level issue.
+3. Recap with fresh caps close to measured values (10% rule of
+   thumb; parallel two caps if an exact match isn't a stock value).
+4. Add internal bracing and replace stuffing (poly batting, not
+   fiberglass — irritant, wear mask/gloves if removing old fiberglass
+   stuffing).
+5. Consider grille cloth replacement (lattice grille removal reported
+   to improve SQ directly, independent of the recap).
+
+* Reference schematic
+
+A related model (not CS-A31 itself) — Pioneer AS-303A crossover,
+found via a Reddit poster and linked in the source thread below. Topology
+reference only, not confirmed to match the CS-A31 exactly.
+
+http://elektrotanya.com/pioneer_as-303a_sch.pdf/download.html
+
+Third-party archive site — download/verify from a normal browser, not
+pulled automatically into this repo.
+
+* Cap values
+
+Thread OP measured their CS-A31 crossover at 1.6µF and 14µF. Standard
+stock values close enough (within the 10% rule of thumb): 1.5µF and
+15µF.
+
+Chosen part: Dayton Audio DMPC series, metalized polypropylene —
+genuine audio-grade film dielectric, mainstream/budget tier (not
+boutique). Pricing checked 2026-09-14:
+
+- DMPC-1.5 (1.5µF, 250V): $0.79 — https://www.parts-express.com/Dayton-Audio-DMPC-1.5-1.5uF-250V-Polypropylene-Capacitor-027-412
+- DMPC-15 (15µF, 250V): $4.19 — https://www.parts-express.com/Dayton-Audio-DMPC-15-15uF-250V-Polypropylene-Capacitor-027-432
+
+~$10 total for both speakers (one of each value per speaker), before
+shipping. Confirm against actual measured values before ordering —
+these targets are based on the thread OP's speakers, not a direct
+measurement of mine.
+
+* Source
+
+Forum thread this plan is based on:
+https://techtalk.parts-express.com/forum/tech-talk-forum/61733-pioneer-cs-a31-speakers-restore-upgrade-advice
