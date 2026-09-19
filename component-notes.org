@@ -349,22 +349,28 @@ with no sign of later rework.
 
 60µF/150V Elyt. Cap (Suzuki, date code 2602 — same as C98) in parallel
 with a 1kΩ 10W "SEF" wirewound resistor, bridging a shared cathode bus
-(V1 pin 3, V6/V7/V8/V9 pin 3 — confirmed by continuity, all tied
-together) to chassis. Standard cathode-bias topology (resistor develops
-the bias voltage, cap bypasses it to shunt AC/hum to ground) but built
-as one shared network across five tubes rather than the schematic's
-separate per-pair arrangement (R71/C53, R75/C54). Initially misread as
-a heater-related network before the pin was confirmed as cathode, not
-heater, on both a 12AX7 (V1) and an EL84 (V6-V9).
+(V6/V7/V8/V9 pin 3, all tied together) to chassis. Standard
+cathode-bias topology (resistor develops the bias voltage, cap
+bypasses it to shunt AC/hum to ground) but built as one shared network
+across the four output tubes rather than the schematic's separate
+per-pair arrangement (R71/C53, R75/C54). Initially misread as a
+heater-related network before the pin was confirmed as cathode, not
+heater, on the EL84s (V6-V9).
+
+Corrected 2026-09-19: this entry originally put V1 pin 3 on the bus
+too ("confirmed by continuity," 2026-08-15). That's contradicted by
+later measurements: at full power (2026-09-13) V1 pin 3 read 0.574V
+while the bus read 19.77V — not the same node — and on 2026-09-08 V1
+pin 3 measured 2.979kΩ through R9 to its ground joint, matching R9's
+3k spec. V1 has its own cathode resistor, as the schematic shows. Why
+the 2026-08-15 continuity check showed V1 on the bus is unknown
+(possibly a mis-probe).
 
 C53 and C54 (50µF/25V, the schematic's individual output-stage cathode
 bypass caps) have not been found as physical parts despite a careful
 visual search — their function is very likely consolidated into this
-shared network instead. Open question: V1 has its own dedicated cathode
-resistor in the schematic (R9, 3k) for its own preamp stage; if V1's
-pin 3 is also on this shared output-stage bias bus, that implies two
-cathode paths unless R9 has been removed or reworked. Needs a
-continuity check on R9 to resolve.
+shared network instead. (The former open question here — V1's R9 as a
+second cathode path — is resolved: V1 isn't on this bus, see above.)
 
 Replaced with 100uF 350V (spare from C101/C102 order). See
 [[file:log/2026-09-12-phase-5-other-caps.org::*C600][2026-09-12 log]].
