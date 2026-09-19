@@ -19,6 +19,10 @@ heading, either is enough to be worth a lookup.
 Add photo bullets with [[file:scripts/import-labels.sh][import-labels.sh]] after tagging a photo in
 labelme; add Function lines by hand as circuit tracing turns them up.
 
+Entries are sorted by designator type (C, D, R, S, T, V, VR), then
+numerically within each type (C9 before C10). Insert new headings in
+place rather than appending to the bottom.
+
 * C7
 Function: 0.02uF oil-paper, wired directly across V1 pins 1 and 7 —
 interstage coupling between V1's own two triode sections (plate of
