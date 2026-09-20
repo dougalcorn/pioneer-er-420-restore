@@ -1,0 +1,148 @@
+#+TITLE: VR2 silver-paint attempt and voltage sweep — 2026-09-19
+#+DATE: 2026-09-19
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Try the silver-paint repair on VR2's ground terminals (from
+[[file:2026-09-18-tube-pull-diagnostics.org][2026-09-18]]'s Next), and re-run the voltage sweep now that the set has
+settled since the 2026-09-13 recap — also picking up the rows
+gadget73's 2026-09-18 reply calls for.
+
+* Work
+
+** Silver-paint attempt on VR2 — did not work, left it slightly worse
+
+Yuecoom silver conductive paste arrived (ordered 2026-09-18). Applied
+to *both* gangs, in place, pot still wired in: the carbon film has a
+lip standing proud of the metal ground tab, so the paste went down
+that lip as a stripe on both sides of the tab, applied with the
+syringe's needle. Messier than intended — harder to control than it
+looked, and some paste ended up on the phenolic wafer, scraped off
+with the needle after it dried. No scrap test was run first.
+
+Cure: hair dryer ~5 minutes, then left ~4 hours.
+
+Result by ear: still significant sound at minimum volume, no obvious
+improvement.
+
+Measurements after (power off):
+- Paint → chassis :: <1Ω. So the paste cured, conducts, and is bonded
+  to the (grounded) tab. The paste itself is not the problem.
+- Needle on carbon film just in front of the tab :: ~28kΩ.
+- Needle on the film right at the wafer edge, where it's sandwiched
+  under the tab :: ~18kΩ.
+- Wiper → ground at minimum :: *22kΩ*, against 14.85k on 2026-09-18.
+  Worse, not better — higher resistance at minimum means *more*
+  signal gets through.
+
+** What that says, including a correction
+
+The film readings can't be taken at face value: 18k at the tab is
+*higher* than the 14.85k the wiper read, and the wiper sits further
+along the same film. Several kΩ of every needle-on-carbon reading is
+contact resistance between a steel point and a carbon film, not the
+pot.
+
+That undermines 2026-09-18's diagnosis. The 15.49k "ground lug →
+film at the clamp" reading was read as proof that the tab-to-film
+clamp had gone resistive; it was probably mostly probe contact
+resistance. Claude drew that conclusion and recommended the paint on
+the strength of it.
+
+Most likely reading now: the resistance is spread along the film
+between the grounded end and wherever the wiper actually rests — i.e.
+the wiper does stop short in resistance terms, even though it looks
+aligned with the terminal through the case window. Bridging at the
+tab parallels a few mm of film that were never the problem, which is
+why nothing improved.
+
+Why 14.85k → 22k is unknown: paste that crept past the film's edge
+onto the wiper's path, or damage from scraping the dried paste off,
+are the two candidates. Both are on the inner face, invisible from
+outside.
+
+** Voltage sweep
+
+Full mains (120VAC), no variac, no dim bulb, Fluke 15B+, chassis
+reference, selector on AUX, volume down, ~10+ min warm-up. Readings
+dictated in voice mode. Full table in
+[[file:../measurements/2026-09-19-voltages.org][2026-09-19 measurements]].
+
+Settling since 2026-09-13 changed nothing: every row is within ~1% of
+that session, except V3 (new JJ ECC803s, so a different tube). The
+09-13 numbers were valid.
+
+* Measurements
+
+See [[file:../measurements/2026-09-19-voltages.org][measurements/2026-09-19-voltages.org]]. Three findings worth calling
+out:
+
+1. *V4 pin 6 is not a fault — the schematic's 85V label is wrong.*
+   V5 (right-channel mirror, never measured before) reads pin 6
+   197.9V / pin 8 43.4V against V4's 197.6V / 45.3V. Both channels
+   agree, both cathodes on spec. This was gadget73's own cross-check.
+2. *The "(K)" markings at VR5/VR6 are explained.* V1 pin 4 (a heater
+   pin) reads 19.49V DC — the same as the cathode bus — while V8's
+   heater pin reads 0V. V1/V2's heater winding is elevated to the
+   output-stage cathode bus, a standard hum-reduction move for the
+   most sensitive preamp stage. Open in circuit-notes.org since July.
+3. *The output tubes' plates don't match.* V6 pin 7 reads 358.8V
+   (+7.1%, and 360V on 09-13 — consistent, not a misread) while V7,
+   V8, V9 read ~313V (-6.4%). Everything else in the set runs ~+5%, so
+   V6 fits the pattern and V7-V9 don't. V6/V7 are the push-pull pair
+   on T7 and should match. This is the live lead on gadget73's
+   excessive-current concern.
+
+Cathode bus (row 11) read 19.53V then 19.7V, matching 09-13's 19.77V.
+
+* Open questions
+
+- Per-tube output current, still unmeasured — the way to get it
+  without the cathode-bus confusion: powered, DC at each output
+  transformer's center tap (T7, T8); power off, resistance from each
+  center tap to each plate (pin 7). Drop ÷ resistance = that tube's
+  current. Answers gadget73 tube by tube.
+- Why V6's plate sits ~45V above V7-V9's.
+- VR2: why the wiper reading went 14.85k → 22k after the paint.
+  Invisible from outside.
+- The 26Ω cathode-bus-to-chassis reading (2026-09-19, cold) is still
+  unexplained — heater elevation was ruled out for V8 (pin 4 = 0V
+  DC), and 19.7V ÷ 26Ω would be impossible current. Suspect the
+  ohmmeter was reading C600 charging rather than a settled value;
+  re-measure with the probes held until it stops climbing.
+
+* Next
+
+- VR2: leaning toward desoldering it and disassembling it on the
+  bench — not tonight. Every path except living with the bleed starts
+  with the same desolder, so buying a replacement first only saves
+  downtime. Prep is unchanged from 2026-09-18: lead map first,
+  tape-flag every wire, don't cut leads, bench baseline (total, wiper
+  minimum, loudness tap out-of-circuit, mid-rotation for taper, plus
+  shaft/bushing dimensions) before opening anything.
+- Replacement options if the repair fails:
+  - *New remanufactured pots*: eBay seller =hifiaudio= (22k feedback,
+    100% positive) sells new loudness-tap volume pots per Pioneer
+    model, $90 + shipping. Era-matched candidates are the *SX-1000TA
+    / TD / TW* (mid-'60s tube receivers); the rest of their range
+    (SX-950, SX-850, SA-900, SX-6000, SA-6500, SX-700T) is '70s
+    solid-state and likely 50k/100k, which would load the stage ahead
+    of VR2 and change the tone. Ask the seller: resistance/taper, tap
+    position, shaft and bushing dimensions, and whether they can build
+    to ER-420/LX-420A spec. Needs our own bench numbers first.
+  - *Donor units* (all inference, nothing confirmed): the AR8542
+    number appears nowhere online — '60s Pioneer manuals are
+    image-only scans, so parts lists aren't searchable. AR numbers
+    identify the part, not the model (VR3/VR4 already share AR8546),
+    and cross-model sharing is proven for the ER-420's AT6123U output
+    transformer (also in SX-82, SM-83). Best donor bets: *LX-420A*
+    (hifi-wiki calls the ER-420 an "LX-420A with LW" — same tube count
+    and power class), then SX-34B/LX-34B and SX-410 (both 1966), then
+    SX-800/LX-800, SX-82, SM-83, SA-400. Any donor needs a Loudness
+    Contour switch. Certainty would need a parts-list page from an
+    LX-420A or SX-34B manual scan.
+- Output-stage current measurement above, before any long listening
+  sessions.
+- Remaining sweep rows: 4, 41-42 (R67/R68 supply end), and the FM/AM
+  rows (21-34, 18a/18b/19a/19b).
