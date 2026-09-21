@@ -570,6 +570,21 @@ inverter: plate load R67 47k, cathode load R61 1k + R63 47k, grid
 biased through R59 470k; the plate output feeds V6 via C49, the
 cathode output feeds V7 via C51. V5 is the right-channel mirror.
 
+*Pin 6's 85V spec is a schematic typo — RESOLVED 2026-09-20.* The
+label should read 185V. In a split-load inverter the plate resistor
+drops the same voltage as the cathode resistor, and the supply feeding
+both of V4's sections is the 230V node (= measurements row 14, C99
+P1): 230 − ~45 = ~185V. On a set running ~5% high, the measured
+numbers land exactly there: C99 P1 measured 242.7V, cathode 45.3V,
+242.7 − 45.3 = 197.4V vs. 197.6V measured at pin 6 (V5: 197.9V).
+gadget73 reached the same reading independently from the schematic
+alone ("I'd believe it should have been 185"), and V5 matching V4 is
+his own cross-check. No fault here; nothing further to measure —
+rows 41/42 of the 2026-09-19 sweep (R67/R68 supply end) are
+redundant, row 14 already is that measurement.
+
+History below, kept for the record.
+
 *Pin 6 reads high — unresolved (noted 2026-09-19).* 197.6V at full
 power (2026-09-13) against the schematic's 85V; pin 8 (cathode) read
 45.7V against 44V, and pin 1 read 128.1V against 130V. The earlier
@@ -605,12 +620,9 @@ R55, whose plate sits at 128V through 220k, so the supply must be well
 above 130V. With a supply around 240V, a healthy stage reads ~195V at
 pin 6 — about what was measured.
 
-Measurements that settle it (none taken yet):
-1. Powered: the supply end of R67. Drop across R67 ≈ 45V → stage is
-   healthy and the 85V label is the error.
-2. Powered: V5 pins 6 and 8 — never measured. Should match V4
-   (gadget73's cross-check).
-3. Power off: R67, R61, R63 — gadget73's off-value-resistor case.
+Settled 2026-09-19/20 by the sweep (V5 pins 6/8 = 197.9V/43.4V,
+matching V4) plus the arithmetic above. R67/R61/R63 never needed
+measuring.
 
 For the output-stage cathode question gadget73 raised in the same
 reply, see C600.

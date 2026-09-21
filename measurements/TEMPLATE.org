@@ -40,46 +40,62 @@ matches the legend: AM first, FM second. Compare your measurement against the
 half matching the session's actual Mode condition above, not just whichever
 number looks closer.
 
-|  # | Location                                |  Spec V | Zone    | Subsystem                             | Role                                             | Measured V | % Diff |
-|----+-----------------------------------------+---------+---------+---------------------------------------+--------------------------------------------------+------------+-------|
-|  1 | V1 Pin 1                                |      65 | D3      | Tone/preamp                           | Plate, sec. 1                                    |            |       |
-|  2 | V1 Pin 3                                |     0.6 | D3      | Tone/preamp                           | Cathode, sec. 1                                  |            |       |
-|  3 | V1 Pin 6                                |      74 | D3      | Tone/preamp                           | Plate, sec. 2                                    |            |       |
-|  4 | Between R21 and R17                     |     110 | D4      | Tone/preamp                           | Bias-supply bus                                  |            |       |
-|  5 | V3 Pin 1                                |     120 | D8      | Tone/preamp                           | Plate, sec. 1                                    |            |       |
-|  6 | V3 Pin 3                                |    0.75 | D8      | Tone/preamp                           | Cathode, sec. 1                                  |            |       |
-|  7 | V4 Pin 1                                |     130 | D10     | Driver                                | Plate, sec. 1                                    |            |       |
-|  8 | V4 Pin 3                                |     1.1 | D10     | Driver                                | Cathode, sec. 1                                  |            |       |
-|  9 | V4 Pin 6                                |      85 | C10     | Driver                                | Plate, sec. 2                                    |            |       |
-| 10 | V4 Pin 8                                |      44 | D10     | Driver                                | Cathode, sec. 2                                  |            |       |
-| 11 | V6, V7, V8, V9 Pin 3                    |      11 | D11-F11 | Output stage                          | Cathode (shared, C600)                           |            |       |
-| 12 | V6, V7, V8, V9 Pin 9                    |     300 | D11-F11 | Output stage                          | Screen grid (shared)                             |            |       |
-| 13 | V6 Pin 7                                |     335 | D11     | Output stage                          | Plate                                            |            |       |
-| 14 | C99 P1                                  |     230 | F10     | Driver                                | B+ decoupling node                               |            |       |
-| 15 | C99 P2                                  |     205 | F8      | FM IF / Driver boundary               | B+ decoupling node                               |            |       |
-| 16 | C99 P3                                  |     110 | ~F9     | Driver (zone uncertain)               | B+ decoupling node                               |            |       |
-| 17 | C100 P1                                 |     300 | F11-G11 | Power supply / Output stage boundary  | B+ decoupling node                               |            |       |
-| 18 | C100 P3                                 | 270/247 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
-| 19 | C100 P2                                 | 296/280 | G11-H11 | Power supply                          | B+ decoupling node                               |            |       |
-| 20 | C101+                                   |     340 | ~G10    | Power supply                          | Rectifier output                                 |            |       |
-| 21 | V10 Pin 5                               |      85 | G5      | AM/FM front end / IF                  | Plate                                            |            |       |
-| 22 | V10 Pin 7                               |     0.8 | G5      | AM/FM front end / IF                  | Cathode                                          |            |       |
-| 23 | V11 Pin 5                               |      87 | G7      | FM IF                                 | Plate                                            |            |       |
-| 24 | V11 Pin 7                               |     0.7 | G7      | FM IF                                 | Cathode                                          |            |       |
-| 25 | V12 Pin 5                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Plate                                            |            |       |
-| 26 | V12 Pin 6                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Screen grid                                      |            |       |
-| 27 | V13 Pin 5                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Plate                                            |            |       |
-| 28 | V13 Pin 6                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Screen grid                                      |            |       |
-| 29 | V14 Pin 5                               |     160 | H3      | AM section                            | not yet identified                               |            |       |
-| 30 | V14 Pin 6                               |      82 | I3      | AM section                            | not yet identified                               |            |       |
-| 31 | Off T5 P4 and far side of R101          | 150 | H5-H8   | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
-| 32 | C66+ and R87 (R87 bridges C66+/C67+, downstream of row 31) | 110 | H6      | not in ZONES.org's named ranges       | B+ decoupling node                               |            |       |
-| 33 | C64 and R86                             |     100 | H4      | FM front end                          | B+ decoupling node                               |            |       |
-| 34 | C75, S1 1/4, and R85                    |     270 | I4-I6   | AM section / Selector switch boundary | Signal node                                      |            |       |
-| 35 | V1 Pin 4                                |         | D3      | Tone/preamp                           | Heater                                           |            |       |
-| 36 | C101-/C102+                             |    ~105 | ~G10    | Power supply                          | C101 "-" / C102 "+"                              |            |       |
+|  # | Location                                |  Spec V | Zone    | Subsystem                             | Role                                             | Mode       | Measured V | % Diff |
+|----+-----------------------------------------+---------+---------+---------------------------------------+--------------------------------------------------+------------+------------+-------|
+|  1 | V1 Pin 1                                |      65 | D3      | Tone/preamp                           | Plate, sec. 1                                    | AUX        |            |       |
+|  2 | V1 Pin 3                                |     0.6 | D3      | Tone/preamp                           | Cathode, sec. 1                                  | AUX        |            |       |
+|  3 | V1 Pin 6                                |      74 | D3      | Tone/preamp                           | Plate, sec. 2                                    | AUX        |            |       |
+|  4 | Between R21 and R17                     |     110 | D4      | Tone/preamp                           | Bias-supply bus                                  | AUX        |            |       |
+|  5 | V3 Pin 1                                |     120 | D8      | Tone/preamp                           | Plate, sec. 1                                    | AUX        |            |       |
+|  6 | V3 Pin 3                                |    0.75 | D8      | Tone/preamp                           | Cathode, sec. 1                                  | AUX        |            |       |
+|  7 | V4 Pin 1                                |     130 | D10     | Driver                                | Plate, sec. 1                                    | AUX        |            |       |
+|  8 | V4 Pin 3                                |     1.1 | D10     | Driver                                | Cathode, sec. 1                                  | AUX        |            |       |
+|  9 | V4 Pin 6                                |      85 | C10     | Driver                                | Plate, sec. 2                                    | AUX        |            |       |
+| 10 | V4 Pin 8                                |      44 | D10     | Driver                                | Cathode, sec. 2                                  | AUX        |            |       |
+| 11 | V6, V7, V8, V9 Pin 3                    |      11 | D11-F11 | Output stage                          | Cathode (shared, C600)                           | AUX        |            |       |
+| 12 | V6, V7, V8, V9 Pin 9                    |     300 | D11-F11 | Output stage                          | Screen grid (shared)                             | AUX        |            |       |
+| 13 | V6 Pin 7                                |     335 | D11     | Output stage                          | Plate                                            | AUX        |            |       |
+| 14 | C99 P1                                  |     230 | F10     | Driver                                | B+ decoupling node                               | AUX        |            |       |
+| 15 | C99 P2                                  |     205 | F8      | FM IF / Driver boundary               | B+ decoupling node                               | AUX        |            |       |
+| 16 | C99 P3                                  |     110 | ~F9     | Driver (zone uncertain)               | B+ decoupling node                               | AUX        |            |       |
+| 17 | C100 P1                                 |     300 | F11-G11 | Power supply / Output stage boundary  | B+ decoupling node                               | AUX        |            |       |
+| 18a | C100 P3                                 | 270/247 | G11-H11 | Power supply                          | B+ decoupling node                               | AM         |            |       |
+| 18b | C100 P3                                 | 270/247 | G11-H11 | Power supply                          | B+ decoupling node                               | FM         |            |       |
+| 19a | C100 P2                                 | 296/280 | G11-H11 | Power supply                          | B+ decoupling node                               | AM         |            |       |
+| 19b | C100 P2                                 | 296/280 | G11-H11 | Power supply                          | B+ decoupling node                               | FM         |            |       |
+| 20 | C101+                                   |     340 | ~G10    | Power supply                          | Rectifier output                                 | AUX        |            |       |
+| 21 | V10 Pin 5                               |      85 | G5      | AM/FM front end / IF                  | Plate                                            | FM         |            |       |
+| 22 | V10 Pin 7                               |     0.8 | G5      | AM/FM front end / IF                  | Cathode                                          | FM         |            |       |
+| 23 | V11 Pin 5                               |      87 | G7      | FM IF                                 | Plate                                            | FM         |            |       |
+| 24 | V11 Pin 7                               |     0.7 | G7      | FM IF                                 | Cathode                                          | FM         |            |       |
+| 25 | V12 Pin 5                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Plate                                            | FM         |            |       |
+| 26 | V12 Pin 6                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Screen grid                                      | FM         |            |       |
+| 27 | V13 Pin 5                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Plate                                            | FM         |            |       |
+| 28 | V13 Pin 6                               |      50 | G8-G9   | FM IF / Ratio detector boundary       | Screen grid                                      | FM         |            |       |
+| 29 | V14 Pin 5                               |     160 | H3      | AM section                            | not yet identified                               | AM         |            |       |
+| 30 | V14 Pin 6                               |      82 | I3      | AM section                            | not yet identified                               | AM         |            |       |
+| 31 | Off T5 P4 and far side of R101          | 150 | H5-H8   | not in ZONES.org's named ranges       | B+ decoupling node                               | FM         |            |       |
+| 32 | C66+ and R87 (R87 bridges C66+/C67+, downstream of row 31) | 110 | H6      | not in ZONES.org's named ranges       | B+ decoupling node                               | FM         |            |       |
+| 33 | C64 and R86                             |     100 | H4      | FM front end                          | B+ decoupling node                               | FM         |            |       |
+| 34 | C75, S1 1/4, and R85                    |     270 | I4-I6   | AM section / Selector switch boundary | Signal node                                      | AM         |            |       |
+| 35 | V1 Pin 4                                |         | D3      | Tone/preamp                           | Heater                                           | AUX        |            |       |
+| 36 | C101-/C102+                             |    ~105 | ~G10    | Power supply                          | C101 "-" / C102 "+"                              | AUX        |            |       |
 
 Notes:
+- Mode column :: which selector position each row must be read in —
+  one mode per row. Added 2026-09-19 after repeated confusion; AUX
+  leaves the AM section and parts of the FM section unpowered, so
+  those rows read ~0V on AUX and look like an open B+ feed when they
+  aren't.
+  - =AUX= :: audio chain, power supply, driver/output. Powered in any
+    mode, so take them in AUX.
+  - =FM= :: FM IF tubes V10-V13 (rows 21-28), the FM B+ branch (rows
+    31-32), the FM front end (row 33). Their single-value specs
+    describe the tuner running.
+  - =AM= :: V14 and the C75/S1/R85 node (rows 29, 30, 34).
+  - Rows 18-19 (C100 P3/P2) are split into a (AM) and b (FM): their
+    spec has a separate AM and FM value and no AUX equivalent.
+  Suggested order: all the AUX rows first, then switch to FM, then AM.
 - Between R21 and R17 :: also common with C11+ and R23, which land in
   zone F4 (Selector switch's C1-G7 range) — a different subsystem than
   this node's own D4 (Tone/preamp). Worth remembering if tracing this

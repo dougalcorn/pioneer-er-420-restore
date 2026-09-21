@@ -351,7 +351,9 @@ than just spray and pray it with Deoxit, it would probably be better to use a
 q-tip to apply Deoxit to the wiper and lugs generously and then work them
 through the positions.
 
-* TODO Phase 4 — Output section decision [4/4]
+* DONE Phase 4 — Output section decision [4/4]
+CLOSED: [2026-09-21 Mon 09:51]
+- CLOSING NOTE [2026-09-21 Mon 09:51]
 ** DONE 1. Fix or Replace S7 impedance switch
 CLOSED: [2026-07-29 Wed 19:54]
 - CLOSING NOTE [2026-07-29 Wed 19:54] \\
@@ -444,7 +446,7 @@ CLOSED: [2026-09-10 Thu 22:37]
 
 - CLOSING NOTE [2026-09-10 Thu 22:37] \\
   I installed this a long time ago
-* TODO Phase 6 — First power-up [6/6]
+* DONE Phase 6 — First power-up [6/6]
 
 Nothing else gets replaced until the supply checks out.
 
@@ -520,7 +522,7 @@ C53/C54 sit across the output cathode resistors and pass real AC
 current — low-impedance parts are a genuine benefit there.
 
 ** TODO 4. C88 → 4.7 µF 50 V
-** TODO 5. Mylars that failed Phase 2 testing
+** SKIPPED 5. Mylars that failed Phase 2 testing
 ** TODO 6. Drifted resistors from the Phase 2 sweep
 Metal film. 1/2 W minimum, 1 W or high-voltage rated on B+ positions —
 watch the *voltage* rating, not just wattage. A 1/4 W part maxes around
@@ -581,7 +583,7 @@ in handy is when I'm trying to troubleshoot something that's going wrong and
 need a deep understanding of the schematic.
 
 * TODO Troubleshooting
-** TODO Tap Test
+** DONE Tap Test
 With no audio, volume up, tap each tube with something non-metalic and listen to
 the output. Any tubes that "ring" need to be replaced.
 ** TODO Tube pull test
@@ -606,8 +608,33 @@ hum/hiss/squeal in the background. If so, that noise is being generated or
 injected after the pulled tube. The inverse is also true, if pulling a tube
 results in total silence the noise is at or before that pulled tube, not after
 it.
+** TODO VR2 Signal Passes at Zero Volume
+Both gangs stop at 15k - 22k short of ground at the minimum stop.
 
-* Session log
+Background: [[file:component-notes.org::*VR2][component-notes.org VR2]] (all readings, markings,
+construction, decisions) · [[file:log/2026-09-18-tube-pull-diagnostics.org][2026-09-18 log]] (traced the bleed to VR2 —
+loudness ruled out, V3 pull, balance sweep, in-place resistances) ·
+[[file:log/2026-09-19-vr2-silver-paint-and-voltage-sweep.org][2026-09-19 log]] (silver-paste attempt, why it failed, needle-contact
+correction) · [[file:history.org::*Pickup night][history.org]] (present at pickup: "turned all the way down,
+still loud").
+*** TODO Wiper to Input Test
+- Power off, volume full up, wiper to input lug resistance
+- If resistance near zero then the fault is localized to the ground lug
+- If the resistance is 10s of KOhm, then the fault might be the wiper itself.
+*** TODO Repair the track
+- Start with pot still in amp. See if I can get get enough visibility into the track.
+- If not enough visibility, then reluctantly desolder the pot to get outside the amp for greater visibility
+- Attempt to repair the track near ground with silver paint. Try to see the actual track of the wiper near the ground terminal and if I can paint the track itself with a needle.
+- Last resort is disassemble the pot to repair the track
+** TODO Output stage - V6's plat runs ~45V above V7-V9
 
-Append as you go. Date, what changed, what you measured, what
-surprised you.
+Background: [[file:troubleshooting.org::*Output-stage plate/current test plan (gadget73, 2026-09-19)][troubleshooting.org]] (full procedure, gadget73's reply, why
+a plate reading means two things at once, safety) ·
+[[file:log/2026-09-19-vr2-silver-paint-and-voltage-sweep.org][2026-09-19 log]] (the sweep that found it) ·
+[[file:measurements/2026-09-19-voltages.org][2026-09-19 measurements]] (rows 13, 44-46 — the plate readings
+themselves; row 11 the shared cathode bus) · [[file:component-notes.org::*C600][component-notes.org C600]]
+(shared cathode-bias network, and what's still muddled about it).
+*** TODO Measure T7 and T8 center tab voltage with power on
+*** TODO Measure half-primary resistance - Center tap to Pin 7 on 4 tubes power off
+*** TODO Swap tubes for V6 and V7, remeasure both plate voltages
+*** TODO Look for red glow powered up in dim room

@@ -102,6 +102,69 @@ results in total silence the noise is at or before that pulled tube, not after
 it.
 
 
+** Output-stage plate/current test plan (gadget73, 2026-09-19)
+
+For when the output tubes' plate voltages don't match each other.
+Found 2026-09-19: V6 pin 7 reads 358.8V while V7/V8/V9 read ~313V —
+45V apart on tubes that share a center tap (V6/V7 on T7). V6 also
+read 360V on 2026-09-13, so it's consistent, not a misread.
+
+#+begin_quote
+plate voltage on output tubes is usually pretty darn close, within a
+couple of volts allowing for differences in resistance of the
+transformer. Might want to do an ohm check from center tap to each
+plate end to confirm they match, and maybe shuffle the tubes around
+to see if that voltage moves. Could be a transformer issue or could
+be a tube thats not drawing anything, though normally that also means
+low cathode voltage. No connection to the screen supply will also
+make the tube not draw anything, wouldn't explain the cathode voltage
+though.
+--- gadget73, https://audiokarma.org/forums/threads/new-restoration-project-pioneer-er-420.1110160/
+#+end_quote
+
+*Why a plate reading means two things at once.* Each output tube's
+plate ties to one half of its OPT primary; both halves meet at the
+center tap, where B+ comes in. That winding has resistance, so:
+
+: plate V = center-tap V − (tube current × half-primary resistance)
+
+Two tubes on the same transformer should land within a few volts. A
+*higher* plate reading means a *smaller* drop — less current through
+that tube, or less resistance in its half.
+
+*Step 0 — center-tap voltage (powered).* Never measured here. DC at
+T7's and T8's center taps. This is the supply the plate readings are
+measured against; it says which tube is the abnormal one rather than
+just that they differ. If the CT reads ~360V, V6 is barely drawing
+while V7-V9 drop ~45V.
+
+*Step 1 — half-primary resistance (power off, caps drained).* Center
+tap → pin 7 at each output socket; four readings (T7: V6, V7; T8: V8,
+V9).
+- Halves match (typically a few hundred ohms) :: windings are fine,
+  so the voltage spread is a *current* difference.
+- Halves differ a lot :: the winding explains the voltage spread and
+  no tube is at fault.
+
+*Step 2 — shuffle tubes.* Swap V6 and V7 between sockets, re-measure
+both plates.
+- High reading follows the tube :: that tube is the problem.
+- High reading stays with the socket :: tube is fine; look at the
+  socket or its wiring.
+Same logic as the 2026-09-09 V1/V3 swap.
+
+*Already ruled out here:* gadget73 lists a missing screen connection
+as a cause — V6 pin 9 measured 314.9V at the pin itself, so V6's
+screen supply is connected. His note that a non-drawing tube normally
+also shows low cathode voltage doesn't apply cleanly to this set: all
+four cathodes share one bus (see component-notes.org C600), so one
+idle tube barely moves it.
+
+*Safety:* the center tap and pin 7 carry full B+ (~360V) — the most
+dangerous points in the set. Clip the black lead to chassis first,
+probe one-handed, and confirm the filter caps are drained before any
+resistance reading.
+
 ** Hum
 
 1. Tubes — defective tubes, particularly a short between electrodes.
