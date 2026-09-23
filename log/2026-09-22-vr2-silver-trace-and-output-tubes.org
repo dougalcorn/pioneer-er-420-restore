@@ -194,11 +194,19 @@ Powered readings ~5 min warm. Nothing here repeats the sweep rows in
 | 2026-09-19, after tab-only application | ~10.7k    | 22k      |
 | Tonight, trace out onto the film       | 9k        | 14.9k    |
 | Tonight, extended + thickened, cured   | ~500Ω     | ~500Ω    |
+| Tonight, wiper-spot layer + 15 min cure | <10Ω     | <10Ω     |
 
-Cure between the last two rows: ~5 min hot air + ~5 min cold from the
-blow dryer. A further layer went on the wiper's contact spot after
-that reading, cured the same way, then left overnight — not yet
-re-measured.
+Cure before the ~500Ω row: ~5 min hot air + ~5 min cold from the blow
+dryer. A further layer then went on the wiper's contact spot,
+followed by ~10 min hot + ~5 min cold — after which both gangs read
+*under 10Ω* at the minimum stop. For reference, a healthy gang read
+~20Ω on 2026-08-04, so this is at or better than the pot's own
+baseline, and the two channels now match.
+
+Still to do: back the wiper off and inspect the painted spot for
+smearing (the knob was turned down onto that layer to take this
+reading), then listen at minimum volume with the turntable playing —
+the original symptom.
 
 ** Output stage — resistance (power off, caps discharged, in circuit)
 
