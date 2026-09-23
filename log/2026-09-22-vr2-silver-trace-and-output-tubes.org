@@ -1,0 +1,273 @@
+#+TITLE: VR2 silver trace, second attempt; output-tube tracing — 2026-09-22
+#+DATE: 2026-09-22
+#+FILETAGS: :audio:restoration:er420:
+
+* Goal
+
+Another pass at the silver trace on VR2's carbon track, and start the
+output-stage measurements — center-tap voltages, half-primary
+resistances, and tube swapping — to explain V6's plate running ~45V
+above V7-V9. Plan: [[file:../er-420-restoration-plan.org::*Troubleshooting][restoration-plan.org]] Troubleshooting; procedure:
+[[file:../troubleshooting.org::*Output-stage plate/current test plan (gadget73, 2026-09-19)][troubleshooting.org]].
+
+* Work
+
+** VR2 — silver trace extended onto the carbon wafer
+
+Second attempt: the trace now runs from the ground tab out onto the
+carbon film itself, visible through both case windows. Doug's read is
+that it isn't extended far enough yet.
+
+[[file:../photos/2026-09-22-vr2-silver-trace-01.jpg]]
+
+Wiper → chassis ground at the minimum stop, after this pass:
+- Front (inside, left channel) :: *9kΩ* — was 10.67k on 2026-09-18.
+- Rear (right channel) :: *14.9kΩ* — was 14.85k on 2026-09-18, then
+  22k after the 2026-09-19 tab-only attempt.
+
+Reading: the rear gang's 22k was temporary, not damage — it's back to
+its pre-paint value. The front dropped ~1.7k. Both moved the right
+direction and neither is fixed, consistent with the resistance being
+spread along the film between the ground end and wherever the wiper
+rests: each bit of trace painted shortens the resistive run, so
+extending further should keep lowering it.
+
+Third pass: thickened and extended the trace on both gangs, with the
+shaft turned so the wiper was out of the way for access:
+
+[[file:../photos/2026-09-22-vr2-silver-trace-02.jpg]]
+
+Cure: ~5 min hot air from the blow dryer, then ~5 min cold. Then
+volume to minimum, ground terminal → wiper, both gangs: *~500Ω*.
+Against a 500k track that's ~60 dB down — effectively silent, and
+down from 9k / 14.9k before this pass.
+
+Backed the wiper off the trace afterwards and found a dark spot where
+it had been sitting, so added one more layer of silver on top of the
+existing trace at that point to raise it, then another ~5 min hot /
+~5 min cold with the blow dryer. Left to cure overnight.
+
+Three applications total: (1) 2026-09-19, the ground terminal/tab
+only — no improvement; (2) tonight, out onto the carbon track itself
+— 9k / 14.9k, then ~500Ω both gangs after curing; (3) tonight, a
+second layer on top of the trace at the exact spot the wiper touches.
+
+** Output stage — half-primary resistances
+
+Which physical can is which, settled first: the schematic feeds V6/V7
+from T7, and the edge can's red/green leads go to V6/V7 — so *T7 is
+the edge can, T8 is nearest the middle*, opposite the service manual's
+layout block diagram. Schematic taken as authoritative; recorded in
+[[file:../component-notes.org::*T7][component-notes.org T7]] and [[file:../schematic/circuit-notes.org::*Output stage][circuit-notes.org]].
+
+Power off, in-circuit, brown (center tap) → pin 7:
+- T7 CT → V6 pin 7 :: 140.6Ω
+- T7 CT → V7 pin 7 :: 136.7Ω
+
+The two halves match within ~3% — normal. So T7's winding is fine and
+the 45V plate spread between V6 and V7 is a *current* difference, not
+the transformer.
+
+** Output stage — powered readings, and the anomaly evaporates
+
+- T8 CT → V8 pin 7 :: 141.7Ω · T8 CT → V9 pin 7 :: 137.9Ω. Measured
+  from the *same* brown wire as T7's pair, which also confirms both
+  center taps are one node (otherwise two windings in series would
+  have read ~280Ω). All four halves: 140.6 / 136.7 / 141.7 / 137.9 —
+  essentially identical.
+- Center tap → chassis, powered, 5 min warm :: *366.5V*. So the
+  plates are fed from the raw rail (C101+ was 363.7V), not the 315V
+  screen node.
+- Plates, re-read carefully at pin 7 :: V6 361.7V, V7 362.3V, V8
+  361.6V, V9 362.0V — *within 0.7V of each other*.
+- Shared cathode bus, pin 3 :: 20.2V (19.53 / 19.7 on 2026-09-19).
+
+*The V6 "45V high" anomaly was a measurement artifact.* The 2026-09-13
+and 2026-09-19 sweeps recorded V7/V8/V9 at ~313V, which is the
+screen-grid node's voltage (V6 pin 9 = 314.9V, C100 P1 = 314.5V) —
+pin 9 instead of pin 7, most likely; on an EL84 they straddle pin 8.
+The resistance readings are what exposed it: with a 140Ω half-primary,
+a 45V spread would need a ~320mA current difference, which an EL84
+can't pass.
+
+*Per-tube current, two independent ways:*
+- Plate drop :: (366.5 − 362) / 140Ω ≈ *32mA per tube*.
+- Cathode :: 20.2V / ~150Ω ≈ 135mA total ≈ *34mA per tube*.
+
+*The cathode "+80%" reading isn't a fault either.* The schematic's 11V
+is developed across a 150Ω resistor per *pair*; this set shares one
+resistor across all four tubes, so the same per-tube current produces
+roughly twice the voltage. 20.2V across ~150Ω for four tubes is the
+same ~34mA each the schematic intends.
+
+*Dissipation:* plate-to-cathode 362 − 20.2 = 341.8V × ~32mA ≈ 11W
+against the EL84's 12W rating — ~91%, warm but in spec, consistent
+with rails running ~5% high. gadget73's excessive-current concern
+does not hold.
+
+** Tracing the output stage's bias network
+
+The ~150Ω implied by the current didn't match anything findable, so
+traced the actual wiring. What's physically there:
+
+- *Cathode bus* :: one green wire chains V8 pin 3 → V9 pin 3 → V7
+  pin 3 → V6 pin 3. V6 and V7 have nothing else on pin 3.
+- *At V8 pin 3* :: C600 (100µF replacement, originally 60µF/150V) and
+  a wirewound printed =10P 1KΩ SEF=, both soldered to the same two
+  terminal-strip points. Confirmed 1kΩ, not 150Ω.
+- *At V9 pin 3* :: a sleeved gray ~10k resistor, plus a *second* green
+  wire that leaves the group, goes up through the chassis, across the
+  top of the main board, back underneath, and lands on *V1 pin 4* —
+  a heater pin.
+- *At the R70/R72 joint* (the two 220k grid leaks for V8/V9) :: a gray
+  ~9k resistor to ground.
+
+R74, R70 and R72 identified with printed labels — R74 (2.2k grid
+stopper) from V8 pin 2 to the joint it shares with R70; R70 and R72
+(220k grid leaks) meeting at the joint that carries the ~9k to
+ground; the dark brown caps at each grid are C50 and C52, the
+coupling caps from V5:
+
+[[file:../photos/2026-09-22-r70-r72-r74-labeled-01.jpg]]
+
+The 1k SEF wirewound and C600 are visible in the 2026-09-12 recap
+photos — original: [[file:../photos/2026-09-12-c600-original-01.jpg]] (the
+=10P 1KΩ SEF= printing is legible, with an =8P 1.5KΩ SEF= alongside);
+replacement installed: [[file:../photos/2026-09-12-c600-installed-01.jpg]].
+- *C53/C54 don't exist* as physical parts. Every electrolytic in the
+  chassis has been replaced; there are no others to find. The 08-11
+  theory holds: the factory consolidated both cathode bypasses into
+  the single C600 can.
+
+*The bias arrangement, solved.* Powered: the R70/R72 joint sits at
+9.59V and the cathode bus at 20.2V. The sleeved 10k (bus → joint) and
+the 9k (joint → ground) form a divider: 20.2 × 9/19 = 9.6V, matching
+the measurement. So the grids are referenced to +9.59V, not to
+ground, and the real grid-to-cathode bias is *−10.6V*.
+
+That explains the "+80% cathode" flag from 2026-09-13 and closes it:
+the schematic's 11V is the bias figure, and this set reaches it by
+lifting the cathode *and* the grid reference together. Nothing is out
+of spec.
+
+*Corrections owed to component-notes.org C600:*
+- The shared resistor is genuinely 1kΩ (printed), not the ~150Ω the
+  first current estimate implied.
+- The note's "V1 pin 3" on the shared bus is wrong — it's *V1 pin 4*,
+  a heater pin, which is why V1 pin 3 (cathode) reads 0.574V. Heater
+  elevation, and consistent with the schematic's "(K)" markings at
+  VR5/VR6.
+
+*Still not explained:* where the output tubes' ~142mA of cathode
+current actually returns to ground. The 1k passes ~20mA at 20.2V and
+the 10k/9k divider ~1mA; that leaves ~120mA unaccounted. The best
+remaining candidate is the green wire to V1 pin 4 — if V1/V2's heater
+winding reaches ground through VR5/VR6 (100Ω each, marked "(K)"),
+that wire is the return path, and 142mA through ~140Ω would produce
+exactly the 20.2V seen. Consistent hint: V1 pin 4 reads 19.49V DC but
+V1 pin 5 reads 10.1V — a 9.4V DC difference across what should be a
+heater winding, which a winding can't drop on its own (though a
+non-true-RMS meter reading DC with 6.3VAC riding on it may be part of
+that).
+
+** Takeaway
+
+Nothing here is broken. Both "faults" carried since 2026-09-13 were
+misreadings: V6's plate spread was the wrong socket pins, and the
+cathode "+80%" is a bias arrangement the project had never traced.
+The output tubes are biased at −10.6V and drawing ~35mA each, which
+is normal. What's left is a set of *misunderstandings about how this
+circuit works* — notes that describe the bias network wrongly, and a
+current path not yet accounted for — not hardware to fix.
+
+* Measurements
+
+Fluke 15B+, chassis reference, 120VAC mains, no variac/dim bulb.
+Powered readings ~5 min warm. Nothing here repeats the sweep rows in
+[[file:../measurements/2026-09-19-voltages.org][2026-09-19 measurements]].
+
+** VR2 (power off, volume at the CCW stop, in circuit)
+
+| Stage                                  | Front (L) | Rear (R) |
+|----------------------------------------+-----------+----------|
+| 2026-09-18, before any paint           | 10.67k    | 14.85k   |
+| 2026-09-19, after tab-only application | ~10.7k    | 22k      |
+| Tonight, trace out onto the film       | 9k        | 14.9k    |
+| Tonight, extended + thickened, cured   | ~500Ω     | ~500Ω    |
+
+Cure between the last two rows: ~5 min hot air + ~5 min cold from the
+blow dryer. A further layer went on the wiper's contact spot after
+that reading, cured the same way, then left overnight — not yet
+re-measured.
+
+** Output stage — resistance (power off, caps discharged, in circuit)
+
+| Measurement                | Reading                                       |
+|----------------------------+-----------------------------------------------|
+| T7 center tap → V6 pin 7   | 140.6Ω                                        |
+| T7 center tap → V7 pin 7   | 136.7Ω                                        |
+| T8 center tap → V8 pin 7   | 141.7Ω                                        |
+| T8 center tap → V9 pin 7   | 137.9Ω                                        |
+| Cathode bus → chassis      | 27.1Ω, drifting — artifact (C600 in parallel) |
+| Across the 1k SEF resistor | ~29Ω — same artifact, it parallels C600       |
+
+Both center taps read from the same brown wire, which also confirms
+they are one node (two windings in series would have read ~280Ω).
+
+** Output stage — DC voltage (powered, ~5 min warm)
+
+| Point                                        | Reading |
+|----------------------------------------------+---------|
+| Output transformer center tap → chassis      | 366.5V  |
+| V6 pin 7 (plate)                             | 361.7V  |
+| V7 pin 7 (plate)                             | 362.3V  |
+| V8 pin 7 (plate)                             | 361.6V  |
+| V9 pin 7 (plate)                             | 362.0V  |
+| Center tap → V8 pin 7 (direct, differential) | 5.03V   |
+| Cathode bus (any EL84 pin 3)                 | 20.2V   |
+| R70/R72 joint (grid reference)               | 9.59V   |
+| V1 pin 5 (heater)                            | 10.1V   |
+
+For comparison, from 2026-09-19: cathode bus 19.53V then 19.7V; V1
+pin 4 (heater) 19.49V; V6 pin 9 (screen) 314.9V.
+
+** Derived
+
+| Quantity                         | Value  | From                             |
+|----------------------------------+--------+----------------------------------|
+| Plate current per tube           | ~35mA  | 5.03V ÷ 141.7Ω                   |
+| Plate current per tube (check)   | ~32mA  | (366.5 − 362) ÷ 140Ω             |
+| Total cathode current            | ~142mA | 4 tubes, plus screen current     |
+| Grid-to-cathode bias             | −10.6V | 20.2V − 9.59V                    |
+| Grid reference divider           | 9.6V   | 20.2 × 9k/(10k+9k)               |
+| Plate dissipation per tube       | ~11W   | (362 − 20.2) × 32mA, vs 12W max  |
+| Current accounted for at the bus | ~21mA  | 1k (20mA) + 10k/9k divider (1mA) |
+
+* Open questions
+
+- Where the output stage's ~142mA cathode current returns to ground.
+  Everything found on the cathode bus accounts for ~21mA. See the
+  V1-pin-4 / VR5-VR6 hypothesis above. Next: power off, resistance
+  from V1 pin 4 to chassis and V1 pin 5 to chassis — if either lands
+  near 100-150Ω, that's the return.
+- What the 9.4V DC difference between V1 pin 4 and pin 5 really is.
+- The remaining SEF wirewounds in that cluster (an =8P 1.5KΩ= is
+  visible in the 2026-09-12 C600 photos, plus at least one more) —
+  where does each one land?
+- VR5/VR6 have never been physically located with certainty (one pot
+  found near V2/V14, 2026-09-14); if they're carrying cathode current
+  they matter more than "hum balance trim" implies.
+
+* Next
+
+- Corrections to component-notes.org C600, per above: 1kΩ confirmed
+  (not ~150Ω), V1 *pin 4* not pin 3, and the C600-is-the-cathode-
+  bias framing needs rewriting around what was actually traced
+  tonight.
+- Add the 10k/9k grid-reference divider to circuit-notes.org Output
+  stage — it isn't recorded anywhere yet, and it's what makes the
+  11V spec make sense.
+- Close out the output-stage item in the plan's Troubleshooting
+  section: no fault found.
+- VR2: re-measure both gangs after the overnight cure, then listen at
+  minimum volume with the turntable playing (the original symptom).

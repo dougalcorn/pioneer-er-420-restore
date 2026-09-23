@@ -258,6 +258,13 @@ T7/T8 (output transformers, AT6123U) wiring traced 2026-07-28:
 - Secondary side, three wires: blue, white, yellow — taps feeding S7
   (impedance selector). Not individually traced to specific ohm taps
   yet.
+
+Which physical can is which, settled 2026-09-22: *T7 is the can on the
+edge of the board* (red/green to V6/V7 plate pins, confirmed by
+tracing the leads), *T8 is nearest the middle* (V8/V9). The service
+manual's layout block diagram labels them the opposite way round; the
+schematic's connections were taken as authoritative. See
+[[file:../component-notes.org::*T7][component-notes.org T7]].
 - These colors are this transformer's own convention, not assumed
   from a general (e.g. EIA) color code — confirm by tracing/measuring
   on any similar part rather than reusing this key elsewhere.

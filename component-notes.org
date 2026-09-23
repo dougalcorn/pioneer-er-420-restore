@@ -545,11 +545,24 @@ Photos:
 
 * T7
 Function: left-channel output transformer. Primary leads (red/green)
-traced directly to V6/V7 plate pins; no-load damage check came back
-clean. See [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
+traced directly to V6/V7 plate pins; brown is the center tap. No-load
+damage check came back clean. See [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
+
+*Physical position, settled 2026-09-22*: T7 is the can on the *edge*
+of the board; T8 is the one nearest the middle. The service manual's
+layout block diagram shows the opposite (T8 at the edge, near V6/V7),
+but the schematic clearly feeds V6/V7 from T7, and the physical
+red/green leads from the edge can go to V6 and V7 — so the layout
+diagram's two designators are swapped. Schematic wins. Joins the
+manual's other known errors (R79/R80 value, V14 zone, C11/C12 zone).
+
+Knock-on: component-notes R80's "R79 carries the red wire (left,
+matches T7)" trace was made before this was settled — worth
+re-checking which can each speaker terminal actually reaches.
 
 * T8
-Function: right-channel mirror of T7. See
+Function: right-channel mirror of T7 — the can nearest the middle of
+the board, feeding V8/V9. See
 [[file:schematic/circuit-notes.org][circuit-notes.org]] Output stage.
 
 * T9
